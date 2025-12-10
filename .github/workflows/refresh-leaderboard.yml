@@ -28,7 +28,7 @@ jobs:
       
       - name: Fetch tournament data
         env:
-          STARTGG_KEY: a10caef2fba728baf59f8cfb342b80b5
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
         run: node fetch_tournaments.js
       
       - name: Process leaderboard
@@ -41,10 +41,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       
-      - name: Upload to S3
+      - name: Upload leaderboard to S3
         run: |
-          aws s3 cp index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --content-type "text/html" --cache-control "max-age=3600"
-          aws s3 cp leaderboard.json s3://${{ secrets.S3_BUCKET_NAME }}/leaderboard.json --content-type "application/json" --cache-control "max-age=300"
+          aws s3 cp leaderboard.json s3://fgdojo.stek.world/leaderboard.json --content-type "application/json" --cache-control "max-age=300"
       
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v4
