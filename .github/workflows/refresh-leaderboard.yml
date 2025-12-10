@@ -1,0 +1,59 @@
+name: Refresh Leaderboard & Deploy to S3
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC (adjust as needed)
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'fetch_tournaments.js'
+      - 'process_leaderboard.js'
+      - 'index.html'
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Fetch tournament data
+        env:
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+        run: node fetch_tournaments.js
+      
+      - name: Process leaderboard
+        run: node process_leaderboard.js
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      
+      - name: Upload to S3
+        run: |
+          aws s3 cp index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --content-type "text/html" --cache-control "max-age=3600"
+          aws s3 cp leaderboard.json s3://${{ secrets.S3_BUCKET_NAME }}/leaderboard.json --content-type "application/json" --cache-control "max-age=300"
+      
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
+        if: always()
+      
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Auto-refresh leaderboard data'
+          file_pattern: 'output.json leaderboard.json'
+        if: always()

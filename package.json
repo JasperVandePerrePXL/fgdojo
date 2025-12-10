@@ -1,0 +1,23 @@
+{
+  "name": "fgdojoleaderboard",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "IzLeStick",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "refresh": "node refresh.js",
+    "fetch": "node fetch_tournaments.js",
+    "process": "node process_leaderboard.js",
+    "build": "npm run fetch && npm run process",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "graphql": "^16.12.0",
+    "graphql-request": "^7.3.5"
+  }
+}
