@@ -11,7 +11,7 @@
     "refresh": "node refresh.js",
     "fetch": "node fetch_tournaments.js",
     "process": "node process_leaderboard.js",
-    "build": "npm run fetch && npm run process",
+    "build": "npm run fetch && npm run process && node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
