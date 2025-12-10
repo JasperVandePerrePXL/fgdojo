@@ -393,7 +393,10 @@
 
             // Use string keys so selector values match map lookups
             const gameMap = new Map(games.map(g => [String(g.gameId), g]));
-            let selectedGameId = games[0]?.gameId != null ? String(games[0].gameId) : 'all';
+            const storedGameId = localStorage.getItem('fgdojo:selectedGameId');
+            let selectedGameId = storedGameId && gameMap.has(storedGameId)
+                ? storedGameId
+                : (games[0]?.gameId != null ? String(games[0].gameId) : 'all');
 
             const getGameFunStats = (players) => {
                 if (!players || players.length === 0) return { mostFirstPlaces: [], highestWinRate: [], mostTournamentsAttended: [] };
@@ -426,6 +429,9 @@
                 const tournaments = currentGame?.tournaments ?? [];
                 const gameName = currentGame?.gameName ?? 'All Games';
                 const funStats = getGameFunStats(players);
+
+                // Persist last selected game for user-friendly refresh
+                localStorage.setItem('fgdojo:selectedGameId', String(selectedGameId));
 
                 if (subtitle) {
                     subtitle.textContent = `${gameName} Leaderboard`;
@@ -551,6 +557,7 @@
                 const refreshBtn = document.getElementById('refresh-btn');
                 selector?.addEventListener('change', (event) => {
                     selectedGameId = event.target.value;
+                    localStorage.setItem('fgdojo:selectedGameId', String(selectedGameId));
                     render();
                 });
 
