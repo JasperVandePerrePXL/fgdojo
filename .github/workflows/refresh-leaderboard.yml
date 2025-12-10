@@ -28,7 +28,7 @@ jobs:
       
       - name: Fetch tournament data
         env:
-          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+          STARTGG_KEY: a10caef2fba728baf59f8cfb342b80b5
         run: node fetch_tournaments.js
       
       - name: Process leaderboard
@@ -45,11 +45,6 @@ jobs:
         run: |
           aws s3 cp index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html --content-type "text/html" --cache-control "max-age=3600"
           aws s3 cp leaderboard.json s3://${{ secrets.S3_BUCKET_NAME }}/leaderboard.json --content-type "application/json" --cache-control "max-age=300"
-      
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths "/*"
-        if: always()
       
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v4
