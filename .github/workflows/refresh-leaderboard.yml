@@ -28,7 +28,7 @@ jobs:
       
       - name: Fetch tournament data
         env:
-          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+          STARTGG_KEY: a10caef2fba728baf59f8cfb342b80b5
         run: node fetch_tournaments.js
       
       - name: Process leaderboard
