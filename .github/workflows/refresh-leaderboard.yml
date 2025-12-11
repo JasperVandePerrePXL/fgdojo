@@ -4,6 +4,7 @@ on:
   schedule:
     # Run weekly on Sundays at 10 PM UTC (adjust as needed)
     - cron: '0 21 * * 0'
+    - cron: '0 21 * * 6'  # Also run on Saturdays for more frequent updates
   workflow_dispatch:
   push:
     branches:
