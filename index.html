@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="fgdlogo.jpg">
     <title>Fighting Game Dojo - Guilty Gear Strive Leaderboard</title>
     <style>
         * {
@@ -335,6 +336,46 @@
                 padding: 8px 10px;
             }
         }
+
+        @media (max-width: 640px) {
+            /* Keep only player, tournaments, and win rate visible on phones */
+            .col-rank,
+            .col-games-won,
+            .col-games-lost,
+            .col-first-place {
+                display: none;
+            }
+
+            table {
+                font-size: 0.85em;
+                table-layout: fixed;
+            }
+
+            th, td {
+                padding: 6px 4px;
+            }
+
+            th {
+                font-size: 0.8em;
+            }
+
+            .player-col {
+                width: 55%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .col-tournaments {
+                width: 20%;
+                white-space: nowrap;
+            }
+
+            .col-win-rate {
+                width: 25%;
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
 <body>
@@ -504,27 +545,27 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="center">#</th>
-                                    <th>Player</th>
-                                    <th class="center">Tournaments</th>
-                                    <th class="center">Games Won</th>
-                                    <th class="center">Games Lost</th>
-                                    <th class="center">Win Rate</th>
-                                    <th class="center">1st Places</th>
+                                    <th class="center col-rank">#</th>
+                                    <th class="player-col">Player</th>
+                                    <th class="center col-tournaments">Events</th>
+                                    <th class="center col-games-won">Games Won</th>
+                                    <th class="center col-games-lost">Games Lost</th>
+                                    <th class="center col-win-rate">Win%</th>
+                                    <th class="center col-first-place">1st Places</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 ${players.map((player, index) => `
                                     <tr>
-                                        <td class="center">${index + 1}</td>
-                                        <td class="player-name">${player.displayName}</td>
-                                        <td class="center">${player.tournamentsAttended}</td>
-                                        <td class="center">${player.gamesWon}</td>
-                                        <td class="center">${player.gamesLost}</td>
-                                        <td class="center">
+                                        <td class="center col-rank">${index + 1}</td>
+                                        <td class="player-name player-col">${player.displayName}</td>
+                                        <td class="center col-tournaments">${player.tournamentsAttended}</td>
+                                        <td class="center col-games-won">${player.gamesWon}</td>
+                                        <td class="center col-games-lost">${player.gamesLost}</td>
+                                        <td class="center col-win-rate">
                                             <span class="win-rate ${getWinRateClass(player.winRate)}">${player.winRate}%</span>
                                         </td>
-                                        <td class="center">${player.firstPlaces > 0 ? '🏆 ' + player.firstPlaces : '-'}</td>
+                                        <td class="center col-first-place">${player.firstPlaces > 0 ? '🏆 ' + player.firstPlaces : '-'}</td>
                                     </tr>
                                 `).join('')}
                             </tbody>
