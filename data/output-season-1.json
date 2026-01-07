@@ -1,0 +1,439 @@
+[
+  {
+    "id": 1532769,
+    "name": "1v1 FGDojo - Street Fighter 6 (PC)",
+    "slug": "tournament/fighting-game-dojo-january-26-edition/event/1v1-fgdojo-street-fighter-6-pc",
+    "startAt": 1768647600,
+    "videogame": {
+      "id": 43868,
+      "name": "Street Fighter 6"
+    },
+    "tournament": {
+      "id": 866933,
+      "name": "Fighting Game Dojo - January '26 edition",
+      "slug": "tournament/fighting-game-dojo-january-26-edition",
+      "startAt": 1768647600
+    },
+    "entrants": {
+      "pageInfo": {
+        "total": 3,
+        "totalPages": 1
+      },
+      "nodes": [
+        {
+          "id": 22260455,
+          "name": "Ora Beniz",
+          "standing": null,
+          "participants": [
+            {
+              "id": 20463679,
+              "gamerTag": "Ora Beniz",
+              "prefix": null,
+              "player": {
+                "id": 3762539,
+                "gamerTag": "Ora Beniz"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22259596,
+          "name": "Strael Bora | GentleKef",
+          "standing": null,
+          "participants": [
+            {
+              "id": 20462570,
+              "gamerTag": "GentleKef",
+              "prefix": "Strael Bora",
+              "player": {
+                "id": 1800901,
+                "gamerTag": "GentleKef"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22259410,
+          "name": "{HDK} | EvilVash",
+          "standing": null,
+          "participants": [
+            {
+              "id": 20462364,
+              "gamerTag": "EvilVash",
+              "prefix": "{HDK}",
+              "player": {
+                "id": 356029,
+                "gamerTag": "EvilVash"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "standings": {
+      "pageInfo": {
+        "total": 0
+      },
+      "nodes": []
+    },
+    "sets": {
+      "pageInfo": {
+        "total": 8
+      },
+      "nodes": [
+        {
+          "id": "preview_3156968_1_0",
+          "displayScore": null,
+          "fullRoundText": "Round 1",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259410,
+                "name": "{HDK} | EvilVash",
+                "participants": [
+                  {
+                    "id": 20462364,
+                    "gamerTag": "EvilVash",
+                    "player": {
+                      "id": 356029
+                    }
+                  }
+                ]
+              },
+              "standing": null
+            },
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_1_0",
+          "displayScore": null,
+          "fullRoundText": "Winners Round 1",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_1_1",
+          "displayScore": null,
+          "fullRoundText": "Winners Round 1",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_-3_0",
+          "displayScore": null,
+          "fullRoundText": "Losers Semi-Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_-4_0",
+          "displayScore": null,
+          "fullRoundText": "Losers Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_2_0",
+          "displayScore": null,
+          "fullRoundText": "Winners Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_3_0",
+          "displayScore": null,
+          "fullRoundText": "Grand Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156969_3_1",
+          "displayScore": null,
+          "fullRoundText": "Grand Final Reset",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 1532771,
+    "name": "1v1 FGDojo - Guilty Gear: Strive (PC)",
+    "slug": "tournament/fighting-game-dojo-january-26-edition/event/1v1-fgdojo-guilty-gear-strive-pc",
+    "startAt": 1768647600,
+    "videogame": {
+      "id": 33945,
+      "name": "Guilty Gear: Strive"
+    },
+    "tournament": {
+      "id": 866933,
+      "name": "Fighting Game Dojo - January '26 edition",
+      "slug": "tournament/fighting-game-dojo-january-26-edition",
+      "startAt": 1768647600
+    },
+    "entrants": {
+      "pageInfo": {
+        "total": 1,
+        "totalPages": 1
+      },
+      "nodes": [
+        {
+          "id": 22259563,
+          "name": "LCG | IzLeStick",
+          "standing": null,
+          "participants": [
+            {
+              "id": 20462522,
+              "gamerTag": "IzLeStick",
+              "prefix": "LCG",
+              "player": {
+                "id": 5000742,
+                "gamerTag": "IzLeStick"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "standings": {
+      "pageInfo": {
+        "total": 0
+      },
+      "nodes": []
+    },
+    "sets": {
+      "pageInfo": {
+        "total": 7
+      },
+      "nodes": [
+        {
+          "id": "preview_3156972_1_0",
+          "displayScore": null,
+          "fullRoundText": "Winners Round 1",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156972_1_1",
+          "displayScore": null,
+          "fullRoundText": "Winners Round 1",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156972_-3_0",
+          "displayScore": null,
+          "fullRoundText": "Losers Semi-Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156972_-4_0",
+          "displayScore": null,
+          "fullRoundText": "Losers Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156972_2_0",
+          "displayScore": null,
+          "fullRoundText": "Winners Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156972_3_0",
+          "displayScore": null,
+          "fullRoundText": "Grand Final",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        },
+        {
+          "id": "preview_3156972_3_1",
+          "displayScore": null,
+          "fullRoundText": "Grand Final Reset",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": null,
+              "standing": null
+            },
+            {
+              "entrant": null,
+              "standing": null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 1532770,
+    "name": "1v1 FGDojo - Tekken 8 (PS5)",
+    "slug": "tournament/fighting-game-dojo-january-26-edition/event/1v1-fgdojo-tekken-8-ps5",
+    "startAt": 1768647600,
+    "videogame": {
+      "id": 49783,
+      "name": "TEKKEN 8"
+    },
+    "tournament": {
+      "id": 866933,
+      "name": "Fighting Game Dojo - January '26 edition",
+      "slug": "tournament/fighting-game-dojo-january-26-edition",
+      "startAt": 1768647600
+    },
+    "entrants": {
+      "pageInfo": {
+        "total": 0,
+        "totalPages": 0
+      },
+      "nodes": []
+    },
+    "standings": {
+      "pageInfo": {
+        "total": 0
+      },
+      "nodes": []
+    },
+    "sets": {
+      "pageInfo": {
+        "total": 0
+      },
+      "nodes": []
+    }
+  }
+]

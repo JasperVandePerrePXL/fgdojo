@@ -1,0 +1,229 @@
+{
+  "season": "1",
+  "summary": {
+    "totalPlayers": 4,
+    "totalTournaments": 3
+  },
+  "players": [
+    {
+      "playerId": 3762539,
+      "gamerTag": "Ora Beniz",
+      "prefix": "",
+      "displayName": "Ora Beniz",
+      "tournamentsAttended": 1,
+      "gamesWon": 0,
+      "gamesLost": 0,
+      "firstPlaces": 0,
+      "placements": [],
+      "winRateNum": 0,
+      "winRate": "0.00"
+    },
+    {
+      "playerId": 1800901,
+      "gamerTag": "GentleKef",
+      "prefix": "Strael Bora",
+      "displayName": "Strael Bora | GentleKef",
+      "tournamentsAttended": 1,
+      "gamesWon": 0,
+      "gamesLost": 0,
+      "firstPlaces": 0,
+      "placements": [],
+      "winRateNum": 0,
+      "winRate": "0.00"
+    },
+    {
+      "playerId": 356029,
+      "gamerTag": "EvilVash",
+      "prefix": "{HDK}",
+      "displayName": "{HDK} | EvilVash",
+      "tournamentsAttended": 1,
+      "gamesWon": 0,
+      "gamesLost": 0,
+      "firstPlaces": 0,
+      "placements": [],
+      "winRateNum": 0,
+      "winRate": "0.00"
+    },
+    {
+      "playerId": 5000742,
+      "gamerTag": "IzLeStick",
+      "prefix": "LCG",
+      "displayName": "LCG | IzLeStick",
+      "tournamentsAttended": 1,
+      "gamesWon": 0,
+      "gamesLost": 0,
+      "firstPlaces": 0,
+      "placements": [],
+      "winRateNum": 0,
+      "winRate": "0.00"
+    }
+  ],
+  "games": [
+    {
+      "gameId": 43868,
+      "gameName": "Street Fighter 6",
+      "players": [
+        {
+          "playerId": 3762539,
+          "gamerTag": "Ora Beniz",
+          "prefix": "",
+          "displayName": "Ora Beniz",
+          "tournamentsAttended": 1,
+          "gamesWon": 0,
+          "gamesLost": 0,
+          "firstPlaces": 0,
+          "placements": [],
+          "winRateNum": 0,
+          "winRate": "0.00"
+        },
+        {
+          "playerId": 1800901,
+          "gamerTag": "GentleKef",
+          "prefix": "Strael Bora",
+          "displayName": "Strael Bora | GentleKef",
+          "tournamentsAttended": 1,
+          "gamesWon": 0,
+          "gamesLost": 0,
+          "firstPlaces": 0,
+          "placements": [],
+          "winRateNum": 0,
+          "winRate": "0.00"
+        },
+        {
+          "playerId": 356029,
+          "gamerTag": "EvilVash",
+          "prefix": "{HDK}",
+          "displayName": "{HDK} | EvilVash",
+          "tournamentsAttended": 1,
+          "gamesWon": 0,
+          "gamesLost": 0,
+          "firstPlaces": 0,
+          "placements": [],
+          "winRateNum": 0,
+          "winRate": "0.00"
+        }
+      ],
+      "tournaments": [
+        {
+          "name": "Fighting Game Dojo - January '26 edition",
+          "date": "2026-01-17",
+          "eventName": "1v1 FGDojo - Street Fighter 6 (PC)",
+          "winner": null,
+          "entrantCount": 3
+        }
+      ]
+    },
+    {
+      "gameId": 33945,
+      "gameName": "Guilty Gear: Strive",
+      "players": [
+        {
+          "playerId": 5000742,
+          "gamerTag": "IzLeStick",
+          "prefix": "LCG",
+          "displayName": "LCG | IzLeStick",
+          "tournamentsAttended": 1,
+          "gamesWon": 0,
+          "gamesLost": 0,
+          "firstPlaces": 0,
+          "placements": [],
+          "winRateNum": 0,
+          "winRate": "0.00"
+        }
+      ],
+      "tournaments": [
+        {
+          "name": "Fighting Game Dojo - January '26 edition",
+          "date": "2026-01-17",
+          "eventName": "1v1 FGDojo - Guilty Gear: Strive (PC)",
+          "winner": null,
+          "entrantCount": 1
+        }
+      ]
+    },
+    {
+      "gameId": 49783,
+      "gameName": "TEKKEN 8",
+      "players": [],
+      "tournaments": [
+        {
+          "name": "Fighting Game Dojo - January '26 edition",
+          "date": "2026-01-17",
+          "eventName": "1v1 FGDojo - Tekken 8 (PS5)",
+          "winner": null,
+          "entrantCount": 0
+        }
+      ]
+    }
+  ],
+  "tournaments": [
+    {
+      "name": "Fighting Game Dojo - January '26 edition",
+      "date": "2026-01-17",
+      "eventName": "1v1 FGDojo - Street Fighter 6 (PC)",
+      "winner": null,
+      "entrantCount": 3
+    },
+    {
+      "name": "Fighting Game Dojo - January '26 edition",
+      "date": "2026-01-17",
+      "eventName": "1v1 FGDojo - Guilty Gear: Strive (PC)",
+      "winner": null,
+      "entrantCount": 1
+    },
+    {
+      "name": "Fighting Game Dojo - January '26 edition",
+      "date": "2026-01-17",
+      "eventName": "1v1 FGDojo - Tekken 8 (PS5)",
+      "winner": null,
+      "entrantCount": 0
+    }
+  ],
+  "funStats": {
+    "mostFirstPlaces": [
+      {
+        "displayName": "Ora Beniz",
+        "firstPlaces": 0,
+        "tournamentsAttended": 1
+      },
+      {
+        "displayName": "Strael Bora | GentleKef",
+        "firstPlaces": 0,
+        "tournamentsAttended": 1
+      },
+      {
+        "displayName": "{HDK} | EvilVash",
+        "firstPlaces": 0,
+        "tournamentsAttended": 1
+      },
+      {
+        "displayName": "LCG | IzLeStick",
+        "firstPlaces": 0,
+        "tournamentsAttended": 1
+      }
+    ],
+    "highestWinRate": [],
+    "mostTournamentsAttended": [
+      {
+        "displayName": "Ora Beniz",
+        "tournamentsAttended": 1,
+        "firstPlaces": 0
+      },
+      {
+        "displayName": "Strael Bora | GentleKef",
+        "tournamentsAttended": 1,
+        "firstPlaces": 0
+      },
+      {
+        "displayName": "{HDK} | EvilVash",
+        "tournamentsAttended": 1,
+        "firstPlaces": 0
+      },
+      {
+        "displayName": "LCG | IzLeStick",
+        "tournamentsAttended": 1,
+        "firstPlaces": 0
+      }
+    ]
+  }
+}
