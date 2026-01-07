@@ -410,7 +410,7 @@
             const seasons = [];
             for (let i = 0; i < 10; i++) {
                 try {
-                    const response = await fetch(`data/leaderboard-season-${i}.json`, { method: 'HEAD' });
+                    const response = await fetch(`/data/leaderboard-season-${i}.json`, { method: 'HEAD' });
                     if (response.ok) {
                         seasons.push(String(i));
                     } else {
