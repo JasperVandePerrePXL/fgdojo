@@ -435,7 +435,7 @@
                     ? storedSeason 
                     : latestSeason;
 
-                const seasonFile = `data/leaderboard-season-${window.currentSeason}.json`;
+                const seasonFile = `/data/leaderboard-season-${window.currentSeason}.json`;
                 const response = await fetch(seasonFile + '?v=' + new Date().getTime());
                 if (!response.ok) throw new Error(`Failed to load season ${window.currentSeason}`);
 
@@ -446,7 +446,7 @@
                     <div class="error">
                         ❌ Error loading leaderboard: ${error.message}
                         <br><br>
-                        Make sure at least data/leaderboard-season-0.json exists.
+                        Make sure at least /data/leaderboard-season-0.json exists and the server is running.
                     </div>
                 `;
             }

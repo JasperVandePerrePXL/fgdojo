@@ -32,17 +32,20 @@ async function build() {
       }
     }
 
-    // Copy all season leaderboard files from data folder
+    // Copy all season leaderboard files from data folder to dist/data/
+    const dataDistDir = path.join(DIST_DIR, 'data');
+    await fs.mkdir(dataDistDir, { recursive: true });
+    
     const files = await fs.readdir(DATA_DIR);
     const seasonFiles = files.filter(f => f.match(/^leaderboard-season-\d+\.json$/));
     for (const file of seasonFiles) {
       const src = path.join(DATA_DIR, file);
-      const dest = path.join(DIST_DIR, file);
+      const dest = path.join(dataDistDir, file);
       try {
         await fs.copyFile(src, dest);
-        console.log(`✓ Copied ${file}`);
+        console.log(`✓ Copied data/${file}`);
       } catch (err) {
-        console.warn(`⚠ Skipped ${file}`);
+        console.warn(`⚠ Skipped data/${file}`);
       }
     }
 
