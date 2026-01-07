@@ -7,11 +7,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "refresh": "node refresh.js",
-    "fetch": "node fetch_tournaments.js",
-    "process": "node process_leaderboard.js",
-    "build": "npm run fetch && npm run process && node build.js",
+    "start": "node scripts/server.js",
+    "refresh": "node scripts/process_all_seasons.js",
+    "fetch": "node scripts/fetch_tournaments.js",
+    "process": "node scripts/process_leaderboard.js",
+    "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

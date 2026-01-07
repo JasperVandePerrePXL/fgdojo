@@ -391,10 +391,38 @@
     </div>
 
     <script>
+        // Detect available seasons by trying to load them
+        async function detectAvailableSeasons() {
+            const seasons = [];
+            for (let i = 0; i < 10; i++) {
+                try {
+                    const response = await fetch(`leaderboard-season-${i}.json`, { method: 'HEAD' });
+                    if (response.ok) {
+                        seasons.push(String(i));
+                    }
+                } catch (e) {
+                    // Season file doesn't exist, stop checking
+                    break;
+                }
+            }
+            return seasons.length > 0 ? seasons : ['0'];
+        }
+
         async function loadLeaderboard() {
             try {
-                const response = await fetch('leaderboard.json?v=' + new Date().getTime());
-                if (!response.ok) throw new Error('Failed to load leaderboard data');
+                // Detect available seasons
+                window.availableSeasons = await detectAvailableSeasons();
+                
+                // Get selected season from localStorage or default to latest season
+                const storedSeason = localStorage.getItem('fgdojo:selectedSeason');
+                const latestSeason = window.availableSeasons[window.availableSeasons.length - 1];
+                window.currentSeason = (storedSeason && window.availableSeasons.includes(storedSeason)) 
+                    ? storedSeason 
+                    : latestSeason;
+
+                const seasonFile = `leaderboard-season-${window.currentSeason}.json`;
+                const response = await fetch(seasonFile + '?v=' + new Date().getTime());
+                if (!response.ok) throw new Error(`Failed to load ${seasonFile}`);
 
                 const data = await response.json();
                 displayLeaderboard(data);
@@ -403,7 +431,7 @@
                     <div class="error">
                         ❌ Error loading leaderboard: ${error.message}
                         <br><br>
-                        Make sure leaderboard.json exists in the same directory.
+                        Make sure at least leaderboard-season-0.json exists in the same directory.
                     </div>
                 `;
             }
@@ -480,6 +508,14 @@
 
                 content.innerHTML = `
                     <div class="controls">
+                        <div>
+                            <label for="season-selector">Season</label>
+                            <div class="selector">
+                                <select id="season-selector">
+                                    ${window.availableSeasons.map(s => `<option value="${s}" ${s === window.currentSeason ? 'selected' : ''}>Season ${s}</option>`).join('')}
+                                </select>
+                            </div>
+                        </div>
                         <div>
                             <label for="game-selector">Game</label>
                             <div class="selector">
@@ -594,9 +630,17 @@
                     <div class="last-updated">Last updated: ${new Date().toLocaleString()}</div>
                 `;
 
-                const selector = document.getElementById('game-selector');
+                const seasonSelector = document.getElementById('season-selector');
+                const gameSelector = document.getElementById('game-selector');
                 const refreshBtn = document.getElementById('refresh-btn');
-                selector?.addEventListener('change', (event) => {
+                
+                seasonSelector?.addEventListener('change', (event) => {
+                    const newSeason = event.target.value;
+                    localStorage.setItem('fgdojo:selectedSeason', newSeason);
+                    window.location.reload();
+                });
+
+                gameSelector?.addEventListener('change', (event) => {
                     selectedGameId = event.target.value;
                     localStorage.setItem('fgdojo:selectedGameId', String(selectedGameId));
                     render();

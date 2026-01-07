@@ -1,4 +1,4 @@
-name: Refresh Leaderboard & Deploy to S3
+name: Refresh Leaderboard (Generate Season Data)
 
 on:
   schedule:
@@ -10,9 +10,9 @@ on:
     branches:
       - main
     paths:
-      - 'fetch_tournaments.js'
-      - 'process_leaderboard.js'
-      - 'index.html'
+      - 'scripts/**'
+      - 'seasons/**'
+      - 'public/index.html'
 
 jobs:
   refresh-and-deploy:
@@ -25,30 +25,16 @@ jobs:
           node-version: '18'
       
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       
-      - name: Fetch tournament data
+      - name: Generate all season data
         env:
-          STARTGG_KEY: a10caef2fba728baf59f8cfb342b80b5
-        run: node fetch_tournaments.js
-      
-      - name: Process leaderboard
-        run: node process_leaderboard.js
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      
-      - name: Upload leaderboard to S3
-        run: |
-          aws s3 cp leaderboard.json s3://fgdojo.stek.world/leaderboard.json --content-type "application/json" --cache-control "max-age=300"
-      
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+        run: node scripts/process_all_seasons.js
+
       - name: Commit updated data
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'Auto-refresh leaderboard data'
-          file_pattern: 'output.json leaderboard.json'
+          commit_message: 'Auto-refresh season data'
+          file_pattern: 'data/output-season-*.json data/leaderboard-season-*.json'
         if: always()

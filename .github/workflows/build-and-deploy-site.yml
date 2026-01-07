@@ -22,6 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate all season data
+        env:
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+        run: node scripts/process_all_seasons.js
+
       - name: Build production bundle
         run: npm run build
         env:

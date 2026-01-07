@@ -195,12 +195,12 @@ function calculateFunStats(players) {
 }
 
 async function loadTournamentDataForSeason(season) {
-  const inputFile = `output-season-${season}.json`;
+  const inputFile = path.join(__dirname, '..', 'data', `output-season-${season}.json`);
   try {
     const data = await fs.readFile(inputFile, 'utf8');
     return JSON.parse(data);
   } catch (err) {
-    console.error(`Error reading ${inputFile}:`, err.message);
+    console.error(`Error reading data/output-season-${season}.json:`, err.message);
     process.exit(1);
   }
 }
@@ -208,11 +208,12 @@ async function loadTournamentDataForSeason(season) {
 async function main() {
   // Get season from command line argument (default to 0)
   const season = process.argv[2] || '0';
-  const inputFile = `output-season-${season}.json`;
-  const outputFile = `leaderboard-season-${season}.json`;
+  const dataDir = path.join(__dirname, '..', 'data');
+  await fs.mkdir(dataDir, { recursive: true });
+  const outputFile = path.join(dataDir, `leaderboard-season-${season}.json`);
 
   console.log(`\n🎮 Processing Season ${season} leaderboard...\n`);
-  console.log(`Loading tournament data from ${inputFile}...`);
+  console.log(`Loading tournament data from data/output-season-${season}.json...`);
   const events = await loadTournamentDataForSeason(season);
   
   console.log(`Processing ${events.length} event(s)...`);
@@ -236,7 +237,7 @@ async function main() {
 
   // Write to file
   await fs.writeFile(outputFile, JSON.stringify(output, null, 2), 'utf8');
-  console.log(`\nLeaderboard saved to ${outputFile}`);
+  console.log(`\nLeaderboard saved to data/leaderboard-season-${season}.json`);
 
   // Print fun stats to console
   console.log('\n=== FUN STATS ===\n');

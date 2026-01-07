@@ -6,11 +6,14 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.join(__dirname, '..');
 
-const DIST_DIR = path.join(__dirname, 'dist');
+const DIST_DIR = path.join(rootDir, 'dist');
+const PUBLIC_DIR = path.join(rootDir, 'public');
+const DATA_DIR = path.join(rootDir, 'data');
 const FILES_TO_COPY = [
-  'index.html',
-  'fgdlogo.jpg',
+  { src: path.join(PUBLIC_DIR, 'index.html'), dest: 'index.html' },
+  { src: path.join(PUBLIC_DIR, 'fgdlogo.jpg'), dest: 'fgdlogo.jpg' },
 ];
 
 async function build() {
@@ -19,23 +22,21 @@ async function build() {
     await fs.mkdir(DIST_DIR, { recursive: true });
     console.log(`📁 Created dist directory\n`);
 
-    // Copy files
+    // Copy public files
     for (const file of FILES_TO_COPY) {
-      const src = path.join(__dirname, file);
-      const dest = path.join(DIST_DIR, file);
       try {
-        await fs.copyFile(src, dest);
-        console.log(`✓ Copied ${file}`);
+        await fs.copyFile(file.src, path.join(DIST_DIR, file.dest));
+        console.log(`✓ Copied ${file.dest}`);
       } catch (err) {
-        console.warn(`⚠ Skipped ${file} (not found)`);
+        console.warn(`⚠ Skipped ${file.dest} (not found)`);
       }
     }
 
-    // Copy all season leaderboard files
-    const files = await fs.readdir(__dirname);
+    // Copy all season leaderboard files from data folder
+    const files = await fs.readdir(DATA_DIR);
     const seasonFiles = files.filter(f => f.match(/^leaderboard-season-\d+\.json$/));
     for (const file of seasonFiles) {
-      const src = path.join(__dirname, file);
+      const src = path.join(DATA_DIR, file);
       const dest = path.join(DIST_DIR, file);
       try {
         await fs.copyFile(src, dest);

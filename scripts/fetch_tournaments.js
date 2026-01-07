@@ -17,9 +17,9 @@ try {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const endpoint = 'https://api.start.gg/gql/alpha';
 
-// Load event slugs from a season file
+// Load event slugs from a season file (relative to project root)
 async function loadSeasonSlugs(season = '0') {
-  const seasonFile = path.join(__dirname, 'seasons', `season-${season}.txt`);
+  const seasonFile = path.join(__dirname, '..', 'seasons', `season-${season}.txt`);
   try {
     const content = await fs.readFile(seasonFile, 'utf8');
     const slugs = content.split('\n')
@@ -163,11 +163,13 @@ async function main() {
 
   console.log(`\nTotal events fetched: ${results.length}`);
 
-  // Write to season-specific output file
-  const outFile = `output-season-${season}.json`;
+  // Write to season-specific output file in data folder
+  const dataDir = path.join(__dirname, '..', 'data');
+  await fs.mkdir(dataDir, { recursive: true });
+  const outFile = path.join(dataDir, `output-season-${season}.json`);
   try {
     await fs.writeFile(outFile, JSON.stringify(results, null, 2), 'utf8');
-    console.log(`Saved ${results.length} event(s) to ${outFile}`);
+    console.log(`Saved ${results.length} event(s) to data/output-season-${season}.json`);
   } catch (e) {
     console.error('Failed to write output file:', e.message ?? e);
   }
