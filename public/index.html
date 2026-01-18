@@ -391,20 +391,32 @@
     </div>
 
     <script>
-        async function loadLeaderboard() {
-            try {
-                // Load combined leaderboard for backwards compatibility
-                const response = await fetch('leaderboard.json?v=' + new Date().getTime());
-                if (!response.ok) throw new Error('Failed to load leaderboard data');
+        // Update this list when adding new seasons
+        const AVAILABLE_SEASONS = [0, 1];
+        const LATEST_SEASON_ID = Math.max(...AVAILABLE_SEASONS);
 
-                const data = await response.json();
-                displayLeaderboard(data);
+        async function fetchSeasonData(seasonId) {
+            const response = await fetch(`leaderboard_season_${seasonId}.json?v=${Date.now()}`);
+            if (!response.ok) throw new Error('Failed to load season data');
+            return response.json();
+        }
+
+        async function loadLeaderboard() {
+            const storedSeasonId = localStorage.getItem('fgdojo:selectedSeasonId');
+            const parsedStored = storedSeasonId !== null ? parseInt(storedSeasonId) : null;
+            const initialSeasonId = (parsedStored !== null && AVAILABLE_SEASONS.includes(parsedStored))
+                ? parsedStored
+                : LATEST_SEASON_ID;
+
+            try {
+                const data = await fetchSeasonData(initialSeasonId);
+                displayLeaderboard(data, initialSeasonId);
             } catch (error) {
                 document.getElementById('content').innerHTML = `
                     <div class="error">
                         ❌ Error loading leaderboard: ${error.message}
                         <br><br>
-                        Make sure leaderboard.json exists in the same directory.
+                        Make sure leaderboard_season_${initialSeasonId}.json exists in the same directory.
                     </div>
                 `;
             }
@@ -426,12 +438,17 @@
             });
         }
 
-        function displayLeaderboard(data) {
+        function displayLeaderboard(data, preferredSeasonId) {
             const content = document.getElementById('content');
             const subtitle = document.querySelector('.subtitle');
             
             // Initialize season selection
-            let selectedSeasonId = localStorage.getItem('fgdojo:selectedSeasonId') ?? data.seasonId ?? 0;
+            const storedSeason = localStorage.getItem('fgdojo:selectedSeasonId');
+            const storedSeasonParsed = storedSeason !== null ? parseInt(storedSeason) : null;
+            let selectedSeasonId = preferredSeasonId
+                ?? (storedSeasonParsed !== null && AVAILABLE_SEASONS.includes(storedSeasonParsed) ? storedSeasonParsed : null)
+                ?? data.seasonId
+                ?? LATEST_SEASON_ID;
             let currentData = data;
             
             const games = (data.games && data.games.length)
@@ -616,25 +633,27 @@
                 const refreshBtn = document.getElementById('refresh-btn');
                 
                 seasonSelector?.addEventListener('change', async (event) => {
-                    selectedSeasonId = event.target.value;
-                    const seasonId = parseInt(selectedSeasonId);
-                    
+                    const seasonId = parseInt(event.target.value);
+                    const previousGameId = selectedGameId;
                     try {
-                        const response = await fetch(`leaderboard_season_${seasonId}.json?v=` + new Date().getTime());
-                        if (!response.ok) throw new Error('Failed to load season data');
-                        currentData = await response.json();
-                        
-                        // Reset game selector to default
-                        selectedGameId = 'all';
+                        const seasonData = await fetchSeasonData(seasonId);
+                        currentData = seasonData;
+                        selectedSeasonId = seasonId;
                         localStorage.setItem('fgdojo:selectedSeasonId', String(selectedSeasonId));
-                        
-                        // Update games list
+
                         const newGames = (currentData.games && currentData.games.length)
                             ? currentData.games
                             : [{ gameId: 'all', gameName: 'All Games', players: currentData.players ?? [], tournaments: currentData.tournaments ?? [] }];
                         gameMap.clear();
                         newGames.forEach(g => gameMap.set(String(g.gameId), g));
-                        
+
+                        // Keep current game selection if it exists in the new season; otherwise fall back to 'all' or first game
+                        if (previousGameId && gameMap.has(String(previousGameId))) {
+                            selectedGameId = String(previousGameId);
+                        } else {
+                            selectedGameId = newGames[0]?.gameId != null ? String(newGames[0].gameId) : 'all';
+                        }
+
                         render();
                     } catch (error) {
                         console.error('Failed to load season:', error);

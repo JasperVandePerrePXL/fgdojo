@@ -1,1 +1,4722 @@
-[]
+[
+  {
+    "id": 1532769,
+    "name": "1v1 FGDojo - Street Fighter 6 (PC)",
+    "slug": "tournament/fighting-game-dojo-january-26-edition/event/1v1-fgdojo-street-fighter-6-pc",
+    "startAt": 1768647600,
+    "videogame": {
+      "id": 43868,
+      "name": "Street Fighter 6"
+    },
+    "tournament": {
+      "id": 866933,
+      "name": "Fighting Game Dojo - January '26 edition",
+      "slug": "tournament/fighting-game-dojo-january-26-edition",
+      "startAt": 1768647600
+    },
+    "entrants": {
+      "pageInfo": {
+        "total": 7,
+        "totalPages": 1
+      },
+      "nodes": [
+        {
+          "id": 22355799,
+          "name": "Issyen",
+          "standing": {
+            "placement": 7
+          },
+          "participants": [
+            {
+              "id": 20550125,
+              "gamerTag": "Issyen",
+              "prefix": null,
+              "player": {
+                "id": 4186966,
+                "gamerTag": "Issyen"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22351815,
+          "name": "Suku",
+          "standing": {
+            "placement": 3
+          },
+          "participants": [
+            {
+              "id": 20546624,
+              "gamerTag": "Suku",
+              "prefix": "",
+              "player": {
+                "id": 4836099,
+                "gamerTag": "Suku"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22326766,
+          "name": "LCG | Brenda",
+          "standing": {
+            "placement": 4
+          },
+          "participants": [
+            {
+              "id": 20524303,
+              "gamerTag": "Brenda",
+              "prefix": "LCG",
+              "player": {
+                "id": 3973904,
+                "gamerTag": "Brenda"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22292081,
+          "name": "DRT|FGCBE | RaienRyu",
+          "standing": {
+            "placement": 5
+          },
+          "participants": [
+            {
+              "id": 20492138,
+              "gamerTag": "RaienRyu",
+              "prefix": "DRT|FGCBE",
+              "player": {
+                "id": 623330,
+                "gamerTag": "RaienRyu"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22268424,
+          "name": "LCG | mcshootys",
+          "standing": {
+            "placement": 6
+          },
+          "participants": [
+            {
+              "id": 20470983,
+              "gamerTag": "mcshootys",
+              "prefix": "LCG",
+              "player": {
+                "id": 4856153,
+                "gamerTag": "mcshootys"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22260455,
+          "name": "Ora Beniz",
+          "standing": {
+            "placement": 2
+          },
+          "participants": [
+            {
+              "id": 20463679,
+              "gamerTag": "Ora Beniz",
+              "prefix": null,
+              "player": {
+                "id": 3762539,
+                "gamerTag": "Ora Beniz"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22259596,
+          "name": "Strael Bora | GentleKef",
+          "standing": {
+            "placement": 1
+          },
+          "participants": [
+            {
+              "id": 20462570,
+              "gamerTag": "GentleKef",
+              "prefix": "Strael Bora",
+              "player": {
+                "id": 1800901,
+                "gamerTag": "GentleKef"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "standings": {
+      "pageInfo": {
+        "total": 7
+      },
+      "nodes": [
+        {
+          "placement": 1,
+          "entrant": {
+            "id": 22259596,
+            "name": "Strael Bora | GentleKef",
+            "participants": [
+              {
+                "gamerTag": "GentleKef"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 2,
+          "entrant": {
+            "id": 22260455,
+            "name": "Ora Beniz",
+            "participants": [
+              {
+                "gamerTag": "Ora Beniz"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 3,
+          "entrant": {
+            "id": 22351815,
+            "name": "Suku",
+            "participants": [
+              {
+                "gamerTag": "Suku"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 4,
+          "entrant": {
+            "id": 22326766,
+            "name": "LCG | Brenda",
+            "participants": [
+              {
+                "gamerTag": "Brenda"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 5,
+          "entrant": {
+            "id": 22292081,
+            "name": "DRT|FGCBE | RaienRyu",
+            "participants": [
+              {
+                "gamerTag": "RaienRyu"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 6,
+          "entrant": {
+            "id": 22268424,
+            "name": "LCG | mcshootys",
+            "participants": [
+              {
+                "gamerTag": "mcshootys"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 7,
+          "entrant": {
+            "id": 22355799,
+            "name": "Issyen",
+            "participants": [
+              {
+                "gamerTag": "Issyen"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "sets": {
+      "pageInfo": {
+        "total": 27
+      },
+      "nodes": [
+        {
+          "id": 98271186,
+          "displayScore": "Strael Bora | GentleKef 3 - Ora Beniz 1",
+          "fullRoundText": "Grand Final",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98271185,
+          "displayScore": "Strael Bora | GentleKef 3 - Ora Beniz 0",
+          "fullRoundText": "Winners Final",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98271193,
+          "displayScore": "Ora Beniz 3 - Suku 1",
+          "fullRoundText": "Losers Final",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98271192,
+          "displayScore": "LCG | Brenda 0 - Suku 3",
+          "fullRoundText": "Losers Semi-Final",
+          "winnerId": 22351815,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98271183,
+          "displayScore": "Strael Bora | GentleKef 3 - LCG | Brenda 0",
+          "fullRoundText": "Winners Semi-Final",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98271184,
+          "displayScore": "Ora Beniz 3 - Suku 0",
+          "fullRoundText": "Winners Semi-Final",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263644,
+          "displayScore": "Strael Bora | GentleKef 3 - Ora Beniz 0",
+          "fullRoundText": "Round 7",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263645,
+          "displayScore": "DRT|FGCBE | RaienRyu 3 - Issyen 1",
+          "fullRoundText": "Round 7",
+          "winnerId": 22292081,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22292081,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355799,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263646,
+          "displayScore": "LCG | Brenda 1 - Suku 3",
+          "fullRoundText": "Round 7",
+          "winnerId": 22351815,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263641,
+          "displayScore": "Strael Bora | GentleKef 3 - LCG | mcshootys 0",
+          "fullRoundText": "Round 6",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22268424,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263642,
+          "displayScore": "DRT|FGCBE | RaienRyu 0 - Ora Beniz 3",
+          "fullRoundText": "Round 6",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22292081,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263643,
+          "displayScore": "Suku 3 - Issyen 0",
+          "fullRoundText": "Round 6",
+          "winnerId": 22351815,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355799,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263638,
+          "displayScore": "Strael Bora | GentleKef 3 - DRT|FGCBE | RaienRyu 0",
+          "fullRoundText": "Round 5",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22292081,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263639,
+          "displayScore": "LCG | Brenda 3 - LCG | mcshootys 0",
+          "fullRoundText": "Round 5",
+          "winnerId": 22326766,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22268424,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263640,
+          "displayScore": "Suku 0 - Ora Beniz 3",
+          "fullRoundText": "Round 5",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263635,
+          "displayScore": "Strael Bora | GentleKef 3 - LCG | Brenda 1",
+          "fullRoundText": "Round 4",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263636,
+          "displayScore": "Suku 3 - DRT|FGCBE | RaienRyu 0",
+          "fullRoundText": "Round 4",
+          "winnerId": 22351815,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22292081,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263637,
+          "displayScore": null,
+          "fullRoundText": "Round 4",
+          "winnerId": null,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355799,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22268424,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263632,
+          "displayScore": "Strael Bora | GentleKef 3 - Suku 0",
+          "fullRoundText": "Round 3",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263633,
+          "displayScore": "Issyen 0 - LCG | Brenda 3",
+          "fullRoundText": "Round 3",
+          "winnerId": 22326766,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355799,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263634,
+          "displayScore": "Ora Beniz 3 - LCG | mcshootys 0",
+          "fullRoundText": "Round 3",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22268424,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263629,
+          "displayScore": "Strael Bora | GentleKef 3 - Issyen 0",
+          "fullRoundText": "Round 2",
+          "winnerId": 22259596,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259596,
+                "name": "Strael Bora | GentleKef",
+                "participants": [
+                  {
+                    "id": 20462570,
+                    "gamerTag": "GentleKef",
+                    "player": {
+                      "id": 1800901
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355799,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263630,
+          "displayScore": "Ora Beniz 3 - LCG | Brenda 0",
+          "fullRoundText": "Round 2",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263631,
+          "displayScore": "LCG | mcshootys 2 - DRT|FGCBE | RaienRyu 3",
+          "fullRoundText": "Round 2",
+          "winnerId": 22292081,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22268424,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22292081,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263626,
+          "displayScore": "Ora Beniz 3 - Issyen 1",
+          "fullRoundText": "Round 1",
+          "winnerId": 22260455,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22260455,
+                "name": "Ora Beniz",
+                "participants": [
+                  {
+                    "id": 20463679,
+                    "gamerTag": "Ora Beniz",
+                    "player": {
+                      "id": 3762539
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355799,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263627,
+          "displayScore": "LCG | mcshootys 0 - Suku 3",
+          "fullRoundText": "Round 1",
+          "winnerId": 22351815,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22268424,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22351815,
+                "name": "Suku",
+                "participants": [
+                  {
+                    "id": 20546624,
+                    "gamerTag": "Suku",
+                    "player": {
+                      "id": 4836099
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98263628,
+          "displayScore": "DRT|FGCBE | RaienRyu 0 - LCG | Brenda 3",
+          "fullRoundText": "Round 1",
+          "winnerId": 22326766,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22292081,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22326766,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 1532770,
+    "name": "1v1 FGDojo - Tekken 8 (PS5)",
+    "slug": "tournament/fighting-game-dojo-january-26-edition/event/1v1-fgdojo-tekken-8-ps5",
+    "startAt": 1768647600,
+    "videogame": {
+      "id": 49783,
+      "name": "TEKKEN 8"
+    },
+    "tournament": {
+      "id": 866933,
+      "name": "Fighting Game Dojo - January '26 edition",
+      "slug": "tournament/fighting-game-dojo-january-26-edition",
+      "startAt": 1768647600
+    },
+    "entrants": {
+      "pageInfo": {
+        "total": 7,
+        "totalPages": 1
+      },
+      "nodes": [
+        {
+          "id": 22338678,
+          "name": "Yukaro",
+          "standing": {
+            "placement": 3
+          },
+          "participants": [
+            {
+              "id": 20534954,
+              "gamerTag": "Yukaro",
+              "prefix": null,
+              "player": {
+                "id": 3270168,
+                "gamerTag": "Yukaro"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22329297,
+          "name": "66ayrton66",
+          "standing": {
+            "placement": 7
+          },
+          "participants": [
+            {
+              "id": 20526636,
+              "gamerTag": "66ayrton66",
+              "prefix": null,
+              "player": {
+                "id": 5165464,
+                "gamerTag": "66ayrton66"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22356264,
+          "name": "UwOfy",
+          "standing": {
+            "placement": 5
+          },
+          "participants": [
+            {
+              "id": 20550592,
+              "gamerTag": "UwOfy",
+              "prefix": "",
+              "player": {
+                "id": 4804446,
+                "gamerTag": "UwOfy"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22355979,
+          "name": "DRT|FGCBE | RaienRyu",
+          "standing": {
+            "placement": 4
+          },
+          "participants": [
+            {
+              "id": 20492138,
+              "gamerTag": "RaienRyu",
+              "prefix": "DRT|FGCBE",
+              "player": {
+                "id": 623330,
+                "gamerTag": "RaienRyu"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22355968,
+          "name": "Kirito",
+          "standing": {
+            "placement": 6
+          },
+          "participants": [
+            {
+              "id": 20550293,
+              "gamerTag": "Kirito",
+              "prefix": "",
+              "player": {
+                "id": 3015073,
+                "gamerTag": "Kirito"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22355959,
+          "name": "Issyen",
+          "standing": {
+            "placement": 2
+          },
+          "participants": [
+            {
+              "id": 20550125,
+              "gamerTag": "Issyen",
+              "prefix": null,
+              "player": {
+                "id": 4186966,
+                "gamerTag": "Issyen"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22355889,
+          "name": "FGDojo | MoonaTwT",
+          "standing": {
+            "placement": 1
+          },
+          "participants": [
+            {
+              "id": 20550212,
+              "gamerTag": "MoonaTwT",
+              "prefix": "FGDojo",
+              "player": {
+                "id": 1385306,
+                "gamerTag": "MoonaTwT"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "standings": {
+      "pageInfo": {
+        "total": 7
+      },
+      "nodes": [
+        {
+          "placement": 1,
+          "entrant": {
+            "id": 22355889,
+            "name": "FGDojo | MoonaTwT",
+            "participants": [
+              {
+                "gamerTag": "MoonaTwT"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 2,
+          "entrant": {
+            "id": 22355959,
+            "name": "Issyen",
+            "participants": [
+              {
+                "gamerTag": "Issyen"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 3,
+          "entrant": {
+            "id": 22338678,
+            "name": "Yukaro",
+            "participants": [
+              {
+                "gamerTag": "Yukaro"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 4,
+          "entrant": {
+            "id": 22355979,
+            "name": "DRT|FGCBE | RaienRyu",
+            "participants": [
+              {
+                "gamerTag": "RaienRyu"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 5,
+          "entrant": {
+            "id": 22356264,
+            "name": "UwOfy",
+            "participants": [
+              {
+                "gamerTag": "UwOfy"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 6,
+          "entrant": {
+            "id": 22355968,
+            "name": "Kirito",
+            "participants": [
+              {
+                "gamerTag": "Kirito"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 7,
+          "entrant": {
+            "id": 22329297,
+            "name": "66ayrton66",
+            "participants": [
+              {
+                "gamerTag": "66ayrton66"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "sets": {
+      "pageInfo": {
+        "total": 21
+      },
+      "nodes": [
+        {
+          "id": 98262755,
+          "displayScore": "Yukaro 2 - 66ayrton66 0",
+          "fullRoundText": "Round 7",
+          "winnerId": 22338678,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338678,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22329297,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262756,
+          "displayScore": "Issyen 2 - UwOfy 0",
+          "fullRoundText": "Round 7",
+          "winnerId": 22355959,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355959,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22356264,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262757,
+          "displayScore": "Kirito 1 - DRT|FGCBE | RaienRyu 2",
+          "fullRoundText": "Round 7",
+          "winnerId": 22355979,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355968,
+                "name": "Kirito",
+                "participants": [
+                  {
+                    "id": 20550293,
+                    "gamerTag": "Kirito",
+                    "player": {
+                      "id": 3015073
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355979,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262752,
+          "displayScore": "Yukaro 2 - FGDojo | MoonaTwT 0",
+          "fullRoundText": "Round 6",
+          "winnerId": 22338678,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338678,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355889,
+                "name": "FGDojo | MoonaTwT",
+                "participants": [
+                  {
+                    "id": 20550212,
+                    "gamerTag": "MoonaTwT",
+                    "player": {
+                      "id": 1385306
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262753,
+          "displayScore": "Issyen 2 - 66ayrton66 0",
+          "fullRoundText": "Round 6",
+          "winnerId": 22355959,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355959,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22329297,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262754,
+          "displayScore": "DRT|FGCBE | RaienRyu 2 - UwOfy 0",
+          "fullRoundText": "Round 6",
+          "winnerId": 22355979,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355979,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22356264,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262749,
+          "displayScore": "Yukaro 0 - Issyen 2",
+          "fullRoundText": "Round 5",
+          "winnerId": 22355959,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338678,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355959,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262750,
+          "displayScore": "Kirito 0 - FGDojo | MoonaTwT 2",
+          "fullRoundText": "Round 5",
+          "winnerId": 22355889,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355968,
+                "name": "Kirito",
+                "participants": [
+                  {
+                    "id": 20550293,
+                    "gamerTag": "Kirito",
+                    "player": {
+                      "id": 3015073
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355889,
+                "name": "FGDojo | MoonaTwT",
+                "participants": [
+                  {
+                    "id": 20550212,
+                    "gamerTag": "MoonaTwT",
+                    "player": {
+                      "id": 1385306
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262751,
+          "displayScore": "DRT|FGCBE | RaienRyu 2 - 66ayrton66 0",
+          "fullRoundText": "Round 5",
+          "winnerId": 22355979,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355979,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22329297,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262746,
+          "displayScore": "Yukaro 1 - Kirito 2",
+          "fullRoundText": "Round 4",
+          "winnerId": 22355968,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338678,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355968,
+                "name": "Kirito",
+                "participants": [
+                  {
+                    "id": 20550293,
+                    "gamerTag": "Kirito",
+                    "player": {
+                      "id": 3015073
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262747,
+          "displayScore": "DRT|FGCBE | RaienRyu 0 - Issyen 2",
+          "fullRoundText": "Round 4",
+          "winnerId": 22355959,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355979,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355959,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262748,
+          "displayScore": "UwOfy 0 - FGDojo | MoonaTwT 2",
+          "fullRoundText": "Round 4",
+          "winnerId": 22355889,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22356264,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355889,
+                "name": "FGDojo | MoonaTwT",
+                "participants": [
+                  {
+                    "id": 20550212,
+                    "gamerTag": "MoonaTwT",
+                    "player": {
+                      "id": 1385306
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262743,
+          "displayScore": "Yukaro 2 - DRT|FGCBE | RaienRyu 1",
+          "fullRoundText": "Round 3",
+          "winnerId": 22338678,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338678,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355979,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262744,
+          "displayScore": "UwOfy 2 - Kirito 0",
+          "fullRoundText": "Round 3",
+          "winnerId": 22356264,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22356264,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355968,
+                "name": "Kirito",
+                "participants": [
+                  {
+                    "id": 20550293,
+                    "gamerTag": "Kirito",
+                    "player": {
+                      "id": 3015073
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262745,
+          "displayScore": "66ayrton66 0 - FGDojo | MoonaTwT 2",
+          "fullRoundText": "Round 3",
+          "winnerId": 22355889,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22329297,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355889,
+                "name": "FGDojo | MoonaTwT",
+                "participants": [
+                  {
+                    "id": 20550212,
+                    "gamerTag": "MoonaTwT",
+                    "player": {
+                      "id": 1385306
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262740,
+          "displayScore": "Yukaro 2 - UwOfy 0",
+          "fullRoundText": "Round 2",
+          "winnerId": 22338678,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338678,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22356264,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262741,
+          "displayScore": "66ayrton66 2 - Kirito 0",
+          "fullRoundText": "Round 2",
+          "winnerId": 22329297,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22329297,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355968,
+                "name": "Kirito",
+                "participants": [
+                  {
+                    "id": 20550293,
+                    "gamerTag": "Kirito",
+                    "player": {
+                      "id": 3015073
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262742,
+          "displayScore": "FGDojo | MoonaTwT 2 - Issyen 0",
+          "fullRoundText": "Round 2",
+          "winnerId": 22355889,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355889,
+                "name": "FGDojo | MoonaTwT",
+                "participants": [
+                  {
+                    "id": 20550212,
+                    "gamerTag": "MoonaTwT",
+                    "player": {
+                      "id": 1385306
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355959,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262737,
+          "displayScore": "66ayrton66 0 - UwOfy 2",
+          "fullRoundText": "Round 1",
+          "winnerId": 22356264,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22329297,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22356264,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262738,
+          "displayScore": "FGDojo | MoonaTwT 2 - DRT|FGCBE | RaienRyu 0",
+          "fullRoundText": "Round 1",
+          "winnerId": 22355889,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355889,
+                "name": "FGDojo | MoonaTwT",
+                "participants": [
+                  {
+                    "id": 20550212,
+                    "gamerTag": "MoonaTwT",
+                    "player": {
+                      "id": 1385306
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355979,
+                "name": "DRT|FGCBE | RaienRyu",
+                "participants": [
+                  {
+                    "id": 20492138,
+                    "gamerTag": "RaienRyu",
+                    "player": {
+                      "id": 623330
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262739,
+          "displayScore": "Issyen 2 - Kirito 1",
+          "fullRoundText": "Round 1",
+          "winnerId": 22355959,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22355959,
+                "name": "Issyen",
+                "participants": [
+                  {
+                    "id": 20550125,
+                    "gamerTag": "Issyen",
+                    "player": {
+                      "id": 4186966
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22355968,
+                "name": "Kirito",
+                "participants": [
+                  {
+                    "id": 20550293,
+                    "gamerTag": "Kirito",
+                    "player": {
+                      "id": 3015073
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 1532771,
+    "name": "1v1 FGDojo - Guilty Gear: Strive (PC)",
+    "slug": "tournament/fighting-game-dojo-january-26-edition/event/1v1-fgdojo-guilty-gear-strive-pc",
+    "startAt": 1768647600,
+    "videogame": {
+      "id": 33945,
+      "name": "Guilty Gear: Strive"
+    },
+    "tournament": {
+      "id": 866933,
+      "name": "Fighting Game Dojo - January '26 edition",
+      "slug": "tournament/fighting-game-dojo-january-26-edition",
+      "startAt": 1768647600
+    },
+    "entrants": {
+      "pageInfo": {
+        "total": 13,
+        "totalPages": 1
+      },
+      "nodes": [
+        {
+          "id": 22326767,
+          "name": "LCG | Brenda",
+          "standing": {
+            "placement": 1
+          },
+          "participants": [
+            {
+              "id": 20524303,
+              "gamerTag": "Brenda",
+              "prefix": "LCG",
+              "player": {
+                "id": 3973904,
+                "gamerTag": "Brenda"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22268425,
+          "name": "LCG | mcshootys",
+          "standing": {
+            "placement": 2
+          },
+          "participants": [
+            {
+              "id": 20470983,
+              "gamerTag": "mcshootys",
+              "prefix": "LCG",
+              "player": {
+                "id": 4856153,
+                "gamerTag": "mcshootys"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22350265,
+          "name": "M3taTank",
+          "standing": {
+            "placement": 3
+          },
+          "participants": [
+            {
+              "id": 20545238,
+              "gamerTag": "M3taTank",
+              "prefix": null,
+              "player": {
+                "id": 4715723,
+                "gamerTag": "M3taTank"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22327115,
+          "name": "LCG | tenchrio",
+          "standing": {
+            "placement": 9
+          },
+          "participants": [
+            {
+              "id": 20524632,
+              "gamerTag": "tenchrio",
+              "prefix": "LCG",
+              "player": {
+                "id": 4300853,
+                "gamerTag": "tenchrio"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22356263,
+          "name": "UwOfy",
+          "standing": {
+            "placement": 4
+          },
+          "participants": [
+            {
+              "id": 20550592,
+              "gamerTag": "UwOfy",
+              "prefix": "",
+              "player": {
+                "id": 4804446,
+                "gamerTag": "UwOfy"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22327008,
+          "name": "curemeato",
+          "standing": {
+            "placement": 7
+          },
+          "participants": [
+            {
+              "id": 20524522,
+              "gamerTag": "curemeato",
+              "prefix": "",
+              "player": {
+                "id": 5079127,
+                "gamerTag": "curemeato"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22303070,
+          "name": "LCG | AL",
+          "standing": {
+            "placement": 13
+          },
+          "participants": [
+            {
+              "id": 20501959,
+              "gamerTag": "AL",
+              "prefix": "LCG",
+              "player": {
+                "id": 4496944,
+                "gamerTag": "AL"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22350489,
+          "name": "suizu",
+          "standing": {
+            "placement": 5
+          },
+          "participants": [
+            {
+              "id": 20545429,
+              "gamerTag": "suizu",
+              "prefix": "",
+              "player": {
+                "id": 4510033,
+                "gamerTag": "suizu"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22303126,
+          "name": "LCG | OG_Blank",
+          "standing": {
+            "placement": 7
+          },
+          "participants": [
+            {
+              "id": 20502015,
+              "gamerTag": "OG_Blank",
+              "prefix": "LCG",
+              "player": {
+                "id": 5098387,
+                "gamerTag": "OG_Blank"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22259563,
+          "name": "LCG | IzLeStick",
+          "standing": {
+            "placement": 5
+          },
+          "participants": [
+            {
+              "id": 20462522,
+              "gamerTag": "IzLeStick",
+              "prefix": "LCG",
+              "player": {
+                "id": 5000742,
+                "gamerTag": "IzLeStick"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22329298,
+          "name": "66ayrton66",
+          "standing": {
+            "placement": 9
+          },
+          "participants": [
+            {
+              "id": 20526636,
+              "gamerTag": "66ayrton66",
+              "prefix": null,
+              "player": {
+                "id": 5165464,
+                "gamerTag": "66ayrton66"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22338679,
+          "name": "Yukaro",
+          "standing": {
+            "placement": 9
+          },
+          "participants": [
+            {
+              "id": 20534954,
+              "gamerTag": "Yukaro",
+              "prefix": null,
+              "player": {
+                "id": 3270168,
+                "gamerTag": "Yukaro"
+              }
+            }
+          ]
+        },
+        {
+          "id": 22307570,
+          "name": "LCG | Bananasandwizards",
+          "standing": {
+            "placement": 9
+          },
+          "participants": [
+            {
+              "id": 20506367,
+              "gamerTag": "Bananasandwizards",
+              "prefix": "LCG",
+              "player": {
+                "id": 5103892,
+                "gamerTag": "Bananasandwizards"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "standings": {
+      "pageInfo": {
+        "total": 13
+      },
+      "nodes": [
+        {
+          "placement": 1,
+          "entrant": {
+            "id": 22326767,
+            "name": "LCG | Brenda",
+            "participants": [
+              {
+                "gamerTag": "Brenda"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 2,
+          "entrant": {
+            "id": 22268425,
+            "name": "LCG | mcshootys",
+            "participants": [
+              {
+                "gamerTag": "mcshootys"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 3,
+          "entrant": {
+            "id": 22350265,
+            "name": "M3taTank",
+            "participants": [
+              {
+                "gamerTag": "M3taTank"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 4,
+          "entrant": {
+            "id": 22356263,
+            "name": "UwOfy",
+            "participants": [
+              {
+                "gamerTag": "UwOfy"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 5,
+          "entrant": {
+            "id": 22350489,
+            "name": "suizu",
+            "participants": [
+              {
+                "gamerTag": "suizu"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 5,
+          "entrant": {
+            "id": 22259563,
+            "name": "LCG | IzLeStick",
+            "participants": [
+              {
+                "gamerTag": "IzLeStick"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 7,
+          "entrant": {
+            "id": 22303126,
+            "name": "LCG | OG_Blank",
+            "participants": [
+              {
+                "gamerTag": "OG_Blank"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 7,
+          "entrant": {
+            "id": 22327008,
+            "name": "curemeato",
+            "participants": [
+              {
+                "gamerTag": "curemeato"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 9,
+          "entrant": {
+            "id": 22307570,
+            "name": "LCG | Bananasandwizards",
+            "participants": [
+              {
+                "gamerTag": "Bananasandwizards"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 9,
+          "entrant": {
+            "id": 22338679,
+            "name": "Yukaro",
+            "participants": [
+              {
+                "gamerTag": "Yukaro"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 9,
+          "entrant": {
+            "id": 22329298,
+            "name": "66ayrton66",
+            "participants": [
+              {
+                "gamerTag": "66ayrton66"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 9,
+          "entrant": {
+            "id": 22327115,
+            "name": "LCG | tenchrio",
+            "participants": [
+              {
+                "gamerTag": "tenchrio"
+              }
+            ]
+          }
+        },
+        {
+          "placement": 13,
+          "entrant": {
+            "id": 22303070,
+            "name": "LCG | AL",
+            "participants": [
+              {
+                "gamerTag": "AL"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "sets": {
+      "pageInfo": {
+        "total": 25
+      },
+      "nodes": [
+        {
+          "id": 98262705,
+          "displayScore": "LCG | mcshootys 1 - LCG | Brenda 3",
+          "fullRoundText": "Grand Final",
+          "winnerId": 22326767,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22268425,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22326767,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262706,
+          "displayScore": "LCG | Brenda 3 - LCG | mcshootys 1",
+          "fullRoundText": "Grand Final Reset",
+          "winnerId": 22326767,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326767,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22268425,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262704,
+          "displayScore": "LCG | Brenda 2 - LCG | mcshootys 3",
+          "fullRoundText": "Winners Final",
+          "winnerId": 22268425,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326767,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22268425,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262736,
+          "displayScore": "LCG | Brenda 3 - M3taTank 0",
+          "fullRoundText": "Losers Final",
+          "winnerId": 22326767,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326767,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22350265,
+                "name": "M3taTank",
+                "participants": [
+                  {
+                    "id": 20545238,
+                    "gamerTag": "M3taTank",
+                    "player": {
+                      "id": 4715723
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262735,
+          "displayScore": "UwOfy 1 - M3taTank 3",
+          "fullRoundText": "Losers Semi-Final",
+          "winnerId": 22350265,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22356263,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22350265,
+                "name": "M3taTank",
+                "participants": [
+                  {
+                    "id": 20545238,
+                    "gamerTag": "M3taTank",
+                    "player": {
+                      "id": 4715723
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262702,
+          "displayScore": "LCG | Brenda 3 - UwOfy 0",
+          "fullRoundText": "Winners Semi-Final",
+          "winnerId": 22326767,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326767,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22356263,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262703,
+          "displayScore": "LCG | mcshootys 3 - M3taTank 2",
+          "fullRoundText": "Winners Semi-Final",
+          "winnerId": 22268425,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22268425,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22350265,
+                "name": "M3taTank",
+                "participants": [
+                  {
+                    "id": 20545238,
+                    "gamerTag": "M3taTank",
+                    "player": {
+                      "id": 4715723
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262733,
+          "displayScore": "UwOfy 3 - LCG | IzLeStick 2",
+          "fullRoundText": "Losers Quarter-Final",
+          "winnerId": 22356263,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22356263,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22259563,
+                "name": "LCG | IzLeStick",
+                "participants": [
+                  {
+                    "id": 20462522,
+                    "gamerTag": "IzLeStick",
+                    "player": {
+                      "id": 5000742
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262734,
+          "displayScore": "M3taTank 3 - suizu 1",
+          "fullRoundText": "Losers Quarter-Final",
+          "winnerId": 22350265,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22350265,
+                "name": "M3taTank",
+                "participants": [
+                  {
+                    "id": 20545238,
+                    "gamerTag": "M3taTank",
+                    "player": {
+                      "id": 4715723
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22350489,
+                "name": "suizu",
+                "participants": [
+                  {
+                    "id": 20545429,
+                    "gamerTag": "suizu",
+                    "player": {
+                      "id": 4510033
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262731,
+          "displayScore": "LCG | OG_Blank 0 - LCG | IzLeStick 3",
+          "fullRoundText": "Losers Round 3",
+          "winnerId": 22259563,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22303126,
+                "name": "LCG | OG_Blank",
+                "participants": [
+                  {
+                    "id": 20502015,
+                    "gamerTag": "OG_Blank",
+                    "player": {
+                      "id": 5098387
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22259563,
+                "name": "LCG | IzLeStick",
+                "participants": [
+                  {
+                    "id": 20462522,
+                    "gamerTag": "IzLeStick",
+                    "player": {
+                      "id": 5000742
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262732,
+          "displayScore": "curemeato 1 - suizu 3",
+          "fullRoundText": "Losers Round 3",
+          "winnerId": 22350489,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22327008,
+                "name": "curemeato",
+                "participants": [
+                  {
+                    "id": 20524522,
+                    "gamerTag": "curemeato",
+                    "player": {
+                      "id": 5079127
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22350489,
+                "name": "suizu",
+                "participants": [
+                  {
+                    "id": 20545429,
+                    "gamerTag": "suizu",
+                    "player": {
+                      "id": 4510033
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262698,
+          "displayScore": "LCG | Brenda 3 - suizu 0",
+          "fullRoundText": "Winners Quarter-Final",
+          "winnerId": 22326767,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22326767,
+                "name": "LCG | Brenda",
+                "participants": [
+                  {
+                    "id": 20524303,
+                    "gamerTag": "Brenda",
+                    "player": {
+                      "id": 3973904
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22350489,
+                "name": "suizu",
+                "participants": [
+                  {
+                    "id": 20545429,
+                    "gamerTag": "suizu",
+                    "player": {
+                      "id": 4510033
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262699,
+          "displayScore": "curemeato 0 - UwOfy 3",
+          "fullRoundText": "Winners Quarter-Final",
+          "winnerId": 22356263,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22327008,
+                "name": "curemeato",
+                "participants": [
+                  {
+                    "id": 20524522,
+                    "gamerTag": "curemeato",
+                    "player": {
+                      "id": 5079127
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22356263,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262700,
+          "displayScore": "LCG | mcshootys 3 - LCG | IzLeStick 0",
+          "fullRoundText": "Winners Quarter-Final",
+          "winnerId": 22268425,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22268425,
+                "name": "LCG | mcshootys",
+                "participants": [
+                  {
+                    "id": 20470983,
+                    "gamerTag": "mcshootys",
+                    "player": {
+                      "id": 4856153
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22259563,
+                "name": "LCG | IzLeStick",
+                "participants": [
+                  {
+                    "id": 20462522,
+                    "gamerTag": "IzLeStick",
+                    "player": {
+                      "id": 5000742
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262701,
+          "displayScore": "M3taTank 3 - Yukaro 1",
+          "fullRoundText": "Winners Quarter-Final",
+          "winnerId": 22350265,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22350265,
+                "name": "M3taTank",
+                "participants": [
+                  {
+                    "id": 20545238,
+                    "gamerTag": "M3taTank",
+                    "player": {
+                      "id": 4715723
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22338679,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262727,
+          "displayScore": "Yukaro 0 - LCG | OG_Blank 3",
+          "fullRoundText": "Losers Round 2",
+          "winnerId": 22303126,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338679,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22303126,
+                "name": "LCG | OG_Blank",
+                "participants": [
+                  {
+                    "id": 20502015,
+                    "gamerTag": "OG_Blank",
+                    "player": {
+                      "id": 5098387
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262728,
+          "displayScore": "LCG | IzLeStick 3 - LCG | tenchrio 2",
+          "fullRoundText": "Losers Round 2",
+          "winnerId": 22259563,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22259563,
+                "name": "LCG | IzLeStick",
+                "participants": [
+                  {
+                    "id": 20462522,
+                    "gamerTag": "IzLeStick",
+                    "player": {
+                      "id": 5000742
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22327115,
+                "name": "LCG | tenchrio",
+                "participants": [
+                  {
+                    "id": 20524632,
+                    "gamerTag": "tenchrio",
+                    "player": {
+                      "id": 4300853
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262729,
+          "displayScore": "curemeato 3 - LCG | Bananasandwizards 1",
+          "fullRoundText": "Losers Round 2",
+          "winnerId": 22327008,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22327008,
+                "name": "curemeato",
+                "participants": [
+                  {
+                    "id": 20524522,
+                    "gamerTag": "curemeato",
+                    "player": {
+                      "id": 5079127
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22307570,
+                "name": "LCG | Bananasandwizards",
+                "participants": [
+                  {
+                    "id": 20506367,
+                    "gamerTag": "Bananasandwizards",
+                    "player": {
+                      "id": 5103892
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 1
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262730,
+          "displayScore": "suizu 3 - 66ayrton66 0",
+          "fullRoundText": "Losers Round 2",
+          "winnerId": 22350489,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22350489,
+                "name": "suizu",
+                "participants": [
+                  {
+                    "id": 20545429,
+                    "gamerTag": "suizu",
+                    "player": {
+                      "id": 4510033
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22329298,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262724,
+          "displayScore": "LCG | tenchrio 3 - LCG | AL 0",
+          "fullRoundText": "Losers Round 1",
+          "winnerId": 22327115,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22327115,
+                "name": "LCG | tenchrio",
+                "participants": [
+                  {
+                    "id": 20524632,
+                    "gamerTag": "tenchrio",
+                    "player": {
+                      "id": 4300853
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22303070,
+                "name": "LCG | AL",
+                "participants": [
+                  {
+                    "id": 20501959,
+                    "gamerTag": "AL",
+                    "player": {
+                      "id": 4496944
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262691,
+          "displayScore": "suizu 3 - LCG | OG_Blank 0",
+          "fullRoundText": "Winners Round 1",
+          "winnerId": 22350489,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22350489,
+                "name": "suizu",
+                "participants": [
+                  {
+                    "id": 20545429,
+                    "gamerTag": "suizu",
+                    "player": {
+                      "id": 4510033
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22303126,
+                "name": "LCG | OG_Blank",
+                "participants": [
+                  {
+                    "id": 20502015,
+                    "gamerTag": "OG_Blank",
+                    "player": {
+                      "id": 5098387
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262692,
+          "displayScore": "LCG | tenchrio 2 - curemeato 3",
+          "fullRoundText": "Winners Round 1",
+          "winnerId": 22327008,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22327115,
+                "name": "LCG | tenchrio",
+                "participants": [
+                  {
+                    "id": 20524632,
+                    "gamerTag": "tenchrio",
+                    "player": {
+                      "id": 4300853
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22327008,
+                "name": "curemeato",
+                "participants": [
+                  {
+                    "id": 20524522,
+                    "gamerTag": "curemeato",
+                    "player": {
+                      "id": 5079127
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262693,
+          "displayScore": "UwOfy 3 - LCG | AL 0",
+          "fullRoundText": "Winners Round 1",
+          "winnerId": 22356263,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22356263,
+                "name": "UwOfy",
+                "participants": [
+                  {
+                    "id": 20550592,
+                    "gamerTag": "UwOfy",
+                    "player": {
+                      "id": 4804446
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22303070,
+                "name": "LCG | AL",
+                "participants": [
+                  {
+                    "id": 20501959,
+                    "gamerTag": "AL",
+                    "player": {
+                      "id": 4496944
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262695,
+          "displayScore": "LCG | Bananasandwizards 2 - LCG | IzLeStick 3",
+          "fullRoundText": "Winners Round 1",
+          "winnerId": 22259563,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22307570,
+                "name": "LCG | Bananasandwizards",
+                "participants": [
+                  {
+                    "id": 20506367,
+                    "gamerTag": "Bananasandwizards",
+                    "player": {
+                      "id": 5103892
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22259563,
+                "name": "LCG | IzLeStick",
+                "participants": [
+                  {
+                    "id": 20462522,
+                    "gamerTag": "IzLeStick",
+                    "player": {
+                      "id": 5000742
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 98262697,
+          "displayScore": "Yukaro 3 - 66ayrton66 2",
+          "fullRoundText": "Winners Round 1",
+          "winnerId": 22338679,
+          "slots": [
+            {
+              "entrant": {
+                "id": 22338679,
+                "name": "Yukaro",
+                "participants": [
+                  {
+                    "id": 20534954,
+                    "gamerTag": "Yukaro",
+                    "player": {
+                      "id": 3270168
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 3
+                  }
+                }
+              }
+            },
+            {
+              "entrant": {
+                "id": 22329298,
+                "name": "66ayrton66",
+                "participants": [
+                  {
+                    "id": 20526636,
+                    "gamerTag": "66ayrton66",
+                    "player": {
+                      "id": 5165464
+                    }
+                  }
+                ]
+              },
+              "standing": {
+                "stats": {
+                  "score": {
+                    "value": 2
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

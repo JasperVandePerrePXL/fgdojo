@@ -1,9 +1,9 @@
 {
-  "seasonId": -1,
-  "seasonName": "All Seasons Combined",
+  "seasonId": 0,
+  "seasonName": "Season 0",
   "summary": {
-    "totalPlayers": 109,
-    "totalTournaments": 33
+    "totalPlayers": 106,
+    "totalTournaments": 30
   },
   "players": [
     {
@@ -11,10 +11,10 @@
       "gamerTag": "Brenda",
       "prefix": "LCG",
       "displayName": "LCG | Brenda",
-      "tournamentsAttended": 21,
-      "gamesWon": 163,
-      "gamesLost": 165,
-      "firstPlaces": 1,
+      "tournamentsAttended": 19,
+      "gamesWon": 135,
+      "gamesLost": 145,
+      "firstPlaces": 0,
       "placements": [
         {
           "tournament": "Fighting Game Dojo - The Second Round",
@@ -91,28 +91,20 @@
         {
           "tournament": "Fighting Game Dojo - December '25",
           "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 4
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 1
         }
       ],
-      "winRateNum": 49.69512195121951,
-      "winRate": "49.70"
+      "winRateNum": 48.214285714285715,
+      "winRate": "48.21"
     },
     {
       "playerId": 1385306,
       "gamerTag": "MoonaTwT",
-      "prefix": "FGDojo",
-      "displayName": "FGDojo | MoonaTwT",
-      "tournamentsAttended": 14,
-      "gamesWon": 57,
-      "gamesLost": 94,
-      "firstPlaces": 1,
+      "prefix": "",
+      "displayName": "MoonaTwT",
+      "tournamentsAttended": 13,
+      "gamesWon": 47,
+      "gamesLost": 92,
+      "firstPlaces": 0,
       "placements": [
         {
           "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
@@ -165,76 +157,10 @@
         {
           "tournament": "Fighting Game Dojo - December '25",
           "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 1
         }
       ],
-      "winRateNum": 37.74834437086093,
-      "winRate": "37.75"
-    },
-    {
-      "playerId": 3762539,
-      "gamerTag": "Ora Beniz",
-      "prefix": "",
-      "displayName": "Ora Beniz",
-      "tournamentsAttended": 12,
-      "gamesWon": 158,
-      "gamesLost": 101,
-      "firstPlaces": 2,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
-          "placement": 1
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Second Round",
-          "placement": 4
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
-          "placement": 2
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fourth Round",
-          "placement": 2
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fifth Round",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Edition",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Part 2",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - Back To School",
-          "placement": 1
-        },
-        {
-          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
-          "placement": 4
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 2
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 2
-        }
-      ],
-      "winRateNum": 61.003861003861005,
-      "winRate": "61.00"
+      "winRateNum": 33.81294964028777,
+      "winRate": "33.81"
     },
     {
       "playerId": 4526085,
@@ -295,14 +221,72 @@
       "winRate": "52.43"
     },
     {
+      "playerId": 3762539,
+      "gamerTag": "Ora Beniz",
+      "prefix": "",
+      "displayName": "Ora Beniz",
+      "tournamentsAttended": 11,
+      "gamesWon": 136,
+      "gamesLost": 90,
+      "firstPlaces": 2,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
+          "placement": 1
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Second Round",
+          "placement": 4
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
+          "placement": 2
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fourth Round",
+          "placement": 2
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fifth Round",
+          "placement": 3
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Edition",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Part 2",
+          "placement": 3
+        },
+        {
+          "tournament": "Fighting Game Dojo - Back To School",
+          "placement": 1
+        },
+        {
+          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "placement": 4
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 2
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 3
+        }
+      ],
+      "winRateNum": 60.17699115044248,
+      "winRate": "60.18"
+    },
+    {
       "playerId": 1800901,
       "gamerTag": "GentleKef",
       "prefix": "Strael Bora",
       "displayName": "Strael Bora | GentleKef",
-      "tournamentsAttended": 11,
-      "gamesWon": 165,
-      "gamesLost": 59,
-      "firstPlaces": 6,
+      "tournamentsAttended": 10,
+      "gamesWon": 138,
+      "gamesLost": 57,
+      "firstPlaces": 5,
       "placements": [
         {
           "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
@@ -343,72 +327,10 @@
         {
           "tournament": "Fighting Game Dojo - December '25",
           "placement": 2
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 1
         }
       ],
-      "winRateNum": 73.66071428571429,
-      "winRate": "73.66"
-    },
-    {
-      "playerId": 623330,
-      "gamerTag": "RaienRyu",
-      "prefix": "DRT|FGCBE",
-      "displayName": "DRT|FGCBE | RaienRyu",
-      "tournamentsAttended": 11,
-      "gamesWon": 53,
-      "gamesLost": 97,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - The Second Round",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Second Round",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fifth Round",
-          "placement": 6
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fifth Round",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - Back To School",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
-          "placement": 9
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 10
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 4
-        }
-      ],
-      "winRateNum": 35.333333333333336,
-      "winRate": "35.33"
+      "winRateNum": 70.76923076923077,
+      "winRate": "70.77"
     },
     {
       "playerId": 1253081,
@@ -459,6 +381,56 @@
       ],
       "winRateNum": 44.3609022556391,
       "winRate": "44.36"
+    },
+    {
+      "playerId": 623330,
+      "gamerTag": "RaienRyu",
+      "prefix": "DRT",
+      "displayName": "DRT | RaienRyu",
+      "tournamentsAttended": 9,
+      "gamesWon": 40,
+      "gamesLost": 75,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - The Second Round",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Second Round",
+          "placement": 3
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fifth Round",
+          "placement": 6
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fifth Round",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - Back To School",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "placement": 9
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 13
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 10
+        }
+      ],
+      "winRateNum": 34.78260869565217,
+      "winRate": "34.78"
     },
     {
       "playerId": 3493866,
@@ -557,52 +529,6 @@
       "winRate": "43.88"
     },
     {
-      "playerId": 4300853,
-      "gamerTag": "tenchrio",
-      "prefix": "LCG",
-      "displayName": "LCG | tenchrio",
-      "tournamentsAttended": 8,
-      "gamesWon": 50,
-      "gamesLost": 48,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - The Fourth Round",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fifth Round",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Edition",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Part 2",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - Back To School",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 17
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 6
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 9
-        }
-      ],
-      "winRateNum": 51.02040816326531,
-      "winRate": "51.02"
-    },
-    {
       "playerId": 3237629,
       "gamerTag": "Punji-Bear",
       "prefix": "36C",
@@ -687,6 +613,48 @@
       "winRate": "56.25"
     },
     {
+      "playerId": 4300853,
+      "gamerTag": "tenchrio",
+      "prefix": "LCG",
+      "displayName": "LCG | tenchrio",
+      "tournamentsAttended": 7,
+      "gamesWon": 43,
+      "gamesLost": 42,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - The Fourth Round",
+          "placement": 3
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fifth Round",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Edition",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Part 2",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - Back To School",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 17
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 6
+        }
+      ],
+      "winRateNum": 50.588235294117645,
+      "winRate": "50.59"
+    },
+    {
       "playerId": 4772981,
       "gamerTag": "QuArtzX",
       "prefix": "",
@@ -727,124 +695,6 @@
       ],
       "winRateNum": 45.04504504504504,
       "winRate": "45.05"
-    },
-    {
-      "playerId": 4836099,
-      "gamerTag": "Suku",
-      "prefix": "",
-      "displayName": "Suku",
-      "tournamentsAttended": 7,
-      "gamesWon": 38,
-      "gamesLost": 51,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - Summer Edition",
-          "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Part 2",
-          "placement": 9
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Part 2",
-          "placement": 9
-        },
-        {
-          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 9
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 3
-        }
-      ],
-      "winRateNum": 42.69662921348314,
-      "winRate": "42.70"
-    },
-    {
-      "playerId": 4186966,
-      "gamerTag": "Issyen",
-      "prefix": "",
-      "displayName": "Issyen",
-      "tournamentsAttended": 6,
-      "gamesWon": 21,
-      "gamesLost": 48,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
-          "placement": 6
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fourth Round",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - The Fifth Round",
-          "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 2
-        }
-      ],
-      "winRateNum": 30.434782608695656,
-      "winRate": "30.43"
-    },
-    {
-      "playerId": 4804446,
-      "gamerTag": "UwOfy",
-      "prefix": "",
-      "displayName": "UwOfy",
-      "tournamentsAttended": 6,
-      "gamesWon": 40,
-      "gamesLost": 37,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - The Fifth Round",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Edition",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 9
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 4
-        }
-      ],
-      "winRateNum": 51.94805194805194,
-      "winRate": "51.95"
     },
     {
       "playerId": 1933648,
@@ -923,118 +773,42 @@
       "winRate": "51.95"
     },
     {
-      "playerId": 4856153,
-      "gamerTag": "mcshootys",
-      "prefix": "LCG",
-      "displayName": "LCG | mcshootys",
-      "tournamentsAttended": 6,
-      "gamesWon": 69,
-      "gamesLost": 61,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - Summer Edition",
-          "placement": 4
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Part 2",
-          "placement": 2
-        },
-        {
-          "tournament": "Fighting Game Dojo - Back To School",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 2
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 6
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 2
-        }
-      ],
-      "winRateNum": 53.07692307692308,
-      "winRate": "53.08"
-    },
-    {
-      "playerId": 4496944,
-      "gamerTag": "AL",
-      "prefix": "LCG",
-      "displayName": "LCG | AL",
-      "tournamentsAttended": 6,
-      "gamesWon": 31,
-      "gamesLost": 43,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - Summer Edition",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - Summer Part 2",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - Back To School",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 5
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 13
-        }
-      ],
-      "winRateNum": 41.891891891891895,
-      "winRate": "41.89"
-    },
-    {
-      "playerId": 3015073,
-      "gamerTag": "Kirito",
+      "playerId": 4836099,
+      "gamerTag": "Suku",
       "prefix": "",
-      "displayName": "Kirito",
+      "displayName": "Suku",
       "tournamentsAttended": 6,
-      "gamesWon": 11,
-      "gamesLost": 39,
+      "gamesWon": 22,
+      "gamesLost": 38,
       "firstPlaces": 0,
       "placements": [
         {
-          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "tournament": "Fighting Game Dojo - Summer Edition",
+          "placement": 13
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Part 2",
+          "placement": 9
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Part 2",
           "placement": 9
         },
         {
           "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
-          "placement": 9
+          "placement": 5
         },
         {
           "tournament": "Fighting Game Dojo - November '25",
-          "placement": 17
+          "placement": 9
         },
         {
           "tournament": "Fighting Game Dojo - December '25",
-          "placement": 3
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 11
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 6
+          "placement": 5
         }
       ],
-      "winRateNum": 22,
-      "winRate": "22.00"
+      "winRateNum": 36.666666666666664,
+      "winRate": "36.67"
     },
     {
       "playerId": 3964582,
@@ -1069,6 +843,104 @@
       ],
       "winRateNum": 66.01941747572816,
       "winRate": "66.02"
+    },
+    {
+      "playerId": 4496944,
+      "gamerTag": "AL",
+      "prefix": "LCG",
+      "displayName": "LCG | AL",
+      "tournamentsAttended": 5,
+      "gamesWon": 31,
+      "gamesLost": 37,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - Summer Edition",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Part 2",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - Back To School",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 5
+        }
+      ],
+      "winRateNum": 45.588235294117645,
+      "winRate": "45.59"
+    },
+    {
+      "playerId": 3015073,
+      "gamerTag": "Kirito",
+      "prefix": "",
+      "displayName": "Kirito",
+      "tournamentsAttended": 5,
+      "gamesWon": 7,
+      "gamesLost": 28,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "placement": 9
+        },
+        {
+          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "placement": 9
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 17
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 3
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 11
+        }
+      ],
+      "winRateNum": 20,
+      "winRate": "20.00"
+    },
+    {
+      "playerId": 4186966,
+      "gamerTag": "Issyen",
+      "prefix": "LCG",
+      "displayName": "LCG | Issyen",
+      "tournamentsAttended": 4,
+      "gamesWon": 7,
+      "gamesLost": 28,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
+          "placement": 6
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fourth Round",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - The Fifth Round",
+          "placement": 13
+        }
+      ],
+      "winRateNum": 20,
+      "winRate": "20.00"
     },
     {
       "playerId": 3536882,
@@ -1251,6 +1123,36 @@
       "winRate": "15.79"
     },
     {
+      "playerId": 4804446,
+      "gamerTag": "UwOfy",
+      "prefix": "",
+      "displayName": "UwOfy",
+      "tournamentsAttended": 4,
+      "gamesWon": 26,
+      "gamesLost": 21,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - The Fifth Round",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Edition",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 5
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 9
+        }
+      ],
+      "winRateNum": 55.319148936170215,
+      "winRate": "55.32"
+    },
+    {
       "playerId": 223504,
       "gamerTag": "Mamoru",
       "prefix": "HDK",
@@ -1311,6 +1213,36 @@
       "winRate": "58.06"
     },
     {
+      "playerId": 4856153,
+      "gamerTag": "LCG | mcshootys",
+      "prefix": "LCG",
+      "displayName": "LCG | LCG | mcshootys",
+      "tournamentsAttended": 4,
+      "gamesWon": 54,
+      "gamesLost": 34,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - Summer Edition",
+          "placement": 4
+        },
+        {
+          "tournament": "Fighting Game Dojo - Summer Part 2",
+          "placement": 2
+        },
+        {
+          "tournament": "Fighting Game Dojo - Back To School",
+          "placement": 3
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 2
+        }
+      ],
+      "winRateNum": 61.36363636363637,
+      "winRate": "61.36"
+    },
+    {
       "playerId": 2006830,
       "gamerTag": "SDinart",
       "prefix": "",
@@ -1339,36 +1271,6 @@
       ],
       "winRateNum": 45.83333333333333,
       "winRate": "45.83"
-    },
-    {
-      "playerId": 5000742,
-      "gamerTag": "IzLeStick",
-      "prefix": "LCG",
-      "displayName": "LCG | IzLeStick",
-      "tournamentsAttended": 4,
-      "gamesWon": 21,
-      "gamesLost": 30,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 9
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 12
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 5
-        }
-      ],
-      "winRateNum": 41.17647058823529,
-      "winRate": "41.18"
     },
     {
       "playerId": 2909717,
@@ -1527,108 +1429,30 @@
       "winRate": "41.18"
     },
     {
-      "playerId": 4715723,
-      "gamerTag": "M3taTank",
-      "prefix": "",
-      "displayName": "M3taTank",
+      "playerId": 5000742,
+      "gamerTag": "IzLeStick",
+      "prefix": "LCG",
+      "displayName": "LCG | IzLeStick",
       "tournamentsAttended": 3,
-      "gamesWon": 12,
-      "gamesLost": 21,
+      "gamesWon": 10,
+      "gamesLost": 20,
       "firstPlaces": 0,
       "placements": [
         {
-          "tournament": "Fighting Game Dojo - Back To School",
+          "tournament": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+          "placement": 7
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
           "placement": 9
         },
         {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 3
-        }
-      ],
-      "winRateNum": 36.36363636363637,
-      "winRate": "36.36"
-    },
-    {
-      "playerId": 5079127,
-      "gamerTag": "curemeato",
-      "prefix": "",
-      "displayName": "curemeato",
-      "tournamentsAttended": 3,
-      "gamesWon": 16,
-      "gamesLost": 19,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 13
-        },
-        {
           "tournament": "Fighting Game Dojo - December '25",
-          "placement": 7
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 7
+          "placement": 12
         }
       ],
-      "winRateNum": 45.714285714285715,
-      "winRate": "45.71"
-    },
-    {
-      "playerId": 5103892,
-      "gamerTag": "Bananasandwizards",
-      "prefix": "LCG",
-      "displayName": "LCG | Bananasandwizards",
-      "tournamentsAttended": 3,
-      "gamesWon": 4,
-      "gamesLost": 18,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 14
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 9
-        }
-      ],
-      "winRateNum": 18.181818181818183,
-      "winRate": "18.18"
-    },
-    {
-      "playerId": 5098387,
-      "gamerTag": "OG_Blank",
-      "prefix": "LCG",
-      "displayName": "LCG | OG_Blank",
-      "tournamentsAttended": 3,
-      "gamesWon": 6,
-      "gamesLost": 15,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - November '25",
-          "placement": 13
-        },
-        {
-          "tournament": "Fighting Game Dojo - December '25",
-          "placement": 10
-        },
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 7
-        }
-      ],
-      "winRateNum": 28.57142857142857,
-      "winRate": "28.57"
+      "winRateNum": 33.33333333333333,
+      "winRate": "33.33"
     },
     {
       "playerId": 581615,
@@ -1917,6 +1741,28 @@
       "winRate": "72.73"
     },
     {
+      "playerId": 4715723,
+      "gamerTag": "M3taTank",
+      "prefix": "",
+      "displayName": "M3taTank",
+      "tournamentsAttended": 2,
+      "gamesWon": 1,
+      "gamesLost": 12,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - Back To School",
+          "placement": 9
+        },
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 13
+        }
+      ],
+      "winRateNum": 7.6923076923076925,
+      "winRate": "7.69"
+    },
+    {
       "playerId": 4999782,
       "gamerTag": "dorifrog",
       "prefix": "",
@@ -1983,48 +1829,70 @@
       "winRate": "35.29"
     },
     {
-      "playerId": 3270168,
-      "gamerTag": "Yukaro",
+      "playerId": 5079127,
+      "gamerTag": "curemeato",
       "prefix": "",
-      "displayName": "Yukaro",
+      "displayName": "curemeato",
       "tournamentsAttended": 2,
-      "gamesWon": 13,
-      "gamesLost": 13,
+      "gamesWon": 9,
+      "gamesLost": 10,
       "firstPlaces": 0,
       "placements": [
         {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 3
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 13
         },
         {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 9
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 7
         }
       ],
-      "winRateNum": 50,
-      "winRate": "50.00"
+      "winRateNum": 47.368421052631575,
+      "winRate": "47.37"
     },
     {
-      "playerId": 5165464,
-      "gamerTag": "66ayrton66",
-      "prefix": "",
-      "displayName": "66ayrton66",
+      "playerId": 5103892,
+      "gamerTag": "Bananasandwizards",
+      "prefix": "LCG",
+      "displayName": "LCG | Bananasandwizards",
       "tournamentsAttended": 2,
-      "gamesWon": 4,
-      "gamesLost": 16,
+      "gamesWon": 1,
+      "gamesLost": 12,
       "firstPlaces": 0,
       "placements": [
         {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 7
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 13
         },
         {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 9
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 14
         }
       ],
-      "winRateNum": 20,
-      "winRate": "20.00"
+      "winRateNum": 7.6923076923076925,
+      "winRate": "7.69"
+    },
+    {
+      "playerId": 5098387,
+      "gamerTag": "OG_Blank",
+      "prefix": "",
+      "displayName": "OG_Blank",
+      "tournamentsAttended": 2,
+      "gamesWon": 3,
+      "gamesLost": 9,
+      "firstPlaces": 0,
+      "placements": [
+        {
+          "tournament": "Fighting Game Dojo - November '25",
+          "placement": 13
+        },
+        {
+          "tournament": "Fighting Game Dojo - December '25",
+          "placement": 10
+        }
+      ],
+      "winRateNum": 25,
+      "winRate": "25.00"
     },
     {
       "playerId": 4534208,
@@ -2879,24 +2747,6 @@
       ],
       "winRateNum": 0,
       "winRate": "0.00"
-    },
-    {
-      "playerId": 4510033,
-      "gamerTag": "suizu",
-      "prefix": "",
-      "displayName": "suizu",
-      "tournamentsAttended": 1,
-      "gamesWon": 10,
-      "gamesLost": 7,
-      "firstPlaces": 0,
-      "placements": [
-        {
-          "tournament": "Fighting Game Dojo - January '26 edition",
-          "placement": 5
-        }
-      ],
-      "winRateNum": 58.82352941176471,
-      "winRate": "58.82"
     }
   ],
   "games": [
@@ -2999,10 +2849,10 @@
           "gamerTag": "GentleKef",
           "prefix": "Strael Bora",
           "displayName": "Strael Bora | GentleKef",
-          "tournamentsAttended": 11,
-          "gamesWon": 165,
-          "gamesLost": 59,
-          "firstPlaces": 6,
+          "tournamentsAttended": 10,
+          "gamesWon": 138,
+          "gamesLost": 57,
+          "firstPlaces": 5,
           "placements": [
             {
               "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
@@ -3043,23 +2893,19 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 2
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 1
             }
           ],
-          "winRateNum": 73.66071428571429,
-          "winRate": "73.66"
+          "winRateNum": 70.76923076923077,
+          "winRate": "70.77"
         },
         {
           "playerId": 3762539,
           "gamerTag": "Ora Beniz",
           "prefix": "",
           "displayName": "Ora Beniz",
-          "tournamentsAttended": 12,
-          "gamesWon": 158,
-          "gamesLost": 101,
+          "tournamentsAttended": 11,
+          "gamesWon": 136,
+          "gamesLost": 90,
           "firstPlaces": 2,
           "placements": [
             {
@@ -3105,23 +2951,19 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 3
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 2
             }
           ],
-          "winRateNum": 61.003861003861005,
-          "winRate": "61.00"
+          "winRateNum": 60.17699115044248,
+          "winRate": "60.18"
         },
         {
           "playerId": 3973904,
           "gamerTag": "Brenda",
           "prefix": "LCG",
           "displayName": "LCG | Brenda",
-          "tournamentsAttended": 11,
-          "gamesWon": 75,
-          "gamesLost": 100,
+          "tournamentsAttended": 10,
+          "gamesWon": 64,
+          "gamesLost": 85,
           "firstPlaces": 0,
           "placements": [
             {
@@ -3163,14 +3005,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 9
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 4
             }
           ],
-          "winRateNum": 42.857142857142854,
-          "winRate": "42.86"
+          "winRateNum": 42.95302013422819,
+          "winRate": "42.95"
         },
         {
           "playerId": 2909717,
@@ -3307,11 +3145,11 @@
         {
           "playerId": 623330,
           "gamerTag": "RaienRyu",
-          "prefix": "DRT|FGCBE",
-          "displayName": "DRT|FGCBE | RaienRyu",
-          "tournamentsAttended": 7,
-          "gamesWon": 28,
-          "gamesLost": 68,
+          "prefix": "DRT",
+          "displayName": "DRT | RaienRyu",
+          "tournamentsAttended": 6,
+          "gamesWon": 22,
+          "gamesLost": 53,
           "firstPlaces": 0,
           "placements": [
             {
@@ -3337,14 +3175,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 10
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 5
             }
           ],
-          "winRateNum": 29.166666666666668,
-          "winRate": "29.17"
+          "winRateNum": 29.333333333333332,
+          "winRate": "29.33"
         },
         {
           "playerId": 4620795,
@@ -3369,22 +3203,18 @@
           "gamerTag": "Issyen",
           "prefix": "",
           "displayName": "Issyen",
-          "tournamentsAttended": 2,
-          "gamesWon": 4,
-          "gamesLost": 23,
+          "tournamentsAttended": 1,
+          "gamesWon": 0,
+          "gamesLost": 6,
           "firstPlaces": 0,
           "placements": [
             {
               "tournament": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
               "placement": 7
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 7
             }
           ],
-          "winRateNum": 14.814814814814813,
-          "winRate": "14.81"
+          "winRateNum": 0,
+          "winRate": "0.00"
         },
         {
           "playerId": 1385306,
@@ -3705,9 +3535,9 @@
           "gamerTag": "Suku",
           "prefix": "",
           "displayName": "Suku",
-          "tournamentsAttended": 5,
-          "gamesWon": 37,
-          "gamesLost": 39,
+          "tournamentsAttended": 4,
+          "gamesWon": 21,
+          "gamesLost": 26,
           "firstPlaces": 0,
           "placements": [
             {
@@ -3725,14 +3555,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 5
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 3
             }
           ],
-          "winRateNum": 48.68421052631579,
-          "winRate": "48.68"
+          "winRateNum": 44.680851063829785,
+          "winRate": "44.68"
         },
         {
           "playerId": 3493866,
@@ -3853,24 +3679,6 @@
           ],
           "winRateNum": 53.84615384615385,
           "winRate": "53.85"
-        },
-        {
-          "playerId": 4856153,
-          "gamerTag": "mcshootys",
-          "prefix": "LCG",
-          "displayName": "LCG | mcshootys",
-          "tournamentsAttended": 1,
-          "gamesWon": 4,
-          "gamesLost": 17,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 6
-            }
-          ],
-          "winRateNum": 19.047619047619047,
-          "winRate": "19.05"
         }
       ],
       "tournaments": [
@@ -3950,13 +3758,6 @@
           "eventName": "1v1 FGDojo - Street Fighter 6 (PC)",
           "winner": "Kronbee",
           "entrantCount": 11
-        },
-        {
-          "name": "Fighting Game Dojo - January '26 edition",
-          "date": "2026-01-17",
-          "eventName": "1v1 FGDojo - Street Fighter 6 (PC)",
-          "winner": "GentleKef",
-          "entrantCount": 7
         }
       ]
     },
@@ -4007,12 +3808,12 @@
         {
           "playerId": 1385306,
           "gamerTag": "MoonaTwT",
-          "prefix": "FGDojo",
-          "displayName": "FGDojo | MoonaTwT",
-          "tournamentsAttended": 8,
-          "gamesWon": 41,
-          "gamesLost": 47,
-          "firstPlaces": 1,
+          "prefix": "",
+          "displayName": "MoonaTwT",
+          "tournamentsAttended": 7,
+          "gamesWon": 31,
+          "gamesLost": 45,
+          "firstPlaces": 0,
           "placements": [
             {
               "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
@@ -4041,14 +3842,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 2
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 1
             }
           ],
-          "winRateNum": 46.590909090909086,
-          "winRate": "46.59"
+          "winRateNum": 40.78947368421053,
+          "winRate": "40.79"
         },
         {
           "playerId": 4447783,
@@ -4077,22 +3874,18 @@
           "gamerTag": "Issyen",
           "prefix": "",
           "displayName": "Issyen",
-          "tournamentsAttended": 2,
-          "gamesWon": 12,
-          "gamesLost": 13,
+          "tournamentsAttended": 1,
+          "gamesWon": 2,
+          "gamesLost": 10,
           "firstPlaces": 0,
           "placements": [
             {
               "tournament": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
               "placement": 6
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 2
             }
           ],
-          "winRateNum": 48,
-          "winRate": "48.00"
+          "winRateNum": 16.666666666666664,
+          "winRate": "16.67"
         },
         {
           "playerId": 3536882,
@@ -4145,11 +3938,11 @@
         {
           "playerId": 623330,
           "gamerTag": "RaienRyu",
-          "prefix": "DRT|FGCBE",
-          "displayName": "DRT|FGCBE | RaienRyu",
-          "tournamentsAttended": 4,
-          "gamesWon": 25,
-          "gamesLost": 29,
+          "prefix": "DRT",
+          "displayName": "DRT | RaienRyu",
+          "tournamentsAttended": 3,
+          "gamesWon": 18,
+          "gamesLost": 22,
           "firstPlaces": 0,
           "placements": [
             {
@@ -4163,14 +3956,10 @@
             {
               "tournament": "Fighting Game Dojo - The Fifth Round",
               "placement": 7
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 4
             }
           ],
-          "winRateNum": 46.2962962962963,
-          "winRate": "46.30"
+          "winRateNum": 45,
+          "winRate": "45.00"
         },
         {
           "playerId": 2436281,
@@ -4885,9 +4674,9 @@
           "gamerTag": "Kirito",
           "prefix": "",
           "displayName": "Kirito",
-          "tournamentsAttended": 4,
-          "gamesWon": 8,
-          "gamesLost": 27,
+          "tournamentsAttended": 3,
+          "gamesWon": 4,
+          "gamesLost": 16,
           "firstPlaces": 0,
           "placements": [
             {
@@ -4901,14 +4690,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 3
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 6
             }
           ],
-          "winRateNum": 22.857142857142858,
-          "winRate": "22.86"
+          "winRateNum": 20,
+          "winRate": "20.00"
         },
         {
           "playerId": 4689394,
@@ -5125,60 +4910,6 @@
           ],
           "winRateNum": 58.333333333333336,
           "winRate": "58.33"
-        },
-        {
-          "playerId": 3270168,
-          "gamerTag": "Yukaro",
-          "prefix": "",
-          "displayName": "Yukaro",
-          "tournamentsAttended": 1,
-          "gamesWon": 9,
-          "gamesLost": 5,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 3
-            }
-          ],
-          "winRateNum": 64.28571428571429,
-          "winRate": "64.29"
-        },
-        {
-          "playerId": 5165464,
-          "gamerTag": "66ayrton66",
-          "prefix": "",
-          "displayName": "66ayrton66",
-          "tournamentsAttended": 1,
-          "gamesWon": 2,
-          "gamesLost": 10,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 7
-            }
-          ],
-          "winRateNum": 16.666666666666664,
-          "winRate": "16.67"
-        },
-        {
-          "playerId": 4804446,
-          "gamerTag": "UwOfy",
-          "prefix": "",
-          "displayName": "UwOfy",
-          "tournamentsAttended": 1,
-          "gamesWon": 4,
-          "gamesLost": 8,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 5
-            }
-          ],
-          "winRateNum": 33.33333333333333,
-          "winRate": "33.33"
         }
       ],
       "tournaments": [
@@ -5258,13 +4989,6 @@
           "eventName": "1v1 FGDojo - Tekken 8 (PS5)",
           "winner": "Azizdestroy85",
           "entrantCount": 4
-        },
-        {
-          "name": "Fighting Game Dojo - January '26 edition",
-          "date": "2026-01-17",
-          "eventName": "1v1 FGDojo - Tekken 8 (PS5)",
-          "winner": "MoonaTwT",
-          "entrantCount": 7
         }
       ]
     },
@@ -5307,10 +5031,10 @@
           "gamerTag": "Brenda",
           "prefix": "LCG",
           "displayName": "LCG | Brenda",
-          "tournamentsAttended": 9,
-          "gamesWon": 88,
-          "gamesLost": 61,
-          "firstPlaces": 1,
+          "tournamentsAttended": 8,
+          "gamesWon": 71,
+          "gamesLost": 56,
+          "firstPlaces": 0,
           "placements": [
             {
               "tournament": "Fighting Game Dojo - The Fourth Round",
@@ -5343,14 +5067,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 5
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 1
             }
           ],
-          "winRateNum": 59.06040268456376,
-          "winRate": "59.06"
+          "winRateNum": 55.90551181102362,
+          "winRate": "55.91"
         },
         {
           "playerId": 4684820,
@@ -5427,9 +5147,9 @@
           "gamerTag": "tenchrio",
           "prefix": "LCG",
           "displayName": "LCG | tenchrio",
-          "tournamentsAttended": 8,
-          "gamesWon": 50,
-          "gamesLost": 48,
+          "tournamentsAttended": 7,
+          "gamesWon": 43,
+          "gamesLost": 42,
           "firstPlaces": 0,
           "placements": [
             {
@@ -5459,14 +5179,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 6
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 9
             }
           ],
-          "winRateNum": 51.02040816326531,
-          "winRate": "51.02"
+          "winRateNum": 50.588235294117645,
+          "winRate": "50.59"
         },
         {
           "playerId": 3732487,
@@ -5553,9 +5269,9 @@
           "gamerTag": "UwOfy",
           "prefix": "",
           "displayName": "UwOfy",
-          "tournamentsAttended": 5,
-          "gamesWon": 36,
-          "gamesLost": 29,
+          "tournamentsAttended": 4,
+          "gamesWon": 26,
+          "gamesLost": 21,
           "firstPlaces": 0,
           "placements": [
             {
@@ -5573,14 +5289,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 9
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 4
             }
           ],
-          "winRateNum": 55.38461538461539,
-          "winRate": "55.38"
+          "winRateNum": 55.319148936170215,
+          "winRate": "55.32"
         },
         {
           "playerId": 2011577,
@@ -5746,12 +5458,12 @@
         },
         {
           "playerId": 4856153,
-          "gamerTag": "mcshootys",
+          "gamerTag": "LCG | mcshootys",
           "prefix": "LCG",
-          "displayName": "LCG | mcshootys",
-          "tournamentsAttended": 5,
-          "gamesWon": 65,
-          "gamesLost": 44,
+          "displayName": "LCG | LCG | mcshootys",
+          "tournamentsAttended": 4,
+          "gamesWon": 54,
+          "gamesLost": 34,
           "firstPlaces": 0,
           "placements": [
             {
@@ -5769,14 +5481,10 @@
             {
               "tournament": "Fighting Game Dojo - November '25",
               "placement": 2
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 2
             }
           ],
-          "winRateNum": 59.63302752293578,
-          "winRate": "59.63"
+          "winRateNum": 61.36363636363637,
+          "winRate": "61.36"
         },
         {
           "playerId": 989285,
@@ -5823,9 +5531,9 @@
           "gamerTag": "AL",
           "prefix": "LCG",
           "displayName": "LCG | AL",
-          "tournamentsAttended": 6,
+          "tournamentsAttended": 5,
           "gamesWon": 31,
-          "gamesLost": 43,
+          "gamesLost": 37,
           "firstPlaces": 0,
           "placements": [
             {
@@ -5847,14 +5555,10 @@
             {
               "tournament": "Fighting Game Dojo - November '25",
               "placement": 5
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 13
             }
           ],
-          "winRateNum": 41.891891891891895,
-          "winRate": "41.89"
+          "winRateNum": 45.588235294117645,
+          "winRate": "45.59"
         },
         {
           "playerId": 4836099,
@@ -5989,9 +5693,9 @@
           "gamerTag": "M3taTank",
           "prefix": "",
           "displayName": "M3taTank",
-          "tournamentsAttended": 3,
-          "gamesWon": 12,
-          "gamesLost": 21,
+          "tournamentsAttended": 2,
+          "gamesWon": 1,
+          "gamesLost": 12,
           "firstPlaces": 0,
           "placements": [
             {
@@ -6001,14 +5705,10 @@
             {
               "tournament": "Fighting Game Dojo - November '25",
               "placement": 13
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 3
             }
           ],
-          "winRateNum": 36.36363636363637,
-          "winRate": "36.36"
+          "winRateNum": 7.6923076923076925,
+          "winRate": "7.69"
         },
         {
           "playerId": 4826254,
@@ -6139,9 +5839,9 @@
           "gamerTag": "IzLeStick",
           "prefix": "LCG",
           "displayName": "LCG | IzLeStick",
-          "tournamentsAttended": 4,
-          "gamesWon": 21,
-          "gamesLost": 30,
+          "tournamentsAttended": 3,
+          "gamesWon": 10,
+          "gamesLost": 20,
           "firstPlaces": 0,
           "placements": [
             {
@@ -6155,23 +5855,19 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 12
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 5
             }
           ],
-          "winRateNum": 41.17647058823529,
-          "winRate": "41.18"
+          "winRateNum": 33.33333333333333,
+          "winRate": "33.33"
         },
         {
           "playerId": 5079127,
           "gamerTag": "curemeato",
           "prefix": "",
           "displayName": "curemeato",
-          "tournamentsAttended": 3,
-          "gamesWon": 16,
-          "gamesLost": 19,
+          "tournamentsAttended": 2,
+          "gamesWon": 9,
+          "gamesLost": 10,
           "firstPlaces": 0,
           "placements": [
             {
@@ -6181,23 +5877,19 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 7
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 7
             }
           ],
-          "winRateNum": 45.714285714285715,
-          "winRate": "45.71"
+          "winRateNum": 47.368421052631575,
+          "winRate": "47.37"
         },
         {
           "playerId": 5103892,
           "gamerTag": "Bananasandwizards",
           "prefix": "LCG",
           "displayName": "LCG | Bananasandwizards",
-          "tournamentsAttended": 3,
-          "gamesWon": 4,
-          "gamesLost": 18,
+          "tournamentsAttended": 2,
+          "gamesWon": 1,
+          "gamesLost": 12,
           "firstPlaces": 0,
           "placements": [
             {
@@ -6207,23 +5899,19 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 14
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 9
             }
           ],
-          "winRateNum": 18.181818181818183,
-          "winRate": "18.18"
+          "winRateNum": 7.6923076923076925,
+          "winRate": "7.69"
         },
         {
           "playerId": 5098387,
           "gamerTag": "OG_Blank",
-          "prefix": "LCG",
-          "displayName": "LCG | OG_Blank",
-          "tournamentsAttended": 3,
-          "gamesWon": 6,
-          "gamesLost": 15,
+          "prefix": "",
+          "displayName": "OG_Blank",
+          "tournamentsAttended": 2,
+          "gamesWon": 3,
+          "gamesLost": 9,
           "firstPlaces": 0,
           "placements": [
             {
@@ -6233,14 +5921,10 @@
             {
               "tournament": "Fighting Game Dojo - December '25",
               "placement": 10
-            },
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 7
             }
           ],
-          "winRateNum": 28.57142857142857,
-          "winRate": "28.57"
+          "winRateNum": 25,
+          "winRate": "25.00"
         },
         {
           "playerId": 4988881,
@@ -6331,60 +6015,6 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00"
-        },
-        {
-          "playerId": 4510033,
-          "gamerTag": "suizu",
-          "prefix": "",
-          "displayName": "suizu",
-          "tournamentsAttended": 1,
-          "gamesWon": 10,
-          "gamesLost": 7,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 5
-            }
-          ],
-          "winRateNum": 58.82352941176471,
-          "winRate": "58.82"
-        },
-        {
-          "playerId": 5165464,
-          "gamerTag": "66ayrton66",
-          "prefix": "",
-          "displayName": "66ayrton66",
-          "tournamentsAttended": 1,
-          "gamesWon": 2,
-          "gamesLost": 6,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 9
-            }
-          ],
-          "winRateNum": 25,
-          "winRate": "25.00"
-        },
-        {
-          "playerId": 3270168,
-          "gamerTag": "Yukaro",
-          "prefix": "",
-          "displayName": "Yukaro",
-          "tournamentsAttended": 1,
-          "gamesWon": 4,
-          "gamesLost": 8,
-          "firstPlaces": 0,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - January '26 edition",
-              "placement": 9
-            }
-          ],
-          "winRateNum": 33.33333333333333,
-          "winRate": "33.33"
         }
       ],
       "tournaments": [
@@ -6443,13 +6073,6 @@
           "eventName": "1v1 FGDojo - Guilty Gear: Strive (PC)",
           "winner": "monnter",
           "entrantCount": 15
-        },
-        {
-          "name": "Fighting Game Dojo - January '26 edition",
-          "date": "2026-01-17",
-          "eventName": "1v1 FGDojo - Guilty Gear: Strive (PC)",
-          "winner": "Brenda",
-          "entrantCount": 13
         }
       ]
     }
@@ -6664,35 +6287,14 @@
       "eventName": "1v1 FGDojo - Guilty Gear: Strive (PC)",
       "winner": "monnter",
       "entrantCount": 15
-    },
-    {
-      "name": "Fighting Game Dojo - January '26 edition",
-      "date": "2026-01-17",
-      "eventName": "1v1 FGDojo - Street Fighter 6 (PC)",
-      "winner": "GentleKef",
-      "entrantCount": 7
-    },
-    {
-      "name": "Fighting Game Dojo - January '26 edition",
-      "date": "2026-01-17",
-      "eventName": "1v1 FGDojo - Tekken 8 (PS5)",
-      "winner": "MoonaTwT",
-      "entrantCount": 7
-    },
-    {
-      "name": "Fighting Game Dojo - January '26 edition",
-      "date": "2026-01-17",
-      "eventName": "1v1 FGDojo - Guilty Gear: Strive (PC)",
-      "winner": "Brenda",
-      "entrantCount": 13
     }
   ],
   "funStats": {
     "mostFirstPlaces": [
       {
         "displayName": "Strael Bora | GentleKef",
-        "firstPlaces": 6,
-        "tournamentsAttended": 11
+        "firstPlaces": 5,
+        "tournamentsAttended": 10
       },
       {
         "displayName": "LCG | monnter",
@@ -6712,7 +6314,7 @@
       {
         "displayName": "Ora Beniz",
         "firstPlaces": 2,
-        "tournamentsAttended": 12
+        "tournamentsAttended": 11
       }
     ],
     "highestWinRate": [
@@ -6741,27 +6343,22 @@
         "gamesLost": 7
       },
       {
-        "displayName": "Strael Bora | GentleKef",
-        "winRate": "73.66%",
-        "gamesWon": 165,
-        "gamesLost": 59
+        "displayName": "HM! | Biscuit",
+        "winRate": "72.73%",
+        "gamesWon": 24,
+        "gamesLost": 9
       }
     ],
     "mostTournamentsAttended": [
       {
         "displayName": "LCG | Brenda",
-        "tournamentsAttended": 21,
-        "firstPlaces": 1
+        "tournamentsAttended": 19,
+        "firstPlaces": 0
       },
       {
-        "displayName": "FGDojo | MoonaTwT",
-        "tournamentsAttended": 14,
-        "firstPlaces": 1
-      },
-      {
-        "displayName": "Ora Beniz",
-        "tournamentsAttended": 12,
-        "firstPlaces": 2
+        "displayName": "MoonaTwT",
+        "tournamentsAttended": 13,
+        "firstPlaces": 0
       },
       {
         "displayName": "VeganBeef",
@@ -6769,9 +6366,14 @@
         "firstPlaces": 0
       },
       {
-        "displayName": "Strael Bora | GentleKef",
+        "displayName": "Ora Beniz",
         "tournamentsAttended": 11,
-        "firstPlaces": 6
+        "firstPlaces": 2
+      },
+      {
+        "displayName": "Strael Bora | GentleKef",
+        "tournamentsAttended": 10,
+        "firstPlaces": 5
       }
     ]
   }
