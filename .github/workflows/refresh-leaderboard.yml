@@ -6,15 +6,6 @@ on:
     - cron: '0 21 * * 6'
     - cron: '0 21 * * 0'
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - 'src/fetch_tournaments.js'
-      - 'src/process_leaderboard.js'
-      - 'src/seasons.js'
-      - 'public/index.html'
-      - '.github/workflows/refresh-leaderboard.yml'
 
 jobs:
   refresh-and-deploy:
