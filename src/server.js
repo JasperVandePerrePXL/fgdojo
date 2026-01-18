@@ -7,18 +7,19 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const rootDir = path.join(__dirname, '..');
 
 const app = express();
 const PORT = 3000;
 
-// Serve static files
-app.use(express.static(__dirname));
+// Serve static files from public directory
+app.use(express.static(path.join(rootDir, 'public')));
 
 // Run Node scripts sequentially
 function runScript(scriptName) {
   return new Promise((resolve, reject) => {
     console.log(`Running ${scriptName}...`);
-    const child = spawn('node', [scriptName], { cwd: __dirname });
+    const child = spawn('node', [scriptName], { cwd: path.join(rootDir, 'src') });
     
     child.stdout.on('data', (data) => {
       console.log(data.toString());
@@ -57,7 +58,7 @@ app.get('/', async (req, res) => {
     await runScript('fetch_tournaments.js');
     await runScript('process_leaderboard.js');
     console.log('=== Data refresh complete ===\n');
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(rootDir, 'public', 'index.html'));
   } catch (error) {
     res.status(500).send(`Error refreshing data: ${error.message}`);
   }

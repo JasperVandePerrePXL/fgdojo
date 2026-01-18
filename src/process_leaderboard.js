@@ -1,19 +1,36 @@
 #!/usr/bin/env node
-// Process Guilty Gear Strive tournament data and generate leaderboard statistics
-// Usage: node process_leaderboard.js
+// Process tournament data and generate leaderboard statistics
+// Usage: node src/process_leaderboard.js
 
 import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { SEASONS } from './seasons.js';
 
-const INPUT_FILE = 'output.json';
-const OUTPUT_FILE = 'leaderboard.json';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const baseDir = path.join(__dirname, '..');
 
-async function loadTournamentData() {
+async function loadTournamentData(seasonId) {
+  const inputFile = path.join(baseDir, `output_season_${seasonId}.json`);
   try {
-    const data = await fs.readFile(INPUT_FILE, 'utf8');
+    const data = await fs.readFile(inputFile, 'utf8');
     return JSON.parse(data);
   } catch (err) {
-    console.error(`Error reading ${INPUT_FILE}:`, err.message);
-    process.exit(1);
+    console.error(`Error reading ${inputFile}:`, err.message);
+    return [];
+  }
+}
+
+const publicDir = path.join(baseDir, 'public');
+
+async function loadAllTournamentData() {
+  const inputFile = path.join(baseDir, 'output.json');
+  try {
+    const data = await fs.readFile(inputFile, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error(`Error reading ${inputFile}:`, err.message);
+    return [];
   }
 }
 
@@ -204,53 +221,97 @@ function calculateFunStats(players) {
 }
 
 async function main() {
-  console.log(`Loading tournament data from ${INPUT_FILE}...`);
-  const events = await loadTournamentData();
-  
-  console.log(`Processing ${events.length} event(s)...`);
-  const { players, tournaments, games } = processLeaderboard(events);
+  console.log('🎮 Processing leaderboards by season...\n');
 
-  console.log(`Found ${players.length} unique player(s) across ${tournaments.length} tournament(s)`);
+  const seasonLeaderboards = {};
 
-  const funStats = calculateFunStats(players);
+  // Process each season's leaderboard
+  for (const [seasonId, seasonData] of Object.entries(SEASONS)) {
+    console.log(`📅 ${seasonData.name}:`);
+    const events = await loadTournamentData(seasonId);
+    
+    if (events.length === 0) {
+      console.log(`  ⚠️  No tournament data found for ${seasonData.name}`);
+      continue;
+    }
 
-  const output = {
-    summary: {
-      totalPlayers: players.length,
-      totalTournaments: tournaments.length,
-    },
-    players: players.sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
-    games,
-    tournaments,
-    funStats,
-  };
+    console.log(`  Loading ${events.length} event(s)...`);
+    const { players, tournaments, games } = processLeaderboard(events);
 
-  // Write to file
-  await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2), 'utf8');
-  console.log(`\nLeaderboard saved to ${OUTPUT_FILE}`);
+    console.log(`  Found ${players.length} unique player(s) across ${tournaments.length} tournament(s)`);
 
-  // Print fun stats to console
-  console.log('\n=== FUN STATS ===\n');
-  
-  console.log('🏆 Most 1st Places:');
-  funStats.mostFirstPlaces.forEach((p, i) => {
-    console.log(`  ${i + 1}. ${p.displayName} - ${p.firstPlaces} wins (${p.tournamentsAttended} tournaments)`);
-  });
+    const funStats = calculateFunStats(players);
 
-  console.log('\n📈 Highest Win Rate (min. 10 games):');
-  funStats.highestWinRate.forEach((p, i) => {
-    console.log(`  ${i + 1}. ${p.displayName} - ${p.winRate} (${p.gamesWon}W - ${p.gamesLost}L)`);
-  });
+    const output = {
+      seasonId: parseInt(seasonId),
+      seasonName: seasonData.name,
+      summary: {
+        totalPlayers: players.length,
+        totalTournaments: tournaments.length,
+      },
+      players: players.sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
+      games,
+      tournaments,
+      funStats,
+    };
 
-  console.log('\n🎮 Most Tournaments Attended:');
-  funStats.mostTournamentsAttended.forEach((p, i) => {
-    console.log(`  ${i + 1}. ${p.displayName} - ${p.tournamentsAttended} tournaments (${p.firstPlaces} wins)`);
-  });
+    seasonLeaderboards[seasonId] = output;
 
-  console.log('\n📅 Tournament Winners:');
-  tournaments.forEach(t => {
-    console.log(`  ${t.date} - ${t.name}: ${t.winner ?? 'Unknown'}`);
-  });
+    // Write individual season leaderboard
+    const seasonOutputFile = path.join(publicDir, `leaderboard_season_${seasonId}.json`);
+    await fs.writeFile(seasonOutputFile, JSON.stringify(output, null, 2), 'utf8');
+    console.log(`  ✓ Saved to leaderboard_season_${seasonId}.json\n`);
+  }
+
+  // Create a combined leaderboard for backwards compatibility
+  const allEvents = await loadAllTournamentData();
+  if (allEvents.length > 0) {
+    const { players, tournaments, games } = processLeaderboard(allEvents);
+    const funStats = calculateFunStats(players);
+
+    const combinedOutput = {
+      seasonId: -1,
+      seasonName: 'All Seasons Combined',
+      summary: {
+        totalPlayers: players.length,
+        totalTournaments: tournaments.length,
+      },
+      players: players.sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
+      games,
+      tournaments,
+      funStats,
+    };
+
+    const combinedOutputFile = path.join(publicDir, 'leaderboard.json');
+    await fs.writeFile(combinedOutputFile, JSON.stringify(combinedOutput, null, 2), 'utf8');
+    console.log('✓ Saved combined leaderboard to leaderboard.json');
+  }
+
+  // Print fun stats for Season 0
+  if (seasonLeaderboards[0]) {
+    const output = seasonLeaderboards[0];
+    console.log(`\n=== ${output.seasonName} - FUN STATS ===\n`);
+    
+    console.log('🏆 Most 1st Places:');
+    output.funStats.mostFirstPlaces.forEach((p, i) => {
+      console.log(`  ${i + 1}. ${p.displayName} - ${p.firstPlaces} wins (${p.tournamentsAttended} tournaments)`);
+    });
+
+    console.log('\n📈 Highest Win Rate (min. 10 games):');
+    output.funStats.highestWinRate.forEach((p, i) => {
+      console.log(`  ${i + 1}. ${p.displayName} - ${p.winRate} (${p.gamesWon}W - ${p.gamesLost}L)`);
+    });
+
+    console.log('\n🎮 Most Tournaments Attended:');
+    output.funStats.mostTournamentsAttended.forEach((p, i) => {
+      console.log(`  ${i + 1}. ${p.displayName} - ${p.tournamentsAttended} tournaments (${p.firstPlaces} wins)`);
+    });
+
+    console.log('\n📅 Tournament Winners:');
+    output.tournaments.forEach(t => {
+      console.log(`  ${t.date} - ${t.name}: ${t.winner ?? 'Unknown'}`);
+    });
+  }
 }
 
 main().catch(console.error);

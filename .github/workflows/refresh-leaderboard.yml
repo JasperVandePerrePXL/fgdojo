@@ -2,53 +2,47 @@ name: Refresh Leaderboard & Deploy to S3
 
 on:
   schedule:
-    # Run weekly on Sundays at 10 PM UTC (adjust as needed)
+    # Saturdays and Sundays at 21:00 UTC
+    - cron: '0 21 * * 6'
     - cron: '0 21 * * 0'
-    - cron: '0 21 * * 6'  # Also run on Saturdays for more frequent updates
   workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - 'fetch_tournaments.js'
-      - 'process_leaderboard.js'
-      - 'index.html'
+      - 'src/fetch_tournaments.js'
+      - 'src/process_leaderboard.js'
+      - 'src/seasons.js'
+      - 'public/index.html'
+      - '.github/workflows/refresh-leaderboard.yml'
 
 jobs:
   refresh-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      
+          node-version: '22'
+          cache: 'npm'
+
       - name: Install dependencies
-        run: npm install
-      
-      - name: Fetch tournament data
+        run: npm ci
+
+      - name: Build site and data
+        run: npm run build
         env:
-          STARTGG_KEY: a10caef2fba728baf59f8cfb342b80b5
-        run: node fetch_tournaments.js
-      
-      - name: Process leaderboard
-        run: node process_leaderboard.js
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+          CI: true
+
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      
-      - name: Upload leaderboard to S3
-        run: |
-          aws s3 cp leaderboard.json s3://fgdojo.stek.world/leaderboard.json --content-type "application/json" --cache-control "max-age=300"
-      
-      - name: Commit updated data
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Auto-refresh leaderboard data'
-          file_pattern: 'output.json leaderboard.json'
-        if: always()
+          args: --delete --cache-control max-age=300
+        env:
+          AWS_S3_BUCKET: fgdojo.stek.world
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-west-3
+          SOURCE_DIR: dist

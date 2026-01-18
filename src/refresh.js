@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Quick refresh and serve for local testing
+// Quick refresh for local testing
 import { spawn } from 'child_process';
 import path from 'path';
 import { fileURLToPath } from 'url';

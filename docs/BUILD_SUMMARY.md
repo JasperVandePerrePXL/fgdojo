@@ -1,3 +1,4 @@
+````markdown
 # S3 Build & Deployment Summary
 
 ## What's Changed
@@ -98,42 +99,4 @@ npm start
 
 ## S3 Bucket Configuration Checklist
 
-- [ ] Enable **Static website hosting**
-- [ ] Set **Index document** = `index.html`
-- [ ] Set **Error document** = `index.html`
-- [ ] Block public access (use CloudFront for serving)
-- [ ] Set cache headers:
-  - `leaderboard.json` = 5 minutes
-  - `index.html` = 1 hour
-- [ ] (Optional) Set up CloudFront distribution
-- [ ] (Optional) Set up Route 53 for custom domain
-
-## No More Server-Side Refresh
-
-**Old approach:**
-- Server runs fetch + process on each page load
-- Slow initial load
-- Can't deploy to S3
-
-**New approach:**
-- Data refreshed via scheduled job (GitHub Actions)
-- Instant page load (static files only)
-- Deployable to S3 + CloudFront
-- Users can manually refresh with button
-- Browser cache busting prevents stale data
-
-## Next Steps
-
-1. **Test locally:** `npm run build && npm start`
-2. **Set up AWS credentials** in GitHub (Settings > Secrets)
-3. **Push to GitHub** to trigger workflow
-4. **Monitor GitHub Actions** for successful deployment
-5. **Access website** via S3 static hosting or CloudFront
-6. **Verify refresh button** works (check Network tab for `?v=` timestamp)
-
-## Support
-
-Refer to:
-- `README.md` - Quick start & customization
-- `S3_DEPLOYMENT.md` - Detailed deployment guide
-- `.github/workflows/refresh-leaderboard.yml` - Automation setup
+````

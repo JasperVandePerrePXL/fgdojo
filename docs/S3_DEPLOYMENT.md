@@ -1,13 +1,14 @@
+````markdown
 # S3 Deployment Guide
 
 This website is now ready to be deployed as a static site on AWS S3.
 
 ## Files Included
 
-- `index.html` - Main leaderboard page with auto-refresh capability
+- `public/index.html` - Main leaderboard page with auto-refresh capability
 - `leaderboard.json` - Generated leaderboard data (must be regenerated regularly)
-- `fetch_tournaments.js` - Fetches raw data from start.gg API
-- `process_leaderboard.js` - Processes raw data into leaderboard format
+- `src/fetch_tournaments.js` - Fetches raw data from start.gg API
+- `src/process_leaderboard.js` - Processes raw data into leaderboard format
 
 ## Deployment Steps
 
@@ -16,8 +17,7 @@ This website is now ready to be deployed as a static site on AWS S3.
 Run the data generation scripts to create `leaderboard.json`:
 
 ```bash
-node fetch_tournaments.js
-node process_leaderboard.js
+npm run build
 ```
 
 This generates `leaderboard.json` which is served alongside `index.html`.
@@ -25,11 +25,12 @@ This generates `leaderboard.json` which is served alongside `index.html`.
 ### 2. Deploy to S3
 
 Upload these files to your S3 bucket:
-- `index.html`
+- `public/index.html`
 - `leaderboard.json`
 
 ```bash
-aws s3 sync . s3://your-bucket-name --exclude "*" --include "*.html" --include "*.json"
+aws s3 cp public/index.html s3://your-bucket-name/
+aws s3 cp leaderboard.json s3://your-bucket-name/
 ```
 
 ### 3. Configure S3 Bucket
@@ -75,10 +76,10 @@ jobs:
       - name: Fetch tournament data
         env:
           STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
-        run: node fetch_tournaments.js
+        run: node src/fetch_tournaments.js
       
       - name: Process leaderboard
-        run: node process_leaderboard.js
+        run: node src/process_leaderboard.js
       
       - name: Upload to S3
         env:
@@ -98,7 +99,7 @@ Set up a Lambda function to run the scripts on a schedule.
 Run locally on a machine with credentials:
 
 ```bash
-0 2 * * * cd /path/to/fgdojoLeaderboard && node fetch_tournaments.js && node process_leaderboard.js && aws s3 cp leaderboard.json s3://your-bucket-name/
+0 2 * * * cd /path/to/fgdojoLeaderboard && npm run build && aws s3 cp leaderboard.json s3://your-bucket-name/
 ```
 
 ## Environment Variables
@@ -120,3 +121,5 @@ fetch('leaderboard.json?v=' + new Date().getTime())
 ```
 
 This ensures users always see the latest data after clicking refresh.
+
+````

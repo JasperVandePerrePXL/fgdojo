@@ -393,6 +393,7 @@
     <script>
         async function loadLeaderboard() {
             try {
+                // Load combined leaderboard for backwards compatibility
                 const response = await fetch('leaderboard.json?v=' + new Date().getTime());
                 if (!response.ok) throw new Error('Failed to load leaderboard data');
 
@@ -428,6 +429,11 @@
         function displayLeaderboard(data) {
             const content = document.getElementById('content');
             const subtitle = document.querySelector('.subtitle');
+            
+            // Initialize season selection
+            let selectedSeasonId = localStorage.getItem('fgdojo:selectedSeasonId') ?? data.seasonId ?? 0;
+            let currentData = data;
+            
             const games = (data.games && data.games.length)
                 ? data.games
                 : [{ gameId: 'all', gameName: 'All Games', players: data.players ?? [], tournaments: data.tournaments ?? [] }];
@@ -470,16 +476,27 @@
                 const tournaments = currentGame?.tournaments ?? [];
                 const gameName = currentGame?.gameName ?? 'All Games';
                 const funStats = getGameFunStats(players);
+                const seasonName = currentData.seasonName ?? 'Leaderboard';
 
-                // Persist last selected game for user-friendly refresh
+                // Persist last selected options
                 localStorage.setItem('fgdojo:selectedGameId', String(selectedGameId));
+                localStorage.setItem('fgdojo:selectedSeasonId', String(selectedSeasonId));
 
                 if (subtitle) {
-                    subtitle.textContent = `${gameName} Leaderboard`;
+                    subtitle.textContent = `${seasonName} - ${gameName}`;
                 }
 
                 content.innerHTML = `
                     <div class="controls">
+                        <div>
+                            <label for="season-selector">Season</label>
+                            <div class="selector">
+                                <select id="season-selector">
+                                    <option value="0" ${selectedSeasonId == 0 ? 'selected' : ''}>Season 0</option>
+                                    <option value="1" ${selectedSeasonId == 1 ? 'selected' : ''}>Season 1</option>
+                                </select>
+                            </div>
+                        </div>
                         <div>
                             <label for="game-selector">Game</label>
                             <div class="selector">
@@ -594,9 +611,38 @@
                     <div class="last-updated">Last updated: ${new Date().toLocaleString()}</div>
                 `;
 
-                const selector = document.getElementById('game-selector');
+                const seasonSelector = document.getElementById('season-selector');
+                const gameSelector = document.getElementById('game-selector');
                 const refreshBtn = document.getElementById('refresh-btn');
-                selector?.addEventListener('change', (event) => {
+                
+                seasonSelector?.addEventListener('change', async (event) => {
+                    selectedSeasonId = event.target.value;
+                    const seasonId = parseInt(selectedSeasonId);
+                    
+                    try {
+                        const response = await fetch(`leaderboard_season_${seasonId}.json?v=` + new Date().getTime());
+                        if (!response.ok) throw new Error('Failed to load season data');
+                        currentData = await response.json();
+                        
+                        // Reset game selector to default
+                        selectedGameId = 'all';
+                        localStorage.setItem('fgdojo:selectedSeasonId', String(selectedSeasonId));
+                        
+                        // Update games list
+                        const newGames = (currentData.games && currentData.games.length)
+                            ? currentData.games
+                            : [{ gameId: 'all', gameName: 'All Games', players: currentData.players ?? [], tournaments: currentData.tournaments ?? [] }];
+                        gameMap.clear();
+                        newGames.forEach(g => gameMap.set(String(g.gameId), g));
+                        
+                        render();
+                    } catch (error) {
+                        console.error('Failed to load season:', error);
+                        alert('Failed to load selected season');
+                    }
+                });
+
+                gameSelector?.addEventListener('change', (event) => {
                     selectedGameId = event.target.value;
                     localStorage.setItem('fgdojo:selectedGameId', String(selectedGameId));
                     render();

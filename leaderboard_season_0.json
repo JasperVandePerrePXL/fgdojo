@@ -1,6 +1,6 @@
 {
-  "seasonId": -1,
-  "seasonName": "All Seasons Combined",
+  "seasonId": 0,
+  "seasonName": "Season 0",
   "summary": {
     "totalPlayers": 106,
     "totalTournaments": 30
