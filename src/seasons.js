@@ -83,6 +83,11 @@ export const SEASONS = {
         'tournament/fighting-game-dojo-april-edition/event/1v1-fgdojo-guilty-gear-strive-pc',
         'tournament/fighting-game-dojo-april-edition/event/1v1-fgdojo-street-fighter-6-pc',
         'tournament/fighting-game-dojo-april-edition/event/1v1-fgdojo-tekken-8-ps5',
+      ],
+      'Fighting Game Dojo - May \'26 edition': [
+        'tournament/fighting-game-dojo-may-edition/event/1v1-fgdojo-guilty-gear-strive-pc',
+        'tournament/fighting-game-dojo-may-edition/event/1v1-fgdojo-street-fighter-6-pc',
+        'tournament/fighting-game-dojo-may-edition/event/1v1-fgdojo-tekken-8-ps5',
       ]
     },
   },
