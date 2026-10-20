@@ -22,3 +22,8 @@ Thumbs.db
 # Build artifacts (optional - you might want to keep output.json & leaderboard.json in git)
 # output.json
 # leaderboard.json
+
+# Local/build artifacts
+dist/
+.cache/
+!.env.example

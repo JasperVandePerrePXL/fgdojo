@@ -2,7 +2,7 @@
 // Fetch Guilty Gear Strive event data from a list of event slugs.
 // Usage: node src/fetch_tournaments.js
 
-import { request } from 'graphql-request';
+import { gql, getKey, readCache, writeCache, discoverEventSlugs } from './startgg.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs/promises';
@@ -15,9 +15,7 @@ try {
   // dotenv not installed — OK, environment variables can still be provided by the shell
 }
 
-const endpoint = 'https://api.start.gg/gql/alpha';
-
-const eventQuery = `query EventData($slug: String!) {
+export const eventQuery = `query EventData($slug: String!) {
   event(slug: $slug) {
     id
     name
@@ -104,80 +102,64 @@ const eventQuery = `query EventData($slug: String!) {
   }
 }`;
 
-async function fetchEventData(slug) {
-  if (!process.env.STARTGG_KEY) {
-    throw new Error('Please set STARTGG_KEY environment variable with your start.gg API key');
-  }
+const DAY = 86400000;
+const FINAL_AFTER = 14 * DAY; // results older than this never change: cache forever
+const eventsInSeason = (s) => Object.values(SEASONS[s].tournaments).flat();
+// New editions are placed in a season by date (Season 1 starts 2026-01-01).
+const seasonFor = (startAt) => (startAt * 1000 < Date.UTC(2026, 0, 1) ? 0 : 1);
 
-  const headers = { Authorization: `Bearer ${process.env.STARTGG_KEY}` };
-
+let failures = 0; // circuit breaker: stop hammering a dead API
+async function fetchEvent(slug) {
+  const cached = await readCache(slug);
+  const age = cached?.data?.startAt ? Date.now() - cached.data.startAt * 1000 : 0;
+  if (cached && age > FINAL_AFTER) return cached.data;
+  if (failures >= 3) return cached?.data ?? null;
   try {
-    const data = await request(endpoint, eventQuery, { slug }, headers);
-    return data.event;
+    const { event } = await gql(eventQuery, { slug }, { retries: failures ? 1 : 3 });
+    if (event) { failures = 0; await writeCache(slug, event); return event; }
   } catch (err) {
-    console.error(`Error fetching ${slug}:`, err.response?.errors ?? err.message ?? err);
-    return null;
+    failures++;
+    console.error(`  ✗ ${slug}: ${err.response?.errors?.[0]?.message ?? err.message}`);
   }
+  return cached?.data ?? null; // graceful fallback to last known good
 }
 
 async function main() {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  
-  // Collect results for each season
-  const seasonResults = {};
-
-  for (const [seasonId, seasonData] of Object.entries(SEASONS)) {
-    console.log(`\n📅 Fetching ${seasonData.name}...`);
-    const seasonEvents = [];
-    let totalCount = 0;
-
-    for (const [tourney, slugs] of Object.entries(seasonData.tournaments)) {
-      console.log(`\n  🏆 ${tourney}:`);
-      
-      for (const eventSlug of slugs) {
-        const event = await fetchEventData(eventSlug);
-        if (event) {
-          seasonEvents.push(event);
-          const entrants = event.entrants?.pageInfo?.total ?? 0;
-          totalCount += entrants;
-          console.log(`    ✓ ${event.name} (${entrants} entrants)`);
-        } else {
-          console.log(`    ✗ Failed to fetch`);
-        }
-      }
-    }
-
-    seasonResults[seasonId] = seasonEvents;
-    console.log(`\n  Total for ${seasonData.name}: ${seasonEvents.length} events`);
+  const baseDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+  if (!getKey()) {
+    console.warn('⚠ No STARTGG_KEY set — keeping existing output files.');
+    return;
   }
-
-  // Write separate output files for each season
-  const baseDir = path.join(__dirname, '..');
-  for (const [seasonId, events] of Object.entries(seasonResults)) {
-    const seasonName = SEASONS[seasonId].name.toLowerCase().replace(/\s+/g, '_');
-    const outFile = path.join(baseDir, `output_season_${seasonId}.json`);
-    try {
-      await fs.writeFile(outFile, JSON.stringify(events, null, 2), 'utf8');
-      console.log(`✓ Saved ${events.length} event(s) to output_season_${seasonId}.json`);
-    } catch (e) {
-      console.error('Failed to write output file:', e.message ?? e);
-    }
-  }
-
-  // Also keep a combined output file for backwards compatibility
-  const allEvents = Object.values(seasonResults).flat();
-  const outFile = path.join(baseDir, 'output.json');
+  const slugs = Object.fromEntries(Object.keys(SEASONS).map((s) => [s, new Set(eventsInSeason(s))]));
   try {
-    await fs.writeFile(outFile, JSON.stringify(allEvents, null, 2), 'utf8');
-    console.log(`✓ Saved ${allEvents.length} total event(s) to output.json (all seasons)`);
-  } catch (e) {
-    console.error('Failed to write output file:', e.message ?? e);
+    for (const e of await discoverEventSlugs()) slugs[seasonFor(e.startAt)]?.add(e.slug);
+  } catch (err) {
+    console.warn(`⚠ Discovery failed (${err.message}); using slugs from seasons.js only.`);
+    failures = 3; // API looks unreachable: serve everything from cache / previous files
   }
+
+  const all = [];
+  for (const [seasonId, set] of Object.entries(slugs)) {
+    const events = [];
+    for (const slug of set) {
+      const ev = await fetchEvent(slug);
+      if (ev) { events.push(ev); console.log(`  ✓ ${ev.name} (${ev.entrants?.pageInfo?.total ?? 0})`); }
+    }
+    const file = path.join(baseDir, `output_season_${seasonId}.json`);
+    let previous = [];
+    try { previous = JSON.parse(await fs.readFile(file, 'utf8')); } catch {}
+    // Never replace good data with a worse (partial/empty) result.
+    if (events.length < previous.length) {
+      console.warn(`⚠ Season ${seasonId}: got ${events.length}/${previous.length} events — keeping previous file.`);
+      all.push(...previous);
+      continue;
+    }
+    await fs.writeFile(file, JSON.stringify(events, null, 2));
+    console.log(`✓ Season ${seasonId}: ${events.length} events`);
+    all.push(...events);
+  }
+  await fs.writeFile(path.join(baseDir, 'output.json'), JSON.stringify(all, null, 2));
 }
 
-// If this file is executed directly (not imported), run `main()`.
-const __filename = fileURLToPath(import.meta.url);
-const invoked = process.argv[1] ? path.resolve(process.argv[1]) : null;
-if (!invoked || path.resolve(__filename) === invoked) {
-  main();
-}
+// Always exit 0: a flaky API must not block a deploy of the last known good data.
+main().catch((e) => console.error('fetch failed, keeping existing data:', e.message));

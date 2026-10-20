@@ -1,0 +1,59 @@
+name: Build & deploy site
+
+on:
+  push:
+    branches: [main]
+    paths:            # only deploy when something the site depends on changes
+      - 'public/**'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'output*.json'
+      - '.github/workflows/deploy.yml'
+  schedule:
+    # Once a week, Sunday 20:00 UTC (evening in Belgium): covers Saturday AND Sunday tournaments.
+    # Want a second refresh? Add: - cron: '0 20 * * 6'
+    - cron: '0 20 * * 0'
+  workflow_dispatch:  # manual "Run workflow" button, no commit needed
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false   # never interrupt a sync half-way
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm            # caches ~/.npm keyed on package-lock.json
+
+      # start.gg response cache: finished events are never re-fetched
+      - uses: actions/cache@v4
+        with:
+          path: .cache/startgg
+          key: startgg-${{ github.run_id }}
+          restore-keys: startgg-
+
+      - run: npm ci
+
+      - name: Fetch start.gg data & build
+        run: npm run build
+        env:
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}   # falls back to last known good data if the API fails
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3
+
+      - name: Sync to S3 (idempotent: only changed files upload)
+        run: aws s3 sync dist s3://fgdojo.stek.world --delete --cache-control "public, max-age=300"

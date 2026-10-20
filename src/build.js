@@ -22,6 +22,12 @@ async function build() {
     await fs.cp(PUBLIC_DIR, DIST_DIR, { recursive: true });
     console.log('✓ Copied public/ to dist/');
 
+    // Manifest so the page discovers seasons without code edits
+    const ids = (await fs.readdir(DIST_DIR))
+      .map((f) => f.match(/^leaderboard_season_(\d+)\.json$/)?.[1])
+      .filter(Boolean).map(Number).sort((a, b) => a - b);
+    await fs.writeFile(path.join(DIST_DIR, 'seasons.json'), JSON.stringify({ seasons: ids }));
+
     console.log(`\n✅ Build complete! Files ready in dist/\n`);
   } catch (error) {
     console.error('❌ Build failed:', error.message);
