@@ -17,6 +17,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     seasons: [],
     selectedSeason: readStorage(seasonKey),
     selectedGame: readStorage(gameKey),
+    currentGames: [],
     loading: true,
     error: null,
   }),
@@ -24,10 +25,8 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     seasonData(state) {
       return state.bundle?.seasons?.[state.selectedSeason] ?? null;
     },
-    games() {
-      return this.seasonData?.games?.length
-        ? this.seasonData.games
-        : [{ gameId: 'all', gameName: 'All games', players: this.seasonData?.players ?? [], tournaments: this.seasonData?.tournaments ?? [] }];
+    games(state) {
+      return state.currentGames;
     },
     gameData(state) {
       return this.games.find((game) => String(game.gameId) === String(state.selectedGame)) ?? this.games[0] ?? null;
@@ -64,6 +63,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
           ? String(this.selectedSeason)
           : String(latest);
         writeStorage(seasonKey, this.selectedSeason);
+        this.refreshCurrentGames();
         this.ensureValidGame();
       } catch (error) {
         this.error = 'Leaderboard data is temporarily unavailable.';
@@ -74,7 +74,14 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     setSeason(seasonId) {
       this.selectedSeason = String(seasonId);
       writeStorage(seasonKey, this.selectedSeason);
+      this.refreshCurrentGames();
       this.ensureValidGame();
+    },
+    refreshCurrentGames() {
+      const season = this.seasonData;
+      this.currentGames = season?.games?.length
+        ? season.games
+        : [{ gameId: 'all', gameName: 'All games', players: season?.players ?? [], tournaments: season?.tournaments ?? [] }];
     },
     setGame(gameId) {
       this.selectedGame = String(gameId);
