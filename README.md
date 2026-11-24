@@ -1,18 +1,19 @@
 # Fighting Game Dojo leaderboard
 
-A static leaderboard for Fighting Game Dojo events. It is built with Node.js, plain HTML/CSS/JavaScript, and data from the start.gg GraphQL API. The generated site is deployed to Amazon S3.
+A static leaderboard for Fighting Game Dojo events. The interface is built with Vue 3 and Pinia and bundled with Vite. Data is fetched from the start.gg GraphQL API and the generated site is deployed to Amazon S3.
 
 ## Local setup
 
 ```bash
 cp .env.example .env
-npm ci
+npm install
+npm run dev
 npm test
 npm run build
 npm start
 ```
 
-Set `STARTGG_KEY` in `.env` for data refreshes. `npm start` only serves the Express app/local site; use `npm run build` before it to generate the static data and `dist/` output.
+Set `STARTGG_KEY` in `.env` for data refreshes. `npm run dev` starts the Vue/Vite development server. `npm start` serves the built site through Express; run `npm run build` first to generate the static data and `dist/` output.
 
 ## How the project works
 
@@ -22,7 +23,7 @@ Set `STARTGG_KEY` in `.env` for data refreshes. `npm start` only serves the Expr
 4. `src/startgg.js` sends GraphQL requests, retries temporary/rate-limit failures, and caches responses in `.cache/startgg/`.
 5. Raw event responses are consolidated in `data/events.json`.
 6. `src/process_leaderboard.js` calculates player and game statistics and writes `public/data/leaderboards.json`.
-7. `src/build.js` copies `public/` to `dist/` and creates `dist/seasons.json`.
+7. Vite bundles the Vue 3 interface from `app/` and writes the static result to `dist/`.
 
 The API endpoint is `https://api.start.gg/gql/alpha`. The project requests event entrants, standings, set scores, tournament information, and video-game information using GraphQL.
 
@@ -122,8 +123,12 @@ A completed result older than 14 days is cached permanently. Recent or unfinishe
 - `src/data_store.js`: raw event storage and legacy file migration.
 - `src/process_leaderboard.js`: player, game, season, and combined statistics.
 - `src/seasons.js`: season export derived from `tournament_slugs.json`.
-- `src/build.js`: static `public/` to `dist/` build.
-- `public/index.html`: leaderboard interface and start.gg data rendering.
+- `app/main.js`: Vue and Pinia application entry point.
+- `app/App.vue`: page layout and leaderboard interface.
+- `app/stores/leaderboard.js`: Pinia state, selection persistence, and leaderboard derived values.
+- `app/components/`: reusable Vue interface components.
+- `app/styles.css`: desktop and mobile responsive styling.
+- `public/data/leaderboards.json`: generated leaderboard JSON served by the Vue interface.
 - `tests/`: Node test suite.
 
 ## GitHub Actions workflows
