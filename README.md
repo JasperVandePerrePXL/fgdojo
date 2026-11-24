@@ -113,6 +113,11 @@ A completed result older than 14 days is cached permanently. Recent or unfinishe
 - A **player** is counted once by start.gg player ID, even if the player plays multiple games at the same dojo.
 - Player attendance counts one dojo visit per unique dojo, not one event or game entry per visit.
 - Win percentage is based on recorded set scores.
+- The main leaderboard uses a weighted score to balance consistency and attendance:
+  - 50% win rate
+  - 30% dojo attendance, normalized against the most-attended player in the selected ranking
+  - 20% dojos won, normalized against the player with the most dojo wins in the selected ranking
+- The weighted score is calculated separately for each game ranking and for the all-games/combined ranking.
 - Highest win rate highlights require at least 10 games.
 
 ## Project structure

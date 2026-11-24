@@ -43,6 +43,18 @@ async function loadAllTournamentData() {
     .flatMap(([, events]) => events);
 }
 
+export function calculateRankingScore(player, maxAttendance = 1, maxFirstPlaces = 1) {
+  const winRate = Number(player.winRateNum ?? 0);
+  const attendanceScore = maxAttendance > 0
+    ? (Number(player.tournamentsAttended ?? 0) / maxAttendance) * 100
+    : 0;
+  const winsScore = maxFirstPlaces > 0
+    ? (Number(player.firstPlaces ?? 0) / maxFirstPlaces) * 100
+    : 0;
+
+  return (winRate * 0.5) + (attendanceScore * 0.3) + (winsScore * 0.2);
+}
+
 export function processLeaderboard(events) {
   const formatTournamentDate = (timestamp) => {
     if (!timestamp) return null;
@@ -208,24 +220,28 @@ export function processLeaderboard(events) {
 
   const calcWin = (p) => p.gamesWon + p.gamesLost > 0 ? (p.gamesWon / (p.gamesWon + p.gamesLost) * 100) : 0;
 
-  // Calculate win percentage for each player
-  const playerList = Array.from(playerStats.values()).map(p => {
+  const addWeightedScore = (playerMap) => {
+    const rawPlayers = Array.from(playerMap.values()).map((p) => {
+      const winRateNum = calcWin(p);
+      return { ...p, winRateNum, winRate: winRateNum.toFixed(2) };
+    });
+    const maxAttendance = Math.max(1, ...rawPlayers.map((p) => p.tournamentsAttended));
+    const maxFirstPlaces = Math.max(1, ...rawPlayers.map((p) => p.firstPlaces));
+    return rawPlayers.map((p) => ({
+      ...p,
+      rankingScore: Number(calculateRankingScore(p, maxAttendance, maxFirstPlaces).toFixed(2)),
+    }));
+  };
+
+  const playerList = addWeightedScore(playerStats).map((p) => {
     const { dojoIds, ...stats } = p;
-    return {
-      ...stats,
-      winRateNum: calcWin(p),
-      winRate: (calcWin(p)).toFixed(2),
-    };
+    return stats;
   });
 
   const games = Array.from(gameStats.values()).map(g => {
-    const players = Array.from(g.players.values()).map(p => {
+    const players = addWeightedScore(g.players).map((p) => {
       const { dojoIds, ...stats } = p;
-      return {
-        ...stats,
-        winRateNum: calcWin(p),
-        winRate: (calcWin(p)).toFixed(2),
-      };
+      return stats;
     });
     return {
       gameId: g.gameId,

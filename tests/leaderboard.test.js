@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { processLeaderboard, calculateFunStats, isHiddenPlayer } from '../src/process_leaderboard.js';
+import { processLeaderboard, calculateFunStats, isHiddenPlayer, calculateRankingScore } from '../src/process_leaderboard.js';
 
 function event(overrides = {}) {
   return {
@@ -56,6 +56,23 @@ test('configured hidden player is excluded from leaderboard results', () => {
 
   assert.equal(result.players.some((player) => player.displayName === 'HM! | Biscuit'), false);
   assert.equal(result.tournaments[0].winner, null);
+});
+
+test('weighted ranking rewards consistency instead of one-dojo win rate', () => {
+  const oneDojoPlayer = { winRateNum: 66.67, tournamentsAttended: 1, firstPlaces: 1 };
+  const consistentPlayer = { winRateNum: 60, tournamentsAttended: 5, firstPlaces: 3 };
+  const oneDojoScore = calculateRankingScore(oneDojoPlayer, 5, 3);
+  const consistentScore = calculateRankingScore(consistentPlayer, 5, 3);
+
+  assert.ok(consistentScore > oneDojoScore);
+  assert.equal(Math.round(oneDojoScore), 46);
+  assert.equal(Math.round(consistentScore), 80);
+});
+
+test('processLeaderboard adds weighted ranking scores', () => {
+  const result = processLeaderboard([event()]);
+  assert.equal(typeof result.players[0].rankingScore, 'number');
+  assert.equal(typeof result.games[0].players[0].rankingScore, 'number');
 });
 
 test('processLeaderboard does not divide by zero', () => {
