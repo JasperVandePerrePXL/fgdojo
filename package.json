@@ -12,6 +12,7 @@
     "refresh": "node src/refresh.js",
     "fetch": "node src/fetch_tournaments.js",
     "process": "node src/process_leaderboard.js",
+    "next-event": "node src/next_event.js",
     "build": "npm run fetch && npm run process && vite build",
     "test": "node --test tests/**/*.test.js"
   },

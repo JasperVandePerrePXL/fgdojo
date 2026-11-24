@@ -93,6 +93,17 @@ Edit `data/hidden_players.json`:
 
 Use `displayNames` for the exact name shown on the site. `playerIds` may be used for the stable start.gg player ID instead. Hidden players are removed before player, ranking, game, and winner statistics are generated.
 
+### Update the next-event link and tournaments
+
+After a refresh or deployment workflow succeeds, `update-next-event.yml` runs `src/next_event.js`. The script queries start.gg for the earliest upcoming Fighting Game Dojo tournament and updates:
+
+- `nextEventUrl` in `data/tournament_slugs.json`, used by the website button.
+- The next tournament entry in the matching season, with the base tournament slug.
+
+Season IDs follow calendar years: Season 1 starts with 2026, Season 2 with 2027, and so on. The script creates a new season only when it finds a verified upcoming tournament for that year. It does not add or update game IDs; `defaultGames` and tournament `games` overrides remain manual.
+
+The workflow can also be started manually from GitHub Actions.
+
 ### Refresh result data
 
 ```bash
@@ -114,9 +125,10 @@ A completed result older than 14 days is cached permanently. Recent or unfinishe
 - Player attendance counts one dojo visit per unique dojo, not one event or game entry per visit.
 - Win percentage is based on recorded set scores.
 - The main leaderboard uses a weighted score to balance consistency and attendance:
-  - 50% win rate
-  - 30% dojo attendance, normalized against the most-attended player in the selected ranking
-  - 20% dojos won, normalized against the player with the most dojo wins in the selected ranking
+  - 40% win rate
+  - 25% dojo attendance, normalized against the most-attended player in the selected ranking
+  - 35% dojos won, normalized against the player with the most dojo wins in the selected ranking
+- This balance makes winning meaningful while preventing a player with a single high-rate or title-only result from dominating.
 - The weighted score is calculated separately for each game ranking and for the all-games/combined ranking.
 - Highest win rate highlights require at least 10 games.
 
@@ -149,6 +161,10 @@ Runs on pushes to `main` that change project source, public site files, configur
 ### `refresh-leaderboard.yml`
 
 Runs every Sunday and Monday at 20:00 UTC and supports manual runs. Sunday refreshes immediately after Saturday events. Monday provides a second check after data or weekend workflows may have been delayed. The workflow rebuilds and deploys, while preserving cached/previous data if start.gg is unavailable.
+
+### `update-next-event.yml`
+
+Runs after a successful refresh or deployment workflow, and supports manual runs. It discovers the next verified Fighting Game Dojo tournament, updates `nextEventUrl`, and adds only the tournament slug/name to the appropriate season. It does not discover or change game definitions.
 
 These workflows use GitHub Actions concurrency controls and restore the start.gg cache between runs. A manual run does not require a new commit.
 

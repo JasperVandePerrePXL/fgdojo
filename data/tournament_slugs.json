@@ -1,6 +1,7 @@
 {
   "description": "Manually maintained Fighting Game Dojo seasons. Tournament entries use a tournament slug or start.gg tournament URL; season game lists remove repeated game configuration.",
   "defaultGames": ["street-fighter-6", "tekken-8", "guilty-gear-strive"],
+  "nextEventUrl": null,
   "seasons": {
     "0": {
       "name": "Season 0",

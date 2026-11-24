@@ -65,8 +65,8 @@ test('weighted ranking rewards consistency instead of one-dojo win rate', () => 
   const consistentScore = calculateRankingScore(consistentPlayer, 5, 3);
 
   assert.ok(consistentScore > oneDojoScore);
-  assert.equal(Math.round(oneDojoScore), 46);
-  assert.equal(Math.round(consistentScore), 80);
+  assert.equal(Math.round(oneDojoScore), 43);
+  assert.equal(Math.round(consistentScore), 84);
 });
 
 test('processLeaderboard adds weighted ranking scores', () => {

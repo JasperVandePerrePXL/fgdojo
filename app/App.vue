@@ -5,7 +5,7 @@ import { useLeaderboardStore } from './stores/leaderboard.js';
 import HighlightList from './components/HighlightList.vue';
 
 const store = useLeaderboardStore();
-const { bundle, seasons, selectedSeason, selectedGame, loading, error } = storeToRefs(store);
+const { bundle, seasons, selectedSeason, selectedGame, nextEventUrl, loading, error } = storeToRefs(store);
 
 onMounted(store.load);
 
@@ -45,7 +45,7 @@ function rateClass(rate) {
     <div class="shell topbar-inner">
       <a class="brand" href="#top"><img src="/fgdlogo.jpg" alt="" width="42" height="42" />Fighting Game Dojo</a>
       <nav class="nav" aria-label="Main navigation"><a href="#rankings">Rankings</a></nav>
-      <a class="button" href="https://start.gg/RBHubFGDojo" target="_blank" rel="noopener noreferrer">Join the next event <span aria-hidden="true">↗</span></a>
+      <a class="button" :href="nextEventUrl || 'https://start.gg/RBHubFGDojo'" target="_blank" rel="noopener noreferrer">Join the next event <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 

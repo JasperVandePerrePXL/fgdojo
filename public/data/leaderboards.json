@@ -1,4 +1,5 @@
 {
+  "nextEventUrl": null,
   "seasons": {
     "0": {
       "seasonId": 0,
@@ -66,7 +67,7 @@
           ],
           "winRateNum": 60.17699115044248,
           "winRate": "60.18",
-          "rankingScore": 68.09
+          "rankingScore": 63.07
         },
         {
           "playerId": 1800901,
@@ -121,7 +122,7 @@
           ],
           "winRateNum": 70.76923076923077,
           "winRate": "70.77",
-          "rankingScore": 82.66
+          "rankingScore": 86.03
         },
         {
           "playerId": 3973904,
@@ -212,7 +213,7 @@
           ],
           "winRateNum": 48.214285714285715,
           "winRate": "48.21",
-          "rankingScore": 51.38
+          "rankingScore": 42.01
         },
         {
           "playerId": 4526085,
@@ -271,7 +272,7 @@
           ],
           "winRateNum": 52.42718446601942,
           "winRate": "52.43",
-          "rankingScore": 50.76
+          "rankingScore": 41.43
         },
         {
           "playerId": 1253081,
@@ -322,7 +323,7 @@
           ],
           "winRateNum": 44.3609022556391,
           "winRate": "44.36",
-          "rankingScore": 46.73
+          "rankingScore": 38.2
         },
         {
           "playerId": 1385306,
@@ -389,7 +390,7 @@
           ],
           "winRateNum": 33.81294964028777,
           "winRate": "33.81",
-          "rankingScore": 38.72
+          "rankingScore": 31.71
         },
         {
           "playerId": 623330,
@@ -440,7 +441,7 @@
           ],
           "winRateNum": 34.78260869565217,
           "winRate": "34.78",
-          "rankingScore": 36.48
+          "rankingScore": 29.82
         },
         {
           "playerId": 3237629,
@@ -483,7 +484,7 @@
           ],
           "winRateNum": 72.54901960784314,
           "winRate": "72.55",
-          "rankingScore": 67.37
+          "rankingScore": 65.93
         },
         {
           "playerId": 4300853,
@@ -526,7 +527,7 @@
           ],
           "winRateNum": 50.588235294117645,
           "winRate": "50.59",
-          "rankingScore": 44.39
+          "rankingScore": 36.14
         },
         {
           "playerId": 4772981,
@@ -569,7 +570,7 @@
           ],
           "winRateNum": 45.04504504504504,
           "winRate": "45.05",
-          "rankingScore": 41.61
+          "rankingScore": 33.93
         },
         {
           "playerId": 3493866,
@@ -620,7 +621,7 @@
           ],
           "winRateNum": 35,
           "winRate": "35.00",
-          "rankingScore": 33.86
+          "rankingScore": 27.64
         },
         {
           "playerId": 1933648,
@@ -659,7 +660,7 @@
           ],
           "winRateNum": 75.92592592592592,
           "winRate": "75.93",
-          "rankingScore": 70.33
+          "rankingScore": 72.01
         },
         {
           "playerId": 3305718,
@@ -702,7 +703,7 @@
           ],
           "winRateNum": 56.25,
           "winRate": "56.25",
-          "rankingScore": 49.76
+          "rankingScore": 47.86
         },
         {
           "playerId": 3964582,
@@ -737,7 +738,7 @@
           ],
           "winRateNum": 66.01941747572816,
           "winRate": "66.02",
-          "rankingScore": 50.65
+          "rankingScore": 44.77
         },
         {
           "playerId": 4496944,
@@ -772,7 +773,7 @@
           ],
           "winRateNum": 45.588235294117645,
           "winRate": "45.59",
-          "rankingScore": 36.43
+          "rankingScore": 29.6
         },
         {
           "playerId": 4836099,
@@ -811,7 +812,7 @@
           ],
           "winRateNum": 36.666666666666664,
           "winRate": "36.67",
-          "rankingScore": 31.97
+          "rankingScore": 26.03
         },
         {
           "playerId": 4186966,
@@ -842,7 +843,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 20.91
+          "rankingScore": 17.09
         },
         {
           "playerId": 3536882,
@@ -873,7 +874,7 @@
           ],
           "winRateNum": 13.157894736842104,
           "winRate": "13.16",
-          "rankingScore": 17.49
+          "rankingScore": 14.35
         },
         {
           "playerId": 356029,
@@ -904,7 +905,7 @@
           ],
           "winRateNum": 59.210526315789465,
           "winRate": "59.21",
-          "rankingScore": 40.51
+          "rankingScore": 32.78
         },
         {
           "playerId": 2436281,
@@ -951,7 +952,7 @@
           ],
           "winRateNum": 43.87755102040816,
           "winRate": "43.88",
-          "rankingScore": 32.85
+          "rankingScore": 26.64
         },
         {
           "playerId": 4340100,
@@ -982,7 +983,7 @@
           ],
           "winRateNum": 68.33333333333333,
           "winRate": "68.33",
-          "rankingScore": 53.08
+          "rankingScore": 50.42
         },
         {
           "playerId": 4065344,
@@ -1013,7 +1014,7 @@
           ],
           "winRateNum": 56.52173913043478,
           "winRate": "56.52",
-          "rankingScore": 39.17
+          "rankingScore": 31.7
         },
         {
           "playerId": 4804446,
@@ -1044,7 +1045,7 @@
           ],
           "winRateNum": 55.319148936170215,
           "winRate": "55.32",
-          "rankingScore": 38.57
+          "rankingScore": 31.22
         },
         {
           "playerId": 3210006,
@@ -1075,7 +1076,7 @@
           ],
           "winRateNum": 58.06451612903226,
           "winRate": "58.06",
-          "rankingScore": 43.94
+          "rankingScore": 39.32
         },
         {
           "playerId": 4856153,
@@ -1106,7 +1107,7 @@
           ],
           "winRateNum": 61.36363636363637,
           "winRate": "61.36",
-          "rankingScore": 41.59
+          "rankingScore": 33.64
         },
         {
           "playerId": 2006830,
@@ -1137,7 +1138,7 @@
           ],
           "winRateNum": 45.83333333333333,
           "winRate": "45.83",
-          "rankingScore": 33.83
+          "rankingScore": 27.42
         },
         {
           "playerId": 634464,
@@ -1168,7 +1169,7 @@
           ],
           "winRateNum": 57.77777777777777,
           "winRate": "57.78",
-          "rankingScore": 41.07
+          "rankingScore": 36.93
         },
         {
           "playerId": 4094120,
@@ -1199,7 +1200,7 @@
           ],
           "winRateNum": 15.789473684210526,
           "winRate": "15.79",
-          "rankingScore": 16.08
+          "rankingScore": 13.13
         },
         {
           "playerId": 3732487,
@@ -1226,7 +1227,7 @@
           ],
           "winRateNum": 25,
           "winRate": "25.00",
-          "rankingScore": 20.68
+          "rankingScore": 16.82
         },
         {
           "playerId": 4855200,
@@ -1253,7 +1254,7 @@
           ],
           "winRateNum": 57.14285714285714,
           "winRate": "57.14",
-          "rankingScore": 36.75
+          "rankingScore": 29.68
         },
         {
           "playerId": 4855177,
@@ -1280,7 +1281,7 @@
           ],
           "winRateNum": 43.58974358974359,
           "winRate": "43.59",
-          "rankingScore": 29.98
+          "rankingScore": 24.25
         },
         {
           "playerId": 3724443,
@@ -1334,7 +1335,7 @@
           ],
           "winRateNum": 41.17647058823529,
           "winRate": "41.18",
-          "rankingScore": 28.77
+          "rankingScore": 23.29
         },
         {
           "playerId": 3015073,
@@ -1369,7 +1370,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 18.18
+          "rankingScore": 14.82
         },
         {
           "playerId": 5000742,
@@ -1396,7 +1397,7 @@
           ],
           "winRateNum": 33.33333333333333,
           "winRate": "33.33",
-          "rankingScore": 24.85
+          "rankingScore": 20.15
         },
         {
           "playerId": 581615,
@@ -1419,7 +1420,7 @@
           ],
           "winRateNum": 27.27272727272727,
           "winRate": "27.27",
-          "rankingScore": 19.09
+          "rankingScore": 15.45
         },
         {
           "playerId": 482630,
@@ -1442,7 +1443,7 @@
           ],
           "winRateNum": 91.42857142857143,
           "winRate": "91.43",
-          "rankingScore": 59.17
+          "rankingScore": 55.12
         },
         {
           "playerId": 4447783,
@@ -1465,7 +1466,7 @@
           ],
           "winRateNum": 50,
           "winRate": "50.00",
-          "rankingScore": 30.45
+          "rankingScore": 24.55
         },
         {
           "playerId": 2909717,
@@ -1492,7 +1493,7 @@
           ],
           "winRateNum": 60,
           "winRate": "60.00",
-          "rankingScore": 39.45
+          "rankingScore": 35.55
         },
         {
           "playerId": 3966903,
@@ -1515,7 +1516,7 @@
           ],
           "winRateNum": 36.36363636363637,
           "winRate": "36.36",
-          "rankingScore": 23.64
+          "rankingScore": 19.09
         },
         {
           "playerId": 670995,
@@ -1538,7 +1539,7 @@
           ],
           "winRateNum": 75.86206896551724,
           "winRate": "75.86",
-          "rankingScore": 51.39
+          "rankingScore": 48.89
         },
         {
           "playerId": 3848442,
@@ -1561,7 +1562,7 @@
           ],
           "winRateNum": 57.14285714285714,
           "winRate": "57.14",
-          "rankingScore": 34.03
+          "rankingScore": 27.4
         },
         {
           "playerId": 223504,
@@ -1592,7 +1593,7 @@
           ],
           "winRateNum": 48.888888888888886,
           "winRate": "48.89",
-          "rankingScore": 29.9
+          "rankingScore": 24.1
         },
         {
           "playerId": 4584346,
@@ -1615,7 +1616,7 @@
           ],
           "winRateNum": 47.05882352941176,
           "winRate": "47.06",
-          "rankingScore": 28.98
+          "rankingScore": 23.37
         },
         {
           "playerId": 989285,
@@ -1654,7 +1655,7 @@
           ],
           "winRateNum": 51.94805194805194,
           "winRate": "51.95",
-          "rankingScore": 31.43
+          "rankingScore": 25.32
         },
         {
           "playerId": 3856158,
@@ -1677,7 +1678,7 @@
           ],
           "winRateNum": 55.00000000000001,
           "winRate": "55.00",
-          "rankingScore": 32.95
+          "rankingScore": 26.55
         },
         {
           "playerId": 4715723,
@@ -1700,7 +1701,7 @@
           ],
           "winRateNum": 7.6923076923076925,
           "winRate": "7.69",
-          "rankingScore": 9.3
+          "rankingScore": 7.62
         },
         {
           "playerId": 4999782,
@@ -1723,7 +1724,7 @@
           ],
           "winRateNum": 22.22222222222222,
           "winRate": "22.22",
-          "rankingScore": 16.57
+          "rankingScore": 13.43
         },
         {
           "playerId": 5003065,
@@ -1746,7 +1747,7 @@
           ],
           "winRateNum": 45.83333333333333,
           "winRate": "45.83",
-          "rankingScore": 28.37
+          "rankingScore": 22.88
         },
         {
           "playerId": 5079127,
@@ -1769,7 +1770,7 @@
           ],
           "winRateNum": 47.368421052631575,
           "winRate": "47.37",
-          "rankingScore": 29.14
+          "rankingScore": 23.49
         },
         {
           "playerId": 5103892,
@@ -1792,7 +1793,7 @@
           ],
           "winRateNum": 7.6923076923076925,
           "winRate": "7.69",
-          "rankingScore": 9.3
+          "rankingScore": 7.62
         },
         {
           "playerId": 5098387,
@@ -1815,7 +1816,7 @@
           ],
           "winRateNum": 25,
           "winRate": "25.00",
-          "rankingScore": 17.95
+          "rankingScore": 14.55
         },
         {
           "playerId": 4534208,
@@ -1834,7 +1835,7 @@
           ],
           "winRateNum": 7.6923076923076925,
           "winRate": "7.69",
-          "rankingScore": 6.57
+          "rankingScore": 5.35
         },
         {
           "playerId": 603628,
@@ -1853,7 +1854,7 @@
           ],
           "winRateNum": 51.85185185185185,
           "winRate": "51.85",
-          "rankingScore": 28.65
+          "rankingScore": 23.01
         },
         {
           "playerId": 4656295,
@@ -1872,7 +1873,7 @@
           ],
           "winRateNum": 38.88888888888889,
           "winRate": "38.89",
-          "rankingScore": 22.17
+          "rankingScore": 17.83
         },
         {
           "playerId": 4620795,
@@ -1891,7 +1892,7 @@
           ],
           "winRateNum": 11.11111111111111,
           "winRate": "11.11",
-          "rankingScore": 8.28
+          "rankingScore": 6.72
         },
         {
           "playerId": 4593019,
@@ -1914,7 +1915,7 @@
           ],
           "winRateNum": 23.076923076923077,
           "winRate": "23.08",
-          "rankingScore": 14.27
+          "rankingScore": 11.5
         },
         {
           "playerId": 4064884,
@@ -1933,7 +1934,7 @@
           ],
           "winRateNum": 62.5,
           "winRate": "62.50",
-          "rankingScore": 33.98
+          "rankingScore": 27.27
         },
         {
           "playerId": 477553,
@@ -1956,7 +1957,7 @@
           ],
           "winRateNum": 31.25,
           "winRate": "31.25",
-          "rankingScore": 18.35
+          "rankingScore": 14.77
         },
         {
           "playerId": 4684820,
@@ -1970,7 +1971,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4748235,
@@ -1984,7 +1985,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 1264210,
@@ -2007,7 +2008,7 @@
           ],
           "winRateNum": 25,
           "winRate": "25.00",
-          "rankingScore": 15.23
+          "rankingScore": 12.27
         },
         {
           "playerId": 4536031,
@@ -2030,7 +2031,7 @@
           ],
           "winRateNum": 51.85185185185185,
           "winRate": "51.85",
-          "rankingScore": 28.65
+          "rankingScore": 23.01
         },
         {
           "playerId": 4804465,
@@ -2049,7 +2050,7 @@
           ],
           "winRateNum": 55.55555555555556,
           "winRate": "55.56",
-          "rankingScore": 30.51
+          "rankingScore": 24.49
         },
         {
           "playerId": 2011577,
@@ -2068,7 +2069,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4804460,
@@ -2087,7 +2088,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4486248,
@@ -2106,7 +2107,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 2537028,
@@ -2125,7 +2126,7 @@
           ],
           "winRateNum": 25,
           "winRate": "25.00",
-          "rankingScore": 15.23
+          "rankingScore": 12.27
         },
         {
           "playerId": 2215607,
@@ -2144,7 +2145,7 @@
           ],
           "winRateNum": 28.57142857142857,
           "winRate": "28.57",
-          "rankingScore": 17.01
+          "rankingScore": 13.7
         },
         {
           "playerId": 4610564,
@@ -2163,7 +2164,7 @@
           ],
           "winRateNum": 55.55555555555556,
           "winRate": "55.56",
-          "rankingScore": 30.51
+          "rankingScore": 24.49
         },
         {
           "playerId": 4611362,
@@ -2182,7 +2183,7 @@
           ],
           "winRateNum": 44.44444444444444,
           "winRate": "44.44",
-          "rankingScore": 24.95
+          "rankingScore": 20.05
         },
         {
           "playerId": 4611356,
@@ -2201,7 +2202,7 @@
           ],
           "winRateNum": 60,
           "winRate": "60.00",
-          "rankingScore": 32.73
+          "rankingScore": 26.27
         },
         {
           "playerId": 1132136,
@@ -2220,7 +2221,7 @@
           ],
           "winRateNum": 44.44444444444444,
           "winRate": "44.44",
-          "rankingScore": 24.95
+          "rankingScore": 20.05
         },
         {
           "playerId": 2540656,
@@ -2239,7 +2240,7 @@
           ],
           "winRateNum": 33.33333333333333,
           "winRate": "33.33",
-          "rankingScore": 19.39
+          "rankingScore": 15.61
         },
         {
           "playerId": 2316182,
@@ -2258,7 +2259,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 12.73
+          "rankingScore": 10.27
         },
         {
           "playerId": 4586590,
@@ -2277,7 +2278,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4529585,
@@ -2296,7 +2297,7 @@
           ],
           "winRateNum": 64.28571428571429,
           "winRate": "64.29",
-          "rankingScore": 34.87
+          "rankingScore": 27.99
         },
         {
           "playerId": 4856324,
@@ -2315,7 +2316,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4852761,
@@ -2334,7 +2335,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4903220,
@@ -2353,7 +2354,7 @@
           ],
           "winRateNum": 55.55555555555556,
           "winRate": "55.56",
-          "rankingScore": 30.51
+          "rankingScore": 24.49
         },
         {
           "playerId": 3503218,
@@ -2372,7 +2373,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4964577,
@@ -2391,7 +2392,7 @@
           ],
           "winRateNum": 11.11111111111111,
           "winRate": "11.11",
-          "rankingScore": 8.28
+          "rankingScore": 6.72
         },
         {
           "playerId": 4826254,
@@ -2410,7 +2411,7 @@
           ],
           "winRateNum": 50,
           "winRate": "50.00",
-          "rankingScore": 27.73
+          "rankingScore": 22.27
         },
         {
           "playerId": 4689394,
@@ -2429,7 +2430,7 @@
           ],
           "winRateNum": 55.55555555555556,
           "winRate": "55.56",
-          "rankingScore": 30.51
+          "rankingScore": 24.49
         },
         {
           "playerId": 4999318,
@@ -2448,7 +2449,7 @@
           ],
           "winRateNum": 28.57142857142857,
           "winRate": "28.57",
-          "rankingScore": 17.01
+          "rankingScore": 13.7
         },
         {
           "playerId": 4995813,
@@ -2467,7 +2468,7 @@
           ],
           "winRateNum": 33.33333333333333,
           "winRate": "33.33",
-          "rankingScore": 19.39
+          "rankingScore": 15.61
         },
         {
           "playerId": 5006779,
@@ -2486,7 +2487,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4929613,
@@ -2505,7 +2506,7 @@
           ],
           "winRateNum": 33.33333333333333,
           "winRate": "33.33",
-          "rankingScore": 19.39
+          "rankingScore": 15.61
         },
         {
           "playerId": 2773768,
@@ -2524,7 +2525,7 @@
           ],
           "winRateNum": 14.285714285714285,
           "winRate": "14.29",
-          "rankingScore": 9.87
+          "rankingScore": 7.99
         },
         {
           "playerId": 2353012,
@@ -2543,7 +2544,7 @@
           ],
           "winRateNum": 50,
           "winRate": "50.00",
-          "rankingScore": 27.73
+          "rankingScore": 22.27
         },
         {
           "playerId": 1999309,
@@ -2566,7 +2567,7 @@
           ],
           "winRateNum": 35.294117647058826,
           "winRate": "35.29",
-          "rankingScore": 20.37
+          "rankingScore": 16.39
         },
         {
           "playerId": 1209572,
@@ -2585,7 +2586,7 @@
           ],
           "winRateNum": 64.28571428571429,
           "winRate": "64.29",
-          "rankingScore": 34.87
+          "rankingScore": 27.99
         },
         {
           "playerId": 3963057,
@@ -2604,7 +2605,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 12.73
+          "rankingScore": 10.27
         },
         {
           "playerId": 4821914,
@@ -2623,7 +2624,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 12.73
+          "rankingScore": 10.27
         },
         {
           "playerId": 4913225,
@@ -2642,7 +2643,7 @@
           ],
           "winRateNum": 42.857142857142854,
           "winRate": "42.86",
-          "rankingScore": 24.16
+          "rankingScore": 19.42
         },
         {
           "playerId": 4788988,
@@ -2661,7 +2662,7 @@
           ],
           "winRateNum": 33.33333333333333,
           "winRate": "33.33",
-          "rankingScore": 19.39
+          "rankingScore": 15.61
         },
         {
           "playerId": 4474404,
@@ -2680,7 +2681,7 @@
           ],
           "winRateNum": 28.57142857142857,
           "winRate": "28.57",
-          "rankingScore": 17.01
+          "rankingScore": 13.7
         },
         {
           "playerId": 4756511,
@@ -2699,7 +2700,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         },
         {
           "playerId": 4906375,
@@ -2718,7 +2719,7 @@
           ],
           "winRateNum": 58.333333333333336,
           "winRate": "58.33",
-          "rankingScore": 31.89
+          "rankingScore": 25.61
         },
         {
           "playerId": 4988881,
@@ -2737,7 +2738,7 @@
           ],
           "winRateNum": 50,
           "winRate": "50.00",
-          "rankingScore": 27.73
+          "rankingScore": 22.27
         },
         {
           "playerId": 5105618,
@@ -2756,7 +2757,7 @@
           ],
           "winRateNum": 27.27272727272727,
           "winRate": "27.27",
-          "rankingScore": 16.36
+          "rankingScore": 13.18
         },
         {
           "playerId": 5105616,
@@ -2775,7 +2776,7 @@
           ],
           "winRateNum": 52.94117647058824,
           "winRate": "52.94",
-          "rankingScore": 29.2
+          "rankingScore": 23.45
         },
         {
           "playerId": 1287124,
@@ -2794,7 +2795,7 @@
           ],
           "winRateNum": 53.84615384615385,
           "winRate": "53.85",
-          "rankingScore": 29.65
+          "rankingScore": 23.81
         },
         {
           "playerId": 3487290,
@@ -2813,7 +2814,7 @@
           ],
           "winRateNum": 44.44444444444444,
           "winRate": "44.44",
-          "rankingScore": 24.95
+          "rankingScore": 20.05
         },
         {
           "playerId": 5139286,
@@ -2832,7 +2833,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 2.73
+          "rankingScore": 2.27
         }
       ],
       "games": [
@@ -2861,7 +2862,7 @@
               ],
               "winRateNum": 27.27272727272727,
               "winRate": "27.27",
-              "rankingScore": 19.09
+              "rankingScore": 15.45
             },
             {
               "playerId": 4534208,
@@ -2880,7 +2881,7 @@
               ],
               "winRateNum": 7.6923076923076925,
               "winRate": "7.69",
-              "rankingScore": 6.57
+              "rankingScore": 5.35
             },
             {
               "playerId": 4526085,
@@ -2931,7 +2932,7 @@
               ],
               "winRateNum": 54.54545454545454,
               "winRate": "54.55",
-              "rankingScore": 51.82
+              "rankingScore": 42.27
             },
             {
               "playerId": 1800901,
@@ -2986,7 +2987,7 @@
               ],
               "winRateNum": 70.76923076923077,
               "winRate": "70.77",
-              "rankingScore": 82.66
+              "rankingScore": 86.03
             },
             {
               "playerId": 3762539,
@@ -3045,7 +3046,7 @@
               ],
               "winRateNum": 60.17699115044248,
               "winRate": "60.18",
-              "rankingScore": 68.09
+              "rankingScore": 63.07
             },
             {
               "playerId": 3973904,
@@ -3100,7 +3101,7 @@
               ],
               "winRateNum": 42.95302013422819,
               "winRate": "42.95",
-              "rankingScore": 48.75
+              "rankingScore": 39.91
             },
             {
               "playerId": 2909717,
@@ -3123,7 +3124,7 @@
               ],
               "winRateNum": 64.44444444444444,
               "winRate": "64.44",
-              "rankingScore": 41.68
+              "rankingScore": 37.32
             },
             {
               "playerId": 1253081,
@@ -3174,7 +3175,7 @@
               ],
               "winRateNum": 44.3609022556391,
               "winRate": "44.36",
-              "rankingScore": 46.73
+              "rankingScore": 38.2
             },
             {
               "playerId": 356029,
@@ -3205,7 +3206,7 @@
               ],
               "winRateNum": 59.210526315789465,
               "winRate": "59.21",
-              "rankingScore": 40.51
+              "rankingScore": 32.78
             },
             {
               "playerId": 2436281,
@@ -3236,7 +3237,7 @@
               ],
               "winRateNum": 42.5,
               "winRate": "42.50",
-              "rankingScore": 32.16
+              "rankingScore": 26.09
             },
             {
               "playerId": 623330,
@@ -3275,7 +3276,7 @@
               ],
               "winRateNum": 29.333333333333332,
               "winRate": "29.33",
-              "rankingScore": 31.03
+              "rankingScore": 25.37
             },
             {
               "playerId": 4620795,
@@ -3294,7 +3295,7 @@
               ],
               "winRateNum": 11.11111111111111,
               "winRate": "11.11",
-              "rankingScore": 8.28
+              "rankingScore": 6.72
             },
             {
               "playerId": 4186966,
@@ -3313,7 +3314,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 2.73
+              "rankingScore": 2.27
             },
             {
               "playerId": 1385306,
@@ -3340,7 +3341,7 @@
               ],
               "winRateNum": 17.24137931034483,
               "winRate": "17.24",
-              "rankingScore": 16.8
+              "rankingScore": 13.71
             },
             {
               "playerId": 4593019,
@@ -3359,7 +3360,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 2.73
+              "rankingScore": 2.27
             },
             {
               "playerId": 3305718,
@@ -3382,7 +3383,7 @@
               ],
               "winRateNum": 34.78260869565217,
               "winRate": "34.78",
-              "rankingScore": 22.85
+              "rankingScore": 18.46
             },
             {
               "playerId": 477553,
@@ -3401,7 +3402,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 15.23
+              "rankingScore": 12.27
             },
             {
               "playerId": 4772981,
@@ -3444,7 +3445,7 @@
               ],
               "winRateNum": 45.04504504504504,
               "winRate": "45.05",
-              "rankingScore": 41.61
+              "rankingScore": 33.93
             },
             {
               "playerId": 4094120,
@@ -3463,7 +3464,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 2.73
+              "rankingScore": 2.27
             },
             {
               "playerId": 223504,
@@ -3486,7 +3487,7 @@
               ],
               "winRateNum": 57.57575757575758,
               "winRate": "57.58",
-              "rankingScore": 34.24
+              "rankingScore": 27.58
             },
             {
               "playerId": 4584346,
@@ -3509,7 +3510,7 @@
               ],
               "winRateNum": 47.05882352941176,
               "winRate": "47.06",
-              "rankingScore": 28.98
+              "rankingScore": 23.37
             },
             {
               "playerId": 4855200,
@@ -3536,7 +3537,7 @@
               ],
               "winRateNum": 57.14285714285714,
               "winRate": "57.14",
-              "rankingScore": 36.75
+              "rankingScore": 29.68
             },
             {
               "playerId": 4855177,
@@ -3563,7 +3564,7 @@
               ],
               "winRateNum": 43.58974358974359,
               "winRate": "43.59",
-              "rankingScore": 29.98
+              "rankingScore": 24.25
             },
             {
               "playerId": 989285,
@@ -3586,7 +3587,7 @@
               ],
               "winRateNum": 51.42857142857142,
               "winRate": "51.43",
-              "rankingScore": 31.17
+              "rankingScore": 25.12
             },
             {
               "playerId": 3724443,
@@ -3640,7 +3641,7 @@
               ],
               "winRateNum": 41.17647058823529,
               "winRate": "41.18",
-              "rankingScore": 28.77
+              "rankingScore": 23.29
             },
             {
               "playerId": 4836099,
@@ -3671,7 +3672,7 @@
               ],
               "winRateNum": 44.680851063829785,
               "winRate": "44.68",
-              "rankingScore": 33.25
+              "rankingScore": 26.96
             },
             {
               "playerId": 3493866,
@@ -3698,7 +3699,7 @@
               ],
               "winRateNum": 23.333333333333332,
               "winRate": "23.33",
-              "rankingScore": 19.85
+              "rankingScore": 16.15
             },
             {
               "playerId": 4999782,
@@ -3721,7 +3722,7 @@
               ],
               "winRateNum": 22.22222222222222,
               "winRate": "22.22",
-              "rankingScore": 16.57
+              "rankingScore": 13.43
             },
             {
               "playerId": 2773768,
@@ -3740,7 +3741,7 @@
               ],
               "winRateNum": 14.285714285714285,
               "winRate": "14.29",
-              "rankingScore": 9.87
+              "rankingScore": 7.99
             },
             {
               "playerId": 2353012,
@@ -3759,7 +3760,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 27.73
+              "rankingScore": 22.27
             },
             {
               "playerId": 1999309,
@@ -3778,7 +3779,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 2.73
+              "rankingScore": 2.27
             },
             {
               "playerId": 1287124,
@@ -3797,7 +3798,7 @@
               ],
               "winRateNum": 53.84615384615385,
               "winRate": "53.85",
-              "rankingScore": 29.65
+              "rankingScore": 23.81
             }
           ],
           "tournaments": [
@@ -3916,7 +3917,7 @@
               ],
               "winRateNum": 91.42857142857143,
               "winRate": "91.43",
-              "rankingScore": 67.62
+              "rankingScore": 67.05
             },
             {
               "playerId": 603628,
@@ -3935,7 +3936,7 @@
               ],
               "winRateNum": 51.85185185185185,
               "winRate": "51.85",
-              "rankingScore": 30.21
+              "rankingScore": 24.31
             },
             {
               "playerId": 1385306,
@@ -3978,7 +3979,7 @@
               ],
               "winRateNum": 40.78947368421053,
               "winRate": "40.79",
-              "rankingScore": 50.39
+              "rankingScore": 41.32
             },
             {
               "playerId": 4447783,
@@ -4001,7 +4002,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 33.57
+              "rankingScore": 27.14
             },
             {
               "playerId": 4186966,
@@ -4020,7 +4021,7 @@
               ],
               "winRateNum": 16.666666666666664,
               "winRate": "16.67",
-              "rankingScore": 12.62
+              "rankingScore": 10.24
             },
             {
               "playerId": 3536882,
@@ -4051,7 +4052,7 @@
               ],
               "winRateNum": 13.157894736842104,
               "winRate": "13.16",
-              "rankingScore": 23.72
+              "rankingScore": 19.55
             },
             {
               "playerId": 4656295,
@@ -4070,7 +4071,7 @@
               ],
               "winRateNum": 38.88888888888889,
               "winRate": "38.89",
-              "rankingScore": 23.73
+              "rankingScore": 19.13
             },
             {
               "playerId": 623330,
@@ -4097,7 +4098,7 @@
               ],
               "winRateNum": 45,
               "winRate": "45.00",
-              "rankingScore": 35.36
+              "rankingScore": 28.71
             },
             {
               "playerId": 2436281,
@@ -4128,7 +4129,7 @@
               ],
               "winRateNum": 44.827586206896555,
               "winRate": "44.83",
-              "rankingScore": 39.56
+              "rankingScore": 32.22
             },
             {
               "playerId": 3966903,
@@ -4151,7 +4152,7 @@
               ],
               "winRateNum": 36.36363636363637,
               "winRate": "36.36",
-              "rankingScore": 26.75
+              "rankingScore": 21.69
             },
             {
               "playerId": 3237629,
@@ -4194,7 +4195,7 @@
               ],
               "winRateNum": 72.54901960784314,
               "winRate": "72.55",
-              "rankingScore": 86.27
+              "rankingScore": 89.02
             },
             {
               "playerId": 670995,
@@ -4217,7 +4218,7 @@
               ],
               "winRateNum": 75.86206896551724,
               "winRate": "75.86",
-              "rankingScore": 59.84
+              "rankingScore": 60.82
             },
             {
               "playerId": 4064884,
@@ -4236,7 +4237,7 @@
               ],
               "winRateNum": 62.5,
               "winRate": "62.50",
-              "rankingScore": 35.54
+              "rankingScore": 28.57
             },
             {
               "playerId": 3493866,
@@ -4275,7 +4276,7 @@
               ],
               "winRateNum": 42,
               "winRate": "42.00",
-              "rankingScore": 46.71
+              "rankingScore": 38.23
             },
             {
               "playerId": 4593019,
@@ -4294,7 +4295,7 @@
               ],
               "winRateNum": 42.857142857142854,
               "winRate": "42.86",
-              "rankingScore": 25.71
+              "rankingScore": 20.71
             },
             {
               "playerId": 3973904,
@@ -4313,7 +4314,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 4.29
+              "rankingScore": 3.57
             },
             {
               "playerId": 3305718,
@@ -4332,7 +4333,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 4.29
+              "rankingScore": 3.57
             },
             {
               "playerId": 4340100,
@@ -4363,7 +4364,7 @@
               ],
               "winRateNum": 68.33333333333333,
               "winRate": "68.33",
-              "rankingScore": 64.64
+              "rankingScore": 64.95
             },
             {
               "playerId": 634464,
@@ -4390,7 +4391,7 @@
               ],
               "winRateNum": 63.888888888888886,
               "winRate": "63.89",
-              "rankingScore": 51.47
+              "rankingScore": 47.94
             },
             {
               "playerId": 4065344,
@@ -4421,7 +4422,7 @@
               ],
               "winRateNum": 56.52173913043478,
               "winRate": "56.52",
-              "rankingScore": 45.4
+              "rankingScore": 36.89
             },
             {
               "playerId": 4094120,
@@ -4448,7 +4449,7 @@
               ],
               "winRateNum": 30,
               "winRate": "30.00",
-              "rankingScore": 27.86
+              "rankingScore": 22.71
             },
             {
               "playerId": 477553,
@@ -4467,7 +4468,7 @@
               ],
               "winRateNum": 37.5,
               "winRate": "37.50",
-              "rankingScore": 23.04
+              "rankingScore": 18.57
             },
             {
               "playerId": 3848442,
@@ -4490,7 +4491,7 @@
               ],
               "winRateNum": 57.14285714285714,
               "winRate": "57.14",
-              "rankingScore": 37.14
+              "rankingScore": 30
             },
             {
               "playerId": 1264210,
@@ -4509,7 +4510,7 @@
               ],
               "winRateNum": 14.285714285714285,
               "winRate": "14.29",
-              "rankingScore": 11.43
+              "rankingScore": 9.29
             },
             {
               "playerId": 4536031,
@@ -4528,7 +4529,7 @@
               ],
               "winRateNum": 53.333333333333336,
               "winRate": "53.33",
-              "rankingScore": 30.95
+              "rankingScore": 24.9
             },
             {
               "playerId": 3856158,
@@ -4551,7 +4552,7 @@
               ],
               "winRateNum": 55.00000000000001,
               "winRate": "55.00",
-              "rankingScore": 36.07
+              "rankingScore": 29.14
             },
             {
               "playerId": 989285,
@@ -4574,7 +4575,7 @@
               ],
               "winRateNum": 61.111111111111114,
               "winRate": "61.11",
-              "rankingScore": 39.13
+              "rankingScore": 31.59
             },
             {
               "playerId": 2215607,
@@ -4593,7 +4594,7 @@
               ],
               "winRateNum": 28.57142857142857,
               "winRate": "28.57",
-              "rankingScore": 18.57
+              "rankingScore": 15
             },
             {
               "playerId": 4610564,
@@ -4612,7 +4613,7 @@
               ],
               "winRateNum": 55.55555555555556,
               "winRate": "55.56",
-              "rankingScore": 32.06
+              "rankingScore": 25.79
             },
             {
               "playerId": 3210006,
@@ -4643,7 +4644,7 @@
               ],
               "winRateNum": 58.06451612903226,
               "winRate": "58.06",
-              "rankingScore": 52.84
+              "rankingScore": 49.18
             },
             {
               "playerId": 4611362,
@@ -4662,7 +4663,7 @@
               ],
               "winRateNum": 44.44444444444444,
               "winRate": "44.44",
-              "rankingScore": 26.51
+              "rankingScore": 21.35
             },
             {
               "playerId": 4611356,
@@ -4681,7 +4682,7 @@
               ],
               "winRateNum": 60,
               "winRate": "60.00",
-              "rankingScore": 34.29
+              "rankingScore": 27.57
             },
             {
               "playerId": 1132136,
@@ -4700,7 +4701,7 @@
               ],
               "winRateNum": 44.44444444444444,
               "winRate": "44.44",
-              "rankingScore": 26.51
+              "rankingScore": 21.35
             },
             {
               "playerId": 223504,
@@ -4723,7 +4724,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 21.07
+              "rankingScore": 17.14
             },
             {
               "playerId": 2540656,
@@ -4742,7 +4743,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20.95
+              "rankingScore": 16.9
             },
             {
               "playerId": 2316182,
@@ -4761,7 +4762,7 @@
               ],
               "winRateNum": 20,
               "winRate": "20.00",
-              "rankingScore": 14.29
+              "rankingScore": 11.57
             },
             {
               "playerId": 4586590,
@@ -4780,7 +4781,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 4.29
+              "rankingScore": 3.57
             },
             {
               "playerId": 4529585,
@@ -4799,7 +4800,7 @@
               ],
               "winRateNum": 64.28571428571429,
               "winRate": "64.29",
-              "rankingScore": 36.43
+              "rankingScore": 29.29
             },
             {
               "playerId": 4903220,
@@ -4818,7 +4819,7 @@
               ],
               "winRateNum": 55.55555555555556,
               "winRate": "55.56",
-              "rankingScore": 32.06
+              "rankingScore": 25.79
             },
             {
               "playerId": 4964577,
@@ -4837,7 +4838,7 @@
               ],
               "winRateNum": 11.11111111111111,
               "winRate": "11.11",
-              "rankingScore": 9.84
+              "rankingScore": 8.02
             },
             {
               "playerId": 3015073,
@@ -4864,7 +4865,7 @@
               ],
               "winRateNum": 20,
               "winRate": "20.00",
-              "rankingScore": 22.86
+              "rankingScore": 18.71
             },
             {
               "playerId": 4689394,
@@ -4883,7 +4884,7 @@
               ],
               "winRateNum": 55.55555555555556,
               "winRate": "55.56",
-              "rankingScore": 32.06
+              "rankingScore": 25.79
             },
             {
               "playerId": 4999318,
@@ -4902,7 +4903,7 @@
               ],
               "winRateNum": 28.57142857142857,
               "winRate": "28.57",
-              "rankingScore": 18.57
+              "rankingScore": 15
             },
             {
               "playerId": 4995813,
@@ -4921,7 +4922,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20.95
+              "rankingScore": 16.9
             },
             {
               "playerId": 1209572,
@@ -4940,7 +4941,7 @@
               ],
               "winRateNum": 64.28571428571429,
               "winRate": "64.29",
-              "rankingScore": 36.43
+              "rankingScore": 29.29
             },
             {
               "playerId": 3963057,
@@ -4959,7 +4960,7 @@
               ],
               "winRateNum": 20,
               "winRate": "20.00",
-              "rankingScore": 14.29
+              "rankingScore": 11.57
             },
             {
               "playerId": 4821914,
@@ -4978,7 +4979,7 @@
               ],
               "winRateNum": 20,
               "winRate": "20.00",
-              "rankingScore": 14.29
+              "rankingScore": 11.57
             },
             {
               "playerId": 4913225,
@@ -4997,7 +4998,7 @@
               ],
               "winRateNum": 42.857142857142854,
               "winRate": "42.86",
-              "rankingScore": 25.71
+              "rankingScore": 20.71
             },
             {
               "playerId": 4788988,
@@ -5016,7 +5017,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20.95
+              "rankingScore": 16.9
             },
             {
               "playerId": 4474404,
@@ -5035,7 +5036,7 @@
               ],
               "winRateNum": 28.57142857142857,
               "winRate": "28.57",
-              "rankingScore": 18.57
+              "rankingScore": 15
             },
             {
               "playerId": 4756511,
@@ -5054,7 +5055,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 4.29
+              "rankingScore": 3.57
             },
             {
               "playerId": 1999309,
@@ -5073,7 +5074,7 @@
               ],
               "winRateNum": 54.54545454545454,
               "winRate": "54.55",
-              "rankingScore": 31.56
+              "rankingScore": 25.39
             },
             {
               "playerId": 4906375,
@@ -5092,7 +5093,7 @@
               ],
               "winRateNum": 58.333333333333336,
               "winRate": "58.33",
-              "rankingScore": 33.45
+              "rankingScore": 26.9
             }
           ],
           "tournaments": [
@@ -5219,7 +5220,7 @@
               ],
               "winRateNum": 66.66666666666666,
               "winRate": "66.67",
-              "rankingScore": 58.33
+              "rankingScore": 56.67
             },
             {
               "playerId": 3973904,
@@ -5266,7 +5267,7 @@
               ],
               "winRateNum": 55.90551181102362,
               "winRate": "55.91",
-              "rankingScore": 57.95
+              "rankingScore": 47.36
             },
             {
               "playerId": 4684820,
@@ -5280,7 +5281,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 4526085,
@@ -5303,7 +5304,7 @@
               ],
               "winRateNum": 31.57894736842105,
               "winRate": "31.58",
-              "rankingScore": 23.29
+              "rankingScore": 18.88
             },
             {
               "playerId": 4186966,
@@ -5326,7 +5327,7 @@
               ],
               "winRateNum": 29.411764705882355,
               "winRate": "29.41",
-              "rankingScore": 22.21
+              "rankingScore": 18.01
             },
             {
               "playerId": 4748235,
@@ -5340,7 +5341,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 4300853,
@@ -5383,7 +5384,7 @@
               ],
               "winRateNum": 50.588235294117645,
               "winRate": "50.59",
-              "rankingScore": 51.54
+              "rankingScore": 42.11
             },
             {
               "playerId": 3732487,
@@ -5410,7 +5411,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 23.75
+              "rankingScore": 19.38
             },
             {
               "playerId": 4536031,
@@ -5429,7 +5430,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 28.75
+              "rankingScore": 23.13
             },
             {
               "playerId": 1264210,
@@ -5448,7 +5449,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20.42
+              "rankingScore": 16.46
             },
             {
               "playerId": 4804465,
@@ -5467,7 +5468,7 @@
               ],
               "winRateNum": 55.55555555555556,
               "winRate": "55.56",
-              "rankingScore": 31.53
+              "rankingScore": 25.35
             },
             {
               "playerId": 4804446,
@@ -5498,7 +5499,7 @@
               ],
               "winRateNum": 55.319148936170215,
               "winRate": "55.32",
-              "rankingScore": 42.66
+              "rankingScore": 34.63
             },
             {
               "playerId": 2011577,
@@ -5517,7 +5518,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 4804460,
@@ -5536,7 +5537,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 1933648,
@@ -5575,7 +5576,7 @@
               ],
               "winRateNum": 75.92592592592592,
               "winRate": "75.93",
-              "rankingScore": 80.46
+              "rankingScore": 84.12
             },
             {
               "playerId": 4486248,
@@ -5594,7 +5595,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 2537028,
@@ -5613,7 +5614,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 16.25
+              "rankingScore": 13.13
             },
             {
               "playerId": 3964582,
@@ -5648,7 +5649,7 @@
               ],
               "winRateNum": 66.01941747572816,
               "winRate": "66.02",
-              "rankingScore": 56.76
+              "rankingScore": 50.78
             },
             {
               "playerId": 4856324,
@@ -5667,7 +5668,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 4856153,
@@ -5698,7 +5699,7 @@
               ],
               "winRateNum": 61.36363636363637,
               "winRate": "61.36",
-              "rankingScore": 45.68
+              "rankingScore": 37.05
             },
             {
               "playerId": 989285,
@@ -5721,7 +5722,7 @@
               ],
               "winRateNum": 45.83333333333333,
               "winRate": "45.83",
-              "rankingScore": 30.42
+              "rankingScore": 24.58
             },
             {
               "playerId": 4852761,
@@ -5740,7 +5741,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 4496944,
@@ -5775,7 +5776,7 @@
               ],
               "winRateNum": 45.588235294117645,
               "winRate": "45.59",
-              "rankingScore": 41.54
+              "rankingScore": 33.86
             },
             {
               "playerId": 4836099,
@@ -5798,7 +5799,7 @@
               ],
               "winRateNum": 7.6923076923076925,
               "winRate": "7.69",
-              "rankingScore": 11.35
+              "rankingScore": 9.33
             },
             {
               "playerId": 2909717,
@@ -5817,7 +5818,7 @@
               ],
               "winRateNum": 40,
               "winRate": "40.00",
-              "rankingScore": 23.75
+              "rankingScore": 19.13
             },
             {
               "playerId": 634464,
@@ -5836,7 +5837,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20.42
+              "rankingScore": 16.46
             },
             {
               "playerId": 3503218,
@@ -5855,7 +5856,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 2006830,
@@ -5886,7 +5887,7 @@
               ],
               "winRateNum": 45.83333333333333,
               "winRate": "45.83",
-              "rankingScore": 37.92
+              "rankingScore": 30.83
             },
             {
               "playerId": 4715723,
@@ -5909,7 +5910,7 @@
               ],
               "winRateNum": 7.6923076923076925,
               "winRate": "7.69",
-              "rankingScore": 11.35
+              "rankingScore": 9.33
             },
             {
               "playerId": 4826254,
@@ -5928,7 +5929,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 28.75
+              "rankingScore": 23.13
             },
             {
               "playerId": 1385306,
@@ -5955,7 +5956,7 @@
               ],
               "winRateNum": 32.35294117647059,
               "winRate": "32.35",
-              "rankingScore": 27.43
+              "rankingScore": 22.32
             },
             {
               "playerId": 5006779,
@@ -5974,7 +5975,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 3015073,
@@ -5997,7 +5998,7 @@
               ],
               "winRateNum": 20,
               "winRate": "20.00",
-              "rankingScore": 17.5
+              "rankingScore": 14.25
             },
             {
               "playerId": 4929613,
@@ -6016,7 +6017,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20.42
+              "rankingScore": 16.46
             },
             {
               "playerId": 5003065,
@@ -6039,7 +6040,7 @@
               ],
               "winRateNum": 45.83333333333333,
               "winRate": "45.83",
-              "rankingScore": 30.42
+              "rankingScore": 24.58
             },
             {
               "playerId": 5000742,
@@ -6066,7 +6067,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 27.92
+              "rankingScore": 22.71
             },
             {
               "playerId": 5079127,
@@ -6089,7 +6090,7 @@
               ],
               "winRateNum": 47.368421052631575,
               "winRate": "47.37",
-              "rankingScore": 31.18
+              "rankingScore": 25.2
             },
             {
               "playerId": 5103892,
@@ -6112,7 +6113,7 @@
               ],
               "winRateNum": 7.6923076923076925,
               "winRate": "7.69",
-              "rankingScore": 11.35
+              "rankingScore": 9.33
             },
             {
               "playerId": 5098387,
@@ -6135,7 +6136,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 20
+              "rankingScore": 16.25
             },
             {
               "playerId": 4988881,
@@ -6154,7 +6155,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 28.75
+              "rankingScore": 23.13
             },
             {
               "playerId": 5105618,
@@ -6173,7 +6174,7 @@
               ],
               "winRateNum": 27.27272727272727,
               "winRate": "27.27",
-              "rankingScore": 17.39
+              "rankingScore": 14.03
             },
             {
               "playerId": 5105616,
@@ -6192,7 +6193,7 @@
               ],
               "winRateNum": 52.94117647058824,
               "winRate": "52.94",
-              "rankingScore": 30.22
+              "rankingScore": 24.3
             },
             {
               "playerId": 3487290,
@@ -6211,7 +6212,7 @@
               ],
               "winRateNum": 44.44444444444444,
               "winRate": "44.44",
-              "rankingScore": 25.97
+              "rankingScore": 20.9
             },
             {
               "playerId": 5139286,
@@ -6230,7 +6231,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             }
           ],
           "tournaments": [
@@ -6726,7 +6727,7 @@
           ],
           "winRateNum": 55.14705882352941,
           "winRate": "55.15",
-          "rankingScore": 77.57
+          "rankingScore": 82.06
         },
         {
           "playerId": 4856153,
@@ -6797,7 +6798,7 @@
           ],
           "winRateNum": 54.054054054054056,
           "winRate": "54.05",
-          "rankingScore": 77.03
+          "rankingScore": 81.62
         },
         {
           "playerId": 5103892,
@@ -6856,7 +6857,7 @@
           ],
           "winRateNum": 18.055555555555554,
           "winRate": "18.06",
-          "rankingScore": 39.03
+          "rankingScore": 32.22
         },
         {
           "playerId": 3762539,
@@ -6907,7 +6908,7 @@
           ],
           "winRateNum": 56.73758865248227,
           "winRate": "56.74",
-          "rankingScore": 61.7
+          "rankingScore": 56.58
         },
         {
           "playerId": 1800901,
@@ -6950,7 +6951,7 @@
           ],
           "winRateNum": 69.44444444444444,
           "winRate": "69.44",
-          "rankingScore": 78.06
+          "rankingScore": 82.22
         },
         {
           "playerId": 5000742,
@@ -7001,7 +7002,7 @@
           ],
           "winRateNum": 44.62809917355372,
           "winRate": "44.63",
-          "rankingScore": 45.65
+          "rankingScore": 37.3
         },
         {
           "playerId": 4526085,
@@ -7040,7 +7041,7 @@
           ],
           "winRateNum": 58.333333333333336,
           "winRate": "58.33",
-          "rankingScore": 65.83
+          "rankingScore": 66.11
         },
         {
           "playerId": 4715723,
@@ -7091,7 +7092,7 @@
           ],
           "winRateNum": 40.67796610169492,
           "winRate": "40.68",
-          "rankingScore": 40.34
+          "rankingScore": 32.94
         },
         {
           "playerId": 5079127,
@@ -7138,7 +7139,7 @@
           ],
           "winRateNum": 32.22222222222222,
           "winRate": "32.22",
-          "rankingScore": 36.11
+          "rankingScore": 29.56
         },
         {
           "playerId": 4496944,
@@ -7177,7 +7178,7 @@
           ],
           "winRateNum": 23.404255319148938,
           "winRate": "23.40",
-          "rankingScore": 31.7
+          "rankingScore": 26.03
         },
         {
           "playerId": 5098387,
@@ -7216,7 +7217,7 @@
           ],
           "winRateNum": 44.776119402985074,
           "winRate": "44.78",
-          "rankingScore": 42.39
+          "rankingScore": 34.58
         },
         {
           "playerId": 4804446,
@@ -7263,7 +7264,7 @@
           ],
           "winRateNum": 48.03921568627451,
           "winRate": "48.04",
-          "rankingScore": 40.69
+          "rankingScore": 33.1
         },
         {
           "playerId": 4300853,
@@ -7298,7 +7299,7 @@
           ],
           "winRateNum": 44.06779661016949,
           "winRate": "44.07",
-          "rankingScore": 38.7
+          "rankingScore": 31.52
         },
         {
           "playerId": 1287124,
@@ -7341,7 +7342,7 @@
           ],
           "winRateNum": 55.68181818181818,
           "winRate": "55.68",
-          "rankingScore": 51.17
+          "rankingScore": 47.83
         },
         {
           "playerId": 4584346,
@@ -7380,7 +7381,7 @@
           ],
           "winRateNum": 55.55555555555556,
           "winRate": "55.56",
-          "rankingScore": 44.44
+          "rankingScore": 36.11
         },
         {
           "playerId": 1933648,
@@ -7431,7 +7432,7 @@
           ],
           "winRateNum": 52.27272727272727,
           "winRate": "52.27",
-          "rankingScore": 49.47
+          "rankingScore": 46.46
         },
         {
           "playerId": 4836099,
@@ -7462,7 +7463,7 @@
           ],
           "winRateNum": 53.125,
           "winRate": "53.13",
-          "rankingScore": 39.9
+          "rankingScore": 32.36
         },
         {
           "playerId": 3015073,
@@ -7493,7 +7494,7 @@
           ],
           "winRateNum": 45.45454545454545,
           "winRate": "45.45",
-          "rankingScore": 36.06
+          "rankingScore": 29.29
         },
         {
           "playerId": 3964582,
@@ -7528,7 +7529,7 @@
           ],
           "winRateNum": 59.04761904761905,
           "winRate": "59.05",
-          "rankingScore": 49.52
+          "rankingScore": 46.4
         },
         {
           "playerId": 5212870,
@@ -7555,7 +7556,7 @@
           ],
           "winRateNum": 47.72727272727273,
           "winRate": "47.73",
-          "rankingScore": 37.2
+          "rankingScore": 30.2
         },
         {
           "playerId": 1385306,
@@ -7582,7 +7583,7 @@
           ],
           "winRateNum": 90,
           "winRate": "90.00",
-          "rankingScore": 68.33
+          "rankingScore": 67.67
         },
         {
           "playerId": 5249352,
@@ -7609,7 +7610,7 @@
           ],
           "winRateNum": 37.5,
           "winRate": "37.50",
-          "rankingScore": 28.75
+          "rankingScore": 23.33
         },
         {
           "playerId": 5209566,
@@ -7632,7 +7633,7 @@
           ],
           "winRateNum": 14.285714285714285,
           "winRate": "14.29",
-          "rankingScore": 17.14
+          "rankingScore": 14.05
         },
         {
           "playerId": 4855177,
@@ -7659,7 +7660,7 @@
           ],
           "winRateNum": 29.629629629629626,
           "winRate": "29.63",
-          "rankingScore": 24.81
+          "rankingScore": 20.19
         },
         {
           "playerId": 4855200,
@@ -7686,7 +7687,7 @@
           ],
           "winRateNum": 54.90196078431373,
           "winRate": "54.90",
-          "rankingScore": 37.45
+          "rankingScore": 30.29
         },
         {
           "playerId": 356029,
@@ -7713,7 +7714,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 10
+          "rankingScore": 8.33
         },
         {
           "playerId": 5243727,
@@ -7736,7 +7737,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 20
+          "rankingScore": 16.33
         },
         {
           "playerId": 4772981,
@@ -7763,7 +7764,7 @@
           ],
           "winRateNum": 46.15384615384615,
           "winRate": "46.15",
-          "rankingScore": 33.08
+          "rankingScore": 26.79
         },
         {
           "playerId": 4186966,
@@ -7786,7 +7787,7 @@
           ],
           "winRateNum": 41.17647058823529,
           "winRate": "41.18",
-          "rankingScore": 27.25
+          "rankingScore": 22.03
         },
         {
           "playerId": 623330,
@@ -7817,7 +7818,7 @@
           ],
           "winRateNum": 27.659574468085108,
           "winRate": "27.66",
-          "rankingScore": 20.5
+          "rankingScore": 16.62
         },
         {
           "playerId": 4999782,
@@ -7840,7 +7841,7 @@
           ],
           "winRateNum": 41.66666666666667,
           "winRate": "41.67",
-          "rankingScore": 27.5
+          "rankingScore": 22.22
         },
         {
           "playerId": 3305718,
@@ -7863,7 +7864,7 @@
           ],
           "winRateNum": 58.82352941176471,
           "winRate": "58.82",
-          "rankingScore": 36.08
+          "rankingScore": 29.08
         },
         {
           "playerId": 4781320,
@@ -7886,7 +7887,7 @@
           ],
           "winRateNum": 63.41463414634146,
           "winRate": "63.41",
-          "rankingScore": 38.37
+          "rankingScore": 30.92
         },
         {
           "playerId": 3724443,
@@ -7909,7 +7910,7 @@
           ],
           "winRateNum": 71.42857142857143,
           "winRate": "71.43",
-          "rankingScore": 55.71
+          "rankingScore": 57.46
         },
         {
           "playerId": 5376130,
@@ -7932,7 +7933,7 @@
           ],
           "winRateNum": 30.434782608695656,
           "winRate": "30.43",
-          "rankingScore": 21.88
+          "rankingScore": 17.73
         },
         {
           "playerId": 5021105,
@@ -7955,7 +7956,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 6.67
+          "rankingScore": 5.56
         },
         {
           "playerId": 5478402,
@@ -7982,7 +7983,7 @@
           ],
           "winRateNum": 73.07692307692307,
           "winRate": "73.08",
-          "rankingScore": 49.87
+          "rankingScore": 46.45
         },
         {
           "playerId": 1253081,
@@ -8005,7 +8006,7 @@
           ],
           "winRateNum": 56.25,
           "winRate": "56.25",
-          "rankingScore": 34.79
+          "rankingScore": 28.06
         },
         {
           "playerId": 5332872,
@@ -8024,7 +8025,7 @@
           ],
           "winRateNum": 25,
           "winRate": "25.00",
-          "rankingScore": 19.17
+          "rankingScore": 15.56
         },
         {
           "playerId": 5634445,
@@ -8043,7 +8044,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 6.67
+          "rankingScore": 5.56
         },
         {
           "playerId": 3270168,
@@ -8066,7 +8067,7 @@
           ],
           "winRateNum": 50,
           "winRate": "50.00",
-          "rankingScore": 28.33
+          "rankingScore": 22.78
         },
         {
           "playerId": 5165464,
@@ -8089,7 +8090,7 @@
           ],
           "winRateNum": 20,
           "winRate": "20.00",
-          "rankingScore": 13.33
+          "rankingScore": 10.78
         },
         {
           "playerId": 4510033,
@@ -8108,7 +8109,7 @@
           ],
           "winRateNum": 58.82352941176471,
           "winRate": "58.82",
-          "rankingScore": 32.75
+          "rankingScore": 26.31
         },
         {
           "playerId": 4718332,
@@ -8127,7 +8128,7 @@
           ],
           "winRateNum": 25,
           "winRate": "25.00",
-          "rankingScore": 15.83
+          "rankingScore": 12.78
         },
         {
           "playerId": 5181636,
@@ -8146,7 +8147,7 @@
           ],
           "winRateNum": 40,
           "winRate": "40.00",
-          "rankingScore": 23.33
+          "rankingScore": 18.78
         },
         {
           "playerId": 634464,
@@ -8169,7 +8170,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5307655,
@@ -8188,7 +8189,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 4447783,
@@ -8207,7 +8208,7 @@
           ],
           "winRateNum": 100,
           "winRate": "100.00",
-          "rankingScore": 60
+          "rankingScore": 54.44
         },
         {
           "playerId": 1830108,
@@ -8226,7 +8227,7 @@
           ],
           "winRateNum": 100,
           "winRate": "100.00",
-          "rankingScore": 60
+          "rankingScore": 54.44
         },
         {
           "playerId": 5378355,
@@ -8245,7 +8246,7 @@
           ],
           "winRateNum": 14.285714285714285,
           "winRate": "14.29",
-          "rankingScore": 10.48
+          "rankingScore": 8.49
         },
         {
           "playerId": 4586876,
@@ -8272,7 +8273,7 @@
           ],
           "winRateNum": 8.333333333333332,
           "winRate": "8.33",
-          "rankingScore": 7.5
+          "rankingScore": 6.11
         },
         {
           "playerId": 5482915,
@@ -8291,7 +8292,7 @@
           ],
           "winRateNum": 61.904761904761905,
           "winRate": "61.90",
-          "rankingScore": 34.29
+          "rankingScore": 27.54
         },
         {
           "playerId": 5425811,
@@ -8310,7 +8311,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 3798661,
@@ -8329,7 +8330,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5172020,
@@ -8352,7 +8353,7 @@
           ],
           "winRateNum": 42.857142857142854,
           "winRate": "42.86",
-          "rankingScore": 24.76
+          "rankingScore": 19.92
         },
         {
           "playerId": 1693244,
@@ -8375,7 +8376,7 @@
           ],
           "winRateNum": 16.666666666666664,
           "winRate": "16.67",
-          "rankingScore": 11.67
+          "rankingScore": 9.44
         },
         {
           "playerId": 5468710,
@@ -8394,7 +8395,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 4278695,
@@ -8413,7 +8414,7 @@
           ],
           "winRateNum": 66.66666666666666,
           "winRate": "66.67",
-          "rankingScore": 43.33
+          "rankingScore": 41.11
         },
         {
           "playerId": 5521873,
@@ -8432,7 +8433,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 3536882,
@@ -8446,7 +8447,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 603628,
@@ -8460,7 +8461,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 1235690,
@@ -8479,7 +8480,7 @@
           ],
           "winRateNum": 53.84615384615385,
           "winRate": "53.85",
-          "rankingScore": 30.26
+          "rankingScore": 24.32
         },
         {
           "playerId": 2094179,
@@ -8498,7 +8499,7 @@
           ],
           "winRateNum": 63.63636363636363,
           "winRate": "63.64",
-          "rankingScore": 41.82
+          "rankingScore": 39.9
         },
         {
           "playerId": 4094120,
@@ -8512,7 +8513,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5448761,
@@ -8531,7 +8532,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5628373,
@@ -8550,7 +8551,7 @@
           ],
           "winRateNum": 66.66666666666666,
           "winRate": "66.67",
-          "rankingScore": 43.33
+          "rankingScore": 41.11
         },
         {
           "playerId": 5624526,
@@ -8569,7 +8570,7 @@
           ],
           "winRateNum": 37.5,
           "winRate": "37.50",
-          "rankingScore": 22.08
+          "rankingScore": 17.78
         },
         {
           "playerId": 3123080,
@@ -8592,7 +8593,7 @@
           ],
           "winRateNum": 58.333333333333336,
           "winRate": "58.33",
-          "rankingScore": 32.5
+          "rankingScore": 26.11
         },
         {
           "playerId": 5629735,
@@ -8611,7 +8612,7 @@
           ],
           "winRateNum": 63.1578947368421,
           "winRate": "63.16",
-          "rankingScore": 34.91
+          "rankingScore": 28.04
         },
         {
           "playerId": 5692695,
@@ -8625,7 +8626,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 2348850,
@@ -8639,7 +8640,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5635956,
@@ -8653,7 +8654,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5459394,
@@ -8667,7 +8668,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         },
         {
           "playerId": 5692282,
@@ -8681,7 +8682,7 @@
           "placements": [],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rankingScore": 3.33
+          "rankingScore": 2.78
         }
       ],
       "games": [
@@ -8706,7 +8707,7 @@
               ],
               "winRateNum": 19.047619047619047,
               "winRate": "19.05",
-              "rankingScore": 17.02
+              "rankingScore": 13.87
             },
             {
               "playerId": 4836099,
@@ -8737,7 +8738,7 @@
               ],
               "winRateNum": 53.125,
               "winRate": "53.13",
-              "rankingScore": 41.56
+              "rankingScore": 33.75
             },
             {
               "playerId": 3973904,
@@ -8776,7 +8777,7 @@
               ],
               "winRateNum": 44.18604651162791,
               "winRate": "44.19",
-              "rankingScore": 44.59
+              "rankingScore": 36.42
             },
             {
               "playerId": 623330,
@@ -8799,7 +8800,7 @@
               ],
               "winRateNum": 22.22222222222222,
               "winRate": "22.22",
-              "rankingScore": 18.61
+              "rankingScore": 15.14
             },
             {
               "playerId": 4856153,
@@ -8826,7 +8827,7 @@
               ],
               "winRateNum": 12.121212121212121,
               "winRate": "12.12",
-              "rankingScore": 17.31
+              "rankingScore": 14.22
             },
             {
               "playerId": 3762539,
@@ -8869,7 +8870,7 @@
               ],
               "winRateNum": 54.400000000000006,
               "winRate": "54.40",
-              "rankingScore": 57.2
+              "rankingScore": 46.76
             },
             {
               "playerId": 1800901,
@@ -8908,7 +8909,7 @@
               ],
               "winRateNum": 72.46376811594203,
               "winRate": "72.46",
-              "rankingScore": 82.48
+              "rankingScore": 85.86
             },
             {
               "playerId": 4718332,
@@ -8927,7 +8928,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 16.25
+              "rankingScore": 13.13
             },
             {
               "playerId": 1287124,
@@ -8950,7 +8951,7 @@
               ],
               "winRateNum": 45.83333333333333,
               "winRate": "45.83",
-              "rankingScore": 30.42
+              "rankingScore": 24.58
             },
             {
               "playerId": 4584346,
@@ -8985,7 +8986,7 @@
               ],
               "winRateNum": 55.660377358490564,
               "winRate": "55.66",
-              "rankingScore": 46.58
+              "rankingScore": 37.89
             },
             {
               "playerId": 5181636,
@@ -9004,7 +9005,7 @@
               ],
               "winRateNum": 40,
               "winRate": "40.00",
-              "rankingScore": 23.75
+              "rankingScore": 19.13
             },
             {
               "playerId": 4999782,
@@ -9027,7 +9028,7 @@
               ],
               "winRateNum": 41.66666666666667,
               "winRate": "41.67",
-              "rankingScore": 28.33
+              "rankingScore": 22.92
             },
             {
               "playerId": 5209566,
@@ -9050,7 +9051,7 @@
               ],
               "winRateNum": 14.285714285714285,
               "winRate": "14.29",
-              "rankingScore": 18.39
+              "rankingScore": 15.09
             },
             {
               "playerId": 4855177,
@@ -9077,7 +9078,7 @@
               ],
               "winRateNum": 29.629629629629626,
               "winRate": "29.63",
-              "rankingScore": 26.06
+              "rankingScore": 21.23
             },
             {
               "playerId": 3724443,
@@ -9100,7 +9101,7 @@
               ],
               "winRateNum": 71.42857142857143,
               "winRate": "71.43",
-              "rankingScore": 56.55
+              "rankingScore": 58.15
             },
             {
               "playerId": 4855200,
@@ -9127,7 +9128,7 @@
               ],
               "winRateNum": 54.90196078431373,
               "winRate": "54.90",
-              "rankingScore": 38.7
+              "rankingScore": 31.34
             },
             {
               "playerId": 4526085,
@@ -9166,7 +9167,7 @@
               ],
               "winRateNum": 58.333333333333336,
               "winRate": "58.33",
-              "rankingScore": 68.75
+              "rankingScore": 68.54
             },
             {
               "playerId": 356029,
@@ -9193,7 +9194,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 11.25
+              "rankingScore": 9.38
             },
             {
               "playerId": 5243727,
@@ -9216,7 +9217,7 @@
               ],
               "winRateNum": 20,
               "winRate": "20.00",
-              "rankingScore": 21.25
+              "rankingScore": 17.38
             },
             {
               "playerId": 5376130,
@@ -9239,7 +9240,7 @@
               ],
               "winRateNum": 30.434782608695656,
               "winRate": "30.43",
-              "rankingScore": 22.72
+              "rankingScore": 18.42
             },
             {
               "playerId": 4586876,
@@ -9258,7 +9259,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 5482915,
@@ -9277,7 +9278,7 @@
               ],
               "winRateNum": 61.904761904761905,
               "winRate": "61.90",
-              "rankingScore": 34.7
+              "rankingScore": 27.89
             },
             {
               "playerId": 5425811,
@@ -9296,7 +9297,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 3798661,
@@ -9315,7 +9316,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 5172020,
@@ -9334,7 +9335,7 @@
               ],
               "winRateNum": 45.45454545454545,
               "winRate": "45.45",
-              "rankingScore": 26.48
+              "rankingScore": 21.31
             },
             {
               "playerId": 1253081,
@@ -9357,7 +9358,7 @@
               ],
               "winRateNum": 56.25,
               "winRate": "56.25",
-              "rankingScore": 35.63
+              "rankingScore": 28.75
             },
             {
               "playerId": 4772981,
@@ -9384,7 +9385,7 @@
               ],
               "winRateNum": 46.15384615384615,
               "winRate": "46.15",
-              "rankingScore": 34.33
+              "rankingScore": 27.84
             },
             {
               "playerId": 1933648,
@@ -9403,7 +9404,7 @@
               ],
               "winRateNum": 30,
               "winRate": "30.00",
-              "rankingScore": 18.75
+              "rankingScore": 15.13
             },
             {
               "playerId": 5521873,
@@ -9422,7 +9423,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 1235690,
@@ -9441,7 +9442,7 @@
               ],
               "winRateNum": 53.84615384615385,
               "winRate": "53.85",
-              "rankingScore": 30.67
+              "rankingScore": 24.66
             },
             {
               "playerId": 2094179,
@@ -9460,7 +9461,7 @@
               ],
               "winRateNum": 63.63636363636363,
               "winRate": "63.64",
-              "rankingScore": 42.23
+              "rankingScore": 40.25
             },
             {
               "playerId": 5332872,
@@ -9479,7 +9480,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 20
+              "rankingScore": 16.25
             },
             {
               "playerId": 5692695,
@@ -9493,7 +9494,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             },
             {
               "playerId": 2348850,
@@ -9507,7 +9508,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.75
+              "rankingScore": 3.13
             }
           ],
           "tournaments": [
@@ -9606,7 +9607,7 @@
               ],
               "winRateNum": 64.28571428571429,
               "winRate": "64.29",
-              "rankingScore": 39.64
+              "rankingScore": 31.96
             },
             {
               "playerId": 5165464,
@@ -9625,7 +9626,7 @@
               ],
               "winRateNum": 16.666666666666664,
               "winRate": "16.67",
-              "rankingScore": 15.83
+              "rankingScore": 12.92
             },
             {
               "playerId": 4804446,
@@ -9652,7 +9653,7 @@
               ],
               "winRateNum": 48.484848484848484,
               "winRate": "48.48",
-              "rankingScore": 46.74
+              "rankingScore": 38.14
             },
             {
               "playerId": 623330,
@@ -9671,7 +9672,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 32.5
+              "rankingScore": 26.25
             },
             {
               "playerId": 3015073,
@@ -9698,7 +9699,7 @@
               ],
               "winRateNum": 48.275862068965516,
               "winRate": "48.28",
-              "rankingScore": 46.64
+              "rankingScore": 38.06
             },
             {
               "playerId": 4186966,
@@ -9717,7 +9718,7 @@
               ],
               "winRateNum": 76.92307692307693,
               "winRate": "76.92",
-              "rankingScore": 45.96
+              "rankingScore": 37.02
             },
             {
               "playerId": 1385306,
@@ -9744,7 +9745,7 @@
               ],
               "winRateNum": 90,
               "winRate": "90.00",
-              "rankingScore": 87.5
+              "rankingScore": 89.75
             },
             {
               "playerId": 1933648,
@@ -9763,7 +9764,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 32.5
+              "rankingScore": 26.25
             },
             {
               "playerId": 3973904,
@@ -9786,7 +9787,7 @@
               ],
               "winRateNum": 53.333333333333336,
               "winRate": "53.33",
-              "rankingScore": 41.67
+              "rankingScore": 33.83
             },
             {
               "playerId": 4856153,
@@ -9805,7 +9806,7 @@
               ],
               "winRateNum": 44.44444444444444,
               "winRate": "44.44",
-              "rankingScore": 29.72
+              "rankingScore": 24.03
             },
             {
               "playerId": 4715723,
@@ -9828,7 +9829,7 @@
               ],
               "winRateNum": 15.789473684210526,
               "winRate": "15.79",
-              "rankingScore": 22.89
+              "rankingScore": 18.82
             },
             {
               "playerId": 5079127,
@@ -9851,7 +9852,7 @@
               ],
               "winRateNum": 14.285714285714285,
               "winRate": "14.29",
-              "rankingScore": 22.14
+              "rankingScore": 18.21
             },
             {
               "playerId": 5000742,
@@ -9878,7 +9879,7 @@
               ],
               "winRateNum": 40,
               "winRate": "40.00",
-              "rankingScore": 50
+              "rankingScore": 41
             },
             {
               "playerId": 4300853,
@@ -9897,7 +9898,7 @@
               ],
               "winRateNum": 30,
               "winRate": "30.00",
-              "rankingScore": 22.5
+              "rankingScore": 18.25
             },
             {
               "playerId": 634464,
@@ -9916,7 +9917,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 5307655,
@@ -9935,7 +9936,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 1800901,
@@ -9954,7 +9955,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 4447783,
@@ -9973,7 +9974,7 @@
               ],
               "winRateNum": 100,
               "winRate": "100.00",
-              "rankingScore": 67.5
+              "rankingScore": 63.75
             },
             {
               "playerId": 1830108,
@@ -9992,7 +9993,7 @@
               ],
               "winRateNum": 100,
               "winRate": "100.00",
-              "rankingScore": 67.5
+              "rankingScore": 63.75
             },
             {
               "playerId": 3964582,
@@ -10011,7 +10012,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 24.17
+              "rankingScore": 19.58
             },
             {
               "playerId": 5021105,
@@ -10034,7 +10035,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 15
+              "rankingScore": 12.5
             },
             {
               "playerId": 4586876,
@@ -10053,7 +10054,7 @@
               ],
               "winRateNum": 16.666666666666664,
               "winRate": "16.67",
-              "rankingScore": 15.83
+              "rankingScore": 12.92
             },
             {
               "playerId": 1693244,
@@ -10072,7 +10073,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 20
+              "rankingScore": 16.25
             },
             {
               "playerId": 5478402,
@@ -10095,7 +10096,7 @@
               ],
               "winRateNum": 72.22222222222221,
               "winRate": "72.22",
-              "rankingScore": 51.11
+              "rankingScore": 41.39
             },
             {
               "playerId": 5468710,
@@ -10114,7 +10115,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 5172020,
@@ -10133,7 +10134,7 @@
               ],
               "winRateNum": 40,
               "winRate": "40.00",
-              "rankingScore": 27.5
+              "rankingScore": 22.25
             },
             {
               "playerId": 3536882,
@@ -10147,7 +10148,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 603628,
@@ -10161,7 +10162,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 5521873,
@@ -10175,7 +10176,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 4094120,
@@ -10189,7 +10190,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             },
             {
               "playerId": 5628373,
@@ -10208,7 +10209,7 @@
               ],
               "winRateNum": 66.66666666666666,
               "winRate": "66.67",
-              "rankingScore": 50.83
+              "rankingScore": 50.42
             },
             {
               "playerId": 5624526,
@@ -10227,7 +10228,7 @@
               ],
               "winRateNum": 37.5,
               "winRate": "37.50",
-              "rankingScore": 26.25
+              "rankingScore": 21.25
             },
             {
               "playerId": 3123080,
@@ -10246,7 +10247,7 @@
               ],
               "winRateNum": 57.14285714285714,
               "winRate": "57.14",
-              "rankingScore": 36.07
+              "rankingScore": 29.11
             },
             {
               "playerId": 5635956,
@@ -10260,7 +10261,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 7.5
+              "rankingScore": 6.25
             }
           ],
           "tournaments": [
@@ -10387,7 +10388,7 @@
               ],
               "winRateNum": 61.58940397350994,
               "winRate": "61.59",
-              "rankingScore": 80.79
+              "rankingScore": 84.64
             },
             {
               "playerId": 4856153,
@@ -10434,7 +10435,7 @@
               ],
               "winRateNum": 61.71428571428571,
               "winRate": "61.71",
-              "rankingScore": 74.19
+              "rankingScore": 73.02
             },
             {
               "playerId": 4715723,
@@ -10473,7 +10474,7 @@
               ],
               "winRateNum": 49.43820224719101,
               "winRate": "49.44",
-              "rankingScore": 44.72
+              "rankingScore": 36.44
             },
             {
               "playerId": 4300853,
@@ -10504,7 +10505,7 @@
               ],
               "winRateNum": 46.93877551020408,
               "winRate": "46.94",
-              "rankingScore": 40.14
+              "rankingScore": 32.66
             },
             {
               "playerId": 4804446,
@@ -10539,7 +10540,7 @@
               ],
               "winRateNum": 47.82608695652174,
               "winRate": "47.83",
-              "rankingScore": 40.58
+              "rankingScore": 33.02
             },
             {
               "playerId": 5079127,
@@ -10578,7 +10579,7 @@
               ],
               "winRateNum": 37.68115942028986,
               "winRate": "37.68",
-              "rankingScore": 38.84
+              "rankingScore": 31.74
             },
             {
               "playerId": 4496944,
@@ -10617,7 +10618,7 @@
               ],
               "winRateNum": 23.404255319148938,
               "winRate": "23.40",
-              "rankingScore": 31.7
+              "rankingScore": 26.03
             },
             {
               "playerId": 4510033,
@@ -10636,7 +10637,7 @@
               ],
               "winRateNum": 58.82352941176471,
               "winRate": "58.82",
-              "rankingScore": 32.75
+              "rankingScore": 26.31
             },
             {
               "playerId": 5098387,
@@ -10675,7 +10676,7 @@
               ],
               "winRateNum": 44.776119402985074,
               "winRate": "44.78",
-              "rankingScore": 42.39
+              "rankingScore": 34.58
             },
             {
               "playerId": 5000742,
@@ -10714,7 +10715,7 @@
               ],
               "winRateNum": 46.15384615384615,
               "winRate": "46.15",
-              "rankingScore": 46.41
+              "rankingScore": 37.91
             },
             {
               "playerId": 5165464,
@@ -10733,7 +10734,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 15.83
+              "rankingScore": 12.78
             },
             {
               "playerId": 3270168,
@@ -10752,7 +10753,7 @@
               ],
               "winRateNum": 33.33333333333333,
               "winRate": "33.33",
-              "rankingScore": 20
+              "rankingScore": 16.11
             },
             {
               "playerId": 5103892,
@@ -10799,7 +10800,7 @@
               ],
               "winRateNum": 20.967741935483872,
               "winRate": "20.97",
-              "rankingScore": 40.48
+              "rankingScore": 33.39
             },
             {
               "playerId": 1933648,
@@ -10834,7 +10835,7 @@
               ],
               "winRateNum": 56.470588235294116,
               "winRate": "56.47",
-              "rankingScore": 51.57
+              "rankingScore": 48.14
             },
             {
               "playerId": 3305718,
@@ -10857,7 +10858,7 @@
               ],
               "winRateNum": 58.82352941176471,
               "winRate": "58.82",
-              "rankingScore": 36.08
+              "rankingScore": 29.08
             },
             {
               "playerId": 3964582,
@@ -10888,7 +10889,7 @@
               ],
               "winRateNum": 64.36781609195403,
               "winRate": "64.37",
-              "rankingScore": 52.18
+              "rankingScore": 48.52
             },
             {
               "playerId": 4781320,
@@ -10911,7 +10912,7 @@
               ],
               "winRateNum": 63.41463414634146,
               "winRate": "63.41",
-              "rankingScore": 38.37
+              "rankingScore": 30.92
             },
             {
               "playerId": 1287124,
@@ -10942,7 +10943,7 @@
               ],
               "winRateNum": 55.172413793103445,
               "winRate": "55.17",
-              "rankingScore": 40.92
+              "rankingScore": 33.18
             },
             {
               "playerId": 5249352,
@@ -10969,7 +10970,7 @@
               ],
               "winRateNum": 37.5,
               "winRate": "37.50",
-              "rankingScore": 28.75
+              "rankingScore": 23.33
             },
             {
               "playerId": 634464,
@@ -10988,7 +10989,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 623330,
@@ -11007,7 +11008,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 5212870,
@@ -11034,7 +11035,7 @@
               ],
               "winRateNum": 47.72727272727273,
               "winRate": "47.73",
-              "rankingScore": 37.2
+              "rankingScore": 30.2
             },
             {
               "playerId": 5378355,
@@ -11053,7 +11054,7 @@
               ],
               "winRateNum": 14.285714285714285,
               "winRate": "14.29",
-              "rankingScore": 10.48
+              "rankingScore": 8.49
             },
             {
               "playerId": 4278695,
@@ -11072,7 +11073,7 @@
               ],
               "winRateNum": 66.66666666666666,
               "winRate": "66.67",
-              "rankingScore": 43.33
+              "rankingScore": 41.11
             },
             {
               "playerId": 4586876,
@@ -11091,7 +11092,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 1693244,
@@ -11110,7 +11111,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 5448761,
@@ -11129,7 +11130,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 5634445,
@@ -11148,7 +11149,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 6.67
+              "rankingScore": 5.56
             },
             {
               "playerId": 5629735,
@@ -11167,7 +11168,7 @@
               ],
               "winRateNum": 63.1578947368421,
               "winRate": "63.16",
-              "rankingScore": 34.91
+              "rankingScore": 28.04
             },
             {
               "playerId": 3123080,
@@ -11186,7 +11187,7 @@
               ],
               "winRateNum": 58.82352941176471,
               "winRate": "58.82",
-              "rankingScore": 32.75
+              "rankingScore": 26.31
             },
             {
               "playerId": 5459394,
@@ -11200,7 +11201,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 5692282,
@@ -11214,7 +11215,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             },
             {
               "playerId": 5692695,
@@ -11228,7 +11229,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 3.33
+              "rankingScore": 2.78
             }
           ],
           "tournaments": [
@@ -11327,7 +11328,7 @@
               ],
               "winRateNum": 100,
               "winRate": "100.00",
-              "rankingScore": 80
+              "rankingScore": 83.33
             },
             {
               "playerId": 3762539,
@@ -11350,7 +11351,7 @@
               ],
               "winRateNum": 75,
               "winRate": "75.00",
-              "rankingScore": 87.5
+              "rankingScore": 90
             },
             {
               "playerId": 5103892,
@@ -11369,7 +11370,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 10
+              "rankingScore": 8.33
             },
             {
               "playerId": 1933648,
@@ -11388,7 +11389,7 @@
               ],
               "winRateNum": 46.15384615384615,
               "winRate": "46.15",
-              "rankingScore": 33.08
+              "rankingScore": 26.79
             },
             {
               "playerId": 4715723,
@@ -11407,7 +11408,7 @@
               ],
               "winRateNum": 10,
               "winRate": "10.00",
-              "rankingScore": 15
+              "rankingScore": 12.33
             },
             {
               "playerId": 4584346,
@@ -11426,7 +11427,7 @@
               ],
               "winRateNum": 54.54545454545454,
               "winRate": "54.55",
-              "rankingScore": 37.27
+              "rankingScore": 30.15
             },
             {
               "playerId": 5692695,
@@ -11440,7 +11441,7 @@
               "placements": [],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 10
+              "rankingScore": 8.33
             }
           ],
           "tournaments": [
@@ -11495,7 +11496,7 @@
               ],
               "winRateNum": 80,
               "winRate": "80.00",
-              "rankingScore": 90
+              "rankingScore": 92
             },
             {
               "playerId": 3973904,
@@ -11518,7 +11519,7 @@
               ],
               "winRateNum": 60,
               "winRate": "60.00",
-              "rankingScore": 60
+              "rankingScore": 49
             },
             {
               "playerId": 5103892,
@@ -11541,7 +11542,7 @@
               ],
               "winRateNum": 0,
               "winRate": "0.00",
-              "rankingScore": 30
+              "rankingScore": 25
             },
             {
               "playerId": 3015073,
@@ -11560,7 +11561,7 @@
               ],
               "winRateNum": 25,
               "winRate": "25.00",
-              "rankingScore": 27.5
+              "rankingScore": 22.5
             },
             {
               "playerId": 1933648,
@@ -11579,7 +11580,7 @@
               ],
               "winRateNum": 50,
               "winRate": "50.00",
-              "rankingScore": 40
+              "rankingScore": 32.5
             },
             {
               "playerId": 5478402,
@@ -11598,7 +11599,7 @@
               ],
               "winRateNum": 75,
               "winRate": "75.00",
-              "rankingScore": 72.5
+              "rankingScore": 77.5
             }
           ],
           "tournaments": [
@@ -12087,7 +12088,7 @@
         ],
         "winRateNum": 58.855585831062676,
         "winRate": "58.86",
-        "rankingScore": 66.93
+        "rankingScore": 61.67
       },
       {
         "playerId": 3973904,
@@ -12250,7 +12251,7 @@
         ],
         "winRateNum": 51.63043478260869,
         "winRate": "51.63",
-        "rankingScore": 63.32
+        "rankingScore": 58.78
       },
       {
         "playerId": 1800901,
@@ -12333,7 +12334,7 @@
         ],
         "winRateNum": 70.20648967551622,
         "winRate": "70.21",
-        "rankingScore": 81.95
+        "rankingScore": 85.45
       },
       {
         "playerId": 4526085,
@@ -12416,7 +12417,7 @@
         ],
         "winRateNum": 54.45859872611465,
         "winRate": "54.46",
-        "rankingScore": 57.49
+        "rankingScore": 51.59
       },
       {
         "playerId": 4856153,
@@ -12503,7 +12504,7 @@
         ],
         "winRateNum": 56.12903225806451,
         "winRate": "56.13",
-        "rankingScore": 56.09
+        "rankingScore": 52.68
       },
       {
         "playerId": 4300853,
@@ -12566,7 +12567,7 @@
         ],
         "winRateNum": 47.91666666666667,
         "winRate": "47.92",
-        "rankingScore": 42.91
+        "rankingScore": 34.96
       },
       {
         "playerId": 1385306,
@@ -12645,7 +12646,7 @@
         ],
         "winRateNum": 46.36871508379888,
         "winRate": "46.37",
-        "rankingScore": 45.55
+        "rankingScore": 41.77
       },
       {
         "playerId": 1253081,
@@ -12704,7 +12705,7 @@
         ],
         "winRateNum": 47.51381215469613,
         "winRate": "47.51",
-        "rankingScore": 41.13
+        "rankingScore": 33.48
       },
       {
         "playerId": 1933648,
@@ -12779,7 +12780,7 @@
         ],
         "winRateNum": 62.916666666666664,
         "winRate": "62.92",
-        "rankingScore": 61.33
+        "rankingScore": 61.52
       },
       {
         "playerId": 4496944,
@@ -12838,7 +12839,7 @@
         ],
         "winRateNum": 36.52173913043478,
         "winRate": "36.52",
-        "rankingScore": 35.63
+        "rankingScore": 29.08
       },
       {
         "playerId": 5103892,
@@ -12905,7 +12906,7 @@
         ],
         "winRateNum": 16.470588235294116,
         "winRate": "16.47",
-        "rankingScore": 25.6
+        "rankingScore": 21.06
       },
       {
         "playerId": 4772981,
@@ -12960,7 +12961,7 @@
         ],
         "winRateNum": 45.39877300613497,
         "winRate": "45.40",
-        "rankingScore": 38.49
+        "rankingScore": 31.32
       },
       {
         "playerId": 5000742,
@@ -13023,7 +13024,7 @@
         ],
         "winRateNum": 42.384105960264904,
         "winRate": "42.38",
-        "rankingScore": 36.98
+        "rankingScore": 30.11
       },
       {
         "playerId": 623330,
@@ -13090,7 +13091,7 @@
         ],
         "winRateNum": 32.71604938271605,
         "winRate": "32.72",
-        "rankingScore": 30.57
+        "rankingScore": 24.93
       },
       {
         "playerId": 4804446,
@@ -13153,7 +13154,7 @@
         ],
         "winRateNum": 50.33557046979866,
         "winRate": "50.34",
-        "rankingScore": 39.38
+        "rankingScore": 31.98
       },
       {
         "playerId": 3964582,
@@ -13208,7 +13209,7 @@
         ],
         "winRateNum": 62.5,
         "winRate": "62.50",
-        "rankingScore": 50.46
+        "rankingScore": 45.59
       },
       {
         "playerId": 4836099,
@@ -13263,7 +13264,7 @@
         ],
         "winRateNum": 45.16129032258064,
         "winRate": "45.16",
-        "rankingScore": 36.79
+        "rankingScore": 29.91
       },
       {
         "playerId": 4715723,
@@ -13322,7 +13323,7 @@
         ],
         "winRateNum": 37.404580152671755,
         "winRate": "37.40",
-        "rankingScore": 31.33
+        "rankingScore": 25.49
       },
       {
         "playerId": 5079127,
@@ -13377,7 +13378,7 @@
         ],
         "winRateNum": 34.862385321100916,
         "winRate": "34.86",
-        "rankingScore": 30.06
+        "rankingScore": 24.47
       },
       {
         "playerId": 5098387,
@@ -13424,7 +13425,7 @@
         ],
         "winRateNum": 41.77215189873418,
         "winRate": "41.77",
-        "rankingScore": 33.52
+        "rankingScore": 27.24
       },
       {
         "playerId": 356029,
@@ -13467,7 +13468,7 @@
         ],
         "winRateNum": 59.210526315789465,
         "winRate": "59.21",
-        "rankingScore": 40.66
+        "rankingScore": 32.89
       },
       {
         "playerId": 3237629,
@@ -13510,7 +13511,7 @@
         ],
         "winRateNum": 72.54901960784314,
         "winRate": "72.55",
-        "rankingScore": 54.83
+        "rankingScore": 51.36
       },
       {
         "playerId": 3305718,
@@ -13561,7 +13562,7 @@
         ],
         "winRateNum": 56.92307692307692,
         "winRate": "56.92",
-        "rankingScore": 44.51
+        "rankingScore": 40.73
       },
       {
         "playerId": 4584346,
@@ -13608,7 +13609,7 @@
         ],
         "winRateNum": 54.47761194029851,
         "winRate": "54.48",
-        "rankingScore": 38.29
+        "rankingScore": 31
       },
       {
         "playerId": 3015073,
@@ -13659,7 +13660,7 @@
         ],
         "winRateNum": 36.633663366336634,
         "winRate": "36.63",
-        "rankingScore": 29.37
+        "rankingScore": 23.86
       },
       {
         "playerId": 4186966,
@@ -13698,7 +13699,7 @@
         ],
         "winRateNum": 30.434782608695656,
         "winRate": "30.43",
-        "rankingScore": 24.69
+        "rankingScore": 20.07
       },
       {
         "playerId": 3493866,
@@ -13749,7 +13750,7 @@
         ],
         "winRateNum": 35,
         "winRate": "35.00",
-        "rankingScore": 26.97
+        "rankingScore": 21.89
       },
       {
         "playerId": 4855200,
@@ -13788,7 +13789,7 @@
         ],
         "winRateNum": 56.074766355140184,
         "winRate": "56.07",
-        "rankingScore": 37.51
+        "rankingScore": 30.32
       },
       {
         "playerId": 4855177,
@@ -13827,7 +13828,7 @@
         ],
         "winRateNum": 37.878787878787875,
         "winRate": "37.88",
-        "rankingScore": 28.41
+        "rankingScore": 23.05
       },
       {
         "playerId": 1287124,
@@ -13874,7 +13875,7 @@
         ],
         "winRateNum": 55.44554455445545,
         "winRate": "55.45",
-        "rankingScore": 39.7
+        "rankingScore": 34.45
       },
       {
         "playerId": 3536882,
@@ -13905,7 +13906,7 @@
         ],
         "winRateNum": 13.157894736842104,
         "winRate": "13.16",
-        "rankingScore": 14.47
+        "rankingScore": 11.84
       },
       {
         "playerId": 3724443,
@@ -13940,7 +13941,7 @@
         ],
         "winRateNum": 74.77477477477478,
         "winRate": "74.77",
-        "rankingScore": 57.78
+        "rankingScore": 58.36
       },
       {
         "playerId": 2436281,
@@ -13987,7 +13988,7 @@
         ],
         "winRateNum": 43.87755102040816,
         "winRate": "43.88",
-        "rankingScore": 28.25
+        "rankingScore": 22.81
       },
       {
         "playerId": 4340100,
@@ -14018,7 +14019,7 @@
         ],
         "winRateNum": 68.33333333333333,
         "winRate": "68.33",
-        "rankingScore": 45.48
+        "rankingScore": 41.35
       },
       {
         "playerId": 634464,
@@ -14057,7 +14058,7 @@
         ],
         "winRateNum": 57.77777777777777,
         "winRate": "57.78",
-        "rankingScore": 37.7
+        "rankingScore": 32.75
       },
       {
         "playerId": 4065344,
@@ -14088,7 +14089,7 @@
         ],
         "winRateNum": 56.52173913043478,
         "winRate": "56.52",
-        "rankingScore": 34.58
+        "rankingScore": 27.87
       },
       {
         "playerId": 4094120,
@@ -14119,7 +14120,7 @@
         ],
         "winRateNum": 15.789473684210526,
         "winRate": "15.79",
-        "rankingScore": 14.21
+        "rankingScore": 11.58
       },
       {
         "playerId": 3210006,
@@ -14150,7 +14151,7 @@
         ],
         "winRateNum": 58.06451612903226,
         "winRate": "58.06",
-        "rankingScore": 37.85
+        "rankingScore": 32.86
       },
       {
         "playerId": 4718332,
@@ -14181,7 +14182,7 @@
         ],
         "winRateNum": 38.095238095238095,
         "winRate": "38.10",
-        "rankingScore": 25.36
+        "rankingScore": 20.5
       },
       {
         "playerId": 2006830,
@@ -14212,7 +14213,7 @@
         ],
         "winRateNum": 45.83333333333333,
         "winRate": "45.83",
-        "rankingScore": 29.23
+        "rankingScore": 23.6
       },
       {
         "playerId": 4999782,
@@ -14243,7 +14244,7 @@
         ],
         "winRateNum": 33.33333333333333,
         "winRate": "33.33",
-        "rankingScore": 22.98
+        "rankingScore": 18.6
       },
       {
         "playerId": 5212870,
@@ -14270,7 +14271,7 @@
         ],
         "winRateNum": 47.72727272727273,
         "winRate": "47.73",
-        "rankingScore": 30.18
+        "rankingScore": 24.35
       },
       {
         "playerId": 4447783,
@@ -14297,7 +14298,7 @@
         ],
         "winRateNum": 58.82352941176471,
         "winRate": "58.82",
-        "rankingScore": 36.65
+        "rankingScore": 31.85
       },
       {
         "playerId": 3732487,
@@ -14324,7 +14325,7 @@
         ],
         "winRateNum": 25,
         "winRate": "25.00",
-        "rankingScore": 17.24
+        "rankingScore": 13.95
       },
       {
         "playerId": 5249352,
@@ -14351,7 +14352,7 @@
         ],
         "winRateNum": 37.5,
         "winRate": "37.50",
-        "rankingScore": 23.49
+        "rankingScore": 18.95
       },
       {
         "playerId": 5209566,
@@ -14374,7 +14375,7 @@
         ],
         "winRateNum": 14.285714285714285,
         "winRate": "14.29",
-        "rankingScore": 11.88
+        "rankingScore": 9.66
       },
       {
         "playerId": 5243727,
@@ -14397,7 +14398,7 @@
         ],
         "winRateNum": 20,
         "winRate": "20.00",
-        "rankingScore": 14.74
+        "rankingScore": 11.95
       },
       {
         "playerId": 581615,
@@ -14420,7 +14421,7 @@
         ],
         "winRateNum": 27.27272727272727,
         "winRate": "27.27",
-        "rankingScore": 16.79
+        "rankingScore": 13.54
       },
       {
         "playerId": 482630,
@@ -14443,7 +14444,7 @@
         ],
         "winRateNum": 91.42857142857143,
         "winRate": "91.43",
-        "rankingScore": 53.87
+        "rankingScore": 47.95
       },
       {
         "playerId": 603628,
@@ -14462,7 +14463,7 @@
         ],
         "winRateNum": 51.85185185185185,
         "winRate": "51.85",
-        "rankingScore": 29.08
+        "rankingScore": 23.37
       },
       {
         "playerId": 2909717,
@@ -14489,7 +14490,7 @@
         ],
         "winRateNum": 60,
         "winRate": "60.00",
-        "rankingScore": 35.66
+        "rankingScore": 31.01
       },
       {
         "playerId": 3966903,
@@ -14512,7 +14513,7 @@
         ],
         "winRateNum": 36.36363636363637,
         "winRate": "36.36",
-        "rankingScore": 21.34
+        "rankingScore": 17.18
       },
       {
         "playerId": 670995,
@@ -14535,7 +14536,7 @@
         ],
         "winRateNum": 75.86206896551724,
         "winRate": "75.86",
-        "rankingScore": 46.09
+        "rankingScore": 41.73
       },
       {
         "playerId": 3848442,
@@ -14558,7 +14559,7 @@
         ],
         "winRateNum": 57.14285714285714,
         "winRate": "57.14",
-        "rankingScore": 31.73
+        "rankingScore": 25.49
       },
       {
         "playerId": 223504,
@@ -14589,7 +14590,7 @@
         ],
         "winRateNum": 48.888888888888886,
         "winRate": "48.89",
-        "rankingScore": 27.6
+        "rankingScore": 22.19
       },
       {
         "playerId": 989285,
@@ -14628,7 +14629,7 @@
         ],
         "winRateNum": 51.94805194805194,
         "winRate": "51.95",
-        "rankingScore": 29.13
+        "rankingScore": 23.41
       },
       {
         "playerId": 3856158,
@@ -14651,7 +14652,7 @@
         ],
         "winRateNum": 55.00000000000001,
         "winRate": "55.00",
-        "rankingScore": 30.66
+        "rankingScore": 24.63
       },
       {
         "playerId": 5003065,
@@ -14674,7 +14675,7 @@
         ],
         "winRateNum": 45.83333333333333,
         "winRate": "45.83",
-        "rankingScore": 26.07
+        "rankingScore": 20.96
       },
       {
         "playerId": 4781320,
@@ -14697,7 +14698,7 @@
         ],
         "winRateNum": 63.41463414634146,
         "winRate": "63.41",
-        "rankingScore": 34.87
+        "rankingScore": 28
       },
       {
         "playerId": 5376130,
@@ -14720,7 +14721,7 @@
         ],
         "winRateNum": 30.434782608695656,
         "winRate": "30.43",
-        "rankingScore": 18.38
+        "rankingScore": 14.81
       },
       {
         "playerId": 5021105,
@@ -14743,7 +14744,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 3.16
+        "rankingScore": 2.63
       },
       {
         "playerId": 5478402,
@@ -14770,7 +14771,7 @@
         ],
         "winRateNum": 73.07692307692307,
         "winRate": "73.08",
-        "rankingScore": 42.2
+        "rankingScore": 36.24
       },
       {
         "playerId": 5332872,
@@ -14789,7 +14790,7 @@
         ],
         "winRateNum": 25,
         "winRate": "25.00",
-        "rankingScore": 15.66
+        "rankingScore": 12.63
       },
       {
         "playerId": 5634445,
@@ -14808,7 +14809,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 3.16
+        "rankingScore": 2.63
       },
       {
         "playerId": 4534208,
@@ -14827,7 +14828,7 @@
         ],
         "winRateNum": 7.6923076923076925,
         "winRate": "7.69",
-        "rankingScore": 5.43
+        "rankingScore": 4.39
       },
       {
         "playerId": 4656295,
@@ -14846,7 +14847,7 @@
         ],
         "winRateNum": 38.88888888888889,
         "winRate": "38.89",
-        "rankingScore": 21.02
+        "rankingScore": 16.87
       },
       {
         "playerId": 4620795,
@@ -14865,7 +14866,7 @@
         ],
         "winRateNum": 11.11111111111111,
         "winRate": "11.11",
-        "rankingScore": 7.13
+        "rankingScore": 5.76
       },
       {
         "playerId": 4593019,
@@ -14888,7 +14889,7 @@
         ],
         "winRateNum": 23.076923076923077,
         "winRate": "23.08",
-        "rankingScore": 13.12
+        "rankingScore": 10.55
       },
       {
         "playerId": 4064884,
@@ -14907,7 +14908,7 @@
         ],
         "winRateNum": 62.5,
         "winRate": "62.50",
-        "rankingScore": 32.83
+        "rankingScore": 26.32
       },
       {
         "playerId": 477553,
@@ -14930,7 +14931,7 @@
         ],
         "winRateNum": 31.25,
         "winRate": "31.25",
-        "rankingScore": 17.2
+        "rankingScore": 13.82
       },
       {
         "playerId": 4684820,
@@ -14944,7 +14945,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4748235,
@@ -14958,7 +14959,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 1264210,
@@ -14981,7 +14982,7 @@
         ],
         "winRateNum": 25,
         "winRate": "25.00",
-        "rankingScore": 14.08
+        "rankingScore": 11.32
       },
       {
         "playerId": 4536031,
@@ -15004,7 +15005,7 @@
         ],
         "winRateNum": 51.85185185185185,
         "winRate": "51.85",
-        "rankingScore": 27.5
+        "rankingScore": 22.06
       },
       {
         "playerId": 4804465,
@@ -15023,7 +15024,7 @@
         ],
         "winRateNum": 55.55555555555556,
         "winRate": "55.56",
-        "rankingScore": 29.36
+        "rankingScore": 23.54
       },
       {
         "playerId": 2011577,
@@ -15042,7 +15043,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4804460,
@@ -15061,7 +15062,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4486248,
@@ -15080,7 +15081,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 2537028,
@@ -15099,7 +15100,7 @@
         ],
         "winRateNum": 25,
         "winRate": "25.00",
-        "rankingScore": 14.08
+        "rankingScore": 11.32
       },
       {
         "playerId": 2215607,
@@ -15118,7 +15119,7 @@
         ],
         "winRateNum": 28.57142857142857,
         "winRate": "28.57",
-        "rankingScore": 15.86
+        "rankingScore": 12.74
       },
       {
         "playerId": 4610564,
@@ -15137,7 +15138,7 @@
         ],
         "winRateNum": 55.55555555555556,
         "winRate": "55.56",
-        "rankingScore": 29.36
+        "rankingScore": 23.54
       },
       {
         "playerId": 4611362,
@@ -15156,7 +15157,7 @@
         ],
         "winRateNum": 44.44444444444444,
         "winRate": "44.44",
-        "rankingScore": 23.8
+        "rankingScore": 19.09
       },
       {
         "playerId": 4611356,
@@ -15175,7 +15176,7 @@
         ],
         "winRateNum": 60,
         "winRate": "60.00",
-        "rankingScore": 31.58
+        "rankingScore": 25.32
       },
       {
         "playerId": 1132136,
@@ -15194,7 +15195,7 @@
         ],
         "winRateNum": 44.44444444444444,
         "winRate": "44.44",
-        "rankingScore": 23.8
+        "rankingScore": 19.09
       },
       {
         "playerId": 2540656,
@@ -15213,7 +15214,7 @@
         ],
         "winRateNum": 33.33333333333333,
         "winRate": "33.33",
-        "rankingScore": 18.25
+        "rankingScore": 14.65
       },
       {
         "playerId": 2316182,
@@ -15232,7 +15233,7 @@
         ],
         "winRateNum": 20,
         "winRate": "20.00",
-        "rankingScore": 11.58
+        "rankingScore": 9.32
       },
       {
         "playerId": 4586590,
@@ -15251,7 +15252,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4529585,
@@ -15270,7 +15271,7 @@
         ],
         "winRateNum": 64.28571428571429,
         "winRate": "64.29",
-        "rankingScore": 33.72
+        "rankingScore": 27.03
       },
       {
         "playerId": 4856324,
@@ -15289,7 +15290,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4852761,
@@ -15308,7 +15309,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4903220,
@@ -15327,7 +15328,7 @@
         ],
         "winRateNum": 55.55555555555556,
         "winRate": "55.56",
-        "rankingScore": 29.36
+        "rankingScore": 23.54
       },
       {
         "playerId": 3503218,
@@ -15346,7 +15347,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4964577,
@@ -15365,7 +15366,7 @@
         ],
         "winRateNum": 11.11111111111111,
         "winRate": "11.11",
-        "rankingScore": 7.13
+        "rankingScore": 5.76
       },
       {
         "playerId": 4826254,
@@ -15384,7 +15385,7 @@
         ],
         "winRateNum": 50,
         "winRate": "50.00",
-        "rankingScore": 26.58
+        "rankingScore": 21.32
       },
       {
         "playerId": 4689394,
@@ -15403,7 +15404,7 @@
         ],
         "winRateNum": 55.55555555555556,
         "winRate": "55.56",
-        "rankingScore": 29.36
+        "rankingScore": 23.54
       },
       {
         "playerId": 4999318,
@@ -15422,7 +15423,7 @@
         ],
         "winRateNum": 28.57142857142857,
         "winRate": "28.57",
-        "rankingScore": 15.86
+        "rankingScore": 12.74
       },
       {
         "playerId": 4995813,
@@ -15441,7 +15442,7 @@
         ],
         "winRateNum": 33.33333333333333,
         "winRate": "33.33",
-        "rankingScore": 18.25
+        "rankingScore": 14.65
       },
       {
         "playerId": 5006779,
@@ -15460,7 +15461,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4929613,
@@ -15479,7 +15480,7 @@
         ],
         "winRateNum": 33.33333333333333,
         "winRate": "33.33",
-        "rankingScore": 18.25
+        "rankingScore": 14.65
       },
       {
         "playerId": 2773768,
@@ -15498,7 +15499,7 @@
         ],
         "winRateNum": 14.285714285714285,
         "winRate": "14.29",
-        "rankingScore": 8.72
+        "rankingScore": 7.03
       },
       {
         "playerId": 2353012,
@@ -15517,7 +15518,7 @@
         ],
         "winRateNum": 50,
         "winRate": "50.00",
-        "rankingScore": 26.58
+        "rankingScore": 21.32
       },
       {
         "playerId": 1999309,
@@ -15540,7 +15541,7 @@
         ],
         "winRateNum": 35.294117647058826,
         "winRate": "35.29",
-        "rankingScore": 19.23
+        "rankingScore": 15.43
       },
       {
         "playerId": 1209572,
@@ -15559,7 +15560,7 @@
         ],
         "winRateNum": 64.28571428571429,
         "winRate": "64.29",
-        "rankingScore": 33.72
+        "rankingScore": 27.03
       },
       {
         "playerId": 3963057,
@@ -15578,7 +15579,7 @@
         ],
         "winRateNum": 20,
         "winRate": "20.00",
-        "rankingScore": 11.58
+        "rankingScore": 9.32
       },
       {
         "playerId": 4821914,
@@ -15597,7 +15598,7 @@
         ],
         "winRateNum": 20,
         "winRate": "20.00",
-        "rankingScore": 11.58
+        "rankingScore": 9.32
       },
       {
         "playerId": 4913225,
@@ -15616,7 +15617,7 @@
         ],
         "winRateNum": 42.857142857142854,
         "winRate": "42.86",
-        "rankingScore": 23.01
+        "rankingScore": 18.46
       },
       {
         "playerId": 4788988,
@@ -15635,7 +15636,7 @@
         ],
         "winRateNum": 33.33333333333333,
         "winRate": "33.33",
-        "rankingScore": 18.25
+        "rankingScore": 14.65
       },
       {
         "playerId": 4474404,
@@ -15654,7 +15655,7 @@
         ],
         "winRateNum": 28.57142857142857,
         "winRate": "28.57",
-        "rankingScore": 15.86
+        "rankingScore": 12.74
       },
       {
         "playerId": 4756511,
@@ -15673,7 +15674,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4906375,
@@ -15692,7 +15693,7 @@
         ],
         "winRateNum": 58.333333333333336,
         "winRate": "58.33",
-        "rankingScore": 30.75
+        "rankingScore": 24.65
       },
       {
         "playerId": 4988881,
@@ -15711,7 +15712,7 @@
         ],
         "winRateNum": 50,
         "winRate": "50.00",
-        "rankingScore": 26.58
+        "rankingScore": 21.32
       },
       {
         "playerId": 5105618,
@@ -15730,7 +15731,7 @@
         ],
         "winRateNum": 27.27272727272727,
         "winRate": "27.27",
-        "rankingScore": 15.22
+        "rankingScore": 12.22
       },
       {
         "playerId": 5105616,
@@ -15749,7 +15750,7 @@
         ],
         "winRateNum": 52.94117647058824,
         "winRate": "52.94",
-        "rankingScore": 28.05
+        "rankingScore": 22.49
       },
       {
         "playerId": 3487290,
@@ -15768,7 +15769,7 @@
         ],
         "winRateNum": 44.44444444444444,
         "winRate": "44.44",
-        "rankingScore": 23.8
+        "rankingScore": 19.09
       },
       {
         "playerId": 5139286,
@@ -15787,7 +15788,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 3270168,
@@ -15810,7 +15811,7 @@
         ],
         "winRateNum": 50,
         "winRate": "50.00",
-        "rankingScore": 26.58
+        "rankingScore": 21.32
       },
       {
         "playerId": 5165464,
@@ -15833,7 +15834,7 @@
         ],
         "winRateNum": 20,
         "winRate": "20.00",
-        "rankingScore": 11.58
+        "rankingScore": 9.32
       },
       {
         "playerId": 4510033,
@@ -15852,7 +15853,7 @@
         ],
         "winRateNum": 58.82352941176471,
         "winRate": "58.82",
-        "rankingScore": 30.99
+        "rankingScore": 24.85
       },
       {
         "playerId": 5181636,
@@ -15871,7 +15872,7 @@
         ],
         "winRateNum": 40,
         "winRate": "40.00",
-        "rankingScore": 21.58
+        "rankingScore": 17.32
       },
       {
         "playerId": 5307655,
@@ -15890,7 +15891,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 1830108,
@@ -15909,7 +15910,7 @@
         ],
         "winRateNum": 100,
         "winRate": "100.00",
-        "rankingScore": 54.08
+        "rankingScore": 45.69
       },
       {
         "playerId": 5378355,
@@ -15928,7 +15929,7 @@
         ],
         "winRateNum": 14.285714285714285,
         "winRate": "14.29",
-        "rankingScore": 8.72
+        "rankingScore": 7.03
       },
       {
         "playerId": 4586876,
@@ -15955,7 +15956,7 @@
         ],
         "winRateNum": 8.333333333333332,
         "winRate": "8.33",
-        "rankingScore": 5.75
+        "rankingScore": 4.65
       },
       {
         "playerId": 5482915,
@@ -15974,7 +15975,7 @@
         ],
         "winRateNum": 61.904761904761905,
         "winRate": "61.90",
-        "rankingScore": 32.53
+        "rankingScore": 26.08
       },
       {
         "playerId": 5425811,
@@ -15993,7 +15994,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 3798661,
@@ -16012,7 +16013,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 5172020,
@@ -16035,7 +16036,7 @@
         ],
         "winRateNum": 42.857142857142854,
         "winRate": "42.86",
-        "rankingScore": 23.01
+        "rankingScore": 18.46
       },
       {
         "playerId": 1693244,
@@ -16058,7 +16059,7 @@
         ],
         "winRateNum": 16.666666666666664,
         "winRate": "16.67",
-        "rankingScore": 9.91
+        "rankingScore": 7.98
       },
       {
         "playerId": 5468710,
@@ -16077,7 +16078,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 4278695,
@@ -16096,7 +16097,7 @@
         ],
         "winRateNum": 66.66666666666666,
         "winRate": "66.67",
-        "rankingScore": 37.41
+        "rankingScore": 32.36
       },
       {
         "playerId": 5521873,
@@ -16115,7 +16116,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 1235690,
@@ -16134,7 +16135,7 @@
         ],
         "winRateNum": 53.84615384615385,
         "winRate": "53.85",
-        "rankingScore": 28.5
+        "rankingScore": 22.85
       },
       {
         "playerId": 2094179,
@@ -16153,7 +16154,7 @@
         ],
         "winRateNum": 63.63636363636363,
         "winRate": "63.64",
-        "rankingScore": 35.9
+        "rankingScore": 31.15
       },
       {
         "playerId": 5448761,
@@ -16172,7 +16173,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 5628373,
@@ -16191,7 +16192,7 @@
         ],
         "winRateNum": 66.66666666666666,
         "winRate": "66.67",
-        "rankingScore": 37.41
+        "rankingScore": 32.36
       },
       {
         "playerId": 5624526,
@@ -16210,7 +16211,7 @@
         ],
         "winRateNum": 37.5,
         "winRate": "37.50",
-        "rankingScore": 20.33
+        "rankingScore": 16.32
       },
       {
         "playerId": 3123080,
@@ -16233,7 +16234,7 @@
         ],
         "winRateNum": 58.333333333333336,
         "winRate": "58.33",
-        "rankingScore": 30.75
+        "rankingScore": 24.65
       },
       {
         "playerId": 5629735,
@@ -16252,7 +16253,7 @@
         ],
         "winRateNum": 63.1578947368421,
         "winRate": "63.16",
-        "rankingScore": 33.16
+        "rankingScore": 26.58
       },
       {
         "playerId": 5692695,
@@ -16266,7 +16267,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 2348850,
@@ -16280,7 +16281,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 5635956,
@@ -16294,7 +16295,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 5459394,
@@ -16308,7 +16309,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       },
       {
         "playerId": 5692282,
@@ -16322,7 +16323,7 @@
         "placements": [],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rankingScore": 1.58
+        "rankingScore": 1.32
       }
     ],
     "games": [
@@ -16351,7 +16352,7 @@
             ],
             "winRateNum": 27.27272727272727,
             "winRate": "27.27",
-            "rankingScore": 16.79
+            "rankingScore": 13.54
           },
           {
             "playerId": 4534208,
@@ -16370,7 +16371,7 @@
             ],
             "winRateNum": 7.6923076923076925,
             "winRate": "7.69",
-            "rankingScore": 5.43
+            "rankingScore": 4.39
           },
           {
             "playerId": 4526085,
@@ -16445,7 +16446,7 @@
             ],
             "winRateNum": 55.932203389830505,
             "winRate": "55.93",
-            "rankingScore": 58.23
+            "rankingScore": 52.18
           },
           {
             "playerId": 1800901,
@@ -16524,7 +16525,7 @@
             ],
             "winRateNum": 71.47147147147147,
             "winRate": "71.47",
-            "rankingScore": 82.58
+            "rankingScore": 85.96
           },
           {
             "playerId": 3762539,
@@ -16611,7 +16612,7 @@
             ],
             "winRateNum": 58.119658119658126,
             "winRate": "58.12",
-            "rankingScore": 64.06
+            "rankingScore": 57
           },
           {
             "playerId": 3973904,
@@ -16690,7 +16691,7 @@
             ],
             "winRateNum": 43.40425531914894,
             "winRate": "43.40",
-            "rankingScore": 46.97
+            "rankingScore": 38.41
           },
           {
             "playerId": 2909717,
@@ -16713,7 +16714,7 @@
             ],
             "winRateNum": 64.44444444444444,
             "winRate": "64.44",
-            "rankingScore": 37.88
+            "rankingScore": 32.78
           },
           {
             "playerId": 1253081,
@@ -16772,7 +16773,7 @@
             ],
             "winRateNum": 47.51381215469613,
             "winRate": "47.51",
-            "rankingScore": 41.13
+            "rankingScore": 33.48
           },
           {
             "playerId": 356029,
@@ -16815,7 +16816,7 @@
             ],
             "winRateNum": 59.210526315789465,
             "winRate": "59.21",
-            "rankingScore": 40.66
+            "rankingScore": 32.89
           },
           {
             "playerId": 2436281,
@@ -16846,7 +16847,7 @@
             ],
             "winRateNum": 42.5,
             "winRate": "42.50",
-            "rankingScore": 27.57
+            "rankingScore": 22.26
           },
           {
             "playerId": 623330,
@@ -16893,7 +16894,7 @@
             ],
             "winRateNum": 27.450980392156865,
             "winRate": "27.45",
-            "rankingScore": 26.36
+            "rankingScore": 21.51
           },
           {
             "playerId": 4620795,
@@ -16912,7 +16913,7 @@
             ],
             "winRateNum": 11.11111111111111,
             "winRate": "11.11",
-            "rankingScore": 7.13
+            "rankingScore": 5.76
           },
           {
             "playerId": 4186966,
@@ -16935,7 +16936,7 @@
             ],
             "winRateNum": 14.814814814814813,
             "winRate": "14.81",
-            "rankingScore": 12.14
+            "rankingScore": 9.87
           },
           {
             "playerId": 1385306,
@@ -16962,7 +16963,7 @@
             ],
             "winRateNum": 17.24137931034483,
             "winRate": "17.24",
-            "rankingScore": 13.36
+            "rankingScore": 10.84
           },
           {
             "playerId": 4593019,
@@ -16981,7 +16982,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 3305718,
@@ -17004,7 +17005,7 @@
             ],
             "winRateNum": 34.78260869565217,
             "winRate": "34.78",
-            "rankingScore": 20.55
+            "rankingScore": 16.54
           },
           {
             "playerId": 477553,
@@ -17023,7 +17024,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 14.08
+            "rankingScore": 11.32
           },
           {
             "playerId": 4772981,
@@ -17078,7 +17079,7 @@
             ],
             "winRateNum": 45.39877300613497,
             "winRate": "45.40",
-            "rankingScore": 38.49
+            "rankingScore": 31.32
           },
           {
             "playerId": 4094120,
@@ -17097,7 +17098,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 223504,
@@ -17120,7 +17121,7 @@
             ],
             "winRateNum": 57.57575757575758,
             "winRate": "57.58",
-            "rankingScore": 31.95
+            "rankingScore": 25.66
           },
           {
             "playerId": 4584346,
@@ -17163,7 +17164,7 @@
             ],
             "winRateNum": 54.47154471544715,
             "winRate": "54.47",
-            "rankingScore": 38.29
+            "rankingScore": 31
           },
           {
             "playerId": 4855200,
@@ -17202,7 +17203,7 @@
             ],
             "winRateNum": 56.074766355140184,
             "winRate": "56.07",
-            "rankingScore": 37.51
+            "rankingScore": 30.32
           },
           {
             "playerId": 4855177,
@@ -17241,7 +17242,7 @@
             ],
             "winRateNum": 37.878787878787875,
             "winRate": "37.88",
-            "rankingScore": 28.41
+            "rankingScore": 23.05
           },
           {
             "playerId": 989285,
@@ -17264,7 +17265,7 @@
             ],
             "winRateNum": 51.42857142857142,
             "winRate": "51.43",
-            "rankingScore": 28.87
+            "rankingScore": 23.2
           },
           {
             "playerId": 3724443,
@@ -17299,7 +17300,7 @@
             ],
             "winRateNum": 74.77477477477478,
             "winRate": "74.77",
-            "rankingScore": 57.78
+            "rankingScore": 58.36
           },
           {
             "playerId": 4718332,
@@ -17330,7 +17331,7 @@
             ],
             "winRateNum": 38.095238095238095,
             "winRate": "38.10",
-            "rankingScore": 25.36
+            "rankingScore": 20.5
           },
           {
             "playerId": 4836099,
@@ -17377,7 +17378,7 @@
             ],
             "winRateNum": 49.549549549549546,
             "winRate": "49.55",
-            "rankingScore": 37.41
+            "rankingScore": 30.35
           },
           {
             "playerId": 3493866,
@@ -17404,7 +17405,7 @@
             ],
             "winRateNum": 23.333333333333332,
             "winRate": "23.33",
-            "rankingScore": 16.4
+            "rankingScore": 13.28
           },
           {
             "playerId": 4999782,
@@ -17435,7 +17436,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 22.98
+            "rankingScore": 18.6
           },
           {
             "playerId": 2773768,
@@ -17454,7 +17455,7 @@
             ],
             "winRateNum": 14.285714285714285,
             "winRate": "14.29",
-            "rankingScore": 8.72
+            "rankingScore": 7.03
           },
           {
             "playerId": 2353012,
@@ -17473,7 +17474,7 @@
             ],
             "winRateNum": 50,
             "winRate": "50.00",
-            "rankingScore": 26.58
+            "rankingScore": 21.32
           },
           {
             "playerId": 1999309,
@@ -17492,7 +17493,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 1287124,
@@ -17519,7 +17520,7 @@
             ],
             "winRateNum": 48.64864864864865,
             "winRate": "48.65",
-            "rankingScore": 29.06
+            "rankingScore": 23.41
           },
           {
             "playerId": 4856153,
@@ -17546,7 +17547,7 @@
             ],
             "winRateNum": 12.121212121212121,
             "winRate": "12.12",
-            "rankingScore": 10.8
+            "rankingScore": 8.8
           },
           {
             "playerId": 5181636,
@@ -17565,7 +17566,7 @@
             ],
             "winRateNum": 40,
             "winRate": "40.00",
-            "rankingScore": 21.58
+            "rankingScore": 17.32
           },
           {
             "playerId": 5209566,
@@ -17588,7 +17589,7 @@
             ],
             "winRateNum": 14.285714285714285,
             "winRate": "14.29",
-            "rankingScore": 11.88
+            "rankingScore": 9.66
           },
           {
             "playerId": 5243727,
@@ -17611,7 +17612,7 @@
             ],
             "winRateNum": 20,
             "winRate": "20.00",
-            "rankingScore": 14.74
+            "rankingScore": 11.95
           },
           {
             "playerId": 5376130,
@@ -17634,7 +17635,7 @@
             ],
             "winRateNum": 30.434782608695656,
             "winRate": "30.43",
-            "rankingScore": 18.38
+            "rankingScore": 14.81
           },
           {
             "playerId": 4586876,
@@ -17653,7 +17654,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 5482915,
@@ -17672,7 +17673,7 @@
             ],
             "winRateNum": 61.904761904761905,
             "winRate": "61.90",
-            "rankingScore": 32.53
+            "rankingScore": 26.08
           },
           {
             "playerId": 5425811,
@@ -17691,7 +17692,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 3798661,
@@ -17710,7 +17711,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 5172020,
@@ -17729,7 +17730,7 @@
             ],
             "winRateNum": 45.45454545454545,
             "winRate": "45.45",
-            "rankingScore": 24.31
+            "rankingScore": 19.5
           },
           {
             "playerId": 1933648,
@@ -17748,7 +17749,7 @@
             ],
             "winRateNum": 30,
             "winRate": "30.00",
-            "rankingScore": 16.58
+            "rankingScore": 13.32
           },
           {
             "playerId": 5521873,
@@ -17767,7 +17768,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 1235690,
@@ -17786,7 +17787,7 @@
             ],
             "winRateNum": 53.84615384615385,
             "winRate": "53.85",
-            "rankingScore": 28.5
+            "rankingScore": 22.85
           },
           {
             "playerId": 2094179,
@@ -17805,7 +17806,7 @@
             ],
             "winRateNum": 63.63636363636363,
             "winRate": "63.64",
-            "rankingScore": 35.9
+            "rankingScore": 31.15
           },
           {
             "playerId": 5332872,
@@ -17824,7 +17825,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 15.66
+            "rankingScore": 12.63
           },
           {
             "playerId": 5692695,
@@ -17838,7 +17839,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           },
           {
             "playerId": 2348850,
@@ -17852,7 +17853,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.58
+            "rankingScore": 1.32
           }
         ],
         "tournaments": [
@@ -18043,7 +18044,7 @@
             ],
             "winRateNum": 91.42857142857143,
             "winRate": "91.43",
-            "rankingScore": 65.05
+            "rankingScore": 64.9
           },
           {
             "playerId": 603628,
@@ -18062,7 +18063,7 @@
             ],
             "winRateNum": 51.85185185185185,
             "winRate": "51.85",
-            "rankingScore": 31.93
+            "rankingScore": 25.74
           },
           {
             "playerId": 1385306,
@@ -18117,7 +18118,7 @@
             ],
             "winRateNum": 57.758620689655174,
             "winRate": "57.76",
-            "rankingScore": 72.21
+            "rankingScore": 71.44
           },
           {
             "playerId": 4447783,
@@ -18144,7 +18145,7 @@
             ],
             "winRateNum": 58.82352941176471,
             "winRate": "58.82",
-            "rankingScore": 45.08
+            "rankingScore": 42.7
           },
           {
             "playerId": 4186966,
@@ -18167,7 +18168,7 @@
             ],
             "winRateNum": 48,
             "winRate": "48.00",
-            "rankingScore": 30
+            "rankingScore": 24.2
           },
           {
             "playerId": 3536882,
@@ -18198,7 +18199,7 @@
             ],
             "winRateNum": 13.157894736842104,
             "winRate": "13.16",
-            "rankingScore": 21.58
+            "rankingScore": 17.76
           },
           {
             "playerId": 4656295,
@@ -18217,7 +18218,7 @@
             ],
             "winRateNum": 38.88888888888889,
             "winRate": "38.89",
-            "rankingScore": 22.44
+            "rankingScore": 18.06
           },
           {
             "playerId": 623330,
@@ -18248,7 +18249,7 @@
             ],
             "winRateNum": 46.2962962962963,
             "winRate": "46.30",
-            "rankingScore": 35.15
+            "rankingScore": 28.52
           },
           {
             "playerId": 2436281,
@@ -18279,7 +18280,7 @@
             ],
             "winRateNum": 44.827586206896555,
             "winRate": "44.83",
-            "rankingScore": 34.41
+            "rankingScore": 27.93
           },
           {
             "playerId": 3966903,
@@ -18302,7 +18303,7 @@
             ],
             "winRateNum": 36.36363636363637,
             "winRate": "36.36",
-            "rankingScore": 24.18
+            "rankingScore": 19.55
           },
           {
             "playerId": 3237629,
@@ -18345,7 +18346,7 @@
             ],
             "winRateNum": 72.54901960784314,
             "winRate": "72.55",
-            "rankingScore": 77.27
+            "rankingScore": 81.52
           },
           {
             "playerId": 670995,
@@ -18368,7 +18369,7 @@
             ],
             "winRateNum": 75.86206896551724,
             "winRate": "75.86",
-            "rankingScore": 57.26
+            "rankingScore": 58.68
           },
           {
             "playerId": 4064884,
@@ -18387,7 +18388,7 @@
             ],
             "winRateNum": 62.5,
             "winRate": "62.50",
-            "rankingScore": 34.25
+            "rankingScore": 27.5
           },
           {
             "playerId": 3493866,
@@ -18426,7 +18427,7 @@
             ],
             "winRateNum": 42,
             "winRate": "42.00",
-            "rankingScore": 39
+            "rankingScore": 31.8
           },
           {
             "playerId": 4593019,
@@ -18445,7 +18446,7 @@
             ],
             "winRateNum": 42.857142857142854,
             "winRate": "42.86",
-            "rankingScore": 24.43
+            "rankingScore": 19.64
           },
           {
             "playerId": 3973904,
@@ -18472,7 +18473,7 @@
             ],
             "winRateNum": 47.05882352941176,
             "winRate": "47.06",
-            "rankingScore": 32.53
+            "rankingScore": 26.32
           },
           {
             "playerId": 3305718,
@@ -18491,7 +18492,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 4340100,
@@ -18522,7 +18523,7 @@
             ],
             "winRateNum": 68.33333333333333,
             "winRate": "68.33",
-            "rankingScore": 59.5
+            "rankingScore": 60.67
           },
           {
             "playerId": 634464,
@@ -18553,7 +18554,7 @@
             ],
             "winRateNum": 63.888888888888886,
             "winRate": "63.89",
-            "rankingScore": 50.61
+            "rankingScore": 47.22
           },
           {
             "playerId": 4065344,
@@ -18584,7 +18585,7 @@
             ],
             "winRateNum": 56.52173913043478,
             "winRate": "56.52",
-            "rankingScore": 40.26
+            "rankingScore": 32.61
           },
           {
             "playerId": 4094120,
@@ -18611,7 +18612,7 @@
             ],
             "winRateNum": 30,
             "winRate": "30.00",
-            "rankingScore": 27
+            "rankingScore": 22
           },
           {
             "playerId": 477553,
@@ -18630,7 +18631,7 @@
             ],
             "winRateNum": 37.5,
             "winRate": "37.50",
-            "rankingScore": 21.75
+            "rankingScore": 17.5
           },
           {
             "playerId": 3848442,
@@ -18653,7 +18654,7 @@
             ],
             "winRateNum": 57.14285714285714,
             "winRate": "57.14",
-            "rankingScore": 34.57
+            "rankingScore": 27.86
           },
           {
             "playerId": 1264210,
@@ -18672,7 +18673,7 @@
             ],
             "winRateNum": 14.285714285714285,
             "winRate": "14.29",
-            "rankingScore": 10.14
+            "rankingScore": 8.21
           },
           {
             "playerId": 4536031,
@@ -18691,7 +18692,7 @@
             ],
             "winRateNum": 53.333333333333336,
             "winRate": "53.33",
-            "rankingScore": 29.67
+            "rankingScore": 23.83
           },
           {
             "playerId": 3856158,
@@ -18714,7 +18715,7 @@
             ],
             "winRateNum": 55.00000000000001,
             "winRate": "55.00",
-            "rankingScore": 33.5
+            "rankingScore": 27
           },
           {
             "playerId": 989285,
@@ -18737,7 +18738,7 @@
             ],
             "winRateNum": 61.111111111111114,
             "winRate": "61.11",
-            "rankingScore": 36.56
+            "rankingScore": 29.44
           },
           {
             "playerId": 2215607,
@@ -18756,7 +18757,7 @@
             ],
             "winRateNum": 28.57142857142857,
             "winRate": "28.57",
-            "rankingScore": 17.29
+            "rankingScore": 13.93
           },
           {
             "playerId": 4610564,
@@ -18775,7 +18776,7 @@
             ],
             "winRateNum": 55.55555555555556,
             "winRate": "55.56",
-            "rankingScore": 30.78
+            "rankingScore": 24.72
           },
           {
             "playerId": 3210006,
@@ -18806,7 +18807,7 @@
             ],
             "winRateNum": 58.06451612903226,
             "winRate": "58.06",
-            "rankingScore": 47.7
+            "rankingScore": 44.89
           },
           {
             "playerId": 4611362,
@@ -18825,7 +18826,7 @@
             ],
             "winRateNum": 44.44444444444444,
             "winRate": "44.44",
-            "rankingScore": 25.22
+            "rankingScore": 20.28
           },
           {
             "playerId": 4611356,
@@ -18844,7 +18845,7 @@
             ],
             "winRateNum": 60,
             "winRate": "60.00",
-            "rankingScore": 33
+            "rankingScore": 26.5
           },
           {
             "playerId": 1132136,
@@ -18863,7 +18864,7 @@
             ],
             "winRateNum": 44.44444444444444,
             "winRate": "44.44",
-            "rankingScore": 25.22
+            "rankingScore": 20.28
           },
           {
             "playerId": 223504,
@@ -18886,7 +18887,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 18.5
+            "rankingScore": 15
           },
           {
             "playerId": 2540656,
@@ -18905,7 +18906,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 19.67
+            "rankingScore": 15.83
           },
           {
             "playerId": 2316182,
@@ -18924,7 +18925,7 @@
             ],
             "winRateNum": 20,
             "winRate": "20.00",
-            "rankingScore": 13
+            "rankingScore": 10.5
           },
           {
             "playerId": 4586590,
@@ -18943,7 +18944,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 4529585,
@@ -18962,7 +18963,7 @@
             ],
             "winRateNum": 64.28571428571429,
             "winRate": "64.29",
-            "rankingScore": 35.14
+            "rankingScore": 28.21
           },
           {
             "playerId": 4903220,
@@ -18981,7 +18982,7 @@
             ],
             "winRateNum": 55.55555555555556,
             "winRate": "55.56",
-            "rankingScore": 30.78
+            "rankingScore": 24.72
           },
           {
             "playerId": 4964577,
@@ -19000,7 +19001,7 @@
             ],
             "winRateNum": 11.11111111111111,
             "winRate": "11.11",
-            "rankingScore": 8.56
+            "rankingScore": 6.94
           },
           {
             "playerId": 3015073,
@@ -19039,7 +19040,7 @@
             ],
             "winRateNum": 41.02564102564102,
             "winRate": "41.03",
-            "rankingScore": 38.51
+            "rankingScore": 31.41
           },
           {
             "playerId": 4689394,
@@ -19058,7 +19059,7 @@
             ],
             "winRateNum": 55.55555555555556,
             "winRate": "55.56",
-            "rankingScore": 30.78
+            "rankingScore": 24.72
           },
           {
             "playerId": 4999318,
@@ -19077,7 +19078,7 @@
             ],
             "winRateNum": 28.57142857142857,
             "winRate": "28.57",
-            "rankingScore": 17.29
+            "rankingScore": 13.93
           },
           {
             "playerId": 4995813,
@@ -19096,7 +19097,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 19.67
+            "rankingScore": 15.83
           },
           {
             "playerId": 1209572,
@@ -19115,7 +19116,7 @@
             ],
             "winRateNum": 64.28571428571429,
             "winRate": "64.29",
-            "rankingScore": 35.14
+            "rankingScore": 28.21
           },
           {
             "playerId": 3963057,
@@ -19134,7 +19135,7 @@
             ],
             "winRateNum": 20,
             "winRate": "20.00",
-            "rankingScore": 13
+            "rankingScore": 10.5
           },
           {
             "playerId": 4821914,
@@ -19153,7 +19154,7 @@
             ],
             "winRateNum": 20,
             "winRate": "20.00",
-            "rankingScore": 13
+            "rankingScore": 10.5
           },
           {
             "playerId": 4913225,
@@ -19172,7 +19173,7 @@
             ],
             "winRateNum": 42.857142857142854,
             "winRate": "42.86",
-            "rankingScore": 24.43
+            "rankingScore": 19.64
           },
           {
             "playerId": 4788988,
@@ -19191,7 +19192,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 19.67
+            "rankingScore": 15.83
           },
           {
             "playerId": 4474404,
@@ -19210,7 +19211,7 @@
             ],
             "winRateNum": 28.57142857142857,
             "winRate": "28.57",
-            "rankingScore": 17.29
+            "rankingScore": 13.93
           },
           {
             "playerId": 4756511,
@@ -19229,7 +19230,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 1999309,
@@ -19248,7 +19249,7 @@
             ],
             "winRateNum": 54.54545454545454,
             "winRate": "54.55",
-            "rankingScore": 30.27
+            "rankingScore": 24.32
           },
           {
             "playerId": 4906375,
@@ -19267,7 +19268,7 @@
             ],
             "winRateNum": 58.333333333333336,
             "winRate": "58.33",
-            "rankingScore": 32.17
+            "rankingScore": 25.83
           },
           {
             "playerId": 3270168,
@@ -19286,7 +19287,7 @@
             ],
             "winRateNum": 64.28571428571429,
             "winRate": "64.29",
-            "rankingScore": 35.14
+            "rankingScore": 28.21
           },
           {
             "playerId": 5165464,
@@ -19305,7 +19306,7 @@
             ],
             "winRateNum": 16.666666666666664,
             "winRate": "16.67",
-            "rankingScore": 11.33
+            "rankingScore": 9.17
           },
           {
             "playerId": 4804446,
@@ -19332,7 +19333,7 @@
             ],
             "winRateNum": 48.484848484848484,
             "winRate": "48.48",
-            "rankingScore": 33.24
+            "rankingScore": 26.89
           },
           {
             "playerId": 1933648,
@@ -19351,7 +19352,7 @@
             ],
             "winRateNum": 50,
             "winRate": "50.00",
-            "rankingScore": 28
+            "rankingScore": 22.5
           },
           {
             "playerId": 4856153,
@@ -19370,7 +19371,7 @@
             ],
             "winRateNum": 44.44444444444444,
             "winRate": "44.44",
-            "rankingScore": 25.22
+            "rankingScore": 20.28
           },
           {
             "playerId": 4715723,
@@ -19393,7 +19394,7 @@
             ],
             "winRateNum": 15.789473684210526,
             "winRate": "15.79",
-            "rankingScore": 13.89
+            "rankingScore": 11.32
           },
           {
             "playerId": 5079127,
@@ -19416,7 +19417,7 @@
             ],
             "winRateNum": 14.285714285714285,
             "winRate": "14.29",
-            "rankingScore": 13.14
+            "rankingScore": 10.71
           },
           {
             "playerId": 5000742,
@@ -19443,7 +19444,7 @@
             ],
             "winRateNum": 40,
             "winRate": "40.00",
-            "rankingScore": 32
+            "rankingScore": 26
           },
           {
             "playerId": 4300853,
@@ -19462,7 +19463,7 @@
             ],
             "winRateNum": 30,
             "winRate": "30.00",
-            "rankingScore": 18
+            "rankingScore": 14.5
           },
           {
             "playerId": 5307655,
@@ -19481,7 +19482,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 1800901,
@@ -19500,7 +19501,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 1830108,
@@ -19519,7 +19520,7 @@
             ],
             "winRateNum": 100,
             "winRate": "100.00",
-            "rankingScore": 59.67
+            "rankingScore": 54.17
           },
           {
             "playerId": 3964582,
@@ -19538,7 +19539,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 19.67
+            "rankingScore": 15.83
           },
           {
             "playerId": 5021105,
@@ -19561,7 +19562,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 6
+            "rankingScore": 5
           },
           {
             "playerId": 4586876,
@@ -19580,7 +19581,7 @@
             ],
             "winRateNum": 16.666666666666664,
             "winRate": "16.67",
-            "rankingScore": 11.33
+            "rankingScore": 9.17
           },
           {
             "playerId": 1693244,
@@ -19599,7 +19600,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 15.5
+            "rankingScore": 12.5
           },
           {
             "playerId": 5478402,
@@ -19622,7 +19623,7 @@
             ],
             "winRateNum": 72.22222222222221,
             "winRate": "72.22",
-            "rankingScore": 42.11
+            "rankingScore": 33.89
           },
           {
             "playerId": 5468710,
@@ -19641,7 +19642,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 5172020,
@@ -19660,7 +19661,7 @@
             ],
             "winRateNum": 40,
             "winRate": "40.00",
-            "rankingScore": 23
+            "rankingScore": 18.5
           },
           {
             "playerId": 5521873,
@@ -19674,7 +19675,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           },
           {
             "playerId": 5628373,
@@ -19693,7 +19694,7 @@
             ],
             "winRateNum": 66.66666666666666,
             "winRate": "66.67",
-            "rankingScore": 43
+            "rankingScore": 40.83
           },
           {
             "playerId": 5624526,
@@ -19712,7 +19713,7 @@
             ],
             "winRateNum": 37.5,
             "winRate": "37.50",
-            "rankingScore": 21.75
+            "rankingScore": 17.5
           },
           {
             "playerId": 3123080,
@@ -19731,7 +19732,7 @@
             ],
             "winRateNum": 57.14285714285714,
             "winRate": "57.14",
-            "rankingScore": 31.57
+            "rankingScore": 25.36
           },
           {
             "playerId": 5635956,
@@ -19745,7 +19746,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3
+            "rankingScore": 2.5
           }
         ],
         "tournaments": [
@@ -19952,7 +19953,7 @@
             ],
             "winRateNum": 64.07766990291263,
             "winRate": "64.08",
-            "rankingScore": 50.63
+            "rankingScore": 48.45
           },
           {
             "playerId": 3973904,
@@ -20031,7 +20032,7 @@
             ],
             "winRateNum": 58.992805755395686,
             "winRate": "58.99",
-            "rankingScore": 71.5
+            "rankingScore": 69.6
           },
           {
             "playerId": 4684820,
@@ -20045,7 +20046,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 4526085,
@@ -20068,7 +20069,7 @@
             ],
             "winRateNum": 31.57894736842105,
             "winRate": "31.58",
-            "rankingScore": 19.32
+            "rankingScore": 15.57
           },
           {
             "playerId": 4186966,
@@ -20091,7 +20092,7 @@
             ],
             "winRateNum": 29.411764705882355,
             "winRate": "29.41",
-            "rankingScore": 18.24
+            "rankingScore": 14.71
           },
           {
             "playerId": 4748235,
@@ -20105,7 +20106,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 4300853,
@@ -20164,7 +20165,7 @@
             ],
             "winRateNum": 49.25373134328358,
             "winRate": "49.25",
-            "rankingScore": 45.8
+            "rankingScore": 37.35
           },
           {
             "playerId": 3732487,
@@ -20191,7 +20192,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 17.79
+            "rankingScore": 14.41
           },
           {
             "playerId": 4536031,
@@ -20210,7 +20211,7 @@
             ],
             "winRateNum": 50,
             "winRate": "50.00",
-            "rankingScore": 26.76
+            "rankingScore": 21.47
           },
           {
             "playerId": 1264210,
@@ -20229,7 +20230,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 18.43
+            "rankingScore": 14.8
           },
           {
             "playerId": 4804465,
@@ -20248,7 +20249,7 @@
             ],
             "winRateNum": 55.55555555555556,
             "winRate": "55.56",
-            "rankingScore": 29.54
+            "rankingScore": 23.69
           },
           {
             "playerId": 4804446,
@@ -20299,7 +20300,7 @@
             ],
             "winRateNum": 50.86206896551724,
             "winRate": "50.86",
-            "rankingScore": 41.31
+            "rankingScore": 33.58
           },
           {
             "playerId": 2011577,
@@ -20318,7 +20319,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 4804460,
@@ -20337,7 +20338,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 1933648,
@@ -20396,7 +20397,7 @@
             ],
             "winRateNum": 67.35751295336787,
             "winRate": "67.36",
-            "rankingScore": 73.09
+            "rankingScore": 78.12
           },
           {
             "playerId": 4486248,
@@ -20415,7 +20416,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 2537028,
@@ -20434,7 +20435,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 14.26
+            "rankingScore": 11.47
           },
           {
             "playerId": 3964582,
@@ -20485,7 +20486,7 @@
             ],
             "winRateNum": 65.26315789473685,
             "winRate": "65.26",
-            "rankingScore": 56.51
+            "rankingScore": 53.34
           },
           {
             "playerId": 4856324,
@@ -20504,7 +20505,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 4856153,
@@ -20567,7 +20568,7 @@
             ],
             "winRateNum": 61.59695817490495,
             "winRate": "61.60",
-            "rankingScore": 61.74
+            "rankingScore": 57.76
           },
           {
             "playerId": 989285,
@@ -20590,7 +20591,7 @@
             ],
             "winRateNum": 45.83333333333333,
             "winRate": "45.83",
-            "rankingScore": 26.45
+            "rankingScore": 21.27
           },
           {
             "playerId": 4852761,
@@ -20609,7 +20610,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 4496944,
@@ -20668,7 +20669,7 @@
             ],
             "winRateNum": 36.52173913043478,
             "winRate": "36.52",
-            "rankingScore": 37.67
+            "rankingScore": 30.79
           },
           {
             "playerId": 4836099,
@@ -20691,7 +20692,7 @@
             ],
             "winRateNum": 7.6923076923076925,
             "winRate": "7.69",
-            "rankingScore": 7.38
+            "rankingScore": 6.02
           },
           {
             "playerId": 2909717,
@@ -20710,7 +20711,7 @@
             ],
             "winRateNum": 40,
             "winRate": "40.00",
-            "rankingScore": 21.76
+            "rankingScore": 17.47
           },
           {
             "playerId": 634464,
@@ -20733,7 +20734,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 20.2
+            "rankingScore": 16.27
           },
           {
             "playerId": 3503218,
@@ -20752,7 +20753,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 2006830,
@@ -20783,7 +20784,7 @@
             ],
             "winRateNum": 45.83333333333333,
             "winRate": "45.83",
-            "rankingScore": 29.98
+            "rankingScore": 24.22
           },
           {
             "playerId": 4715723,
@@ -20830,7 +20831,7 @@
             ],
             "winRateNum": 44.11764705882353,
             "winRate": "44.12",
-            "rankingScore": 36.18
+            "rankingScore": 29.41
           },
           {
             "playerId": 4826254,
@@ -20849,7 +20850,7 @@
             ],
             "winRateNum": 50,
             "winRate": "50.00",
-            "rankingScore": 26.76
+            "rankingScore": 21.47
           },
           {
             "playerId": 1385306,
@@ -20876,7 +20877,7 @@
             ],
             "winRateNum": 32.35294117647059,
             "winRate": "32.35",
-            "rankingScore": 21.47
+            "rankingScore": 17.35
           },
           {
             "playerId": 5006779,
@@ -20895,7 +20896,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 3015073,
@@ -20918,7 +20919,7 @@
             ],
             "winRateNum": 20,
             "winRate": "20.00",
-            "rankingScore": 13.53
+            "rankingScore": 10.94
           },
           {
             "playerId": 4929613,
@@ -20937,7 +20938,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 18.43
+            "rankingScore": 14.8
           },
           {
             "playerId": 5003065,
@@ -20960,7 +20961,7 @@
             ],
             "winRateNum": 45.83333333333333,
             "winRate": "45.83",
-            "rankingScore": 26.45
+            "rankingScore": 21.27
           },
           {
             "playerId": 5000742,
@@ -21011,7 +21012,7 @@
             ],
             "winRateNum": 42.97520661157025,
             "winRate": "42.98",
-            "rankingScore": 39.13
+            "rankingScore": 31.9
           },
           {
             "playerId": 5079127,
@@ -21058,7 +21059,7 @@
             ],
             "winRateNum": 39.77272727272727,
             "winRate": "39.77",
-            "rankingScore": 34
+            "rankingScore": 27.67
           },
           {
             "playerId": 5103892,
@@ -21113,7 +21114,7 @@
             ],
             "winRateNum": 18.666666666666668,
             "winRate": "18.67",
-            "rankingScore": 28.75
+            "rankingScore": 23.64
           },
           {
             "playerId": 5098387,
@@ -21160,7 +21161,7 @@
             ],
             "winRateNum": 41.77215189873418,
             "winRate": "41.77",
-            "rankingScore": 35
+            "rankingScore": 28.47
           },
           {
             "playerId": 4988881,
@@ -21179,7 +21180,7 @@
             ],
             "winRateNum": 50,
             "winRate": "50.00",
-            "rankingScore": 26.76
+            "rankingScore": 21.47
           },
           {
             "playerId": 5105618,
@@ -21198,7 +21199,7 @@
             ],
             "winRateNum": 27.27272727272727,
             "winRate": "27.27",
-            "rankingScore": 15.4
+            "rankingScore": 12.38
           },
           {
             "playerId": 5105616,
@@ -21217,7 +21218,7 @@
             ],
             "winRateNum": 52.94117647058824,
             "winRate": "52.94",
-            "rankingScore": 28.24
+            "rankingScore": 22.65
           },
           {
             "playerId": 3487290,
@@ -21236,7 +21237,7 @@
             ],
             "winRateNum": 44.44444444444444,
             "winRate": "44.44",
-            "rankingScore": 23.99
+            "rankingScore": 19.25
           },
           {
             "playerId": 5139286,
@@ -21255,7 +21256,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 4510033,
@@ -21274,7 +21275,7 @@
             ],
             "winRateNum": 58.82352941176471,
             "winRate": "58.82",
-            "rankingScore": 31.18
+            "rankingScore": 25
           },
           {
             "playerId": 5165464,
@@ -21293,7 +21294,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 14.26
+            "rankingScore": 11.47
           },
           {
             "playerId": 3270168,
@@ -21312,7 +21313,7 @@
             ],
             "winRateNum": 33.33333333333333,
             "winRate": "33.33",
-            "rankingScore": 18.43
+            "rankingScore": 14.8
           },
           {
             "playerId": 4781320,
@@ -21335,7 +21336,7 @@
             ],
             "winRateNum": 63.41463414634146,
             "winRate": "63.41",
-            "rankingScore": 35.24
+            "rankingScore": 28.31
           },
           {
             "playerId": 1287124,
@@ -21366,7 +21367,7 @@
             ],
             "winRateNum": 55.172413793103445,
             "winRate": "55.17",
-            "rankingScore": 34.65
+            "rankingScore": 27.95
           },
           {
             "playerId": 5249352,
@@ -21393,7 +21394,7 @@
             ],
             "winRateNum": 37.5,
             "winRate": "37.50",
-            "rankingScore": 24.04
+            "rankingScore": 19.41
           },
           {
             "playerId": 623330,
@@ -21412,7 +21413,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 5212870,
@@ -21439,7 +21440,7 @@
             ],
             "winRateNum": 47.72727272727273,
             "winRate": "47.73",
-            "rankingScore": 30.92
+            "rankingScore": 24.97
           },
           {
             "playerId": 5378355,
@@ -21458,7 +21459,7 @@
             ],
             "winRateNum": 14.285714285714285,
             "winRate": "14.29",
-            "rankingScore": 8.91
+            "rankingScore": 7.18
           },
           {
             "playerId": 4278695,
@@ -21477,7 +21478,7 @@
             ],
             "winRateNum": 66.66666666666666,
             "winRate": "66.67",
-            "rankingScore": 39.1
+            "rankingScore": 35.14
           },
           {
             "playerId": 4586876,
@@ -21496,7 +21497,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 1693244,
@@ -21515,7 +21516,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 5448761,
@@ -21534,7 +21535,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 5634445,
@@ -21553,7 +21554,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 3.53
+            "rankingScore": 2.94
           },
           {
             "playerId": 5629735,
@@ -21572,7 +21573,7 @@
             ],
             "winRateNum": 63.1578947368421,
             "winRate": "63.16",
-            "rankingScore": 33.34
+            "rankingScore": 26.73
           },
           {
             "playerId": 3123080,
@@ -21591,7 +21592,7 @@
             ],
             "winRateNum": 58.82352941176471,
             "winRate": "58.82",
-            "rankingScore": 31.18
+            "rankingScore": 25
           },
           {
             "playerId": 5459394,
@@ -21605,7 +21606,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 5692282,
@@ -21619,7 +21620,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           },
           {
             "playerId": 5692695,
@@ -21633,7 +21634,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 1.76
+            "rankingScore": 1.47
           }
         ],
         "tournaments": [
@@ -21796,7 +21797,7 @@
             ],
             "winRateNum": 100,
             "winRate": "100.00",
-            "rankingScore": 80
+            "rankingScore": 83.33
           },
           {
             "playerId": 3762539,
@@ -21819,7 +21820,7 @@
             ],
             "winRateNum": 75,
             "winRate": "75.00",
-            "rankingScore": 87.5
+            "rankingScore": 90
           },
           {
             "playerId": 5103892,
@@ -21838,7 +21839,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 10
+            "rankingScore": 8.33
           },
           {
             "playerId": 1933648,
@@ -21857,7 +21858,7 @@
             ],
             "winRateNum": 46.15384615384615,
             "winRate": "46.15",
-            "rankingScore": 33.08
+            "rankingScore": 26.79
           },
           {
             "playerId": 4715723,
@@ -21876,7 +21877,7 @@
             ],
             "winRateNum": 10,
             "winRate": "10.00",
-            "rankingScore": 15
+            "rankingScore": 12.33
           },
           {
             "playerId": 4584346,
@@ -21895,7 +21896,7 @@
             ],
             "winRateNum": 54.54545454545454,
             "winRate": "54.55",
-            "rankingScore": 37.27
+            "rankingScore": 30.15
           },
           {
             "playerId": 5692695,
@@ -21909,7 +21910,7 @@
             "placements": [],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 10
+            "rankingScore": 8.33
           }
         ],
         "tournaments": [
@@ -21964,7 +21965,7 @@
             ],
             "winRateNum": 80,
             "winRate": "80.00",
-            "rankingScore": 90
+            "rankingScore": 92
           },
           {
             "playerId": 3973904,
@@ -21987,7 +21988,7 @@
             ],
             "winRateNum": 60,
             "winRate": "60.00",
-            "rankingScore": 60
+            "rankingScore": 49
           },
           {
             "playerId": 5103892,
@@ -22010,7 +22011,7 @@
             ],
             "winRateNum": 0,
             "winRate": "0.00",
-            "rankingScore": 30
+            "rankingScore": 25
           },
           {
             "playerId": 3015073,
@@ -22029,7 +22030,7 @@
             ],
             "winRateNum": 25,
             "winRate": "25.00",
-            "rankingScore": 27.5
+            "rankingScore": 22.5
           },
           {
             "playerId": 1933648,
@@ -22048,7 +22049,7 @@
             ],
             "winRateNum": 50,
             "winRate": "50.00",
-            "rankingScore": 40
+            "rankingScore": 32.5
           },
           {
             "playerId": 5478402,
@@ -22067,7 +22068,7 @@
             ],
             "winRateNum": 75,
             "winRate": "75.00",
-            "rankingScore": 72.5
+            "rankingScore": 77.5
           }
         ],
         "tournaments": [

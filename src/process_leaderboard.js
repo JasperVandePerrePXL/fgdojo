@@ -22,6 +22,9 @@ const publicDir = path.join(baseDir, 'public');
 export const HIDDEN_PLAYER_CONFIG = JSON.parse(
   fsSync.readFileSync(path.join(baseDir, 'data', 'hidden_players.json'), 'utf8'),
 );
+export const TOURNAMENT_CONFIG = JSON.parse(
+  fsSync.readFileSync(path.join(baseDir, 'data', 'tournament_slugs.json'), 'utf8'),
+);
 
 const normalizedHiddenNames = new Set(
   (HIDDEN_PLAYER_CONFIG.displayNames ?? []).map((name) => String(name).trim().toLowerCase()),
@@ -52,7 +55,7 @@ export function calculateRankingScore(player, maxAttendance = 1, maxFirstPlaces 
     ? (Number(player.firstPlaces ?? 0) / maxFirstPlaces) * 100
     : 0;
 
-  return (winRate * 0.5) + (attendanceScore * 0.3) + (winsScore * 0.2);
+  return (winRate * 0.4) + (attendanceScore * 0.25) + (winsScore * 0.35);
 }
 
 export function processLeaderboard(events) {
@@ -355,7 +358,7 @@ async function main() {
     await fs.mkdir(path.join(publicDir, 'data'), { recursive: true });
     await fs.writeFile(
       path.join(publicDir, 'data', 'leaderboards.json'),
-      JSON.stringify({ seasons: seasonLeaderboards, combined: combinedOutput }, null, 2),
+      JSON.stringify({ nextEventUrl: TOURNAMENT_CONFIG.nextEventUrl, seasons: seasonLeaderboards, combined: combinedOutput }, null, 2),
       'utf8',
     );
     console.log('✓ Saved consolidated public data to public/data/leaderboards.json');
