@@ -2,8 +2,9 @@
 
 ## Architecture
 
-- This is an ES module Node.js application (`"type": "module"`) that builds a static leaderboard site.
-- The data pipeline is `src/fetch_tournaments.js` → `data/events.json` → `src/process_leaderboard.js` → `public/data/leaderboards.json` → `src/build.js` → `dist/`.
+- This is an ES module Node.js application (`"type": "module"`) with a Vue 3/Pinia frontend bundled by Vite.
+- The data pipeline is `src/fetch_tournaments.js` → `data/events.json` → `src/process_leaderboard.js` → `public/data/leaderboards.json` → Vite → `dist/`.
+- Frontend code lives in `app/`: `App.vue` renders the interface, Pinia stores data/selection state, and `styles.css` provides responsive desktop/mobile layouts.
 - `src/startgg.js` owns the start.gg GraphQL client, retry/backoff behavior, and cache.
 - `src/data_store.js` owns the consolidated raw event file and legacy JSON migration.
 - `data/tournament_slugs.json` is the manual source of truth for seasons and tournament slugs. Enter only the tournament slug and game IDs there.
@@ -22,12 +23,13 @@
 
 - Install dependencies with `npm ci`.
 - Run focused tests with `npm test`.
-- Run `npm run fetch` to refresh raw event data, `npm run process` to regenerate leaderboard data, and `npm run build` for the complete fetch/process/static build pipeline.
+- Run `npm run dev` for the Vue/Vite development server.
+- Run `npm run fetch` to refresh raw event data, `npm run process` to regenerate leaderboard data, and `npm run build` for the complete fetch/process/Vite build pipeline.
 - Do not run API-dependent commands without a configured `STARTGG_KEY`. Prefer the existing unit tests for logic-only changes.
 
 ## Conventions
 
-- Follow the existing plain JavaScript style and use the standard Node.js APIs already used in `src/`.
+- Follow existing Vue 3 Composition API and Pinia conventions in `app/`; keep Node.js data-processing code in `src/`. Use scoped or shared CSS intentionally and preserve mobile layouts.
 - Preserve explicit error logging and last-known-good fallbacks; do not silently turn failed fetches into successful empty results.
 - When changing leaderboard calculations, update or add tests in `tests/leaderboard.test.js`. When changing manual season or game configuration, update or add tests in `tests/tournament_config.test.js`.
 - Keep generated files and deployment behavior consistent with `.github/workflows/` and `README.md`.
