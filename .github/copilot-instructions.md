@@ -21,7 +21,7 @@
 
 ## Build and Test
 
-- Install dependencies with `npm ci`.
+- Install dependencies with `npm install --no-audit --no-fund`.
 - Run focused tests with `npm test`.
 - Run `npm run dev` for the Vue/Vite development server.
 - Run `npm run fetch` to refresh raw event data, `npm run process` to regenerate leaderboard data, and `npm run build` for the complete fetch/process/Vite build pipeline.

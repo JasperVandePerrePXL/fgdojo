@@ -6,7 +6,7 @@ A static leaderboard for Fighting Game Dojo events. The interface is built with 
 
 ```bash
 cp .env.example .env
-npm ci
+npm install
 npm run dev
 npm test
 npm run build
