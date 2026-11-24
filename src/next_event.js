@@ -42,6 +42,15 @@ export function normalizeTournamentSlug(input) {
   return match ? match[1] : value.replace(/^\/?/, '');
 }
 
+export function findExistingTournament(config, slug) {
+  for (const season of Object.values(config.seasons ?? {})) {
+    for (const tournament of season.tournaments ?? []) {
+      if (normalizeTournamentSlug(tournament.slug) === slug) return tournament;
+    }
+  }
+  return null;
+}
+
 export function updateNextEventConfig(config, tournament) {
   if (!tournament?.slug || !tournament?.startAt) return { config, changed: false };
 
@@ -51,6 +60,13 @@ export function updateNextEventConfig(config, tournament) {
   const nextConfig = structuredClone(config);
   const seasonId = String(seasonIdForTimestamp(tournament.startAt));
   nextConfig.nextEventUrl = `https://www.start.gg/tournament/${slug}`;
+
+  if (findExistingTournament(nextConfig, slug)) {
+    return {
+      config: nextConfig,
+      changed: JSON.stringify(nextConfig) !== JSON.stringify(config),
+    };
+  }
 
   if (!nextConfig.seasons[seasonId]) {
     nextConfig.seasons[seasonId] = {
