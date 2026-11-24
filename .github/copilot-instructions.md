@@ -31,5 +31,6 @@
 
 - Follow existing Vue 3 Composition API and Pinia conventions in `app/`; keep Node.js data-processing code in `src/`. Use scoped or shared CSS intentionally and preserve mobile layouts.
 - Preserve explicit error logging and last-known-good fallbacks; do not silently turn failed fetches into successful empty results.
+- Weighted leaderboard rankings use 50% win rate, 30% normalized dojo attendance, and 20% normalized dojo wins. Preserve this balance and add tests when changing it.
 - When changing leaderboard calculations, update or add tests in `tests/leaderboard.test.js`. When changing manual season or game configuration, update or add tests in `tests/tournament_config.test.js`.
 - Keep generated files and deployment behavior consistent with `.github/workflows/` and `README.md`.

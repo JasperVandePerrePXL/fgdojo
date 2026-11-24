@@ -103,6 +103,7 @@ function rateClass(rate) {
                   <span>{{ player.gamesWon }}W – {{ player.gamesLost }}L</span>
                   <span>{{ player.tournamentsAttended }} {{ player.tournamentsAttended === 1 ? 'dojo' : 'dojos' }}</span>
                   <span>{{ player.firstPlaces ? `🏆 ${player.firstPlaces}` : 'No wins yet' }}</span>
+                  <span>Score {{ player.rankingScore?.toFixed ? player.rankingScore.toFixed(1) : player.rankingScore }}</span>
                 </div>
                 <div class="bar"><i :style="{ width: `${Math.min(100, player.winRateNum)}%` }"></i></div>
               </li>

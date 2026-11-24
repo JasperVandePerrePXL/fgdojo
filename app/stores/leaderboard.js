@@ -33,8 +33,8 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     },
     rankedPlayers() {
       return [...(this.gameData?.players ?? [])].sort((a, b) =>
+        (b.rankingScore ?? 0) - (a.rankingScore ?? 0) ||
         b.winRateNum - a.winRateNum ||
-        b.gamesWon - a.gamesWon ||
         b.tournamentsAttended - a.tournamentsAttended ||
         b.firstPlaces - a.firstPlaces
       );
