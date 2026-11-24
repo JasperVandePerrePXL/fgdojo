@@ -17,7 +17,7 @@
 - Never commit `.env`, API keys, or `.cache/` contents. Use `STARTGG_KEY` locally; `STARTGG_API_KEY` is also supported.
 - Treat `data/events.json`, `public/data/leaderboards.json`, and `dist/` as generated or refreshed output. Preserve last-known-good data when the start.gg API is unavailable.
 - Do not bypass the client’s request throttling, retry, cache, or graceful fallback behavior when changing data fetching.
-- Do not reintroduce automatic tournament discovery; all tournament additions must be maintained in `data/tournament_slugs.json`.
+- Automatic next-event discovery may update `nextEventUrl` and add a verified upcoming tournament. It must not discover or change game IDs; all game additions remain manual in `data/games.json`.
 
 ## Build and Test
 
@@ -31,6 +31,6 @@
 
 - Follow existing Vue 3 Composition API and Pinia conventions in `app/`; keep Node.js data-processing code in `src/`. Use scoped or shared CSS intentionally and preserve mobile layouts.
 - Preserve explicit error logging and last-known-good fallbacks; do not silently turn failed fetches into successful empty results.
-- Weighted leaderboard rankings use 50% win rate, 30% normalized dojo attendance, and 20% normalized dojo wins. Preserve this balance and add tests when changing it.
+- Weighted leaderboard rankings use 40% win rate, 25% normalized dojo attendance, and 35% normalized dojo wins. Preserve this balance and add tests when changing it.
 - When changing leaderboard calculations, update or add tests in `tests/leaderboard.test.js`. When changing manual season or game configuration, update or add tests in `tests/tournament_config.test.js`.
 - Keep generated files and deployment behavior consistent with `.github/workflows/` and `README.md`.

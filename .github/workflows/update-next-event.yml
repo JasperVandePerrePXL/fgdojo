@@ -1,0 +1,56 @@
+name: Update next Fighting Game Dojo event
+
+on:
+  workflow_run:
+    workflows:
+      - "Refresh leaderboard"
+      - "Build and deploy"
+    types:
+      - completed
+  workflow_dispatch:
+
+concurrency:
+  group: fgdojo-next-event
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update-next-event:
+    name: Discover and save next tournament
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Discover next Fighting Game Dojo tournament
+        run: npm run next-event
+        env:
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+
+      - name: Commit and push configuration changes
+        run: |
+          if git diff --quiet -- data/tournament_slugs.json; then
+            echo "No next-event configuration changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tournament_slugs.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update next Fighting Game Dojo event"
+          git push origin main

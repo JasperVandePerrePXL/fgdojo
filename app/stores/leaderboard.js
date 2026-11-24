@@ -14,6 +14,7 @@ function writeStorage(key, value) {
 export const useLeaderboardStore = defineStore('leaderboard', {
   state: () => ({
     bundle: null,
+    nextEventUrl: null,
     seasons: [],
     selectedSeason: readStorage(seasonKey),
     selectedGame: readStorage(gameKey),
@@ -56,6 +57,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         const response = await fetch(`/data/leaderboards.json?v=${Date.now()}`);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         this.bundle = await response.json();
+        this.nextEventUrl = this.bundle.nextEventUrl || null;
         this.seasons = Object.keys(this.bundle.seasons || {}).map(Number).sort((a, b) => a - b);
 
         const latest = this.seasons.at(-1);
