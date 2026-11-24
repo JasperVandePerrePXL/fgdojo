@@ -56,5 +56,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-3
 
-      - name: Deploy dist folder to S3
-        run: aws s3 sync dist s3://fgdojo.stek.world --delete --cache-control "public, max-age=300"
+      - name: Deploy HTML without stale caching
+        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*" --include "*.html" --cache-control "no-cache, no-store, must-revalidate"
+
+      - name: Deploy static assets
+        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*.html" --cache-control "public, max-age=300"
