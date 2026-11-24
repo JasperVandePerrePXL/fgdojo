@@ -2,11 +2,11 @@
 // Fetch Guilty Gear Strive event data from a list of event slugs.
 // Usage: node src/fetch_tournaments.js
 
-import { gql, getKey, readCache, writeCache, discoverEventSlugs } from './startgg.js';
+import { gql, getKey, readCache, writeCache } from './startgg.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import fs from 'fs/promises';
-import { SEASONS } from './seasons.js';
+import { migrateLegacyData, readRawEvents, writeRawEvents } from './data_store.js';
+import { TOURNAMENT_CONFIG, getTournamentGames, getGameEventCandidates } from './tournament_config.js';
 
 // Attempt to load `.env` automatically if the `dotenv` package is installed.
 try {
@@ -104,10 +104,6 @@ export const eventQuery = `query EventData($slug: String!) {
 
 const DAY = 86400000;
 const FINAL_AFTER = 14 * DAY; // results older than this never change: cache forever
-const eventsInSeason = (s) => Object.values(SEASONS[s].tournaments).flat();
-// New editions are placed in a season by date (Season 1 starts 2026-01-01).
-const seasonFor = (startAt) => (startAt * 1000 < Date.UTC(2026, 0, 1) ? 0 : 1);
-
 let failures = 0; // circuit breaker: stop hammering a dead API
 async function fetchEvent(slug) {
   const cached = await readCache(slug);
@@ -124,41 +120,46 @@ async function fetchEvent(slug) {
   return cached?.data ?? null; // graceful fallback to last known good
 }
 
+async function fetchEventCandidates(candidates) {
+  for (const slug of candidates) {
+    const event = await fetchEvent(slug);
+    if (event) return event;
+  }
+  return null;
+}
+
 async function main() {
   const baseDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
+  await migrateLegacyData(baseDir);
   if (!getKey()) {
     console.warn('⚠ No STARTGG_KEY set — keeping existing output files.');
     return;
   }
-  const slugs = Object.fromEntries(Object.keys(SEASONS).map((s) => [s, new Set(eventsInSeason(s))]));
-  try {
-    for (const e of await discoverEventSlugs()) slugs[seasonFor(e.startAt)]?.add(e.slug);
-  } catch (err) {
-    console.warn(`⚠ Discovery failed (${err.message}); using slugs from seasons.js only.`);
-    failures = 3; // API looks unreachable: serve everything from cache / previous files
-  }
-
+  const stored = await readRawEvents(baseDir);
+  const allBySeason = { ...stored };
   const all = [];
-  for (const [seasonId, set] of Object.entries(slugs)) {
+  for (const [seasonId, season] of Object.entries(TOURNAMENT_CONFIG.seasons ?? {})) {
     const events = [];
-    for (const slug of set) {
-      const ev = await fetchEvent(slug);
-      if (ev) { events.push(ev); console.log(`  ✓ ${ev.name} (${ev.entrants?.pageInfo?.total ?? 0})`); }
+    for (const tournament of season.tournaments ?? []) {
+      for (const gameId of getTournamentGames(season, tournament)) {
+        const candidates = getGameEventCandidates(tournament.slug, gameId);
+        const ev = await fetchEventCandidates(candidates);
+        if (ev) { events.push(ev); console.log(`  ✓ ${ev.name} (${ev.entrants?.pageInfo?.total ?? 0})`); }
+      }
     }
-    const file = path.join(baseDir, `output_season_${seasonId}.json`);
-    let previous = [];
-    try { previous = JSON.parse(await fs.readFile(file, 'utf8')); } catch {}
+    const previous = await readRawEvents(baseDir).then((data) => data[seasonId] ?? []);
     // Never replace good data with a worse (partial/empty) result.
     if (events.length < previous.length) {
-      console.warn(`⚠ Season ${seasonId}: got ${events.length}/${previous.length} events — keeping previous file.`);
+      console.warn(`⚠ Season ${seasonId}: got ${events.length}/${previous.length} events — keeping previous data.`);
+      allBySeason[seasonId] = previous;
       all.push(...previous);
       continue;
     }
-    await fs.writeFile(file, JSON.stringify(events, null, 2));
+    allBySeason[seasonId] = events;
     console.log(`✓ Season ${seasonId}: ${events.length} events`);
     all.push(...events);
   }
-  await fs.writeFile(path.join(baseDir, 'output.json'), JSON.stringify(all, null, 2));
+  await writeRawEvents(baseDir, allBySeason);
 }
 
 // Always exit 0: a flaky API must not block a deploy of the last known good data.

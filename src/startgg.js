@@ -1,4 +1,4 @@
-// Small start.gg client: retry/backoff on 429/5xx, on-disk cache, tournament discovery.
+// Small start.gg client: retry/backoff on 429/5xx and on-disk cache.
 import { GraphQLClient } from 'graphql-request';
 import fs from 'fs/promises';
 import path from 'path';
@@ -43,25 +43,3 @@ export async function writeCache(key, data) {
   await fs.writeFile(cacheFile(key), JSON.stringify({ savedAt: Date.now(), data }));
 }
 
-// Finds Fighting Game Dojo tournaments so new editions need no manual slug entry.
-// NOTE: the name filter is an assumption about the hub's naming; verify on first run.
-const discoverQuery = `query($page: Int!) {
-  tournaments(query: { perPage: 50, page: $page, sortBy: "startAt desc", filter: { name: "Fighting Game Dojo" } }) {
-    pageInfo { totalPages }
-    nodes { slug startAt events { slug } }
-  }
-}`;
-
-export async function discoverEventSlugs() {
-  const out = [];
-  for (let page = 1; page <= 3; page++) {
-    const { tournaments } = await gql(discoverQuery, { page });
-    for (const t of tournaments?.nodes ?? []) {
-      for (const e of t.events ?? []) {
-        if (/1v1/.test(e.slug)) out.push({ slug: e.slug, startAt: t.startAt });
-      }
-    }
-    if (page >= (tournaments?.pageInfo?.totalPages ?? 1)) break;
-  }
-  return out;
-}

@@ -1,205 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fighting Game Dojo · Leaderboard</title>
-<meta name="description" content="Monthly fighting game tournaments in Belgium. Street Fighter 6, Guilty Gear Strive and more. Live leaderboard.">
-<meta name="color-scheme" content="dark light">
+<title>FGDojo - Rankings</title>
+<meta name="description" content="Fighting Game Dojo tournament results, player rankings and statistics.">
 <link rel="icon" href="fgdlogo.jpg">
 <style>
-:root{--bg:#0d0e12;--surface:#161821;--surface2:#1e212d;--line:#2b2f3f;--text:#eef0f6;--muted:#a3a9bd;--accent:#ff5a47;--accent-ink:#1a0805;--gold:#f4c551;--silver:#c8cedd;--bronze:#d9955b;--good:#4fd68a;--mid:#f4c551;--low:#ff7b6b;--r:14px}
-@media (prefers-color-scheme:light){:root{--bg:#f5f6fa;--surface:#fff;--surface2:#eef0f6;--line:#d9dde8;--text:#14161f;--muted:#555c72;--accent:#d63a28;--accent-ink:#fff;--gold:#9a6b00;--silver:#5b6277;--bronze:#9a5a22;--good:#0f7a43;--mid:#8a6400;--low:#b3261e}}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{font:1rem/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
-.wrap{width:min(1100px,100% - 2rem);margin-inline:auto}
-.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--accent);color:var(--accent-ink);padding:.6rem 1rem;border-radius:8px;z-index:9}
-h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
-h2{font-size:clamp(1.5rem,1.1rem + 1.6vw,2.1rem);margin-bottom:.4rem}
-.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.lead{color:var(--muted);max-width:60ch}
-/* header */
-.top{border-bottom:1px solid var(--line);background:var(--surface)}
-.top .wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:.8rem}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:800;font-size:1.1rem;margin-right:auto}
-.brand img{width:44px;height:44px;border-radius:10px;object-fit:cover}
-nav{display:flex;gap:.25rem}
-nav a{padding:.7rem .9rem;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600;min-height:44px}
-nav a:hover{color:var(--text);background:var(--surface2)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.65rem 1.1rem;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:800;text-decoration:none}
-.btn:hover{filter:brightness(1.08)}
-.hero{padding:clamp(2rem,6vw,4rem) 0 1.5rem}
-.hero h1{font-size:clamp(2.1rem,1.2rem + 4.5vw,3.8rem);max-width:16ch;margin:.5rem 0 1rem}
-.hero h1 span{color:var(--accent)}
-section{padding-block:2rem}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
-/* controls */
-.controls{display:flex;gap:1rem;flex-wrap:wrap;margin:1.2rem 0}
-.controls label{display:block;font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:.25rem}
-select{min-height:44px;min-width:11rem;padding:.5rem 2rem .5rem .8rem;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1.5rem}
-.stat{padding:1rem 1.2rem}
-.stat h3{font-size:.95rem;color:var(--muted);margin-bottom:.6rem}
-.stat ol{list-style:none;padding:0;display:grid;gap:.35rem}
-.stat li{display:flex;justify-content:space-between;gap:.8rem}
-.stat li b{font-variant-numeric:tabular-nums}
-.stat li:first-child span{color:var(--gold);font-weight:700}
-/* leaderboard list */
-.board{list-style:none;padding:0;display:grid;gap:.6rem}
-.row{display:grid;grid-template-columns:2.6rem 1fr auto;gap:.2rem .9rem;align-items:center;padding:.85rem 1rem}
-.rank{grid-row:span 3;font-weight:800;font-size:1.25rem;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
-.row:nth-child(1) .rank{color:var(--gold)}.row:nth-child(2) .rank{color:var(--silver)}.row:nth-child(3) .rank{color:var(--bronze)}
-.row:nth-child(-n+3){border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
-.name{font-weight:700;font-size:1.05rem;overflow-wrap:anywhere}
-.wr{font-weight:800;font-variant-numeric:tabular-nums;text-align:right}
-.wr.high{color:var(--good)}.wr.medium{color:var(--mid)}.wr.low{color:var(--low)}
-.meta{grid-column:2/4;display:flex;flex-wrap:wrap;gap:.2rem 1rem;font-size:.9rem;color:var(--muted)}
-.bar{grid-column:2/4;height:6px;border-radius:9px;background:var(--surface2);overflow:hidden}
-.bar i{display:block;height:100%;background:var(--accent)}
-.hist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.8rem;list-style:none;padding:0}
-.hist li{padding:1rem}
-.hist time{font-size:.85rem;color:var(--muted)}
-.hist b{display:block;margin:.2rem 0 .5rem}
-.empty,.err{padding:1.5rem;text-align:center;color:var(--muted)}
-.err{color:var(--low)}
- @media (min-width:720px){
- .row{grid-template-columns:3rem minmax(0,1.4fr) minmax(7rem,1fr) 4.5rem 6.5rem 6rem 4rem;padding:.7rem 1.2rem}
- .row>*{grid-row:1}
- .rank{grid-column:1}.name{grid-column:2}.bar{grid-column:3}.wr{grid-column:4}
- .meta{display:contents}
- .meta span{text-align:right}.meta span:nth-child(1){grid-column:5}.meta span:nth-child(2){grid-column:6}.meta span:nth-child(3){grid-column:7}
-}
-/* about */
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.2rem}
-.game{padding:1.2rem}
-.game h3{margin-bottom:.3rem}
-.tag{display:inline-block;font-size:.75rem;font-weight:800;padding:.15rem .6rem;border-radius:99px;background:var(--surface2);border:1px solid var(--line);margin:0 .3rem .5rem 0}
-.tag.free{color:var(--good)}
-.news{padding:1.4rem;margin-top:1.2rem;border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
-footer{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.9rem}
-@media (max-width:560px){.brand{flex:1 0 100%}.btn{margin-left:auto}nav a{padding:.7rem .6rem}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{color-scheme:dark;--bg:#0b0d12;--panel:#131722;--panel-2:#1a2030;--line:#293146;--ink:#f5f7fb;--muted:#9da8bd;--orange:#ff714b;--yellow:#f6c85f;--green:#57d69a;--red:#ff7f86;--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#26344e 0,transparent 34rem),var(--bg);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit}.shell{width:min(1180px,calc(100% - 2rem));margin:auto}.skip{position:absolute;left:-100vw}.skip:focus{left:1rem;top:1rem;z-index:5;background:var(--orange);padding:.6rem 1rem;border-radius:8px}
+.topbar{border-bottom:1px solid var(--line);background:#0b0d12d9;backdrop-filter:blur(16px);position:sticky;top:0;z-index:2}.topbar .shell{min-height:76px;display:flex;align-items:center;gap:1rem}.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-weight:850;letter-spacing:-.02em;margin-right:auto}.brand img{width:42px;height:42px;object-fit:cover;border-radius:12px}.nav{display:flex;gap:.2rem}.nav a{padding:.55rem .8rem;text-decoration:none;color:var(--muted);border-radius:9px}.nav a:hover{background:var(--panel-2);color:var(--ink)}.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.55rem 1rem;border-radius:10px;background:var(--orange);color:#1b0c08;text-decoration:none;font-weight:800}.button:hover{filter:brightness(1.1)}
+.hero{padding:clamp(3.5rem,9vw,7.5rem) 0 3rem;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(240px,.7fr);gap:3rem;align-items:end}.eyebrow{color:var(--orange);font-size:.77rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.7rem,7vw,6.2rem);line-height:.96;letter-spacing:-.07em;margin:.7rem 0 1.25rem;max-width:9ch}.hero h1 em{font-style:normal;color:var(--orange)}.hero p{color:var(--muted);font-size:1.08rem;max-width:52ch}.hero-card{border:1px solid var(--line);background:linear-gradient(145deg,#202a3f,#121722);border-radius:var(--radius);padding:1.35rem}.hero-card strong{display:block;font-size:2rem;color:var(--yellow);letter-spacing:-.04em}.hero-card span{color:var(--muted);font-size:.9rem}.section{padding:2rem 0 4rem}.section-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}.section h2{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1;letter-spacing:-.045em;margin:.25rem 0}.controls{display:flex;flex-wrap:wrap;gap:.75rem}.field label{display:block;color:var(--muted);font-size:.75rem;font-weight:750;margin:0 0 .3rem .1rem}.field select{min-width:11rem;min-height:42px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);padding:.5rem .75rem;font:inherit}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.5rem 0}.metric{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);padding:1.1rem}.metric b{display:block;font-size:1.7rem;letter-spacing:-.04em}.metric span{color:var(--muted);font-size:.82rem}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.7fr);gap:1rem}.card{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius)}.board{list-style:none;padding:0;margin:0;display:grid;gap:.55rem}.row{display:grid;grid-template-columns:2.5rem minmax(0,1fr) auto;gap:.2rem .8rem;align-items:center;padding:1rem 1.1rem}.rank{font-size:1.15rem;font-weight:850;color:var(--muted);text-align:center}.row:nth-child(1) .rank{color:var(--yellow)}.row:nth-child(2) .rank{color:#c8d1df}.row:nth-child(3) .rank{color:#d99a72}.player{font-weight:780;overflow-wrap:anywhere}.rate{font-weight:850;font-variant-numeric:tabular-nums}.rate.high{color:var(--green)}.rate.medium{color:var(--yellow)}.rate.low{color:var(--red)}.bar{grid-column:2/4;height:5px;border-radius:5px;background:var(--panel-2);overflow:hidden}.bar i{display:block;height:100%;background:var(--orange);border-radius:inherit}.meta{grid-column:2/4;color:var(--muted);font-size:.83rem;display:flex;gap:1rem;flex-wrap:wrap}.side{padding:1.2rem}.side h3{margin:0 0 .8rem;font-size:1rem}.side ol{list-style:none;padding:0;margin:0;display:grid;gap:.75rem}.side li{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px solid var(--line);padding-bottom:.65rem}.side li:last-child{border:0}.side li span{overflow-wrap:anywhere}.side li b{color:var(--yellow);white-space:nowrap}.history{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem;list-style:none;padding:0}.history li{padding:1rem}.history time{color:var(--muted);font-size:.8rem}.history strong{display:block;margin:.2rem 0}.empty,.error{padding:2rem;text-align:center;color:var(--muted)}.error{color:var(--red)}.about{border-top:1px solid var(--line);padding:4rem 0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.about p{color:var(--muted);max-width:62ch}.pill{display:inline-block;padding:.25rem .55rem;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:.75rem;margin:.2rem .2rem 0 0}footer{border-top:1px solid var(--line);padding:1.5rem 0 3rem;color:var(--muted);font-size:.85rem}
+@media(max-width:760px){.hero,.layout{grid-template-columns:1fr}.hero{padding-top:3rem}.summary{grid-template-columns:1fr 1fr}.topbar .shell{flex-wrap:wrap;padding:.7rem 0}.nav{order:3;width:100%}.nav a{flex:1;text-align:center}.topbar .button{margin-left:auto}}
+@media(max-width:460px){.summary{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.row{grid-template-columns:2rem minmax(0,1fr) auto;padding:.85rem}.hero h1{font-size:3.4rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<a class="skip" href="#leaderboard">Skip to leaderboard</a>
-<header class="top"><div class="wrap">
-  <a class="brand" href="#top"><img src="fgdlogo.jpg" alt="" width="44" height="44">Fighting Game Dojo</a>
-  <nav aria-label="Main"><a href="#leaderboard">Leaderboard</a><a href="#about">About</a></nav>
-  <a class="btn" href="https://start.gg/RBHubFGDojo" rel="noopener">Sign up 🥊</a>
+<a class="skip" href="#rankings">Skip to rankings</a>
+<header class="topbar"><div class="shell">
+  <a class="brand" href="#top"><img src="fgdlogo.jpg" alt="" width="42" height="42">Fighting Game Dojo</a>
+  <nav class="nav" aria-label="Main navigation"><a href="#rankings">Rankings</a></nav>
+  <a class="button" href="https://start.gg/RBHubFGDojo" target="_blank" rel="noopener noreferrer">Join the next event <span aria-hidden="true">↗</span></a>
 </div></header>
-
 <main id="top">
-<div class="wrap hero">
-  <p class="eyebrow">Monthly tournaments · Belgium</p>
-  <h1>Train. Fight. <span>Climb the ranks.</span></h1>
-  <p class="lead">Every edition of the Dojo feeds this leaderboard. Pick a season and a game to see who's on top. 🏆</p>
-</div>
-
-<section id="leaderboard" class="wrap" aria-labelledby="lb-h">
-  <h2 id="lb-h">Leaderboard</h2>
-  <div class="controls">
-    <div><label for="season">Season</label><select id="season"></select></div>
-    <div><label for="game">Game</label><select id="game"></select></div>
-  </div>
-  <div id="out" aria-live="polite"><p class="empty">Loading the leaderboard…</p></div>
-</section>
-
-<section id="about" class="wrap" aria-labelledby="about-h">
-  <p class="eyebrow">About the Dojo</p>
-  <h2 id="about-h">Casual vibes, serious fights</h2>
-  <p class="lead">Fighting Game Dojo is a monthly community tournament at a Belgian esports hub. Newcomers and veterans share the same stations, so come to learn, to compete, or just to hang out. 🥋</p>
-
-  <div class="card news">
-    <h3>📣 September edition: we're making some changes…</h3>
-    <p class="lead">Tekken turnout has dropped, and with <b>Avatar Legends</b> and <b>Marvel Tokon</b> freshly released we want to feel the waters, so <b>Freeplay</b> tournaments are back! Games start at <b>2 PM</b> (instead of 3 PM) so we wrap up before closing time. ⏰</p>
-  </div>
-
-  <div class="cols">
-    <article class="card game"><h3>Street Fighter</h3><span class="tag">Competitor</span><span class="tag">32 players</span><p class="lead">Same signup fee as before.</p></article>
-    <article class="card game"><h3>Guilty Gear</h3><span class="tag">Competitor</span><span class="tag">32 players</span><p class="lead">Same signup fee as before.</p></article>
-    <article class="card game"><h3>Avatar Legends</h3><span class="tag">Freeplay</span><span class="tag free">Free entry</span><span class="tag">16 players</span><p class="lead">Via Competitor <i>or</i> Freeplay tickets. No cash prizepool, but the winner might take home something extra (Red Bull, anyone? 🥤).</p></article>
-    <article class="card game"><h3>Marvel Tokon</h3><span class="tag">Freeplay</span><span class="tag free">Free entry</span><span class="tag">16 players</span><p class="lead">Via Competitor <i>or</i> Freeplay tickets. Same deal: no cash prizepool, maybe a small winner bonus.</p></article>
-  </div>
-  <p style="margin-top:1.2rem"><a class="btn" href="https://start.gg/RBHubFGDojo" rel="noopener">Sign up on start.gg →</a></p>
-</section>
+  <section class="shell hero" aria-labelledby="title">
+    <div><div class="eyebrow">Belgian FGC · Learning · Improving · Supporting </div><h1 id="title">Train hard.<br><em>Rank higher.</em></h1><p>Results from every Fighting Game Dojo edition, brought together in one place. Choose a season and game to see the competition.</p></div>
+    <div class="hero-card"><strong id="hero-events">—</strong><span>dojos held across all seasons</span><br><strong id="hero-players">—</strong><span>players represented in the latest season</span></div>
+  </section>
+  <section class="shell section" id="rankings" aria-labelledby="rankings-title">
+    <div class="section-head"><div><div class="eyebrow">The leaderboard</div><h2 id="rankings-title">Who's on top?</h2></div><div class="controls"><div class="field"><label for="season">Season</label><select id="season"></select></div><div class="field"><label for="game">Game</label><select id="game"></select></div></div></div>
+    <div id="out" aria-live="polite"><p class="empty">Loading rankings…</p></div>
+  </section>
 </main>
-<footer><div class="wrap">Fighting Game Dojo · results come straight from start.gg · <span id="asof"></span></div></footer>
-
+<footer><div class="shell">Fighting Game Dojo · data from start.gg · <span id="asof"></span></div></footer>
 <script>
-const $ = (id) => document.getElementById(id);
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const store = {
-  get: (k) => { try { return localStorage.getItem('fgdojo:' + k); } catch { return null; } },
-  set: (k, v) => { try { localStorage.setItem('fgdojo:' + k, v); } catch {} },
-};
-let seasons = [0, 1], data = null, games = [];
-
-const getJSON = async (url) => {
-  const r = await fetch(`${url}?v=${Date.now()}`);
-  if (!r.ok) throw new Error(`${url}: ${r.status}`);
-  return r.json();
-};
-const cls = (w) => (w >= 60 ? 'high' : w >= 45 ? 'medium' : 'low');
-const rank = (ps) => [...ps].sort((a, b) => b.winRateNum - a.winRateNum || b.gamesWon - a.gamesWon || b.tournamentsAttended - a.tournamentsAttended || b.firstPlaces - a.firstPlaces);
-const best = (ps, fn, f = () => true) => [...ps].filter(f).sort((a, b) => fn(b) - fn(a)).slice(0, 3);
-const list = (items, val) => items.length ? `<ol>${items.map((p) => `<li><span>${esc(p.displayName)}</span><b>${val(p)}</b></li>`).join('')}</ol>` : '<p class="empty">Not enough data yet.</p>';
-
-function render() {
-  const g = games.find((x) => String(x.gameId) === $('game').value) ?? games[0];
-  const ps = rank(g?.players ?? []), ts = g?.tournaments ?? [];
-  if (!ps.length) { $('out').innerHTML = '<p class="empty">No results for this season and game yet. 🥲</p>'; return; }
-  $('out').innerHTML = `
-    <div class="stats">
-      <div class="card stat"><h3>👑 Most 1st places</h3>${list(best(ps, (p) => p.firstPlaces), (p) => p.firstPlaces)}</div>
-      <div class="card stat"><h3>📈 Best win rate (10+ games)</h3>${list(best(ps, (p) => p.winRateNum, (p) => p.gamesWon + p.gamesLost >= 10), (p) => p.winRate + '%')}</div>
-      <div class="card stat"><h3>🎯 Most events</h3>${list(best(ps, (p) => p.tournamentsAttended), (p) => p.tournamentsAttended)}</div>
-    </div>
-    <ol class="board" aria-label="Player ranking">${ps.map((p, i) => `
-      <li class="card row">
-        <span class="rank" aria-label="Rank ${i + 1}">${i + 1}</span>
-        <span class="name">${esc(p.displayName)}</span>
-        <span class="wr ${cls(p.winRateNum)}">${esc(p.winRate)}%</span>
-        <div class="meta"><span>${p.gamesWon}W – ${p.gamesLost}L</span><span>${p.tournamentsAttended} ${p.tournamentsAttended === 1 ? 'event' : 'events'}</span><span>${p.firstPlaces ? '🏆 ' + p.firstPlaces : '–'}</span></div>
-        <div class="bar" role="presentation"><i style="width:${Math.min(100, p.winRateNum)}%"></i></div>
-      </li>`).join('')}</ol>
-    <h2 style="margin-top:2.5rem">Tournament history</h2>
-    <ul class="hist">${ts.map((t) => `<li class="card"><time>${esc(t.date || 'Date TBD')}</time><b>${esc(t.name)}</b>🏆 ${esc(t.winner || 'TBD')}<br><small class="lead">${t.entrantCount} entrants</small></li>`).join('')}</ul>`;
-  const last = ts.map((t) => t.date).filter(Boolean).sort().pop();
-  $('asof').textContent = last ? `Latest result: ${last}` : '';
-}
-
-function fillGames(keep) {
-  games = data.games?.length ? data.games : [{ gameId: 'all', gameName: 'All games', players: data.players ?? [], tournaments: data.tournaments ?? [] }];
-  const want = keep ?? store.get('game');
-  $('game').innerHTML = games.map((g) => `<option value="${esc(g.gameId)}">${esc(g.gameName)}</option>`).join('');
-  if (games.some((g) => String(g.gameId) === want)) $('game').value = want;
-}
-
-async function loadSeason(id) {
-  try {
-    data = await getJSON(`leaderboard_season_${id}.json`);
-    store.set('season', id);
-    fillGames($('game').value || null);
-    render();
-  } catch (e) {
-    $('out').innerHTML = `<p class="err">Couldn't load that season. Please try again later. 😵</p>`;
-  }
-}
-
-(async () => {
-  try { seasons = (await getJSON('seasons.json')).seasons; } catch {}
-  const latest = Math.max(...seasons), saved = store.get('season') === null ? NaN : Number(store.get('season'));
-  const start = seasons.includes(saved) ? saved : latest;
-  $('season').innerHTML = seasons.map((s) => `<option value="${s}">Season ${s}</option>`).join('');
-  $('season').value = start;
-  $('season').addEventListener('change', (e) => loadSeason(e.target.value));
-  $('game').addEventListener('change', () => { store.set('game', $('game').value); render(); });
-  await loadSeason(start);
-})();
+const $=id=>document.getElementById(id), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), get=async url=>{const r=await fetch(`${url}?v=${Date.now()}`);if(!r.ok)throw Error(`${r.status}`);return r.json()};
+let bundle,seasons=[],data,games=[];
+const rateClass=n=>n>=60?'high':n>=45?'medium':'low', rank=ps=>[...ps].sort((a,b)=>b.winRateNum-a.winRateNum||b.gamesWon-a.gamesWon||b.tournamentsAttended-a.tournamentsAttended||b.firstPlaces-a.firstPlaces);
+const topPlayers=(ps,fn,filter=()=>true)=>[...ps].filter(filter).sort((a,b)=>fn(b)-fn(a)).slice(0,3);
+const statList=(items,value)=>items.length?`<ol>${items.map(p=>`<li><span>${esc(p.displayName)}</span><b>${value(p)}</b></li>`).join('')}</ol>`:'<p class="empty">Not enough data yet.</p>';
+const distinctDojos=items=>new Set(items.map(t=>t.dojoId||`${t.date||''}|${t.name||''}`)).size;
+function render(){const game=games.find(g=>String(g.gameId)===$('game').value)||games[0],ps=rank(game?.players||[]),ts=game?.tournaments||[],overall=bundle.combined?.games?.find(g=>String(g.gameId)===String(game?.gameId))||game;if(!ps.length){$('out').innerHTML='<p class="empty">No results for this selection yet.</p>';return}const totalGames=ps.reduce((n,p)=>n+p.gamesWon+p.gamesLost,0),dojoCount=distinctDojos(ts),overallPlayers=overall?.players||[];$('out').innerHTML=`<div class="summary"><div class="metric"><b>${ps.length}</b><span>players ranked</span></div><div class="metric"><b>${dojoCount}</b><span>${dojoCount===1?'dojo in this game':'dojos in this game'}</span></div><div class="metric"><b>${totalGames}</b><span>games recorded</span></div></div><div class="layout"><div><ol class="board" aria-label="Player rankings">${ps.map((p,i)=>`<li class="card row"><span class="rank">${i+1}</span><span class="player">${esc(p.displayName)}</span><span class="rate ${rateClass(p.winRateNum)}">${esc(p.winRate)}%</span><div class="meta"><span>${p.gamesWon}W – ${p.gamesLost}L</span><span>${p.tournamentsAttended} ${p.tournamentsAttended===1?'dojo':'dojos'}</span><span>${p.firstPlaces?'🏆 '+p.firstPlaces:'No wins yet'}</span></div><div class="bar"><i style="width:${Math.min(100,p.winRateNum)}%"></i></div></li>`).join('')}</ol></div><aside class="card side"><h3>All-time highlights</h3><div class="side-section"><small class="eyebrow">Most wins</small>${statList(topPlayers(overallPlayers,p=>p.firstPlaces),p=>p.firstPlaces)}</div><div class="side-section"><small class="eyebrow">Best win rate</small>${statList(topPlayers(overallPlayers,p=>p.winRateNum,p=>p.gamesWon+p.gamesLost>=10),p=>p.winRate+'%')}</div><div class="side-section"><small class="eyebrow">Most attendance</small>${statList(topPlayers(overallPlayers,p=>p.tournamentsAttended),p=>p.tournamentsAttended)}</div></aside></div><h2 style="margin:3rem 0 1rem">Event history</h2><ul class="history">${ts.map(t=>`<li class="card"><time>${esc(t.date||'Date TBD')}</time><strong>${esc(t.name)}</strong><span>🏆 ${esc(t.winner||'Results pending')}</span><br><small>${t.entrantCount||0} entrants</small></li>`).join('')}</ul>`;const last=ts.map(t=>t.date).filter(Boolean).sort().pop();$('asof').textContent=last?`Latest result: ${last}`:''}
+function fillGames(){games=data?.games?.length?data.games:[{gameId:'all',gameName:'All games',players:data?.players||[],tournaments:data?.tournaments||[]}];$('game').innerHTML=games.map(g=>`<option value="${esc(g.gameId)}">${esc(g.gameName)}</option>`).join('');render()}
+function loadSeason(id){data=bundle.seasons?.[id];if(!data){$('out').innerHTML='<p class="error">This season could not be loaded.</p>';return}$('season').value=id;fillGames()}
+(async()=>{try{bundle=await get('data/leaderboards.json');seasons=Object.keys(bundle.seasons||{}).map(Number).sort((a,b)=>a-b);$('hero-events').textContent=Object.values(bundle.seasons).reduce((n,s)=>n+(s.summary?.totalDojos??s.summary?.totalTournaments??0),0);const latest=seasons.at(-1),latestData=bundle.seasons[latest];$('hero-players').textContent=latestData?.summary?.totalPlayers||0;$('season').innerHTML=seasons.map(s=>`<option value="${s}">Season ${s}</option>`).join('');$('season').addEventListener('change',e=>loadSeason(e.target.value));$('game').addEventListener('change',render);loadSeason(latest)}catch(e){$('out').innerHTML='<p class="error">Leaderboard data is temporarily unavailable.</p>'}})();
 </script>
 </body>
 </html>

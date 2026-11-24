@@ -1,59 +1,67 @@
-name: Build & deploy site
+name: Build and deploy
 
 on:
   push:
-    branches: [main]
-    paths:            # only deploy when something the site depends on changes
+    branches:
+      - main
+    paths:
       - 'public/**'
       - 'src/**'
+      - 'data/**'
+      - 'tests/**'
       - 'package.json'
       - 'package-lock.json'
-      - 'output*.json'
-      - '.github/workflows/deploy.yml'
-  schedule:
-    # Once a week, Sunday 20:00 UTC (evening in Belgium): covers Saturday AND Sunday tournaments.
-    # Want a second refresh? Add: - cron: '0 20 * * 6'
-    - cron: '0 20 * * 0'
-  workflow_dispatch:  # manual "Run workflow" button, no commit needed
+      - '.github/workflows/**'
+  workflow_dispatch:
 
 concurrency:
-  group: deploy
-  cancel-in-progress: false   # never interrupt a sync half-way
+  group: fgdojo-deploy
+  cancel-in-progress: false
 
 permissions:
   contents: read
 
 jobs:
-  deploy:
+  build-and-deploy:
+    name: Build and deploy to S3
     runs-on: ubuntu-22.04
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
+    timeout-minutes: 30
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm            # caches ~/.npm keyed on package-lock.json
+          cache: npm
 
-      # start.gg response cache: finished events are never re-fetched
-      - uses: actions/cache@v4
+      - name: Restore start.gg response cache
+        uses: actions/cache@v4
         with:
           path: .cache/startgg
           key: startgg-${{ github.run_id }}
           restore-keys: startgg-
 
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Fetch start.gg data & build
+      - name: Run tests
+        run: npm test
+
+      - name: Refresh data and build site
         run: npm run build
         env:
-          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}   # falls back to last known good data if the API fails
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+          CI: true
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-3
 
-      - name: Sync to S3 (idempotent: only changed files upload)
+      - name: Deploy dist folder to S3
         run: aws s3 sync dist s3://fgdojo.stek.world --delete --cache-control "public, max-age=300"

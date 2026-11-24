@@ -3,38 +3,59 @@
 // Usage: node src/process_leaderboard.js
 
 import fs from 'fs/promises';
+import fsSync from 'node:fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { SEASONS } from './seasons.js';
+import { migrateLegacyData, readRawEvents } from './data_store.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const baseDir = path.join(__dirname, '..');
 
 async function loadTournamentData(seasonId) {
-  const inputFile = path.join(baseDir, `output_season_${seasonId}.json`);
-  try {
-    const data = await fs.readFile(inputFile, 'utf8');
-    return JSON.parse(data);
-  } catch (err) {
-    console.error(`Error reading ${inputFile}:`, err.message);
-    return [];
-  }
+  const data = await readRawEvents(baseDir);
+  return data[seasonId] ?? [];
 }
 
 const publicDir = path.join(baseDir, 'public');
 
-async function loadAllTournamentData() {
-  const inputFile = path.join(baseDir, 'output.json');
-  try {
-    const data = await fs.readFile(inputFile, 'utf8');
-    return JSON.parse(data);
-  } catch (err) {
-    console.error(`Error reading ${inputFile}:`, err.message);
-    return [];
-  }
+export const HIDDEN_PLAYER_CONFIG = JSON.parse(
+  fsSync.readFileSync(path.join(baseDir, 'data', 'hidden_players.json'), 'utf8'),
+);
+
+const normalizedHiddenNames = new Set(
+  (HIDDEN_PLAYER_CONFIG.displayNames ?? []).map((name) => String(name).trim().toLowerCase()),
+);
+const hiddenPlayerIds = new Set(
+  (HIDDEN_PLAYER_CONFIG.playerIds ?? []).map((id) => String(id)),
+);
+
+export function isHiddenPlayer({ playerId, displayName } = {}) {
+  if (playerId != null && hiddenPlayerIds.has(String(playerId))) return true;
+  if (typeof displayName !== 'string') return false;
+  return normalizedHiddenNames.has(displayName.trim().toLowerCase());
 }
 
-function processLeaderboard(events) {
+async function loadAllTournamentData() {
+  const data = await readRawEvents(baseDir);
+  return Object.entries(data)
+    .filter(([seasonId]) => /^\d+$/.test(seasonId))
+    .flatMap(([, events]) => events);
+}
+
+export function processLeaderboard(events) {
+  const formatTournamentDate = (timestamp) => {
+    if (!timestamp) return null;
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Brussels',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).formatToParts(new Date(timestamp * 1000));
+    const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+    return `${values.year}-${values.month}-${values.day}`;
+  };
+
   const playerStats = new Map(); // playerId -> stats
   const tournaments = [];
   const gameStats = new Map(); // gameId -> { gameId, gameName, players: Map, tournaments: [] }
@@ -48,8 +69,9 @@ function processLeaderboard(events) {
 
   for (const event of sortedEvents) {
     const tournamentInfo = {
+      dojoId: event.tournament?.slug ?? null,
       name: event.tournament?.name ?? 'Unknown Tournament',
-      date: event.tournament?.startAt ? new Date(event.tournament.startAt * 1000).toISOString().slice(0, 10) : null,
+      date: formatTournamentDate(event.tournament?.startAt),
       eventName: event.name,
       winner: null,
       entrantCount: event.entrants?.pageInfo?.total ?? 0,
@@ -59,8 +81,18 @@ function processLeaderboard(events) {
     const standings = event.standings?.nodes ?? [];
     const firstPlace = standings.find(s => s.placement === 1);
     if (firstPlace) {
-      const winnerName = firstPlace.entrant?.participants?.[0]?.gamerTag ?? firstPlace.entrant?.name ?? 'Unknown';
-      tournamentInfo.winner = winnerName;
+      const winnerParticipant = firstPlace.entrant?.participants?.[0];
+      const winnerGamerTag = winnerParticipant?.gamerTag ?? firstPlace.entrant?.name ?? 'Unknown';
+      const winnerPrefix = winnerParticipant?.prefix ?? '';
+      const winnerName = winnerPrefix
+        ? `${winnerPrefix} | ${winnerGamerTag}`
+        : (firstPlace.entrant?.name && firstPlace.entrant.name.includes(' | ')
+          ? firstPlace.entrant.name
+          : winnerGamerTag);
+      const winnerPlayerId = winnerParticipant?.player?.id ?? winnerParticipant?.id;
+      if (!isHiddenPlayer({ playerId: winnerPlayerId, displayName: winnerName })) {
+        tournamentInfo.winner = winnerName;
+      }
     }
 
     tournaments.push(tournamentInfo);
@@ -84,9 +116,13 @@ function processLeaderboard(events) {
         const playerId = participant.player?.id ?? participant.id;
         const gamerTag = participant.gamerTag ?? participant.player?.gamerTag ?? 'Unknown';
         const prefix = participant.prefix ?? '';
-        const displayName = prefix ? `${prefix} | ${gamerTag}` : gamerTag;
+        const displayName = prefix
+          ? `${prefix} | ${gamerTag}`
+          : (entrant.name && entrant.name.includes(' | ') ? entrant.name : gamerTag);
+        if (isHiddenPlayer({ playerId, displayName })) continue;
         const placement = entrant.standing?.placement ?? null;
 
+        const dojoKey = tournamentInfo.dojoId || `${tournamentInfo.date}|${tournamentInfo.name}`;
         const ensureStats = (map) => {
           if (!map.has(playerId)) {
             map.set(playerId, {
@@ -95,6 +131,7 @@ function processLeaderboard(events) {
               prefix,
               displayName,
               tournamentsAttended: 0,
+              dojoIds: new Set(),
               gamesWon: 0,
               gamesLost: 0,
               firstPlaces: 0,
@@ -106,7 +143,10 @@ function processLeaderboard(events) {
           stats.gamerTag = gamerTag;
           stats.prefix = prefix;
           stats.displayName = displayName;
-          stats.tournamentsAttended += 1;
+          if (!stats.dojoIds.has(dojoKey)) {
+            stats.dojoIds.add(dojoKey);
+            stats.tournamentsAttended += 1;
+          }
           if (placement !== null) {
             stats.placements.push({ tournament: tournamentInfo.name, placement });
             if (placement === 1) {
@@ -169,18 +209,24 @@ function processLeaderboard(events) {
   const calcWin = (p) => p.gamesWon + p.gamesLost > 0 ? (p.gamesWon / (p.gamesWon + p.gamesLost) * 100) : 0;
 
   // Calculate win percentage for each player
-  const playerList = Array.from(playerStats.values()).map(p => ({
-    ...p,
-    winRateNum: calcWin(p),
-    winRate: (calcWin(p)).toFixed(2),
-  }));
-
-  const games = Array.from(gameStats.values()).map(g => {
-    const players = Array.from(g.players.values()).map(p => ({
-      ...p,
+  const playerList = Array.from(playerStats.values()).map(p => {
+    const { dojoIds, ...stats } = p;
+    return {
+      ...stats,
       winRateNum: calcWin(p),
       winRate: (calcWin(p)).toFixed(2),
-    }));
+    };
+  });
+
+  const games = Array.from(gameStats.values()).map(g => {
+    const players = Array.from(g.players.values()).map(p => {
+      const { dojoIds, ...stats } = p;
+      return {
+        ...stats,
+        winRateNum: calcWin(p),
+        winRate: (calcWin(p)).toFixed(2),
+      };
+    });
     return {
       gameId: g.gameId,
       gameName: g.gameName,
@@ -189,10 +235,11 @@ function processLeaderboard(events) {
     };
   });
 
-  return { players: playerList, tournaments, games };
+  const dojoIds = new Set(tournaments.map((tournament) => tournament.dojoId || `${tournament.date}|${tournament.name}`));
+  return { players: playerList, tournaments, games, dojoCount: dojoIds.size };
 }
 
-function calculateFunStats(players) {
+export function calculateFunStats(players) {
   const mostFirstPlaces = [...players].sort((a, b) => b.firstPlaces - a.firstPlaces).slice(0, 5);
   const highestWinRate = [...players]
     .filter(p => p.gamesWon + p.gamesLost >= 10) // Minimum 10 games played
@@ -221,6 +268,12 @@ function calculateFunStats(players) {
 }
 
 async function main() {
+  await migrateLegacyData(baseDir);
+  for (const file of await fs.readdir(publicDir).catch(() => [])) {
+    if (/^leaderboard(?:_season_\d+)?\.json$/.test(file)) {
+      await fs.rm(path.join(publicDir, file), { force: true });
+    }
+  }
   console.log('🎮 Processing leaderboards by season...\n');
 
   const seasonLeaderboards = {};
@@ -236,9 +289,9 @@ async function main() {
     }
 
     console.log(`  Loading ${events.length} event(s)...`);
-    const { players, tournaments, games } = processLeaderboard(events);
+    const { players, tournaments, games, dojoCount } = processLeaderboard(events);
 
-    console.log(`  Found ${players.length} unique player(s) across ${tournaments.length} tournament(s)`);
+    console.log(`  Found ${players.length} unique player(s) across ${dojoCount} dojo(s)`);
 
     const funStats = calculateFunStats(players);
 
@@ -247,7 +300,8 @@ async function main() {
       seasonName: seasonData.name,
       summary: {
         totalPlayers: players.length,
-        totalTournaments: tournaments.length,
+        totalTournaments: dojoCount,
+        totalDojos: dojoCount,
       },
       players: players.sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
       games,
@@ -257,16 +311,13 @@ async function main() {
 
     seasonLeaderboards[seasonId] = output;
 
-    // Write individual season leaderboard
-    const seasonOutputFile = path.join(publicDir, `leaderboard_season_${seasonId}.json`);
-    await fs.writeFile(seasonOutputFile, JSON.stringify(output, null, 2), 'utf8');
-    console.log(`  ✓ Saved to leaderboard_season_${seasonId}.json\n`);
+    console.log(`  ✓ Processed ${seasonData.name}\n`);
   }
 
   // Create a combined leaderboard for backwards compatibility
   const allEvents = await loadAllTournamentData();
   if (allEvents.length > 0) {
-    const { players, tournaments, games } = processLeaderboard(allEvents);
+    const { players, tournaments, games, dojoCount } = processLeaderboard(allEvents);
     const funStats = calculateFunStats(players);
 
     const combinedOutput = {
@@ -274,7 +325,8 @@ async function main() {
       seasonName: 'All Seasons Combined',
       summary: {
         totalPlayers: players.length,
-        totalTournaments: tournaments.length,
+        totalTournaments: dojoCount,
+        totalDojos: dojoCount,
       },
       players: players.sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
       games,
@@ -282,9 +334,15 @@ async function main() {
       funStats,
     };
 
-    const combinedOutputFile = path.join(publicDir, 'leaderboard.json');
-    await fs.writeFile(combinedOutputFile, JSON.stringify(combinedOutput, null, 2), 'utf8');
-    console.log('✓ Saved combined leaderboard to leaderboard.json');
+    console.log('✓ Processed combined leaderboard');
+
+    await fs.mkdir(path.join(publicDir, 'data'), { recursive: true });
+    await fs.writeFile(
+      path.join(publicDir, 'data', 'leaderboards.json'),
+      JSON.stringify({ seasons: seasonLeaderboards, combined: combinedOutput }, null, 2),
+      'utf8',
+    );
+    console.log('✓ Saved consolidated public data to public/data/leaderboards.json');
   }
 
   // Print fun stats for Season 0
@@ -314,4 +372,5 @@ async function main() {
   }
 }
 
-main().catch(console.error);
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) main().catch(console.error);

@@ -12,7 +12,7 @@
     "fetch": "node src/fetch_tournaments.js",
     "process": "node src/process_leaderboard.js",
     "build": "npm run fetch && npm run process && node src/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/**/*.test.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",

@@ -1,0 +1,36 @@
+{
+  "description": "Manually maintained Fighting Game Dojo seasons. Tournament entries use a tournament slug or start.gg tournament URL; season game lists remove repeated game configuration.",
+  "defaultGames": ["street-fighter-6", "tekken-8", "guilty-gear-strive"],
+  "seasons": {
+    "0": {
+      "name": "Season 0",
+      "tournaments": [
+        { "name": "December 2025", "slug": "fighting-game-dojo-december-25" },
+        { "name": "November 2025", "slug": "fighting-game-dojo-november-25" },
+        { "name": "Anniversary (October 2025)", "slug": "fighting-game-dojo-anniversary-evo-prep-weekend" },
+        { "name": "Back To School (September 2025)", "slug": "fighting-game-dojo-back-to-school" },
+        { "name": "Summer Part 2 (August 2025)", "slug": "fighting-game-dojo-summer-part-2" },
+        { "name": "Summer Edition (July 2025)", "slug": "fighting-game-dojo-summer-edition" },
+        { "name": "Fifth Round (June 2025)", "slug": "fighting-game-dojo-the-fifth-round" },
+        { "name": "Fourth Round (May 2025)", "slug": "fighting-game-dojo-the-fourth-round" },
+        { "name": "Third Round (April 2025)", "slug": "fighting-game-dojo-the-third-round-including-rb-kumite-view", "games": ["street-fighter-6", "tekken-8"] },
+        { "name": "Second Round (March 2025)", "slug": "fighting-game-dojo-the-second-round", "games": ["street-fighter-6", "tekken-8"] },
+        { "name": "First Round (January 2025)", "slug": "fighting-game-dojo-the-first-round-frag-o-matic-invitational", "games": ["street-fighter-6", "tekken-8"] }
+      ]
+    },
+    "1": {
+      "name": "Season 1",
+      "tournaments": [
+        { "name": "January '26 edition", "slug": "fighting-game-dojo-january-26-edition" },
+        { "name": "March '26 edition", "slug": "fighting-game-dojo-march-edition" },
+        { "name": "April '26 edition", "slug": "fighting-game-dojo-april-edition" },
+        { "name": "May '26 edition", "slug": "fighting-game-dojo-may-edition" },
+        { "name": "July '26 edition", "slug": "fighting-game-dojo-july-edition" },
+        { "name": "August '26 edition", "slug": "fighting-game-dojo-august-edition" },
+        { "name": "September '26 edition", "slug": "fighting-game-dojo-september-edition", "games": ["street-fighter-6", "tekken-8", "guilty-gear-strive", "avatar-legends", "marvel-tokon"] },
+        { "name": "October '26 edition", "slug": "fighting-game-dojo-october-edition", "games": ["street-fighter-6", "tekken-8", "guilty-gear-strive", "avatar-legends", "marvel-tokon"] },
+        { "name": "November '26 edition", "slug": "fighting-game-dojo-november-edition-1", "games": ["street-fighter-6", "tekken-8", "guilty-gear-strive", "avatar-legends", "marvel-tokon"] }
+      ]
+    }
+  }
+}

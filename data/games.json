@@ -1,0 +1,43 @@
+{
+  "description": "Known start.gg event slug variants for each fighting game.",
+  "games": {
+    "street-fighter-6": {
+      "name": "Street Fighter 6",
+      "eventSlugs": [
+        "1v1-street-fighter-6-pc",
+        "1v1-fgdojo-street-fighter-6-pc",
+        "1v1-fgdojo-street-fighter-6",
+        "1v1-sf6-frag-o-matic-invitational"
+      ]
+    },
+    "tekken-8": {
+      "name": "Tekken 8",
+      "eventSlugs": [
+        "1v1-tekken-8-ps5",
+        "1v1-fgdojo-tekken-8-ps5",
+        "1v1-fgdojo-tekken-8",
+        "1v1-t8-frag-o-matic-invitational"
+      ]
+    },
+    "guilty-gear-strive": {
+      "name": "Guilty Gear Strive",
+      "eventSlugs": [
+        "1v1-guilty-gear-strive-pc",
+        "1v1-fgdojo-guilty-gear-strive-pc",
+        "1v1-fgdojo-guilty-gear-strive"
+      ]
+    },
+    "avatar-legends": {
+      "name": "Avatar Legends",
+      "eventSlugs": [
+        "1v1-avatar-legends-pc"
+      ]
+    },
+    "marvel-tokon": {
+      "name": "MARVEL Tokon Fighting Souls",
+      "eventSlugs": [
+        "1v1-marvel-tokon-ps5"
+      ]
+    }
+  }
+}

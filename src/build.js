@@ -22,10 +22,13 @@ async function build() {
     await fs.cp(PUBLIC_DIR, DIST_DIR, { recursive: true });
     console.log('✓ Copied public/ to dist/');
 
-    // Manifest so the page discovers seasons without code edits
-    const ids = (await fs.readdir(DIST_DIR))
-      .map((f) => f.match(/^leaderboard_season_(\d+)\.json$/)?.[1])
-      .filter(Boolean).map(Number).sort((a, b) => a - b);
+    // Manifest is derived from the consolidated leaderboard data.
+    const leaderboardFile = path.join(DIST_DIR, 'data', 'leaderboards.json');
+    let ids = [];
+    try {
+      const leaderboardData = JSON.parse(await fs.readFile(leaderboardFile, 'utf8'));
+      ids = Object.keys(leaderboardData.seasons ?? {}).map(Number).sort((a, b) => a - b);
+    } catch {}
     await fs.writeFile(path.join(DIST_DIR, 'seasons.json'), JSON.stringify({ seasons: ids }));
 
     console.log(`\n✅ Build complete! Files ready in dist/\n`);
