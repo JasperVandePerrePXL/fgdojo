@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { migrateLegacyData, readRawEvents, writeRawEvents } from '../src/data_store.js';
+import { migrateLegacyData, readRawEvents, writeRawEvents } from '../src/storage/raw_events.js';
 
 test('raw event data is stored in one JSON file with season groups', async () => {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), 'fgdojo-'));

@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { extractTournamentSlug } from '../src/next_event/hub.js';
+import { normalizeTournamentSlug } from '../src/config/tournaments.js';
 import {
-  extractTournamentSlug,
   formatTournamentEntry,
-  normalizeTournamentSlug,
   findExistingTournament,
   seasonIdForTimestamp,
   updateNextEventConfig,
-} from '../src/next_event.js';
+} from '../src/next_event/config_update.js';
 
 const slug = 'fighting-game-dojo-march-edition';
 

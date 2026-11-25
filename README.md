@@ -1,182 +1,257 @@
 # Fighting Game Dojo leaderboard
 
-A static leaderboard for Fighting Game Dojo events. The interface is built with Vue 3 and Pinia and bundled with Vite. Data is fetched from the start.gg GraphQL API and the generated site is deployed to Amazon S3.
+A static leaderboard website for the Fighting Game Dojo tournaments. Results are fetched from the
+[start.gg](https://start.gg) GraphQL API, turned into statistics by a small Node.js pipeline, shown by a
+Vue 3 + Pinia interface bundled with Vite, and deployed to Amazon S3 by GitHub Actions.
 
-## Local setup
+- [Quick start](#quick-start)
+- [How it works](#how-it-works)
+- [Project structure](#project-structure)
+- [Configuration files](#configuration-files)
+- [Maintenance](#maintenance)
+- [Counting rules](#counting-rules)
+- [GitHub Actions](#github-actions)
+- [Extending the project](#extending-the-project)
+- [Tests](#tests)
+
+## Quick start
 
 ```bash
-cp .env.example .env
+cp .env.example .env     # then put your start.gg API key after STARTGG_KEY=
 npm install
-npm run dev
-npm test
-npm run build
-npm start
+npm test                 # unit tests, no API key needed
+npm run build            # fetch + process + build the site into dist/
+npm start                # serve dist/ on http://localhost:3000
 ```
 
-Set `STARTGG_KEY` in `.env` for data refreshes. `npm run dev` starts the Vue/Vite development server. `npm start` serves the built site through Express; run `npm run build` first to generate the static data and `dist/` output.
+`npm run dev` starts the Vite development server instead (it shows the data currently in `public/data/leaderboards.json`).
+Never commit `.env`: it contains your API key and is listed in `.gitignore`.
 
-## How the project works
+### npm scripts
 
-1. `data/tournament_slugs.json` defines seasons and tournaments manually.
-2. `data/games.json` maps game IDs to the start.gg event slug variants used by the site.
-3. `src/fetch_tournaments.js` combines each tournament slug with the configured game slugs and fetches them from start.gg.
-4. `src/startgg.js` sends GraphQL requests, retries temporary/rate-limit failures, and caches responses in `.cache/startgg/`.
-5. Raw event responses are consolidated in `data/events.json`.
-6. `src/process_leaderboard.js` calculates player and game statistics and writes `public/data/leaderboards.json`.
-7. Vite bundles the Vue 3 interface from `app/` and writes the static result to `dist/`.
+| Script | What it does |
+| --- | --- |
+| `npm run fetch` | Downloads the configured events from start.gg into `data/events.json`. Needs `STARTGG_KEY`; without it the existing data is kept. |
+| `npm run process` | Calculates all statistics from `data/events.json` and writes `public/data/leaderboards.json`. No API key needed. |
+| `npm run build` | `fetch` + `process` + `vite build` → the complete site in `dist/`. |
+| `npm run refresh` | `fetch` + `process` only (quick data refresh, no site build). |
+| `npm run next-event` | Looks up the latest tournament via the hub link and adds it to `data/tournament_slugs.json` (see [Next-event automation](#next-event-automation)). |
+| `npm run dev` | Vite development server with hot reload. |
+| `npm start` | Express server that serves the built `dist/` folder. Run `npm run build` first. |
+| `npm test` | Runs the Node.js test suite. |
 
-The API endpoint is `https://api.start.gg/gql/alpha`. The project requests event entrants, standings, set scores, tournament information, and video-game information using GraphQL.
+## How it works
+
+```
+data/tournament_slugs.json ─┐
+data/games.json ────────────┤
+                            ▼
+              src/pipeline/fetch_tournaments.js   ◄── start.gg API (src/startgg/)
+                            │
+                            ▼
+                    data/events.json              raw events, grouped by season
+                            │
+                            ▼
+              src/pipeline/process_leaderboard.js ◄── src/stats/ (the calculations)
+                            │                         data/hidden_players.json
+                            ▼
+            public/data/leaderboards.json         the only file the website loads
+                            │
+                            ▼
+              Vite + app/ (Vue 3 + Pinia)  →  dist/  →  Amazon S3
+```
+
+1. `data/tournament_slugs.json` lists seasons and tournaments; `data/games.json` maps each game to the start.gg event slugs it uses.
+2. `fetch_tournaments.js` combines every tournament with every game of its season and downloads the matching events. Several event slug variants are tried in order until one exists.
+3. Raw responses are stored in `data/events.json`. Responses are also cached in `.cache/startgg/`.
+4. `process_leaderboard.js` calculates statistics per season and for all seasons combined and writes `public/data/leaderboards.json`.
+5. The Vue app loads that JSON file and shows rankings, highlights and the event history.
+
+The API endpoint is `https://api.start.gg/gql/alpha`. The queries live in `src/startgg/queries.js`.
+
+### Safety rules of the data fetch
+
+The site must never lose results because start.gg had a bad day:
+
+- A finished event (older than 14 days) is served from the cache and never downloaded again; recent events are re-checked.
+- Requests are throttled (about one per second) and retried with backoff on network errors, HTTP 429 and 5xx.
+- After 3 failures in a row the API is treated as down and cached data is used.
+- If a season comes back with fewer events than before, its previous data is kept.
+- `npm run fetch` always exits successfully so a flaky API cannot block a deployment of the last known good data.
+
+## Project structure
+
+```
+app/                         Vue 3 + Pinia website
+  main.js                      entry point
+  App.vue                      page layout; composes the components below
+  components/                  one component per visible block of the page
+    AppHeader, HeroSection, RankingControls, SummaryMetrics,
+    PlayerRanking → PlayerRow, HighlightsPanel → HighlightList,
+    EventHistory, AppFooter
+  stores/leaderboard.js        Pinia store: loads the JSON, season/game selection, derived values
+  utils/                       pure helpers (format.js) and localStorage wrappers (storage.js)
+  styles.css                   all styling (desktop and mobile)
+
+src/                         Node.js code (ES modules)
+  pipeline/                    the two steps run by npm scripts
+    fetch_tournaments.js         start.gg → data/events.json
+    process_leaderboard.js       data/events.json → public/data/leaderboards.json
+  stats/                       the calculations (pure functions, no file or network access)
+    leaderboard.js               events → players, games, tournaments
+    ranking.js                   win rate and the weighted ranking score
+    fun_stats.js                 top-5 lists
+    season_output.js             builds one season's object for leaderboards.json
+    names.js, dojo.js            player-name and dojo-identity helpers
+    types.js                     JSDoc description of every data shape
+  config/                      reads the hand-maintained files in data/
+    tournaments.js               seasons, tournament slugs, games → event slugs
+    hidden_players.js            hidden-player check
+  startgg/                     everything that talks to start.gg
+    client.js                    GraphQL client with retry and throttling, API key lookup
+    cache.js                     on-disk response cache
+    queries.js                   the GraphQL documents
+  storage/raw_events.js        reads/writes data/events.json, one-time legacy file migration
+  next_event/                  automatic discovery of the newest tournament
+    hub.js                       follows https://start.gg/RBHubFGDojo
+    lookup.js                    API lookups (start date, name-search fallback)
+    config_update.js             pure functions that edit tournament_slugs.json
+    cli.js                       the script run by the workflow
+  cli/                         developer tools
+    refresh.js                   `npm run refresh`
+    server.js                    `npm start`
+  lib/                         shared helpers: paths.js, dates.js (Brussels time), json.js, cli.js
+
+data/                        configuration (edited by hand) and raw data (generated)
+public/                      static files copied into the site; public/data/leaderboards.json is generated
+tests/                       Node test suite
+.github/workflows/           test, deploy, refresh-leaderboard, update-next-event
+```
+
+Generated files: `data/events.json`, `public/data/leaderboards.json`, `dist/` and `.cache/`.
+
+## Configuration files
+
+| File | Purpose |
+| --- | --- |
+| `data/tournament_slugs.json` | Seasons and tournaments (manual, plus automatic additions by the next-event script). Also holds `nextEventUrl` and `defaultGames`. |
+| `data/games.json` | Game registry: game ID → display name and known start.gg event slug variants. |
+| `data/hidden_players.json` | Players removed from every ranking and winner display. |
+| `.env` | `STARTGG_KEY` for local runs (never committed). `STARTGG_API_KEY` is accepted as an alternative name. |
 
 ## Maintenance
 
 ### Add a season or tournament
 
-Edit `data/tournament_slugs.json`.
+Edit `data/tournament_slugs.json`:
 
 ```json
 {
-  "defaultGames": [
-    "street-fighter-6",
-    "tekken-8",
-    "guilty-gear-strive"
-  ],
+  "defaultGames": ["street-fighter-6", "tekken-8", "guilty-gear-strive"],
   "seasons": {
     "2": {
       "name": "Season 2",
       "tournaments": [
-        {
-          "name": "Fighting Game Dojo - June edition",
-          "slug": "fighting-game-dojo-june-edition"
-        }
+        { "name": "June '27 edition", "slug": "fighting-game-dojo-june-edition" }
       ]
     }
   }
 }
 ```
 
-- `defaultGames` is used by tournaments that do not specify `games`.
-- `slug` may be the start.gg tournament slug or full tournament URL.
-- Add `games` to an individual tournament only when its games differ from the season defaults.
-- Never guess a slug. Confirm the tournament exists on start.gg before adding it.
-- Do not add full event slugs such as `/event/1v1-fgdojo-...` to this file.
+- `defaultGames` is used by every tournament that has no `games` list of its own.
+- `slug` is the start.gg tournament slug or the full tournament URL.
+- Add `games` to a single tournament (or a season) only when its games differ from the defaults.
+- Never guess a slug: confirm on start.gg that the tournament exists.
+- Do not enter full event slugs (`/event/1v1-fgdojo-...`) here; they are built from `data/games.json`.
 
 ### Add a game
 
-Add the game to `data/games.json`:
+Add it to `data/games.json`:
 
 ```json
-{
-  "new-game": {
-    "name": "New Fighting Game",
-    "eventSlugs": [
-      "1v1-fgdojo-new-game-pc",
-      "1v1-new-game-pc"
-    ]
-  }
+"new-game": {
+  "name": "New Fighting Game",
+  "eventSlugs": ["1v1-fgdojo-new-game-pc", "1v1-new-game-pc"]
 }
 ```
 
-Then add `new-game` to `defaultGames` or to a tournament's `games` list. Known event slug variants can be included in the same game entry. The fetch process tries them in order until it receives event data.
+Then add `new-game` to `defaultGames` or to a tournament's `games`. The fetch tries the event slugs in order until one returns data.
+Game additions are always manual: the next-event script never changes game IDs.
 
 ### Hide players
 
 Edit `data/hidden_players.json`:
 
 ```json
-{
-  "displayNames": [
-    "HM! | Biscuit"
-  ],
-  "playerIds": []
-}
+{ "displayNames": ["HM! | Biscuit"], "playerIds": [] }
 ```
 
-Use `displayNames` for the exact name shown on the site. `playerIds` may be used for the stable start.gg player ID instead. Hidden players are removed before player, ranking, game, and winner statistics are generated.
+`displayNames` must match the name shown on the site (case-insensitive); `playerIds` are stable start.gg player IDs. Hidden players are removed before any player, ranking, game or winner statistic is calculated.
 
-### Update the next-event link and tournaments
+### Next-event automation
 
-After a refresh or deployment workflow succeeds, `update-next-event.yml` runs `src/next_event.js`. The script queries start.gg for the earliest upcoming Fighting Game Dojo tournament and updates:
+`.github/workflows/update-next-event.yml` runs `npm run next-event` every Sunday and Monday (21:00 UTC), because tournaments are held on weekends. The script:
 
-- `nextEventUrl` in `data/tournament_slugs.json`, used by the website button.
-- The next tournament entry in the matching season, with the base tournament slug.
+1. opens `https://start.gg/RBHubFGDojo`, which redirects to the page of the current Fighting Game Dojo tournament, and reads the tournament slug from the address;
+2. looks up that tournament's start date through the API (needs `STARTGG_KEY`);
+3. reports whether it is **already** in `data/tournament_slugs.json` (shown in the run log and on the run's summary page);
+4. if it is new, adds it to the right season and sets `nextEventUrl` (the website's "Join the next event" button).
 
-Season IDs follow calendar years: Season 1 starts with 2026, Season 2 with 2027, and so on. The script creates a new season only when it finds a verified upcoming tournament for that year. It does not add or update game IDs; `defaultGames` and tournament `games` overrides remain manual.
+If the hub link cannot be read, it falls back to searching start.gg for the earliest upcoming tournament with "Fighting Game Dojo" in its name.
+A new season starts every January: Season 0 is 2025, Season 1 is 2026, Season 2 is 2027, and so on, based on the tournament's start date in Brussels time.
 
-The workflow can also be started manually from GitHub Actions.
-
-### Refresh result data
-
-```bash
-npm run fetch
-npm run process
-npm run build
-```
-
-- `npm run fetch` refreshes raw events in `data/events.json`.
-- `npm run process` rebuilds `public/data/leaderboards.json`.
-- `npm run build` runs fetch, processing, and static build steps.
-
-A completed result older than 14 days is cached permanently. Recent or unfinished events are rechecked. API failures, missing events, and partial seasons fall back to cached/raw last-known-good data instead of replacing it with empty results.
+When the file changed, the workflow commits it to `main` and starts the **Build and deploy** workflow itself (a push made with the default `GITHUB_TOKEN` does not trigger other workflows), so the website is updated right away.
+If the script fails (hub unreadable, key missing, nothing found) the workflow run turns red.
 
 ## Counting rules
 
-- A **dojo** is counted once per tournament, even if that dojo has multiple game events.
-- A **player** is counted once by start.gg player ID, even if the player plays multiple games at the same dojo.
-- Player attendance counts one dojo visit per unique dojo, not one event or game entry per visit.
-- Win percentage is based on recorded set scores.
-- The main leaderboard uses a weighted score to balance consistency and attendance:
+- A **dojo** is one tournament day. It is counted once even if it has several game events.
+- A **player** is identified by the start.gg player ID and counts once per dojo, even when playing several games there.
+- Attendance counts unique dojos, not game entries.
+- Win rate is based on the recorded set scores (games won ÷ games played).
+- The main ranking uses a weighted score (see `RANKING_WEIGHTS` in `src/stats/ranking.js`):
   - 40% win rate
-  - 25% dojo attendance, normalized against the most-attended player in the selected ranking
-  - 35% dojos won, normalized against the player with the most dojo wins in the selected ranking
-- This balance makes winning meaningful while preventing a player with a single high-rate or title-only result from dominating.
-- The weighted score is calculated separately for each game ranking and for the all-games/combined ranking.
-- Highest win rate highlights require at least 10 games.
+  - 25% dojo attendance, normalized against the most-attended player in that ranking
+  - 35% dojos won, normalized against the player with the most dojo wins in that ranking
+- The weighting rewards consistency: a single high win rate or a lone title cannot dominate.
+- The score is calculated separately for each game ranking and for the combined ranking.
+- "Highest win rate" lists need at least 10 games (`MIN_GAMES_FOR_WIN_RATE`).
+- The "All-time highlights" panel uses the combined data of all seasons for the selected game.
 
-## Project structure
+## GitHub Actions
 
-- `src/startgg.js`: start.gg GraphQL client, caching, and retry logic.
-- `src/tournament_config.js`: tournament slug/URL handling and game expansion.
-- `src/fetch_tournaments.js`: manual event fetching and last-known-good fallback.
-- `src/data_store.js`: raw event storage and legacy file migration.
-- `src/process_leaderboard.js`: player, game, season, and combined statistics.
-- `src/seasons.js`: season export derived from `tournament_slugs.json`.
-- `app/main.js`: Vue and Pinia application entry point.
-- `app/App.vue`: page layout and leaderboard interface.
-- `app/stores/leaderboard.js`: Pinia state, selection persistence, and leaderboard derived values.
-- `app/components/`: reusable Vue interface components.
-- `app/styles.css`: desktop and mobile responsive styling.
-- `public/data/leaderboards.json`: generated leaderboard JSON served by the Vue interface.
-- `tests/`: Node test suite.
+| Workflow | Runs | What it does |
+| --- | --- | --- |
+| `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm test`. |
+| `deploy.yml` | Pushes to `main` that change `public/`, `src/`, `data/`, `tests/`, package files or workflows; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, other assets with a 5 minute cache. |
+| `refresh-leaderboard.yml` | Sundays and Mondays 20:00 UTC; manual | Same build and deploy as above, so new results appear after the weekend. Falls back to cached data when start.gg is unavailable. |
+| `update-next-event.yml` | Sundays and Mondays 21:00 UTC; manual | Next-event automation described above; deploys when it changed something. |
 
-## GitHub Actions workflows
+Workflows use concurrency groups so runs of the same kind do not overlap, and the start.gg cache is restored between runs.
 
-### `test.yml`
+### GitHub secrets
 
-Runs on pull requests and pushes to `main`. It installs dependencies and runs `npm test`, preventing untested configuration or leaderboard changes from being merged/deployed.
+Set these under **Settings → Secrets and variables → Actions**:
 
-### `deploy.yml`
+- `STARTGG_KEY` – start.gg API key.
+- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` – credentials for the S3 deployment.
 
-Runs on pushes to `main` that change project source, public site files, configuration, package files, or workflows. It also supports manual runs. The workflow builds the site with start.gg data and deploys `dist/` to S3.
+Never commit `.env`, API keys, AWS credentials or `.cache/`.
 
-### `refresh-leaderboard.yml`
+If a push by the next-event workflow is rejected, check whether branch protection on `main` blocks the `github-actions[bot]` user.
 
-Runs every Sunday and Monday at 20:00 UTC and supports manual runs. Sunday refreshes immediately after Saturday events. Monday provides a second check after data or weekend workflows may have been delayed. The workflow rebuilds and deploys, while preserving cached/previous data if start.gg is unavailable.
+## Extending the project
 
-### `update-next-event.yml`
+Where new work usually goes:
 
-Runs after a successful refresh or deployment workflow, and supports manual runs. It discovers the next verified Fighting Game Dojo tournament, updates `nextEventUrl`, and adds only the tournament slug/name to the appropriate season. It does not discover or change game definitions.
+- **A new statistic or ranking rule** → a pure function in `src/stats/`, called from `leaderboard.js` or `season_output.js`; document the new fields in `src/stats/types.js`, add tests in `tests/leaderboard.test.js` and describe the rule under [Counting rules](#counting-rules).
+- **A new block on the page** (for example a chart) → a new component in `app/components/`, added to `app/App.vue`. Shared state and derived values belong in `app/stores/leaderboard.js`; formatting helpers in `app/utils/`. Styling goes in `app/styles.css`.
+- **Statistics over time** → today the website data holds each player's totals plus a list of placements (`{ tournament, placement }`) and each tournament's date; there is no per-tournament history of win rate or score yet. A chart of ups and downs would need the pipeline to also write such a history (a new function in `src/stats/` and a new field in `leaderboards.json`), which the Vue side can then read. Decide which values to track before building it.
+- **A new start.gg query** → add it to `src/startgg/queries.js` and call it through `gql()` from `src/startgg/client.js` so throttling and retries apply.
+- **A new data file** → add its path to `src/lib/paths.js` and read it through `src/lib/json.js`.
 
-These workflows use GitHub Actions concurrency controls and restore the start.gg cache between runs. A manual run does not require a new commit.
-
-## GitHub secrets
-
-Configure these repository secrets under **Settings → Secrets and variables → Actions**:
-
-- `STARTGG_KEY`: start.gg API key used to refresh tournament data.
-- `AWS_ACCESS_KEY_ID`: AWS credential for the S3 deployment.
-- `AWS_SECRET_ACCESS_KEY`: AWS secret credential for the S3 deployment.
-
-Never commit `.env`, API keys, AWS credentials, or `.cache/startgg/`.
+Conventions: ES modules, small pure functions with a short JSDoc comment, no network or file access inside `src/stats/`, and every script exports its `main()` and only runs when started directly (`isMainModule`).
 
 ## Tests
 
@@ -184,4 +259,4 @@ Never commit `.env`, API keys, AWS credentials, or `.cache/startgg/`.
 npm test
 ```
 
-The suite covers leaderboard calculations, manual tournament/game configuration, hidden-player filtering, raw event storage, legacy migration, and start.gg key selection.
+The suite covers the leaderboard calculations and ranking, hidden players, tournament/game configuration, raw event storage and legacy migration, next-event discovery logic (slug extraction, season selection, no duplicates), Brussels-time dates, start.gg key selection and the frontend helper functions. The tests need no API key and no network access.

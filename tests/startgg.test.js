@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getKey } from '../src/startgg.js';
+import { getKey } from '../src/startgg/client.js';
 
 test('getKey prefers STARTGG_KEY and accepts STARTGG_API_KEY', () => {
   const originalKey = process.env.STARTGG_KEY;

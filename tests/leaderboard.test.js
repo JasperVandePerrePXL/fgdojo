@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { processLeaderboard, calculateFunStats, isHiddenPlayer, calculateRankingScore } from '../src/process_leaderboard.js';
+import { processLeaderboard } from '../src/stats/leaderboard.js';
+import { calculateFunStats } from '../src/stats/fun_stats.js';
+import { calculateRankingScore } from '../src/stats/ranking.js';
+import { isHiddenPlayer } from '../src/config/hidden_players.js';
 
 function event(overrides = {}) {
   return {

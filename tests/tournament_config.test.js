@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { GAMES, TOURNAMENT_CONFIG, getConfiguredSlugs, getGameEventCandidates, getTournamentGames, normalizeTournamentSlug } from '../src/tournament_config.js';
+import { GAMES, TOURNAMENT_CONFIG, getConfiguredSlugs, getGameEventCandidates, getTournamentGames, normalizeTournamentSlug } from '../src/config/tournaments.js';
 
 test('manual season config contains valid tournament and game IDs', () => {
   for (const [seasonId, season] of Object.entries(TOURNAMENT_CONFIG.seasons)) {

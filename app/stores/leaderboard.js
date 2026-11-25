@@ -1,61 +1,69 @@
+// Pinia store: loads public/data/leaderboards.json and tracks the selected season and game.
+// The selection is remembered in localStorage between visits.
 import { defineStore } from 'pinia';
+import { readStorage, writeStorage } from '../utils/storage.js';
+import { dojoKeyOf } from '../utils/format.js';
 
-const seasonKey = 'fgdojo.selectedSeason';
-const gameKey = 'fgdojo.selectedGame';
-
-function readStorage(key) {
-  try { return localStorage.getItem(key); } catch { return null; }
-}
-
-function writeStorage(key, value) {
-  try { localStorage.setItem(key, value); } catch {}
-}
+const SEASON_STORAGE_KEY = 'fgdojo.selectedSeason';
+const GAME_STORAGE_KEY = 'fgdojo.selectedGame';
+/** Pseudo game used for seasons whose data has no per-game breakdown. */
+const ALL_GAMES_ID = 'all';
 
 export const useLeaderboardStore = defineStore('leaderboard', {
   state: () => ({
+    /** The parsed leaderboards.json: `{ nextEventUrl, seasons, combined }`. */
     bundle: null,
     nextEventUrl: null,
+    /** Season IDs (numbers), ascending. */
     seasons: [],
-    selectedSeason: readStorage(seasonKey),
-    selectedGame: readStorage(gameKey),
+    selectedSeason: readStorage(SEASON_STORAGE_KEY),
+    selectedGame: readStorage(GAME_STORAGE_KEY),
+    /** Games of the selected season (kept in state so the game list updates with the season). */
     currentGames: [],
     loading: true,
     error: null,
   }),
+
   getters: {
+    /** The full leaderboard object of the selected season. */
     seasonData(state) {
       return state.bundle?.seasons?.[state.selectedSeason] ?? null;
     },
     games(state) {
       return state.currentGames;
     },
+    /** The selected game, or the first game when the selection is no longer valid. */
     gameData(state) {
       return this.games.find((game) => String(game.gameId) === String(state.selectedGame)) ?? this.games[0] ?? null;
     },
+    /** Players of the selected game, best first (ties broken by win rate, attendance, wins). */
     rankedPlayers() {
       return [...(this.gameData?.players ?? [])].sort((a, b) =>
-        (b.rankingScore ?? 0) - (a.rankingScore ?? 0) ||
-        b.winRateNum - a.winRateNum ||
-        b.tournamentsAttended - a.tournamentsAttended ||
-        b.firstPlaces - a.firstPlaces
-      );
+        (b.rankingScore ?? 0) - (a.rankingScore ?? 0)
+        || b.winRateNum - a.winRateNum
+        || b.tournamentsAttended - a.tournamentsAttended
+        || b.firstPlaces - a.firstPlaces);
     },
+    /** Number of dojos (tournament days) that had the selected game. */
     dojoCount() {
-      return new Set((this.gameData?.tournaments ?? []).map((tournament) =>
-        tournament.dojoId || `${tournament.date || ''}|${tournament.name || ''}`
-      )).size;
+      return new Set((this.gameData?.tournaments ?? []).map(dojoKeyOf)).size;
     },
+    /** Total games (set score points) played by the ranked players. */
     totalGames() {
       return this.rankedPlayers.reduce((total, player) => total + player.gamesWon + player.gamesLost, 0);
     },
   },
+
   actions: {
+    /** Downloads leaderboards.json and selects the remembered (or latest) season. */
     async load() {
       this.loading = true;
       this.error = null;
       try {
+        // The timestamp avoids a stale cached copy after a new deployment.
         const response = await fetch(`/data/leaderboards.json?v=${Date.now()}`);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
         this.bundle = await response.json();
         this.nextEventUrl = this.bundle.nextEventUrl || null;
         this.seasons = Object.keys(this.bundle.seasons || {}).map(Number).sort((a, b) => a - b);
@@ -64,36 +72,41 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         this.selectedSeason = this.seasons.includes(Number(this.selectedSeason))
           ? String(this.selectedSeason)
           : String(latest);
-        writeStorage(seasonKey, this.selectedSeason);
+        writeStorage(SEASON_STORAGE_KEY, this.selectedSeason);
         this.refreshCurrentGames();
         this.ensureValidGame();
-      } catch (error) {
+      } catch {
         this.error = 'Leaderboard data is temporarily unavailable.';
       } finally {
         this.loading = false;
       }
     },
+
     setSeason(seasonId) {
       this.selectedSeason = String(seasonId);
-      writeStorage(seasonKey, this.selectedSeason);
+      writeStorage(SEASON_STORAGE_KEY, this.selectedSeason);
       this.refreshCurrentGames();
       this.ensureValidGame();
     },
+
+    setGame(gameId) {
+      this.selectedGame = String(gameId);
+      writeStorage(GAME_STORAGE_KEY, this.selectedGame);
+    },
+
+    /** Loads the games of the selected season, or one "All games" entry when there is no breakdown. */
     refreshCurrentGames() {
       const season = this.seasonData;
       this.currentGames = season?.games?.length
         ? season.games
-        : [{ gameId: 'all', gameName: 'All games', players: season?.players ?? [], tournaments: season?.tournaments ?? [] }];
+        : [{ gameId: ALL_GAMES_ID, gameName: 'All games', players: season?.players ?? [], tournaments: season?.tournaments ?? [] }];
     },
-    setGame(gameId) {
-      this.selectedGame = String(gameId);
-      writeStorage(gameKey, this.selectedGame);
-    },
+
+    /** Falls back to the first game when the selected one does not exist in this season. */
     ensureValidGame() {
-      const gameList = this.games;
-      const valid = gameList.some((game) => String(game.gameId) === String(this.selectedGame));
-      this.selectedGame = valid ? String(this.selectedGame) : String(gameList[0]?.gameId ?? 'all');
-      writeStorage(gameKey, this.selectedGame);
+      const valid = this.games.some((game) => String(game.gameId) === String(this.selectedGame));
+      this.selectedGame = valid ? String(this.selectedGame) : String(this.games[0]?.gameId ?? ALL_GAMES_ID);
+      writeStorage(GAME_STORAGE_KEY, this.selectedGame);
     },
   },
 });
