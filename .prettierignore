@@ -1,0 +1,9 @@
+dist/
+.cache/
+node_modules/
+package-lock.json
+# Data files: hand-edited or written by scripts with JSON.stringify; keep their layout.
+data/
+public/data/
+# Prose: formatted by hand.
+*.md
