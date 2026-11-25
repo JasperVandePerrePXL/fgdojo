@@ -32,7 +32,7 @@
 
 - Follow existing Vue 3 Composition API and Pinia conventions in `app/`; keep Node.js data-processing code in `src/`. Use scoped or shared CSS intentionally and preserve mobile layouts.
 - Preserve explicit error logging and last-known-good fallbacks; do not silently turn failed fetches into successful empty results.
-- The leaderboard is ordered by Elo rating (`src/stats/elo.js`; ratings carry over between seasons, weighted by bracket size and win margin). Players need 2 dojos and 1 rated set in that season/game to be ranked (`src/stats/ranking.js`). Keep the rules in README "Counting rules" in sync and add tests in `tests/elo.test.js` when changing them.
+- The leaderboard is ordered by Elo rating (`src/stats/elo.js`; ratings carry over between seasons, weighted by bracket size and win margin). Players need 2 dojos and 5 rated sets in that season/game to be ranked (`src/stats/ranking.js`). Game events without any played set are left out everywhere (`onlyFinishedEvents` in `src/stats/sets.js`). Keep the rules in README "Counting rules" in sync and add tests in `tests/elo.test.js` when changing them.
 - A new highlight list is one entry in `shared/highlights.js`. `app/` must not import from `src/`; ESLint enforces this and keeps `src/stats/` and `shared/` free of Node.js APIs.
 - When changing leaderboard calculations, update or add tests in `tests/leaderboard.test.js`. When changing manual season or game configuration, update or add tests in `tests/tournament_config.test.js`.
 - Keep generated files and deployment behavior consistent with `.github/workflows/` and `README.md`.
