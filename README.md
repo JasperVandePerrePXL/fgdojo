@@ -271,8 +271,11 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
     The all-time ranking uses the same rules and shows the current rating.
   - Each game has its own rating; the "All games" ranking uses one rating over all games.
   - Sets against hidden players and disqualifications (negative score) do not count.
+- The season drop-down has an **All seasons** entry: the leaderboard over every dojo of every season (the `combined`
+  entry of `leaderboards.json`), with each player's current rating. It is listed first; the site opens on the latest
+  season (or the last choice, remembered in the browser).
 - To be **ranked**, a player needs at least **2 dojos** (`MIN_DOJOS_FOR_RANKING`) and at least **1 rated set**
-  (`MIN_RATED_SETS_FOR_RANKING`) in that season and game. Others still count in every other statistic.
+  (`MIN_RATED_SETS_FOR_RANKING`) in that season (or over all seasons) and game. Others still count in every other statistic.
 - The constants live in `src/stats/elo.js` and `src/stats/ranking.js`; change them there and update this section
   and `tests/elo.test.js`.
 - "Best win rate" lists need at least 10 games (`MIN_GAMES_FOR_WIN_RATE` in `shared/rules.js`).
