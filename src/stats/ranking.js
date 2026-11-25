@@ -3,8 +3,11 @@ import { START_RATING } from './elo.js';
 
 /** A player needs at least this many dojos (in that season and game) to appear in the ranking. */
 export const MIN_DOJOS_FOR_RANKING = 2;
-/** ...and at least this many rated sets there, so a rating without results in that season is not ranked. */
-export const MIN_RATED_SETS_FOR_RANKING = 1;
+/**
+ * ...and at least this many rated sets there: a rating based on only a few sets is mostly the start rating,
+ * so it is not ranked until the player has shown their level.
+ */
+export const MIN_RATED_SETS_FOR_RANKING = 5;
 
 /** Win rate in percent (0-100) from games won and lost; 0 when no games were played. */
 export function calculateWinRate({ gamesWon, gamesLost }) {

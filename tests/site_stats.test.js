@@ -123,3 +123,15 @@ test('readSet skips DQs and decides ties by winnerId', () => {
   assert.equal(readSet({ slots: [slot(1, 0), slot(2, 0)], winnerId: 'e2' }).p1Won, false);
   assert.equal(readSet({ slots: [slot(1, 0), slot(2, 0)] }), null);
 });
+
+import { isFinishedEvent, onlyFinishedEvents } from '../src/stats/sets.js';
+
+test('events without any played set (upcoming dojos) are left out', () => {
+  const played = event({ slug: 'a', startAt: JAN, game: 'SF6', players: [alice, bob], sets: [[1, 2, 2, 0]] });
+  const upcoming = event({ slug: 'b', startAt: FEB, game: 'SF6', players: [alice, bob] });
+  const onlyDq = event({ slug: 'c', startAt: FEB, game: 'T8', players: [alice, bob], sets: [[1, 0, 2, -1]] });
+  assert.equal(isFinishedEvent(played), true);
+  assert.equal(isFinishedEvent(upcoming), false);
+  assert.equal(isFinishedEvent(onlyDq), false);
+  assert.deepEqual(onlyFinishedEvents({ 1: [played, upcoming, onlyDq] }), { 1: [played] });
+});

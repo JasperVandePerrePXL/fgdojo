@@ -48,3 +48,22 @@ export function hiddenPlayerIds(event) {
   }
   return ids;
 }
+
+/**
+ * True when at least one set of the event has a result. Events without one have not been played yet
+ * (e.g. an upcoming dojo with only registrations) and are left out of every statistic until they have.
+ */
+export function isFinishedEvent(event) {
+  return (event.sets?.nodes ?? []).some((set) => readSet(set) !== null);
+}
+
+/**
+ * Raw events per season with unplayed events removed (see isFinishedEvent).
+ * @param {Record<string, object[]>} eventsBySeason
+ * @returns {Record<string, object[]>}
+ */
+export function onlyFinishedEvents(eventsBySeason) {
+  return Object.fromEntries(
+    Object.entries(eventsBySeason).map(([seasonId, events]) => [seasonId, events.filter(isFinishedEvent)]),
+  );
+}

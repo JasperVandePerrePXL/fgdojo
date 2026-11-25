@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { processLeaderboard } from '../src/stats/leaderboard.js';
 import { calculateFunStats } from '../src/stats/fun_stats.js';
-import { MIN_DOJOS_FOR_RANKING } from '../src/stats/ranking.js';
+import { MIN_DOJOS_FOR_RANKING, MIN_RATED_SETS_FOR_RANKING } from '../src/stats/ranking.js';
 import { START_RATING } from '../src/stats/elo.js';
 import { isHiddenPlayer } from '../src/config/hidden_players.js';
 
@@ -98,7 +98,7 @@ test('configured hidden player is excluded from leaderboard results', () => {
   assert.equal(result.tournaments[0].winner, null);
 });
 
-test('processLeaderboard adds ratings and only ranks players with 2+ dojos', () => {
+test('processLeaderboard adds ratings and only ranks players with 2+ dojos and 5+ rated sets', () => {
   const ratings = { overall: new Map([['11', 1600]]), byGame: new Map([['1', new Map([['11', 1580]])]]) };
   const oneDojo = processLeaderboard([event()], ratings);
   const alice = oneDojo.players.find((player) => player.gamerTag === 'Alice');
@@ -110,20 +110,23 @@ test('processLeaderboard adds ratings and only ranks players with 2+ dojos', () 
   const secondDojo = event({
     tournament: { slug: 'second', name: 'Second', startAt: 1767225600 + 86400 * 30 },
   });
-  const twoDojos = processLeaderboard([event(), secondDojo], ratings);
-  assert.equal(
-    twoDojos.players.every((player) => player.ranked),
-    true,
-  );
-  assert.equal(twoDojos.players.find((player) => player.gamerTag === 'Alice').ratedSets, 2);
   assert.equal(MIN_DOJOS_FOR_RANKING, 2);
+  assert.equal(MIN_RATED_SETS_FOR_RANKING, 5);
 
-  // Two dojos without a single rated set (here: no sets at all) is not enough.
-  const noSets = { sets: { nodes: [] } };
-  const unrated = processLeaderboard([event(noSets), event({ ...secondDojo, ...noSets })], ratings);
+  // Two dojos with one set each: 2 rated sets is below the minimum, so not ranked yet.
+  const twoSets = processLeaderboard([event(), secondDojo], ratings);
+  assert.equal(twoSets.players.find((player) => player.gamerTag === 'Alice').ratedSets, 2);
   assert.equal(
-    unrated.players.some((player) => player.ranked),
+    twoSets.players.some((player) => player.ranked),
     false,
+  );
+
+  // Two dojos with three sets each: 6 rated sets, ranked.
+  const threeSets = { sets: { nodes: Array(3).fill(event().sets.nodes[0]) } };
+  const sixSets = processLeaderboard([event(threeSets), event({ ...secondDojo, ...threeSets })], ratings);
+  assert.equal(
+    sixSets.players.every((player) => player.ranked),
+    true,
   );
 });
 

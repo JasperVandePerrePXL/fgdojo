@@ -1,17 +1,17 @@
 {
   "totals": {
-    "dojos": 20,
-    "players": 143,
+    "dojos": 19,
+    "players": 138,
     "sets": 1076,
     "games": 3542
   },
   "games": [
     {
       "gameName": "Street Fighter 6",
-      "entrants": 203,
+      "entrants": 194,
       "rivalries": [
         {
-          "playerA": "LCG | Ora Beniz",
+          "playerA": "Ora Beniz",
           "playerB": "VeganBeef",
           "winsA": 9,
           "winsB": 7,
@@ -19,7 +19,7 @@
         },
         {
           "playerA": "Strael Bora | GentleKef",
-          "playerB": "LCG | Ora Beniz",
+          "playerB": "Ora Beniz",
           "winsA": 15,
           "winsB": 1,
           "sets": 16
@@ -49,7 +49,7 @@
     },
     {
       "gameName": "TEKKEN 8",
-      "entrants": 149,
+      "entrants": 143,
       "rivalries": [
         {
           "playerA": "36C | Punji-Bear",
@@ -90,7 +90,7 @@
     },
     {
       "gameName": "Guilty Gear: Strive",
-      "entrants": 207,
+      "entrants": 197,
       "rivalries": [
         {
           "playerA": "LCG | Concept",
@@ -131,7 +131,7 @@
     },
     {
       "gameName": "Avatar Legends: The Fighting Game",
-      "entrants": 9,
+      "entrants": 7,
       "rivalries": [
         {
           "playerA": "LCG | monnter",
@@ -142,7 +142,7 @@
         },
         {
           "playerA": "LCG | monnter",
-          "playerB": "LCG | Ora Beniz",
+          "playerB": "Ora Beniz",
           "winsA": 0,
           "winsB": 1,
           "sets": 1
@@ -155,15 +155,15 @@
           "sets": 1
         },
         {
-          "playerA": "LCG | Ora Beniz",
-          "playerB": "LCG | M3taTank",
+          "playerA": "LykeHere",
+          "playerB": "LCG | Ura",
           "winsA": 1,
           "winsB": 0,
           "sets": 1
         },
         {
-          "playerA": "LCG | Ora Beniz",
-          "playerB": "LCG | Ura",
+          "playerA": "LykeHere",
+          "playerB": "Ora Beniz",
           "winsA": 1,
           "winsB": 0,
           "sets": 1
@@ -895,20 +895,18 @@
       "seasonId": 1,
       "entrantsByGame": {
         "Street Fighter 6": 13,
-        "TEKKEN 8": 3,
         "Guilty Gear: Strive": 9
       },
       "sets": 40,
       "games": 151,
-      "players": 22,
+      "players": 20,
       "newPlayers": 1,
-      "returningPlayers": 21,
+      "returningPlayers": 19,
       "playerIds": [
         "1253081",
         "1800901",
         "1933648",
         "3305718",
-        "3536882",
         "3724443",
         "3973904",
         "4526085",
@@ -924,8 +922,7 @@
         "5103892",
         "5209566",
         "5376130",
-        "5521873",
-        "603628"
+        "5521873"
       ]
     },
     {
@@ -935,16 +932,15 @@
       "seasonId": 1,
       "entrantsByGame": {
         "Street Fighter 6": 8,
-        "TEKKEN 8": 1,
         "Guilty Gear: Strive": 12,
         "Avatar Legends: The Fighting Game": 3,
         "Marvel Tokon: Fighting Souls": 3
       },
       "sets": 44,
       "games": 166,
-      "players": 22,
+      "players": 21,
       "newPlayers": 5,
-      "returningPlayers": 17,
+      "returningPlayers": 16,
       "playerIds": [
         "1235690",
         "1287124",
@@ -952,7 +948,6 @@
         "2094179",
         "3762539",
         "3973904",
-        "4094120",
         "4300853",
         "4496944",
         "4526085",
@@ -1010,45 +1005,6 @@
         "5628373",
         "5629735"
       ]
-    },
-    {
-      "dojoId": "tournament/fighting-game-dojo-november-edition-1",
-      "name": "Fighting Game Dojo - November edition",
-      "date": "2026-11-28",
-      "seasonId": 1,
-      "entrantsByGame": {
-        "Street Fighter 6": 9,
-        "TEKKEN 8": 2,
-        "Guilty Gear: Strive": 10,
-        "Avatar Legends: The Fighting Game": 2,
-        "Marvel Tokon: Fighting Souls": 0
-      },
-      "sets": 0,
-      "games": 0,
-      "players": 19,
-      "newPlayers": 5,
-      "returningPlayers": 14,
-      "playerIds": [
-        "1800901",
-        "2348850",
-        "3762539",
-        "3973904",
-        "4186966",
-        "4300853",
-        "4526085",
-        "4856153",
-        "5000742",
-        "5103892",
-        "5209566",
-        "5212870",
-        "5243727",
-        "5332872",
-        "5459394",
-        "5634445",
-        "5635956",
-        "5692282",
-        "5692695"
-      ]
     }
   ],
   "seasons": [
@@ -1067,10 +1023,10 @@
       "seasonName": "Season 1",
       "sets": 450,
       "games": 1526,
-      "dojos": 9,
-      "uniquePlayers": 74,
+      "dojos": 8,
+      "uniquePlayers": 66,
       "averageAttendance": 22.6,
-      "entrants": 262
+      "entrants": 235
     }
   ]
 }
