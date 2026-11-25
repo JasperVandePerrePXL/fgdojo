@@ -41,6 +41,7 @@ data/tournament_slugs.json + data/games.json
 - **Counting rules**: a "dojo" is one tournament day (counted once across game events); a player is keyed by start.gg player ID and counts once per dojo; win rate = games won ÷ games played from set scores.
 - **Next-event automation** (`src/next_event/`): follows `https://start.gg/RBHubFGDojo` to get the current slug, looks up its start date, falls back to name search. Season = Brussels-time year − 2025. May add a tournament and set `nextEventUrl`; must never add or change game IDs. `config_update.js` is pure and tested.
 - **Frontend** (`app/`): `index.html` at repo root loads `app/main.js`. `App.vue` only composes components; all state and derived values (ranking order, hero numbers, `allTimeFunStats`) live in the Pinia store `app/stores/leaderboard.js`. Components take props and emit events. All CSS in `app/styles.css` (keep mobile layouts working).
+- **Stats page** (`/stats.html`, link-only, second Vite input in `vite.config.js`): `src/stats/site_stats.js` → `public/data/stats.json` → `app/stats/StatsPage.vue` + `app/stores/stats.js`. Charts are hand-made SVG in `app/components/charts/` (no chart library); series colors are `--series-1..5` in `styles.css`, validated for CVD on the dark panel — keep game colors in first-appearance order.
 - **Paths**: all file paths come from `src/lib/paths.js`; read JSON through `src/lib/json.js`. Dates use Brussels time (`src/lib/dates.js`).
 
 ## Conventions

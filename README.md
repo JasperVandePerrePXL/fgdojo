@@ -6,6 +6,7 @@ Vue 3 + Pinia interface bundled with Vite, and deployed to Amazon S3 by GitHub A
 
 - [Quick start](#quick-start)
 - [How it works](#how-it-works)
+- [Stats page](#stats-page)
 - [Project structure](#project-structure)
 - [Configuration files](#configuration-files)
 - [Maintenance](#maintenance)
@@ -59,7 +60,8 @@ data/games.json ────────────┤
               src/pipeline/process_leaderboard.js ◄── src/stats/ (the calculations)
                             │                         data/hidden_players.json
                             ▼
-            public/data/leaderboards.json         the only file the website loads
+            public/data/leaderboards.json         loaded by the leaderboard (/)
+            public/data/stats.json                loaded by the stats page (/stats.html)
                             │
                             ▼
               Vite + app/ (Vue 3 + Pinia)  →  dist/  →  Amazon S3
@@ -87,18 +89,44 @@ The site must never lose results because start.gg had a bad day. These rules liv
 - If a season comes back with fewer events than before, its previous data is kept.
 - `npm run fetch` always exits successfully so a flaky API cannot block a deployment of the last known good data.
 
+## Stats page
+
+`/stats.html` (for example `https://fgdojo.stek.world/stats.html`) shows statistics over every tournament of every season.
+It is **not linked from the site**: share the link to reach it. It is marked `noindex` for search engines but is not protected.
+
+| Block | What it shows |
+| --- | --- |
+| Totals | Dojos held, different players, sets played, games played. |
+| Players per dojo | Line chart of unique players at each dojo, oldest first. |
+| Entrants per game per dojo | Stacked bars: players per game at each dojo, one color per game. |
+| New vs returning players | Stacked bars: players at their first dojo ever vs players seen before. |
+| Entrants per game, all dojos | Donut with each game's share of all game entries. |
+| Season comparison | Per season: dojos, unique players, average players per dojo, game entries, sets and games. |
+| Biggest rivalries | The 10 most played 1v1 matchups with their set record (`RIVALRY_COUNT`). |
+
+Every chart has a hover tooltip and a "Show data" table. Rules: hidden players are left out everywhere; sets with a
+disqualification (negative score) are not counted; a set with equal scores is decided by start.gg's `winnerId`.
+Each game keeps the same color everywhere (order of first appearance; colors in `--series-1..5` in `app/styles.css`,
+validated for color-blind readers on the dark panel). A sixth game would get a neutral gray: add a color first.
+
+The data is built by `buildSiteStats` in `src/stats/site_stats.js` during `npm run process` and written to
+`public/data/stats.json` (shape: `SiteStats` in `src/stats/types.js`).
+
 ## Project structure
 
 ```
 app/                         Vue 3 + Pinia website
-  main.js                      entry point
+  main.js                      entry point of the leaderboard (index.html)
   App.vue                      page layout; composes the components below
+  stats/                       the stats page (stats.html): main.js + StatsPage.vue
   components/                  one component per visible block of the page
     AppHeader, HeroSection, RankingControls, SummaryMetrics,
     PlayerRanking → PlayerRow, HighlightsPanel → HighlightList,
     EventHistory, AppFooter
+    charts/                      SVG charts: LineChart, StackedBarChart, DonutChart, ChartFrame (title, legend, table)
   stores/leaderboard.js        Pinia store: loads the JSON, season/game selection, derived values
-  utils/                       display helpers (format.js) and localStorage wrappers (storage.js)
+  stores/stats.js              Pinia store of the stats page: loads stats.json, shapes the chart data
+  utils/                       display helpers (format.js), chart helpers (chart.js), localStorage wrappers (storage.js)
   styles.css                   all styling (desktop and mobile)
 
 shared/                      plain JavaScript used by both src/ and app/ (no Node.js or browser APIs)
@@ -115,6 +143,7 @@ src/                         Node.js code (ES modules)
     ranking.js                   win rate and the weighted ranking score
     fun_stats.js                 top-5 list per highlight in shared/highlights.js
     season_output.js             builds one season's object for leaderboards.json
+    site_stats.js                everything for stats.json (stats page)
     names.js                     player-name and player-ID helpers
     types.js                     JSDoc description of every data shape
   config/                      reads the hand-maintained files in data/
@@ -139,7 +168,7 @@ tests/                       Node test suite
 .github/workflows/           test, deploy, refresh-leaderboard, update-next-event
 ```
 
-Generated files: `data/events.json`, `public/data/leaderboards.json`, `dist/` and `.cache/`.
+Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/data/stats.json`, `dist/` and `.cache/`.
 
 ## Configuration files
 
@@ -258,6 +287,7 @@ Where new work usually goes:
 
 - **A new highlight list** (for example "most games played") → add one entry to `shared/highlights.js` (`id`, `label`, `valueKey`, `suffix`, `score` and optionally `eligible`). The pipeline then writes it into `funStats` and the "All-time highlights" panel shows it; no other code changes are needed. If the value is a new player field, add that field first (next bullet) and to `toHighlightEntry` in `src/stats/fun_stats.js`.
 - **A new statistic or ranking rule** → a pure function in `src/stats/`, called from `leaderboard.js` or `season_output.js`; document the new fields in `src/stats/types.js`, add tests in `tests/leaderboard.test.js` and describe the rule under [Counting rules](#counting-rules). A rule the website also needs goes in `shared/`.
+- **A new chart on the stats page** → add the numbers to `buildSiteStats` (with a test in `tests/site_stats.test.js` and the field in `SiteStats` in `types.js`), shape them in a getter of `app/stores/stats.js`, and place a `ChartFrame` with a `LineChart`, `StackedBarChart` or `DonutChart` in `app/stats/StatsPage.vue`.
 - **A new block on the page** (for example a chart) → a new component in `app/components/`, added to `app/App.vue`. Shared state and derived values belong in `app/stores/leaderboard.js`; formatting helpers in `app/utils/`. Styling goes in `app/styles.css`.
 - **Statistics over time** → today the website data holds each player's totals plus a list of placements (`{ tournament, placement }`) and each tournament's date; there is no per-tournament history of win rate or score yet. A chart of ups and downs would need the pipeline to also write such a history (a new function in `src/stats/` and a new field in `leaderboards.json`), which the Vue side can then read. Decide which values to track before building it.
 - **A new start.gg query** → add it to `src/startgg/queries.js` and call it through `gql()` from `src/startgg/client.js` so throttling and retries apply. Logic that decides *when* to call the API (like `event_fetcher.js`) takes the request function and cache as parameters, so it can be tested with fakes.
