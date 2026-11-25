@@ -75,4 +75,25 @@
  * @property {FunStats} funStats       Highlights across all games of the season.
  */
 
+/**
+ * One head-to-head record on the stats page.
+ * @typedef {{ playerA: string, playerB: string, winsA: number, winsB: number, sets: number }} Rivalry
+ */
+
+/**
+ * Data of the stats page (`public/data/stats.json`), built by site_stats.js over every season.
+ * @typedef {object} SiteStats
+ * @property {{ dojos: number, players: number, sets: number, games: number }} totals
+ * @property {{ gameName: string, entrants: number, rivalries: Rivalry[] }[]} games
+ *   In order of first appearance; `rivalries` = the most played 1v1 matchups of that game (DQs excluded).
+ * @property {{ dojoId: string, name: string, date: string|null, seasonId: number, players: number,
+ *   newPlayers: number, returningPlayers: number, entrantsByGame: Record<string, number>,
+ *   sets: number, games: number, playerIds: string[] }[]} dojos
+ *   Oldest first. `players` = unique players; `newPlayers` = first dojo ever for them;
+ *   `playerIds` = start.gg player IDs, so the page can count unique players over a date range.
+ * @property {{ seasonId: number, seasonName: string, dojos: number, uniquePlayers: number,
+ *   averageAttendance: number, entrants: number, sets: number, games: number }[]} seasons
+ *   `entrants` counts game entries (a player in two games counts twice).
+ */
+
 export {};
