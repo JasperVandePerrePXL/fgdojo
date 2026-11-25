@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildSiteStats, readSet } from '../src/stats/site_stats.js';
+import { RIVALRY_COUNT, buildSiteStats, readSet } from '../src/stats/site_stats.js';
 
 const player = (id, gamerTag, prefix = '') => ({ id, gamerTag, prefix, player: { id, gamerTag } });
 const slot = (id, score) => ({
@@ -65,7 +65,9 @@ test('hidden players and their sets are left out', () => {
   assert.equal(stats.totals.players, 3);
   assert.equal(stats.totals.sets, 3);
   assert.equal(
-    stats.rivalries.some((r) => r.playerA.includes('Biscuit') || r.playerB.includes('Biscuit')),
+    stats.games
+      .flatMap((game) => game.rivalries)
+      .some((r) => r.playerA.includes('Biscuit') || r.playerB.includes('Biscuit')),
     false,
   );
 });
@@ -81,14 +83,36 @@ test('season comparison and game totals', () => {
     averageAttendance: 2,
     entrants: 6,
   });
-  assert.deepEqual(stats.games, [
-    { gameName: 'SF6', entrants: 4 },
-    { gameName: 'T8', entrants: 2 },
-  ]);
+  assert.deepEqual(
+    stats.games.map(({ gameName, entrants }) => ({ gameName, entrants })),
+    [
+      { gameName: 'SF6', entrants: 4 },
+      { gameName: 'T8', entrants: 2 },
+    ],
+  );
 });
 
-test('rivalries are sorted by sets played', () => {
-  assert.deepEqual(stats.rivalries[0], { playerA: 'Alice', playerB: 'Bob', winsA: 1, winsB: 1, sets: 2 });
+test('rivalries are kept per game', () => {
+  const [sf6, t8] = stats.games;
+  assert.deepEqual(sf6.rivalries, [
+    { playerA: 'Alice', playerB: 'Bob', winsA: 1, winsB: 0, sets: 1 },
+    { playerA: 'Alice', playerB: 'Cara', winsA: 1, winsB: 0, sets: 1 },
+  ]);
+  assert.deepEqual(t8.rivalries, [{ playerA: 'Alice', playerB: 'Bob', winsA: 0, winsB: 1, sets: 1 }]);
+});
+
+test('at most RIVALRY_COUNT rivalries per game, most sets first', () => {
+  const players = [1, 2, 3, 4, 5, 6, 7].map((id) => player(id, `P${id}`));
+  const sets = [[1, 2, 2, 0], [1, 2, 2, 0], ...[3, 4, 5, 6, 7].map((id) => [1, 2, id, 0])];
+  const [game] = buildSiteStats([
+    {
+      seasonId: 1,
+      seasonName: 'S1',
+      events: [event({ slug: 'x', startAt: JAN, game: 'SF6', players, sets })],
+    },
+  ]).games;
+  assert.equal(game.rivalries.length, RIVALRY_COUNT);
+  assert.deepEqual(game.rivalries[0], { playerA: 'P1', playerB: 'P2', winsA: 2, winsB: 0, sets: 2 });
 });
 
 test('readSet skips DQs and decides ties by winnerId', () => {

@@ -685,6 +685,46 @@ footer {
   font-size: 0.8rem;
   margin: 0.75rem 0 0;
 }
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.tab i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 0.45rem;
+}
+.tab:hover {
+  color: var(--ink);
+  background: var(--panel-2);
+}
+.tab[aria-selected='true'] {
+  color: var(--ink);
+  background: var(--panel-2);
+  border-color: var(--muted);
+  font-weight: 750;
+}
+.tab:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
 .rivalries {
   list-style: none;
   margin: 0.75rem 0 0;

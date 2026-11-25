@@ -1,13 +1,13 @@
 // Statistics for the hidden stats page (/stats.html), written to public/data/stats.json.
 // Covers every tournament of every season: attendance per dojo, entrants per game,
-// new vs returning players, a season comparison and the most played rivalries.
+// new vs returning players, a season comparison and the most played rivalries per game.
 // Pure functions: no file or network access. Hidden players are left out everywhere.
 import { formatBrusselsDate } from '../lib/dates.js';
 import { isHiddenPlayer } from '../config/hidden_players.js';
 import { formatDisplayName, getPlayerId } from './names.js';
 
-/** Number of rivalries stored. */
-export const RIVALRY_COUNT = 10;
+/** Number of rivalries stored per game. */
+export const RIVALRY_COUNT = 5;
 
 /** Oldest event first; each event carries the ID of the season it belongs to. */
 function flattenChronologically(seasons) {
@@ -105,7 +105,8 @@ function topRivalries(rivalries, names) {
       (x, y) =>
         y.sets - x.sets ||
         Math.abs(x.winsA - x.winsB) - Math.abs(y.winsA - y.winsB) ||
-        x.playerA.localeCompare(y.playerA),
+        x.playerA.localeCompare(y.playerA) ||
+        x.playerB.localeCompare(y.playerB),
     )
     .slice(0, RIVALRY_COUNT);
 }
@@ -122,7 +123,7 @@ export function buildSiteStats(seasons) {
     seasons.map(({ seasonId, seasonName }) => [seasonId, emptySeason(seasonId, seasonName)]),
   );
   const gameEntrants = new Map(); // game name -> entrants, in order of first appearance
-  const rivalries = new Map();
+  const rivalriesByGame = new Map(); // game name -> head-to-head records of that game
 
   for (const { event, seasonId } of flattenChronologically(seasons)) {
     const season = seasonStats.get(seasonId);
@@ -148,7 +149,8 @@ export function buildSiteStats(seasons) {
       if (!played || hiddenIds.has(played.p1) || hiddenIds.has(played.p2)) continue;
       season.sets += 1;
       season.games += played.score1 + played.score2;
-      recordRivalry(rivalries, played);
+      if (!rivalriesByGame.has(gameName)) rivalriesByGame.set(gameName, new Map());
+      recordRivalry(rivalriesByGame.get(gameName), played);
     }
   }
 
@@ -179,9 +181,12 @@ export function buildSiteStats(seasons) {
       sets: seasonList.reduce((sum, season) => sum + season.sets, 0),
       games: seasonList.reduce((sum, season) => sum + season.games, 0),
     },
-    games: [...gameEntrants].map(([gameName, entrants]) => ({ gameName, entrants })),
+    games: [...gameEntrants].map(([gameName, entrants]) => ({
+      gameName,
+      entrants,
+      rivalries: topRivalries(rivalriesByGame.get(gameName) ?? new Map(), names),
+    })),
     dojos: dojoList,
     seasons: seasonList,
-    rivalries: topRivalries(rivalries, names),
   };
 }

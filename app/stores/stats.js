@@ -14,6 +14,8 @@ export const useStatsStore = defineStore('stats', {
     stats: null,
     loading: true,
     error: null,
+    /** Game whose rivalries are shown (defaults to the first game). */
+    selectedRivalryGame: null,
   }),
 
   getters: {
@@ -24,7 +26,14 @@ export const useStatsStore = defineStore('stats', {
         name: game.gameName,
         value: game.entrants,
         color: seriesColor(index),
+        rivalries: game.rivalries ?? [],
       })),
+    /** The game whose rivalry tab is open. */
+    rivalryGame() {
+      return (
+        this.gameSeries.find((game) => game.name === this.selectedRivalryGame) ?? this.gameSeries[0] ?? null
+      );
+    },
     /** Unique players per dojo, oldest first. */
     attendancePoints() {
       return this.dojos.map((dojo) => ({ ...dojoLabel(dojo), value: dojo.players }));
@@ -49,6 +58,10 @@ export const useStatsStore = defineStore('stats', {
   },
 
   actions: {
+    selectRivalryGame(gameName) {
+      this.selectedRivalryGame = gameName;
+    },
+
     async load() {
       this.loading = true;
       this.error = null;

@@ -1,5 +1,5 @@
 <script setup>
-// The stats page: totals, charts over every dojo, a season comparison and the top rivalries.
+// The stats page: totals, charts over every dojo, a season comparison and the top rivalries per game.
 // All data comes from public/data/stats.json through the stats store.
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -10,6 +10,7 @@ import ChartFrame from '../components/charts/ChartFrame.vue';
 import LineChart from '../components/charts/LineChart.vue';
 import StackedBarChart from '../components/charts/StackedBarChart.vue';
 import DonutChart from '../components/charts/DonutChart.vue';
+import RivalryTabs from '../components/RivalryTabs.vue';
 import { shortDate } from '../utils/chart.js';
 
 const store = useStatsStore();
@@ -19,6 +20,7 @@ const {
   error,
   dojos,
   gameSeries,
+  rivalryGame,
   attendancePoints,
   entrantsByGameColumns,
   newVsReturningSeries,
@@ -136,24 +138,7 @@ const dojoRows = (extra) =>
         </section>
       </div>
 
-      <section class="card table-card">
-        <h3>Biggest rivalries</h3>
-        <ol class="rivalries">
-          <li v-for="rivalry in stats.rivalries" :key="`${rivalry.playerA}-${rivalry.playerB}`">
-            <span class="side-a" :class="{ leads: rivalry.winsA > rivalry.winsB }">{{
-              rivalry.playerA
-            }}</span>
-            <b>{{ rivalry.winsA }} – {{ rivalry.winsB }}</b>
-            <span class="side-b" :class="{ leads: rivalry.winsB > rivalry.winsA }">{{
-              rivalry.playerB
-            }}</span>
-            <small>{{ rivalry.sets }} sets</small>
-          </li>
-        </ol>
-        <p class="note">
-          Most played 1v1 matchups across all games and seasons (disqualifications excluded).
-        </p>
-      </section>
+      <RivalryTabs :games="gameSeries" :selected="rivalryGame?.name" @select="store.selectRivalryGame" />
     </template>
   </main>
 

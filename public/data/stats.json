@@ -8,23 +8,208 @@
   "games": [
     {
       "gameName": "Street Fighter 6",
-      "entrants": 203
+      "entrants": 203,
+      "rivalries": [
+        {
+          "playerA": "LCG | Ora Beniz",
+          "playerB": "VeganBeef",
+          "winsA": 9,
+          "winsB": 7,
+          "sets": 16
+        },
+        {
+          "playerA": "Strael Bora | GentleKef",
+          "playerB": "LCG | Ora Beniz",
+          "winsA": 15,
+          "winsB": 1,
+          "sets": 16
+        },
+        {
+          "playerA": "Strael Bora | GentleKef",
+          "playerB": "Kronbee",
+          "winsA": 1,
+          "winsB": 9,
+          "sets": 10
+        },
+        {
+          "playerA": "Strael Bora | GentleKef",
+          "playerB": "VeganBeef",
+          "winsA": 9,
+          "winsB": 1,
+          "sets": 10
+        },
+        {
+          "playerA": "Strael Bora | GentleKef",
+          "playerB": "LCG | Concept",
+          "winsA": 9,
+          "winsB": 0,
+          "sets": 9
+        }
+      ]
     },
     {
       "gameName": "TEKKEN 8",
-      "entrants": 149
+      "entrants": 149,
+      "rivalries": [
+        {
+          "playerA": "36C | Punji-Bear",
+          "playerB": "Wim",
+          "winsA": 1,
+          "winsB": 3,
+          "sets": 4
+        },
+        {
+          "playerA": "36C | Punji-Bear",
+          "playerB": "DRT|FGCBE | RaienRyu",
+          "winsA": 4,
+          "winsB": 0,
+          "sets": 4
+        },
+        {
+          "playerA": "FGDojo | MoonaTwT",
+          "playerB": "36C | Punji-Bear",
+          "winsA": 0,
+          "winsB": 4,
+          "sets": 4
+        },
+        {
+          "playerA": "36C | Punji-Bear",
+          "playerB": "SaiyanKageYT",
+          "winsA": 2,
+          "winsB": 1,
+          "sets": 3
+        },
+        {
+          "playerA": "FGDojo | MoonaTwT",
+          "playerB": "DRT|FGCBE | RaienRyu",
+          "winsA": 2,
+          "winsB": 1,
+          "sets": 3
+        }
+      ]
     },
     {
       "gameName": "Guilty Gear: Strive",
-      "entrants": 207
+      "entrants": 207,
+      "rivalries": [
+        {
+          "playerA": "LCG | Concept",
+          "playerB": "LCG | mcshootys",
+          "winsA": 7,
+          "winsB": 9,
+          "sets": 16
+        },
+        {
+          "playerA": "LCG | SomeGal",
+          "playerB": "LCG | mcshootys",
+          "winsA": 6,
+          "winsB": 5,
+          "sets": 11
+        },
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "LCG | SomeGal",
+          "winsA": 7,
+          "winsB": 4,
+          "sets": 11
+        },
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "LCG | Concept",
+          "winsA": 5,
+          "winsB": 3,
+          "sets": 8
+        },
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "DRC / LCG | Lackey",
+          "winsA": 4,
+          "winsB": 2,
+          "sets": 6
+        }
+      ]
     },
     {
       "gameName": "Avatar Legends: The Fighting Game",
-      "entrants": 9
+      "entrants": 9,
+      "rivalries": [
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "LCG | M3taTank",
+          "winsA": 1,
+          "winsB": 0,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "LCG | Ora Beniz",
+          "winsA": 0,
+          "winsB": 1,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "SCvsTheWorld",
+          "winsA": 0,
+          "winsB": 1,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | Ora Beniz",
+          "playerB": "LCG | M3taTank",
+          "winsA": 1,
+          "winsB": 0,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | Ora Beniz",
+          "playerB": "LCG | Ura",
+          "winsA": 1,
+          "winsB": 0,
+          "sets": 1
+        }
+      ]
     },
     {
       "gameName": "Marvel Tokon: Fighting Souls",
-      "entrants": 9
+      "entrants": 9,
+      "rivalries": [
+        {
+          "playerA": "Kirito",
+          "playerB": "Bronscune",
+          "winsA": 0,
+          "winsB": 1,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | Concept",
+          "playerB": "LCG | mcshootys",
+          "winsA": 0,
+          "winsB": 1,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | Concept",
+          "playerB": "LCG | Ura",
+          "winsA": 1,
+          "winsB": 0,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | mcshootys",
+          "playerB": "LCG | Ura",
+          "winsA": 1,
+          "winsB": 0,
+          "sets": 1
+        },
+        {
+          "playerA": "LCG | monnter",
+          "playerB": "Bronscune",
+          "winsA": 0,
+          "winsB": 1,
+          "sets": 1
+        }
+      ]
     }
   ],
   "dojos": [
@@ -332,78 +517,6 @@
       "uniquePlayers": 74,
       "averageAttendance": 22.6,
       "entrants": 262
-    }
-  ],
-  "rivalries": [
-    {
-      "playerA": "LCG | Concept",
-      "playerB": "LCG | mcshootys",
-      "winsA": 10,
-      "winsB": 10,
-      "sets": 20
-    },
-    {
-      "playerA": "LCG | Ora Beniz",
-      "playerB": "VeganBeef",
-      "winsA": 9,
-      "winsB": 7,
-      "sets": 16
-    },
-    {
-      "playerA": "Strael Bora | GentleKef",
-      "playerB": "LCG | Ora Beniz",
-      "winsA": 15,
-      "winsB": 1,
-      "sets": 16
-    },
-    {
-      "playerA": "LCG | SomeGal",
-      "playerB": "LCG | mcshootys",
-      "winsA": 6,
-      "winsB": 5,
-      "sets": 11
-    },
-    {
-      "playerA": "LCG | monnter",
-      "playerB": "LCG | SomeGal",
-      "winsA": 7,
-      "winsB": 4,
-      "sets": 11
-    },
-    {
-      "playerA": "Strael Bora | GentleKef",
-      "playerB": "VeganBeef",
-      "winsA": 9,
-      "winsB": 1,
-      "sets": 10
-    },
-    {
-      "playerA": "Strael Bora | GentleKef",
-      "playerB": "LCG | Concept",
-      "winsA": 9,
-      "winsB": 1,
-      "sets": 10
-    },
-    {
-      "playerA": "Strael Bora | GentleKef",
-      "playerB": "Kronbee",
-      "winsA": 1,
-      "winsB": 9,
-      "sets": 10
-    },
-    {
-      "playerA": "LCG | monnter",
-      "playerB": "LCG | Concept",
-      "winsA": 5,
-      "winsB": 4,
-      "sets": 9
-    },
-    {
-      "playerA": "LCG | Concept",
-      "playerB": "VeganBeef",
-      "winsA": 1,
-      "winsB": 6,
-      "sets": 7
     }
   ]
 }
