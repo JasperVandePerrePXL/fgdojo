@@ -102,7 +102,7 @@ It is **not linked from the site**: share the link to reach it. It is marked `no
 | New vs returning players | Stacked bars: players at their first dojo ever vs players seen before. |
 | Entrants per game, all dojos | Donut with each game's share of all game entries. |
 | Season comparison | Per season: dojos, unique players, average players per dojo, game entries, sets and games. |
-| Biggest rivalries | The 10 most played 1v1 matchups with their set record (`RIVALRY_COUNT`). |
+| Biggest rivalries | One tab per game with its 5 most played 1v1 matchups and their set record (`RIVALRY_COUNT`); fewer when a game has fewer matchups. |
 
 Every chart has a hover tooltip and a "Show data" table. Rules: hidden players are left out everywhere; sets with a
 disqualification (negative score) are not counted; a set with equal scores is decided by start.gg's `winnerId`.
