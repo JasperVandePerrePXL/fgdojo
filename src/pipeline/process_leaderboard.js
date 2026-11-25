@@ -5,22 +5,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { TOURNAMENT_CONFIG, listSeasons } from '../config/tournaments.js';
-import { migrateLegacyData, readRawEvents } from '../storage/raw_events.js';
+import { readRawEvents } from '../storage/raw_events.js';
 import { buildLeaderboardOutput } from '../stats/season_output.js';
-import { LEADERBOARDS_FILE, PROJECT_ROOT, PUBLIC_DIR } from '../lib/paths.js';
+import { LEADERBOARDS_FILE } from '../lib/paths.js';
 import { isMainModule } from '../lib/cli.js';
 
 /** Season ID used for the "All Seasons Combined" entry. */
 const COMBINED_SEASON_ID = -1;
-
-/** Removes the old per-season leaderboard files from public/ (replaced by leaderboards.json). */
-async function removeLegacyLeaderboardFiles() {
-  for (const file of await fs.readdir(PUBLIC_DIR).catch(() => [])) {
-    if (/^leaderboard(?:_season_\d+)?\.json$/.test(file)) {
-      await fs.rm(path.join(PUBLIC_DIR, file), { force: true });
-    }
-  }
-}
 
 /** Builds the leaderboard of every configured season that has data. */
 function buildSeasonLeaderboards(rawEvents) {
@@ -46,11 +37,9 @@ function buildSeasonLeaderboards(rawEvents) {
   return leaderboards;
 }
 
-/** Events of every numeric season (legacy keys such as `__combined` are ignored). */
+/** Events of every season, for the combined leaderboard. */
 function collectAllEvents(rawEvents) {
-  return Object.entries(rawEvents)
-    .filter(([seasonId]) => /^\d+$/.test(seasonId))
-    .flatMap(([, events]) => events);
+  return Object.values(rawEvents).flat();
 }
 
 async function writeLeaderboards({ seasons, combined }) {
@@ -89,11 +78,9 @@ function printFunStats(output) {
 }
 
 export async function main() {
-  await migrateLegacyData(PROJECT_ROOT);
-  await removeLegacyLeaderboardFiles();
   console.log('🎮 Processing leaderboards by season...\n');
 
-  const rawEvents = await readRawEvents(PROJECT_ROOT);
+  const rawEvents = await readRawEvents();
   const seasons = buildSeasonLeaderboards(rawEvents);
 
   const allEvents = collectAllEvents(rawEvents);

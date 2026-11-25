@@ -3,27 +3,35 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
-
-const CACHE_DIR = path.join(process.cwd(), '.cache', 'startgg');
-
-const cacheFile = (key) => path.join(CACHE_DIR, `${crypto.createHash('sha1').update(key).digest('hex')}.json`);
+import { STARTGG_CACHE_DIR } from '../lib/paths.js';
 
 /**
- * @param {string} key Any string, e.g. an event slug.
- * @param {number} [maxAgeMs] When given, `fresh` tells whether the entry is younger than this.
- * @returns {Promise<{ data: any, fresh: boolean } | null>} null when nothing is cached.
+ * @typedef {object} ResponseCache
+ * @property {(key: string) => Promise<{ savedAt: number, data: any } | null>} read  null when nothing is cached.
+ * @property {(key: string, data: any) => Promise<void>} write
  */
-export async function readCache(key, maxAgeMs) {
-  try {
-    const { savedAt, data } = JSON.parse(await fs.readFile(cacheFile(key), 'utf8'));
-    return { data, fresh: maxAgeMs == null || Date.now() - savedAt < maxAgeMs };
-  } catch {
-    return null;
-  }
-}
 
-/** Stores `data` under `key`, stamped with the current time. */
-export async function writeCache(key, data) {
-  await fs.mkdir(CACHE_DIR, { recursive: true });
-  await fs.writeFile(cacheFile(key), JSON.stringify({ savedAt: Date.now(), data }));
+/**
+ * Creates a cache that stores one JSON file per key in `dir`.
+ * @param {string} [dir]
+ * @returns {ResponseCache}
+ */
+export function createFileCache(dir = STARTGG_CACHE_DIR) {
+  const fileFor = (key) => path.join(dir, `${crypto.createHash('sha1').update(key).digest('hex')}.json`);
+
+  return {
+    async read(key) {
+      try {
+        const { savedAt, data } = JSON.parse(await fs.readFile(fileFor(key), 'utf8'));
+        return { savedAt, data };
+      } catch {
+        return null;
+      }
+    },
+
+    async write(key, data) {
+      await fs.mkdir(dir, { recursive: true });
+      await fs.writeFile(fileFor(key), JSON.stringify({ savedAt: Date.now(), data }));
+    },
+  };
 }

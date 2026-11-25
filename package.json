@@ -1,13 +1,12 @@
 {
   "name": "fgdojoleaderboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fighting Game Dojo leaderboard website",
   "license": "ISC",
   "author": "IzLeStick",
   "type": "module",
-  "main": "index.js",
   "scripts": {
-    "start": "node src/cli/server.js",
+    "start": "vite preview --port 3000",
     "dev": "vite",
     "refresh": "node src/cli/refresh.js",
     "fetch": "node src/pipeline/fetch_tournaments.js",
@@ -18,7 +17,6 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3",
-    "express": "^4.22.1",
     "graphql": "^16.12.0",
     "graphql-request": "^7.3.5",
     "pinia": "^4.1.0",

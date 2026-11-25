@@ -2,7 +2,7 @@
 import { readJsonSync } from '../lib/json.js';
 import { HIDDEN_PLAYERS_FILE } from '../lib/paths.js';
 
-export const HIDDEN_PLAYER_CONFIG = readJsonSync(HIDDEN_PLAYERS_FILE);
+const HIDDEN_PLAYER_CONFIG = readJsonSync(HIDDEN_PLAYERS_FILE);
 
 const normalize = (name) => String(name).trim().toLowerCase();
 

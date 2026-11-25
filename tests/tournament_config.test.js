@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { GAMES, TOURNAMENT_CONFIG, getConfiguredSlugs, getGameEventCandidates, getTournamentGames, normalizeTournamentSlug } from '../src/config/tournaments.js';
+import { GAMES, TOURNAMENT_CONFIG, getGameEventCandidates, getTournamentGames, normalizeTournamentSlug } from '../src/config/tournaments.js';
 
 test('manual season config contains valid tournament and game IDs', () => {
   for (const [seasonId, season] of Object.entries(TOURNAMENT_CONFIG.seasons)) {
@@ -22,10 +22,6 @@ test('game IDs expand to start.gg event slug candidates', () => {
   const candidates = getGameEventCandidates('example-tournament', 'street-fighter-6');
   assert.ok(candidates.includes('tournament/example-tournament/event/1v1-fgdojo-street-fighter-6-pc'));
   assert.ok(candidates.includes('tournament/example-tournament/event/1v1-fgdojo-street-fighter-6'));
-
-  const configured = getConfiguredSlugs();
-  assert.ok(configured['0'].length > 0);
-  assert.ok(configured['1'].length > 0);
 });
 
 test('tournament URLs and bare slugs normalize identically', () => {

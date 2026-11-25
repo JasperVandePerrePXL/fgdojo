@@ -47,20 +47,6 @@ export function getGameEventCandidates(tournamentSlug, gameId) {
   return game.eventSlugs.map((eventSlug) => `tournament/${slug}/event/${eventSlug}`);
 }
 
-/** Every event slug that could be fetched, grouped by season ID. */
-export function getConfiguredSlugs() {
-  const result = {};
-  for (const [seasonId, season] of Object.entries(TOURNAMENT_CONFIG.seasons ?? {})) {
-    result[seasonId] = [];
-    for (const tournament of season.tournaments ?? []) {
-      for (const gameId of getTournamentGames(season, tournament)) {
-        result[seasonId].push(...getGameEventCandidates(tournament.slug, gameId));
-      }
-    }
-  }
-  return result;
-}
-
 /**
  * Seasons in ascending ID order.
  * @returns {{ id: string, name: string }[]}
