@@ -1,0 +1,409 @@
+{
+  "totals": {
+    "dojos": 20,
+    "players": 143,
+    "sets": 1076,
+    "games": 3542
+  },
+  "games": [
+    {
+      "gameName": "Street Fighter 6",
+      "entrants": 203
+    },
+    {
+      "gameName": "TEKKEN 8",
+      "entrants": 149
+    },
+    {
+      "gameName": "Guilty Gear: Strive",
+      "entrants": 207
+    },
+    {
+      "gameName": "Avatar Legends: The Fighting Game",
+      "entrants": 9
+    },
+    {
+      "gameName": "Marvel Tokon: Fighting Souls",
+      "entrants": 9
+    }
+  ],
+  "dojos": [
+    {
+      "dojoId": "tournament/fighting-game-dojo-the-first-round-frag-o-matic-invitational",
+      "name": "Fighting Game Dojo - The First Round - Frag-o-Matic invitational",
+      "date": "2025-01-26",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 5,
+        "TEKKEN 8": 7
+      },
+      "players": 12,
+      "newPlayers": 12,
+      "returningPlayers": 0
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-the-second-round",
+      "name": "Fighting Game Dojo - The Second Round",
+      "date": "2025-03-16",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 10,
+        "TEKKEN 8": 6
+      },
+      "players": 14,
+      "newPlayers": 9,
+      "returningPlayers": 5
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-the-third-round-including-rb-kumite-view",
+      "name": "Fighting Game Dojo - The Third Round (Including RB Kumite View-party)",
+      "date": "2025-04-06",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 9,
+        "TEKKEN 8": 10
+      },
+      "players": 15,
+      "newPlayers": 5,
+      "returningPlayers": 10
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-the-fourth-round",
+      "name": "Fighting Game Dojo - The Fourth Round",
+      "date": "2025-05-11",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 7,
+        "TEKKEN 8": 8,
+        "Guilty Gear: Strive": 8
+      },
+      "players": 19,
+      "newPlayers": 9,
+      "returningPlayers": 10
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-the-fifth-round",
+      "name": "Fighting Game Dojo - The Fifth Round",
+      "date": "2025-06-08",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 7,
+        "TEKKEN 8": 8,
+        "Guilty Gear: Strive": 16
+      },
+      "players": 25,
+      "newPlayers": 12,
+      "returningPlayers": 13
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-summer-edition",
+      "name": "Fighting Game Dojo - Summer Edition",
+      "date": "2025-07-12",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 14,
+        "TEKKEN 8": 20,
+        "Guilty Gear: Strive": 14
+      },
+      "players": 43,
+      "newPlayers": 21,
+      "returningPlayers": 22
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-summer-part-2",
+      "name": "Fighting Game Dojo - Summer Part 2",
+      "date": "2025-08-02",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 12,
+        "TEKKEN 8": 5,
+        "Guilty Gear: Strive": 9
+      },
+      "players": 20,
+      "newPlayers": 4,
+      "returningPlayers": 16
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-back-to-school",
+      "name": "Fighting Game Dojo - Back To School",
+      "date": "2025-09-14",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 9,
+        "TEKKEN 8": 5,
+        "Guilty Gear: Strive": 10
+      },
+      "players": 20,
+      "newPlayers": 4,
+      "returningPlayers": 16
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-anniversary-evo-prep-weekend",
+      "name": "Fighting Game Dojo Anniversary! - EVO Prep Weekend",
+      "date": "2025-10-05",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 16,
+        "TEKKEN 8": 10,
+        "Guilty Gear: Strive": 10
+      },
+      "players": 31,
+      "newPlayers": 9,
+      "returningPlayers": 22
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-november-25",
+      "name": "Fighting Game Dojo - November '25",
+      "date": "2025-11-29",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 16,
+        "TEKKEN 8": 18,
+        "Guilty Gear: Strive": 16
+      },
+      "players": 46,
+      "newPlayers": 17,
+      "returningPlayers": 29
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-december-25",
+      "name": "Fighting Game Dojo - December '25",
+      "date": "2025-12-20",
+      "seasonId": 0,
+      "entrantsByGame": {
+        "Street Fighter 6": 11,
+        "TEKKEN 8": 4,
+        "Guilty Gear: Strive": 15
+      },
+      "players": 26,
+      "newPlayers": 3,
+      "returningPlayers": 23
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-january-26-edition",
+      "name": "Fighting Game Dojo - January '26 edition",
+      "date": "2026-01-17",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 7,
+        "TEKKEN 8": 7,
+        "Guilty Gear: Strive": 13
+      },
+      "players": 20,
+      "newPlayers": 3,
+      "returningPlayers": 17
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-march-edition",
+      "name": "Fighting Game Dojo - March Edition",
+      "date": "2026-03-14",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 10,
+        "TEKKEN 8": 10,
+        "Guilty Gear: Strive": 16
+      },
+      "players": 25,
+      "newPlayers": 3,
+      "returningPlayers": 22
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-april-edition",
+      "name": "Fighting Game Dojo - April Edition",
+      "date": "2026-04-18",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 13,
+        "TEKKEN 8": 6,
+        "Guilty Gear: Strive": 10
+      },
+      "players": 22,
+      "newPlayers": 2,
+      "returningPlayers": 20
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-may-edition",
+      "name": "Fighting Game Dojo - May edition",
+      "date": "2026-05-23",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 10,
+        "TEKKEN 8": 7,
+        "Guilty Gear: Strive": 15
+      },
+      "players": 27,
+      "newPlayers": 6,
+      "returningPlayers": 21
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-july-edition",
+      "name": "Fighting Game Dojo - July edition",
+      "date": "2026-07-18",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 12,
+        "TEKKEN 8": 8,
+        "Guilty Gear: Strive": 12
+      },
+      "players": 25,
+      "newPlayers": 9,
+      "returningPlayers": 16
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-august-edition",
+      "name": "Fighting Game Dojo - August edition",
+      "date": "2026-08-29",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 13,
+        "TEKKEN 8": 3,
+        "Guilty Gear: Strive": 9
+      },
+      "players": 22,
+      "newPlayers": 1,
+      "returningPlayers": 21
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-september-edition",
+      "name": "Fighting Game Dojo - September edition",
+      "date": "2026-09-26",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 8,
+        "TEKKEN 8": 1,
+        "Guilty Gear: Strive": 12,
+        "Avatar Legends: The Fighting Game": 3,
+        "Marvel Tokon: Fighting Souls": 3
+      },
+      "players": 22,
+      "newPlayers": 5,
+      "returningPlayers": 17
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-october-edition",
+      "name": "Fighting Game Dojo - October edition",
+      "date": "2026-10-17",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 5,
+        "TEKKEN 8": 4,
+        "Guilty Gear: Strive": 12,
+        "Avatar Legends: The Fighting Game": 4,
+        "Marvel Tokon: Fighting Souls": 6
+      },
+      "players": 21,
+      "newPlayers": 4,
+      "returningPlayers": 17
+    },
+    {
+      "dojoId": "tournament/fighting-game-dojo-november-edition-1",
+      "name": "Fighting Game Dojo - November edition",
+      "date": "2026-11-28",
+      "seasonId": 1,
+      "entrantsByGame": {
+        "Street Fighter 6": 9,
+        "TEKKEN 8": 2,
+        "Guilty Gear: Strive": 10,
+        "Avatar Legends: The Fighting Game": 2,
+        "Marvel Tokon: Fighting Souls": 0
+      },
+      "players": 19,
+      "newPlayers": 5,
+      "returningPlayers": 14
+    }
+  ],
+  "seasons": [
+    {
+      "seasonId": 0,
+      "seasonName": "Season 0",
+      "sets": 626,
+      "games": 2016,
+      "dojos": 11,
+      "uniquePlayers": 105,
+      "averageAttendance": 24.6,
+      "entrants": 315
+    },
+    {
+      "seasonId": 1,
+      "seasonName": "Season 1",
+      "sets": 450,
+      "games": 1526,
+      "dojos": 9,
+      "uniquePlayers": 74,
+      "averageAttendance": 22.6,
+      "entrants": 262
+    }
+  ],
+  "rivalries": [
+    {
+      "playerA": "LCG | Concept",
+      "playerB": "LCG | mcshootys",
+      "winsA": 10,
+      "winsB": 10,
+      "sets": 20
+    },
+    {
+      "playerA": "LCG | Ora Beniz",
+      "playerB": "VeganBeef",
+      "winsA": 9,
+      "winsB": 7,
+      "sets": 16
+    },
+    {
+      "playerA": "Strael Bora | GentleKef",
+      "playerB": "LCG | Ora Beniz",
+      "winsA": 15,
+      "winsB": 1,
+      "sets": 16
+    },
+    {
+      "playerA": "LCG | SomeGal",
+      "playerB": "LCG | mcshootys",
+      "winsA": 6,
+      "winsB": 5,
+      "sets": 11
+    },
+    {
+      "playerA": "LCG | monnter",
+      "playerB": "LCG | SomeGal",
+      "winsA": 7,
+      "winsB": 4,
+      "sets": 11
+    },
+    {
+      "playerA": "Strael Bora | GentleKef",
+      "playerB": "VeganBeef",
+      "winsA": 9,
+      "winsB": 1,
+      "sets": 10
+    },
+    {
+      "playerA": "Strael Bora | GentleKef",
+      "playerB": "LCG | Concept",
+      "winsA": 9,
+      "winsB": 1,
+      "sets": 10
+    },
+    {
+      "playerA": "Strael Bora | GentleKef",
+      "playerB": "Kronbee",
+      "winsA": 1,
+      "winsB": 9,
+      "sets": 10
+    },
+    {
+      "playerA": "LCG | monnter",
+      "playerB": "LCG | Concept",
+      "winsA": 5,
+      "winsB": 4,
+      "sets": 9
+    },
+    {
+      "playerA": "LCG | Concept",
+      "playerB": "VeganBeef",
+      "winsA": 1,
+      "winsB": 6,
+      "sets": 7
+    }
+  ]
+}

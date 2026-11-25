@@ -75,4 +75,19 @@
  * @property {FunStats} funStats       Highlights across all games of the season.
  */
 
+/**
+ * Data of the stats page (`public/data/stats.json`), built by site_stats.js over every season.
+ * @typedef {object} SiteStats
+ * @property {{ dojos: number, players: number, sets: number, games: number }} totals
+ * @property {{ gameName: string, entrants: number }[]} games  In order of first appearance.
+ * @property {{ dojoId: string, name: string, date: string|null, seasonId: number, players: number,
+ *   newPlayers: number, returningPlayers: number, entrantsByGame: Record<string, number> }[]} dojos
+ *   Oldest first. `players` = unique players; `newPlayers` = first dojo ever for them.
+ * @property {{ seasonId: number, seasonName: string, dojos: number, uniquePlayers: number,
+ *   averageAttendance: number, entrants: number, sets: number, games: number }[]} seasons
+ *   `entrants` counts game entries (a player in two games counts twice).
+ * @property {{ playerA: string, playerB: string, winsA: number, winsB: number, sets: number }[]} rivalries
+ *   Most played 1v1 matchups (DQs excluded).
+ */
+
 export {};

@@ -8,7 +8,8 @@ import { TOURNAMENT_CONFIG, listSeasons } from '../config/tournaments.js';
 import { readRawEvents } from '../storage/raw_events.js';
 import { buildLeaderboardOutput } from '../stats/season_output.js';
 import { HIGHLIGHTS } from '../../shared/highlights.js';
-import { LEADERBOARDS_FILE } from '../lib/paths.js';
+import { LEADERBOARDS_FILE, STATS_FILE } from '../lib/paths.js';
+import { buildSiteStats } from '../stats/site_stats.js';
 import { isMainModule } from '../lib/cli.js';
 
 /** Season ID used for the "All Seasons Combined" entry. */
@@ -55,6 +56,19 @@ async function writeLeaderboards({ seasons, combined }) {
   console.log('✓ Saved consolidated public data to public/data/leaderboards.json');
 }
 
+/** Writes public/data/stats.json for the stats page (all tournaments of all seasons). */
+async function writeSiteStats(rawEvents) {
+  const stats = buildSiteStats(
+    listSeasons().map(({ id, name }) => ({
+      seasonId: Number(id),
+      seasonName: name,
+      events: rawEvents[id] ?? [],
+    })),
+  );
+  await fs.writeFile(STATS_FILE, JSON.stringify(stats, null, 2), 'utf8');
+  console.log('✓ Saved stats page data to public/data/stats.json');
+}
+
 /** Prints the highlight lists and tournament winners of a season to the console. */
 function printFunStats(output) {
   console.log(`\n=== ${output.seasonName} - FUN STATS ===`);
@@ -87,6 +101,7 @@ export async function main() {
     });
     console.log('✓ Processed combined leaderboard');
     await writeLeaderboards({ seasons, combined });
+    await writeSiteStats(rawEvents);
   }
 
   // Season 0 is the only season whose fun stats are printed (kept from the original script).
