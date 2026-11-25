@@ -11,6 +11,8 @@ import LineChart from '../components/charts/LineChart.vue';
 import StackedBarChart from '../components/charts/StackedBarChart.vue';
 import DonutChart from '../components/charts/DonutChart.vue';
 import RivalryTabs from '../components/RivalryTabs.vue';
+import RangeFilter from '../components/RangeFilter.vue';
+import PaginatedTable from '../components/PaginatedTable.vue';
 import { shortDate } from '../utils/chart.js';
 
 const store = useStatsStore();
@@ -20,6 +22,11 @@ const {
   error,
   dojos,
   gameSeries,
+  gamesInRange,
+  ranges,
+  range,
+  totals,
+  seasonsInRange,
   rivalryGame,
   attendancePoints,
   entrantsByGameColumns,
@@ -30,6 +37,15 @@ const {
 onMounted(store.load);
 
 const dojoColumn = { key: 'dojo', label: 'Dojo' };
+const seasonColumns = [
+  { key: 'seasonName', label: 'Season' },
+  { key: 'dojos', label: 'Dojos' },
+  { key: 'uniquePlayers', label: 'Players' },
+  { key: 'averageAttendance', label: 'Avg. per dojo' },
+  { key: 'entrants', label: 'Entries' },
+  { key: 'sets', label: 'Sets' },
+  { key: 'games', label: 'Games' },
+];
 /** Table rows: one per dojo, with a readable dojo name. */
 const dojoRows = (extra) =>
   dojos.value.map((dojo) => ({ dojo: `${shortDate(dojo.date)} · ${dojo.name}`, ...extra(dojo) }));
@@ -49,18 +65,20 @@ const dojoRows = (extra) =>
     <p v-else-if="error" class="error">{{ error }}</p>
 
     <template v-else-if="stats">
+      <RangeFilter :ranges="ranges" :selected="range.id" @select="store.selectRange" />
+
       <div class="summary four">
         <div class="metric">
-          <b>{{ stats.totals.dojos }}</b><span>dojos held</span>
+          <b>{{ totals.dojos }}</b><span>dojos held</span>
         </div>
         <div class="metric">
-          <b>{{ stats.totals.players }}</b><span>different players</span>
+          <b>{{ totals.players }}</b><span>different players</span>
         </div>
         <div class="metric">
-          <b>{{ stats.totals.sets }}</b><span>sets played</span>
+          <b>{{ totals.sets }}</b><span>sets played</span>
         </div>
         <div class="metric">
-          <b>{{ stats.totals.games }}</b><span>games played</span>
+          <b>{{ totals.games }}</b><span>games played</span>
         </div>
       </div>
 
@@ -74,15 +92,15 @@ const dojoRows = (extra) =>
 
       <ChartFrame
         title="Entrants per game per dojo"
-        :series="gameSeries"
-        :columns="[dojoColumn, ...gameSeries.map((game) => ({ key: game.name, label: game.name }))]"
+        :series="gamesInRange"
+        :columns="[dojoColumn, ...gamesInRange.map((game) => ({ key: game.name, label: game.name }))]"
         :rows="
           dojoRows((dojo) =>
-            Object.fromEntries(gameSeries.map((g) => [g.name, dojo.entrantsByGame[g.name] ?? 0])),
+            Object.fromEntries(gamesInRange.map((g) => [g.name, dojo.entrantsByGame[g.name] ?? 0])),
           )
         "
       >
-        <StackedBarChart :columns="entrantsByGameColumns" :series="gameSeries" />
+        <StackedBarChart :columns="entrantsByGameColumns" :series="gamesInRange" />
       </ChartFrame>
 
       <ChartFrame
@@ -96,45 +114,23 @@ const dojoRows = (extra) =>
 
       <div class="stats-grid">
         <ChartFrame
-          title="Entrants per game, all dojos"
+          title="Entrants per game"
           :columns="[
             { key: 'name', label: 'Game' },
             { key: 'value', label: 'Entrants' },
           ]"
-          :rows="gameSeries"
+          :rows="gamesInRange"
         >
-          <DonutChart :parts="gameSeries" unit="entrants" />
+          <DonutChart :parts="gamesInRange" unit="entrants" />
         </ChartFrame>
 
         <section class="card table-card">
           <h3>Season comparison</h3>
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Season</th>
-                  <th scope="col">Dojos</th>
-                  <th scope="col">Players</th>
-                  <th scope="col">Avg. per dojo</th>
-                  <th scope="col">Entries</th>
-                  <th scope="col">Sets</th>
-                  <th scope="col">Games</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="season in stats.seasons" :key="season.seasonId">
-                  <th scope="row">{{ season.seasonName }}</th>
-                  <td>{{ season.dojos }}</td>
-                  <td>{{ season.uniquePlayers }}</td>
-                  <td>{{ season.averageAttendance }}</td>
-                  <td>{{ season.entrants }}</td>
-                  <td>{{ season.sets }}</td>
-                  <td>{{ season.games }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="note">Entries count every game a player entered; players are counted once per season.</p>
+          <PaginatedTable :columns="seasonColumns" :rows="seasonsInRange" label="Season comparison" />
+          <p class="note">
+            Seasons in the selected period, with numbers for the whole season. Entries count every game a
+            player entered; players are counted once per season.
+          </p>
         </section>
       </div>
 

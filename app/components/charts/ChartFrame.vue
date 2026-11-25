@@ -1,5 +1,7 @@
 <script setup>
-// Card around a chart: title, optional legend (for 2+ series), the chart itself and a data table view.
+import PaginatedTable from '../PaginatedTable.vue';
+
+// Card around a chart: title, optional legend (for 2+ series), the chart itself and a paged data table view.
 defineProps({
   title: { type: String, required: true },
   /** `{ name, color }[]`; the legend is shown for two or more series. */
@@ -23,20 +25,7 @@ defineProps({
     <slot />
     <details class="data-table">
       <summary>Show data</summary>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th v-for="column in columns" :key="column.key" scope="col">{{ column.label }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(row, index) in rows" :key="index">
-              <td v-for="column in columns" :key="column.key">{{ row[column.key] }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <PaginatedTable :columns="columns" :rows="rows" :label="title" />
     </details>
   </figure>
 </template>

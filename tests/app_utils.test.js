@@ -31,3 +31,33 @@ test('chart helpers', () => {
   assert.equal(seriesColor(0), 'var(--series-1)');
   assert.equal(seriesColor(9), 'var(--muted)');
 });
+
+import { ALL_TIME, buildDateRanges } from '../app/utils/ranges.js';
+import { paginate } from '../app/utils/pagination.js';
+
+test('date ranges: all time, then each year with the halves that have dojos', () => {
+  const ranges = buildDateRanges(['2025-03-01', '2025-09-01', '2026-02-01', null]);
+  assert.deepEqual(
+    ranges.map((range) => range.label),
+    ['All time', '2025', 'H1 2025', 'H2 2025', '2026', 'H1 2026'],
+  );
+  const h2 = ranges.find((range) => range.id === '2025-H2');
+  assert.equal(h2.contains('2025-07-01'), true);
+  assert.equal(h2.contains('2025-06-30'), false);
+  assert.equal(h2.contains(null), false);
+  assert.equal(ranges.find((range) => range.id === ALL_TIME).contains(null), true);
+});
+
+test('paginate clamps the page and reports the row numbers', () => {
+  const rows = Array.from({ length: 23 }, (_, i) => i);
+  assert.deepEqual(paginate(rows, 3, 10), {
+    rows: [20, 21, 22],
+    page: 3,
+    pageCount: 3,
+    first: 21,
+    last: 23,
+    total: 23,
+  });
+  assert.equal(paginate(rows, 99, 10).page, 3);
+  assert.deepEqual(paginate([], 1, 10), { rows: [], page: 1, pageCount: 1, first: 0, last: 0, total: 0 });
+});

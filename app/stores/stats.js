@@ -1,6 +1,8 @@
-// Pinia store of the stats page: loads public/data/stats.json and shapes it for the charts.
+// Pinia store of the stats page: loads public/data/stats.json, tracks the selected date range
+// and shapes the data of that range for the charts and tables. Rivalries are always all-time.
 import { defineStore } from 'pinia';
 import { seriesColor, shortDate } from '../utils/chart.js';
+import { ALL_TIME, buildDateRanges } from '../utils/ranges.js';
 
 /** Tooltip/axis label of a dojo. */
 const dojoLabel = (dojo) => ({
@@ -16,18 +18,50 @@ export const useStatsStore = defineStore('stats', {
     error: null,
     /** Game whose rivalries are shown (defaults to the first game). */
     selectedRivalryGame: null,
+    /** ID of the selected date range (see utils/ranges.js). */
+    selectedRange: ALL_TIME,
   }),
 
   getters: {
-    dojos: (state) => state.stats?.dojos ?? [],
-    /** Games with a fixed color each, in order of first appearance (color follows the game). */
-    gameSeries: (state) =>
-      (state.stats?.games ?? []).map((game, index) => ({
+    /** All time, each year and each half year that has dojos. */
+    ranges: (state) => buildDateRanges((state.stats?.dojos ?? []).map((dojo) => dojo.date)),
+    range() {
+      return this.ranges.find((range) => range.id === this.selectedRange) ?? this.ranges[0];
+    },
+    /** Dojos in the selected range, oldest first. */
+    dojos() {
+      return (this.stats?.dojos ?? []).filter((dojo) => this.range.contains(dojo.date));
+    },
+    /** Totals of the selected range; players are counted once even when they attended several dojos. */
+    totals() {
+      return {
+        dojos: this.dojos.length,
+        players: new Set(this.dojos.flatMap((dojo) => dojo.playerIds ?? [])).size,
+        sets: this.dojos.reduce((sum, dojo) => sum + (dojo.sets ?? 0), 0),
+        games: this.dojos.reduce((sum, dojo) => sum + (dojo.games ?? 0), 0),
+      };
+    },
+    /**
+     * Games with a fixed color each, in order of first appearance (color follows the game, also when a range
+     * hides some games). `value` = entrants in the selected range; `rivalries` are all-time.
+     */
+    gameSeries() {
+      return (this.stats?.games ?? []).map((game, index) => ({
         name: game.gameName,
-        value: game.entrants,
+        value: this.dojos.reduce((sum, dojo) => sum + (dojo.entrantsByGame[game.gameName] ?? 0), 0),
         color: seriesColor(index),
         rivalries: game.rivalries ?? [],
-      })),
+      }));
+    },
+    /** Games played in the selected range (for the donut and the per-game chart). */
+    gamesInRange() {
+      return this.gameSeries.filter((game) => game.value > 0);
+    },
+    /** Seasons that have at least one dojo in the selected range. */
+    seasonsInRange() {
+      const seasonIds = new Set(this.dojos.map((dojo) => dojo.seasonId));
+      return (this.stats?.seasons ?? []).filter((season) => seasonIds.has(season.seasonId));
+    },
     /** The game whose rivalry tab is open. */
     rivalryGame() {
       return (
@@ -42,7 +76,7 @@ export const useStatsStore = defineStore('stats', {
     entrantsByGameColumns() {
       return this.dojos.map((dojo) => ({
         ...dojoLabel(dojo),
-        values: this.gameSeries.map((game) => dojo.entrantsByGame[game.name] ?? 0),
+        values: this.gamesInRange.map((game) => dojo.entrantsByGame[game.name] ?? 0),
       }));
     },
     newVsReturningSeries: () => [
@@ -58,6 +92,10 @@ export const useStatsStore = defineStore('stats', {
   },
 
   actions: {
+    selectRange(rangeId) {
+      this.selectedRange = rangeId;
+    },
+
     selectRivalryGame(gameName) {
       this.selectedRivalryGame = gameName;
     },

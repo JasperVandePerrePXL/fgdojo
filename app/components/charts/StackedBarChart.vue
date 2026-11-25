@@ -24,7 +24,7 @@ const layout = useColumnLayout(
 
 /** Segments of every column, bottom to top; only the top segment gets rounded corners. */
 const bars = computed(() => {
-  const width = Math.max(4, layout.band.value * 0.62);
+  const width = Math.min(48, Math.max(4, layout.band.value * 0.62)); // thin bars, also with few columns
   return columns.value.flatMap((column, index) => {
     const x = layout.centerX(index) - width / 2;
     const visible = column.values.map((value, s) => ({ value, s })).filter(({ value }) => value > 0);
