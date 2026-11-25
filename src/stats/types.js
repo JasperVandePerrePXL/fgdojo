@@ -87,8 +87,10 @@
  * @property {{ gameName: string, entrants: number, rivalries: Rivalry[] }[]} games
  *   In order of first appearance; `rivalries` = the most played 1v1 matchups of that game (DQs excluded).
  * @property {{ dojoId: string, name: string, date: string|null, seasonId: number, players: number,
- *   newPlayers: number, returningPlayers: number, entrantsByGame: Record<string, number> }[]} dojos
- *   Oldest first. `players` = unique players; `newPlayers` = first dojo ever for them.
+ *   newPlayers: number, returningPlayers: number, entrantsByGame: Record<string, number>,
+ *   sets: number, games: number, playerIds: string[] }[]} dojos
+ *   Oldest first. `players` = unique players; `newPlayers` = first dojo ever for them;
+ *   `playerIds` = start.gg player IDs, so the page can count unique players over a date range.
  * @property {{ seasonId: number, seasonName: string, dojos: number, uniquePlayers: number,
  *   averageAttendance: number, entrants: number, sets: number, games: number }[]} seasons
  *   `entrants` counts game entries (a player in two games counts twice).

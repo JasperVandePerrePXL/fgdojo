@@ -59,6 +59,8 @@ test('dojos are counted once, oldest first, with new and returning players', () 
     ],
   );
   assert.deepEqual(stats.dojos[0].entrantsByGame, { SF6: 2, T8: 2 });
+  assert.deepEqual(stats.dojos[0].playerIds, ['1', '2']);
+  assert.deepEqual([stats.dojos[0].sets, stats.dojos[0].games], [2, 5]);
 });
 
 test('hidden players and their sets are left out', () => {

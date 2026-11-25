@@ -74,6 +74,8 @@ function emptyDojo(event, seasonId) {
     seasonId,
     playerIds: new Set(),
     entrantsByGame: {},
+    sets: 0,
+    games: 0,
   };
 }
 
@@ -149,6 +151,8 @@ export function buildSiteStats(seasons) {
       if (!played || hiddenIds.has(played.p1) || hiddenIds.has(played.p2)) continue;
       season.sets += 1;
       season.games += played.score1 + played.score2;
+      dojo.sets += 1;
+      dojo.games += played.score1 + played.score2;
       if (!rivalriesByGame.has(gameName)) rivalriesByGame.set(gameName, new Map());
       recordRivalry(rivalriesByGame.get(gameName), played);
     }
@@ -158,7 +162,14 @@ export function buildSiteStats(seasons) {
   const dojoList = [...dojos.values()].map(({ playerIds, ...dojo }) => {
     const newPlayers = [...playerIds].filter((id) => !seen.has(id)).length;
     playerIds.forEach((id) => seen.add(id));
-    return { ...dojo, players: playerIds.size, newPlayers, returningPlayers: playerIds.size - newPlayers };
+    return {
+      ...dojo,
+      players: playerIds.size,
+      newPlayers,
+      returningPlayers: playerIds.size - newPlayers,
+      // Lets the stats page count unique players over any range of dojos.
+      playerIds: [...playerIds].sort(),
+    };
   });
 
   const seasonList = [...seasonStats.values()]
