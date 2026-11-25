@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  extractTournamentSlug,
   formatTournamentEntry,
   normalizeTournamentSlug,
   findExistingTournament,
@@ -83,4 +84,9 @@ test('does not duplicate an existing tournament', () => {
 
   assert.equal(result.changed, false);
   assert.equal(result.config.seasons['2'].tournaments.length, 1);
+});
+
+test('extracts the tournament slug from the hub redirect target', () => {
+  assert.equal(extractTournamentSlug('https://www.start.gg/tournament/fighting-game-dojo-november-edition-1/details'), 'fighting-game-dojo-november-edition-1');
+  assert.equal(extractTournamentSlug('https://start.gg/RBHubFGDojo'), null);
 });

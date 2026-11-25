@@ -11,6 +11,7 @@ try {
 
 const baseDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const configFile = path.join(baseDir, 'data', 'tournament_slugs.json');
+const HUB_URL = 'https://start.gg/RBHubFGDojo';
 
 export function getBelgiumDateParts(timestamp) {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -34,6 +35,11 @@ export function formatTournamentEntry(timestamp, slug) {
     name: `${monthNames[month - 1]} '${String(year).slice(-2)} edition`,
     slug,
   };
+}
+
+export function extractTournamentSlug(value) {
+  const match = String(value ?? '').match(/start\.gg\/tournament\/([a-zA-Z0-9-]+)/i);
+  return match ? match[1] : null;
 }
 
 export function normalizeTournamentSlug(input) {
@@ -86,7 +92,32 @@ export function updateNextEventConfig(config, tournament) {
   };
 }
 
-async function findNextTournament() {
+// The hub short link redirects to the page of the current Fighting Game Dojo tournament.
+async function findSlugFromHub() {
+  const response = await fetch(HUB_URL, {
+    redirect: 'follow',
+    headers: { 'user-agent': 'Mozilla/5.0 (compatible; fgdojo-next-event/1.0)' },
+  });
+
+  const fromUrl = extractTournamentSlug(response.url);
+  if (fromUrl) return fromUrl;
+
+  const html = await response.text();
+  const link = html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i)?.[0] ?? '';
+  const href = link.match(/href=["']([^"']+)["']/i)?.[1];
+  return extractTournamentSlug(href);
+}
+
+async function fetchTournament(slug) {
+  const data = await gql(
+    `query($slug: String!) { tournament(slug: $slug) { name slug startAt } }`,
+    { slug: `tournament/${slug}` },
+  );
+  return data.tournament;
+}
+
+// Fallback when the hub link cannot be resolved: search by name.
+async function findUpcomingByName() {
   const query = `query($page: Int!) {
     tournaments(query: { perPage: 100, page: $page, sortBy: "startAt asc", filter: { name: "Fighting Game Dojo" } }) {
       pageInfo { totalPages }
@@ -110,33 +141,58 @@ async function findNextTournament() {
   return result;
 }
 
+async function report(message) {
+  console.log(message);
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    await fs.appendFile(process.env.GITHUB_STEP_SUMMARY, `${message}\n\n`);
+  }
+}
+
 async function main() {
-  if (!getKey()) {
-    console.log('No STARTGG_KEY set; skipping next-event discovery.');
-    return;
-  }
-
   const current = JSON.parse(await fs.readFile(configFile, 'utf8'));
-  const tournament = await findNextTournament();
-  if (!tournament) {
-    console.log('No upcoming Fighting Game Dojo tournament found.');
-    return;
+
+  let slug = null;
+  try {
+    slug = await findSlugFromHub();
+  } catch (error) {
+    console.warn(`Hub lookup failed: ${error.message}`);
+  }
+  if (slug) console.log(`Hub ${HUB_URL} points to: ${slug}`);
+  else console.warn('Could not read a tournament from the hub link; falling back to name search.');
+
+  if (!getKey()) {
+    if (slug && findExistingTournament(current, slug)) {
+      await report(`Latest event \`${slug}\` is already in tournament_slugs.json.`);
+      return;
+    }
+    throw new Error(slug
+      ? `Hub points to new tournament "${slug}" but STARTGG_KEY is missing, so its date/season cannot be determined.`
+      : 'Hub lookup failed and STARTGG_KEY is missing.');
   }
 
+  const tournament = slug ? await fetchTournament(slug) : await findUpcomingByName();
+  if (!tournament) throw new Error('No Fighting Game Dojo tournament found (hub and name search both came up empty).');
+
+  const found = normalizeTournamentSlug(tournament.slug);
+  const existed = Boolean(findExistingTournament(current, found));
   const result = updateNextEventConfig(current, tournament);
+  const when = new Date(tournament.startAt * 1000).toISOString();
+
   if (!result.changed) {
-    console.log(`Next event is already configured: ${normalizeTournamentSlug(tournament.slug)}`);
+    await report(`Latest event \`${found}\` (${when}) is already in tournament_slugs.json. Nothing to do.`);
     return;
   }
 
   await fs.writeFile(configFile, `${JSON.stringify(result.config, null, 2)}\n`);
-  console.log(`Updated next event: ${normalizeTournamentSlug(tournament.slug)} (${new Date(tournament.startAt * 1000).toISOString()})`);
+  await report(existed
+    ? `Latest event \`${found}\` was already listed; updated nextEventUrl.`
+    : `New event \`${found}\` (${when}) was NOT in tournament_slugs.json: added it to Season ${seasonIdForTimestamp(tournament.startAt)} and set nextEventUrl.`);
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   main().catch((error) => {
     console.error(`Next-event discovery failed: ${error.message}`);
-    process.exitCode = 0;
+    process.exitCode = 1;
   });
 }

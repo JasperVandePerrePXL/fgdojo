@@ -1,12 +1,9 @@
 name: Update next Fighting Game Dojo event
 
 on:
-  workflow_run:
-    workflows:
-      - "Refresh leaderboard"
-      - "Build and deploy"
-    types:
-      - completed
+  schedule:
+    # Sunday and Monday, one hour after the leaderboard refresh (tournaments are always on the weekend)
+    - cron: '0 21 * * 0,1'
   workflow_dispatch:
 
 concurrency:
@@ -15,11 +12,11 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update-next-event:
     name: Discover and save next tournament
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-22.04
 
     steps:
@@ -37,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
-      - name: Discover next Fighting Game Dojo tournament
+      - name: Check hub for the latest Fighting Game Dojo tournament
         run: npm run next-event
         env:
           STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
@@ -54,3 +51,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "Update next Fighting Game Dojo event"
           git push origin main
+          # Pushes made with GITHUB_TOKEN do not trigger other workflows, so start the deploy explicitly.
+          gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}
