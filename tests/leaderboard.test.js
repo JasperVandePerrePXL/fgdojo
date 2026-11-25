@@ -13,18 +13,32 @@ function event(overrides = {}) {
     entrants: {
       pageInfo: { total: 2 },
       nodes: [
-        { standing: { placement: 1 }, participants: [{ id: 11, gamerTag: 'Alice', player: { id: 11, gamerTag: 'Alice' }, prefix: '' }] },
-        { standing: { placement: 2 }, participants: [{ id: 22, gamerTag: 'Bob', player: { id: 22, gamerTag: 'Bob' }, prefix: '' }] },
+        {
+          standing: { placement: 1 },
+          participants: [{ id: 11, gamerTag: 'Alice', player: { id: 11, gamerTag: 'Alice' }, prefix: '' }],
+        },
+        {
+          standing: { placement: 2 },
+          participants: [{ id: 22, gamerTag: 'Bob', player: { id: 22, gamerTag: 'Bob' }, prefix: '' }],
+        },
       ],
     },
     standings: { nodes: [{ placement: 1, entrant: { participants: [{ gamerTag: 'Alice' }] } }] },
     sets: {
-      nodes: [{
-        slots: [
-          { entrant: { participants: [{ id: 11, player: { id: 11 } }] }, standing: { stats: { score: { value: 3 } } } },
-          { entrant: { participants: [{ id: 22, player: { id: 22 } }] }, standing: { stats: { score: { value: 1 } } } },
-        ],
-      }],
+      nodes: [
+        {
+          slots: [
+            {
+              entrant: { participants: [{ id: 11, player: { id: 11 } }] },
+              standing: { stats: { score: { value: 3 } } },
+            },
+            {
+              entrant: { participants: [{ id: 22, player: { id: 22 } }] },
+              standing: { stats: { score: { value: 1 } } },
+            },
+          ],
+        },
+      ],
     },
     ...overrides,
   };
@@ -49,15 +63,37 @@ test('processLeaderboard records winners, attendance, and set scores', () => {
 test('configured hidden player is excluded from leaderboard results', () => {
   assert.equal(isHiddenPlayer({ displayName: 'HM! | Biscuit' }), true);
 
-  const result = processLeaderboard([event({
-    entrants: {
-      pageInfo: { total: 1 },
-      nodes: [{ standing: { placement: 1 }, participants: [{ id: 99, gamerTag: 'Biscuit', player: { id: 99, gamerTag: 'Biscuit' }, prefix: 'HM!' }] }],
-    },
-    standings: { nodes: [{ placement: 1, entrant: { name: 'HM! | Biscuit', participants: [{ id: 99, gamerTag: 'Biscuit', player: { id: 99 } }] } }] },
-  })]);
+  const result = processLeaderboard([
+    event({
+      entrants: {
+        pageInfo: { total: 1 },
+        nodes: [
+          {
+            standing: { placement: 1 },
+            participants: [
+              { id: 99, gamerTag: 'Biscuit', player: { id: 99, gamerTag: 'Biscuit' }, prefix: 'HM!' },
+            ],
+          },
+        ],
+      },
+      standings: {
+        nodes: [
+          {
+            placement: 1,
+            entrant: {
+              name: 'HM! | Biscuit',
+              participants: [{ id: 99, gamerTag: 'Biscuit', player: { id: 99 } }],
+            },
+          },
+        ],
+      },
+    }),
+  ]);
 
-  assert.equal(result.players.some((player) => player.displayName === 'HM! | Biscuit'), false);
+  assert.equal(
+    result.players.some((player) => player.displayName === 'HM! | Biscuit'),
+    false,
+  );
   assert.equal(result.tournaments[0].winner, null);
 });
 

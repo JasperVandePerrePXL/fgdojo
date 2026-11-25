@@ -14,11 +14,7 @@ import { isMainModule, loadEnv } from '../lib/cli.js';
 import { normalizeTournamentSlug } from '../config/tournaments.js';
 import { HUB_URL, findSlugFromHub } from './hub.js';
 import { fetchTournament, findUpcomingTournamentByName } from './lookup.js';
-import {
-  findExistingTournament,
-  seasonIdForTimestamp,
-  updateNextEventConfig,
-} from './config_update.js';
+import { findExistingTournament, seasonIdForTimestamp, updateNextEventConfig } from './config_update.js';
 
 /** Logs a message and, in GitHub Actions, also shows it on the run's summary page. */
 async function report(message) {
@@ -50,9 +46,11 @@ export async function main() {
       await report(`Latest event \`${slug}\` is already in tournament_slugs.json.`);
       return;
     }
-    throw new Error(slug
-      ? `Hub points to new tournament "${slug}" but STARTGG_KEY is missing, so its date/season cannot be determined.`
-      : 'Hub lookup failed and STARTGG_KEY is missing.');
+    throw new Error(
+      slug
+        ? `Hub points to new tournament "${slug}" but STARTGG_KEY is missing, so its date/season cannot be determined.`
+        : 'Hub lookup failed and STARTGG_KEY is missing.',
+    );
   }
 
   const tournament = slug ? await fetchTournament(slug) : await findUpcomingTournamentByName();
@@ -66,14 +64,18 @@ export async function main() {
   const startsAt = new Date(tournament.startAt * 1000).toISOString();
 
   if (!result.changed) {
-    await report(`Latest event \`${found}\` (${startsAt}) is already in tournament_slugs.json. Nothing to do.`);
+    await report(
+      `Latest event \`${found}\` (${startsAt}) is already in tournament_slugs.json. Nothing to do.`,
+    );
     return;
   }
 
   await fs.writeFile(TOURNAMENT_SLUGS_FILE, `${JSON.stringify(result.config, null, 2)}\n`);
-  await report(alreadyListed
-    ? `Latest event \`${found}\` was already listed; updated nextEventUrl.`
-    : `New event \`${found}\` (${startsAt}) was NOT in tournament_slugs.json: added it to Season ${seasonIdForTimestamp(tournament.startAt)} and set nextEventUrl.`);
+  await report(
+    alreadyListed
+      ? `Latest event \`${found}\` was already listed; updated nextEventUrl.`
+      : `New event \`${found}\` (${startsAt}) was NOT in tournament_slugs.json: added it to Season ${seasonIdForTimestamp(tournament.startAt)} and set nextEventUrl.`,
+  );
 }
 
 if (isMainModule(import.meta.url)) {

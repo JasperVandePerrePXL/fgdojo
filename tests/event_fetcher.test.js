@@ -26,7 +26,10 @@ test('finished events come from the cache without calling the API', async () => 
   const old = { name: 'old', startAt: startAtDaysAgo(FINAL_AFTER_MS / 86_400_000 + 1) };
   let calls = 0;
   const fetcher = createEventFetcher({
-    requestEvent: async () => { calls++; return null; },
+    requestEvent: async () => {
+      calls++;
+      return null;
+    },
     cache: memoryCache({ a: { savedAt: 0, data: old } }),
     now: () => NOW,
   });
@@ -47,7 +50,9 @@ test('recent events are re-downloaded and cached', async () => {
 test('a failed request falls back to the cached copy', async () => {
   const cachedCopy = { name: 'cached', startAt: startAtDaysAgo(1) };
   const fetcher = createEventFetcher({
-    requestEvent: async () => { throw new Error('boom'); },
+    requestEvent: async () => {
+      throw new Error('boom');
+    },
     cache: memoryCache({ a: { savedAt: 0, data: cachedCopy } }),
     now: () => NOW,
     logError: silent,
@@ -59,7 +64,10 @@ test('a failed request falls back to the cached copy', async () => {
 test('the API is treated as down after repeated failures', async () => {
   let calls = 0;
   const fetcher = createEventFetcher({
-    requestEvent: async () => { calls++; throw new Error('down'); },
+    requestEvent: async () => {
+      calls++;
+      throw new Error('down');
+    },
     cache: memoryCache(),
     now: () => NOW,
     logError: silent,
@@ -72,7 +80,10 @@ test('the API is treated as down after repeated failures', async () => {
 test('event slug variants are tried in order until one exists', async () => {
   const tried = [];
   const fetcher = createEventFetcher({
-    requestEvent: async (slug) => { tried.push(slug); return slug === 'b' ? { name: 'b' } : null; },
+    requestEvent: async (slug) => {
+      tried.push(slug);
+      return slug === 'b' ? { name: 'b' } : null;
+    },
     cache: memoryCache(),
     now: () => NOW,
   });

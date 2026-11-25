@@ -44,9 +44,12 @@ onMounted(store.load);
   <main id="top">
     <HeroSection :loading="loading" :total-dojos="totalDojos" :latest-players="latestSeasonPlayers" />
 
-    <section class="shell section" id="rankings" aria-labelledby="rankings-title">
+    <section id="rankings" class="shell section" aria-labelledby="rankings-title">
       <div class="section-head">
-        <div><div class="eyebrow">The leaderboard</div><h2 id="rankings-title">Who's on top?</h2></div>
+        <div>
+          <div class="eyebrow">The leaderboard</div>
+          <h2 id="rankings-title">Who's on top?</h2>
+        </div>
         <RankingControls
           v-if="bundle"
           :seasons="seasons"
@@ -64,7 +67,11 @@ onMounted(store.load);
       <template v-else-if="gameData">
         <p v-if="rankedPlayers.length === 0" class="empty">No results for this selection yet.</p>
         <template v-else>
-          <SummaryMetrics :player-count="rankedPlayers.length" :dojo-count="dojoCount" :total-games="totalGames" />
+          <SummaryMetrics
+            :player-count="rankedPlayers.length"
+            :dojo-count="dojoCount"
+            :total-games="totalGames"
+          />
 
           <div class="layout">
             <PlayerRanking :players="rankedPlayers" />

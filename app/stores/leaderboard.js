@@ -34,15 +34,19 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     },
     /** The selected game, or the first game when the selection is no longer valid. */
     gameData(state) {
-      return this.games.find((game) => String(game.gameId) === String(state.selectedGame)) ?? this.games[0] ?? null;
+      return (
+        this.games.find((game) => String(game.gameId) === String(state.selectedGame)) ?? this.games[0] ?? null
+      );
     },
     /** Players of the selected game, best first (ties broken by win rate, attendance, wins). */
     rankedPlayers() {
-      return [...(this.gameData?.players ?? [])].sort((a, b) =>
-        (b.rankingScore ?? 0) - (a.rankingScore ?? 0)
-        || b.winRateNum - a.winRateNum
-        || b.tournamentsAttended - a.tournamentsAttended
-        || b.firstPlaces - a.firstPlaces);
+      return [...(this.gameData?.players ?? [])].sort(
+        (a, b) =>
+          (b.rankingScore ?? 0) - (a.rankingScore ?? 0) ||
+          b.winRateNum - a.winRateNum ||
+          b.tournamentsAttended - a.tournamentsAttended ||
+          b.firstPlaces - a.firstPlaces,
+      );
     },
     /** Number of dojos (tournament days) that had the selected game. */
     dojoCount() {
@@ -88,7 +92,9 @@ export const useLeaderboardStore = defineStore('leaderboard', {
 
         this.bundle = await response.json();
         this.nextEventUrl = this.bundle.nextEventUrl || null;
-        this.seasons = Object.keys(this.bundle.seasons || {}).map(Number).sort((a, b) => a - b);
+        this.seasons = Object.keys(this.bundle.seasons || {})
+          .map(Number)
+          .sort((a, b) => a - b);
 
         const latest = this.seasons.at(-1);
         this.selectedSeason = this.seasons.includes(Number(this.selectedSeason))
@@ -121,13 +127,15 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       const season = this.seasonData;
       this.currentGames = season?.games?.length
         ? season.games
-        : [{
-          gameId: ALL_GAMES_ID,
-          gameName: 'All games',
-          players: season?.players ?? [],
-          tournaments: season?.tournaments ?? [],
-          funStats: season?.funStats ?? {},
-        }];
+        : [
+            {
+              gameId: ALL_GAMES_ID,
+              gameName: 'All games',
+              players: season?.players ?? [],
+              tournaments: season?.tournaments ?? [],
+              funStats: season?.funStats ?? {},
+            },
+          ];
     },
 
     /** Falls back to the first game when the selected one does not exist in this season. */

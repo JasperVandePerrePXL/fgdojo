@@ -37,7 +37,9 @@ export async function gql(query, variables, { retries = 4 } = {}) {
       if (!retryable || attempt >= retries) throw err;
 
       const wait = Math.min(MAX_BACKOFF_MS, 2000 * 2 ** attempt) + Math.random() * 500;
-      console.warn(`  ↻ retry ${attempt + 1}/${retries} in ${Math.round(wait / 1000)}s (${status ?? err.code ?? 'network'})`);
+      console.warn(
+        `  ↻ retry ${attempt + 1}/${retries} in ${Math.round(wait / 1000)}s (${status ?? err.code ?? 'network'})`,
+      );
       await sleep(wait);
     }
   }

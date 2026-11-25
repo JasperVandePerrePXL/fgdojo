@@ -12,11 +12,16 @@ defineProps({
     <div>
       <div class="eyebrow">Belgian FGC · Learning · Improving · Supporting</div>
       <h1 id="title">Train hard.<br /><em>Rank higher.</em></h1>
-      <p>Results from every Fighting Game Dojo edition, brought together in one place. Choose a season and game to see the competition.</p>
+      <p>
+        Results from every Fighting Game Dojo edition, brought together in one place. Choose a season and game
+        to see the competition.
+      </p>
     </div>
     <div class="hero-card">
       <strong>{{ loading ? '—' : totalDojos }}</strong><span>dojos held across all seasons</span>
-      <strong>{{ loading ? '—' : latestPlayers }}</strong><span>players represented in the latest season</span>
+      <strong>{{ loading ? '—' : latestPlayers }}</strong><span
+        >players represented in the latest season</span
+      >
     </div>
   </section>
 </template>

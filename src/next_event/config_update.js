@@ -6,8 +6,18 @@ import { normalizeTournamentSlug } from '../config/tournaments.js';
 const SEASON_ZERO_YEAR = 2025;
 
 const MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 
 /** Season ID of a tournament, from the Brussels calendar year of its start time. */

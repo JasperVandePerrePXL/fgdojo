@@ -11,9 +11,13 @@ const HUB_URL = 'https://start.gg/RBHubFGDojo';
 <template>
   <header class="topbar">
     <div class="shell topbar-inner">
-      <a class="brand" href="#top"><img src="/fgdlogo.jpg" alt="" width="42" height="42" />Fighting Game Dojo</a>
+      <a class="brand" href="#top"
+        ><img src="/fgdlogo.jpg" alt="" width="42" height="42" />Fighting Game Dojo</a
+      >
       <nav class="nav" aria-label="Main navigation"><a href="#rankings">Rankings</a></nav>
-      <a class="button" :href="nextEventUrl || HUB_URL" target="_blank" rel="noopener noreferrer">Join the next event <span aria-hidden="true">↗</span></a>
+      <a class="button" :href="nextEventUrl || HUB_URL" target="_blank" rel="noopener noreferrer"
+        >Join the next event <span aria-hidden="true">↗</span></a
+      >
     </div>
   </header>
 </template>

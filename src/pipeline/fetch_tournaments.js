@@ -50,7 +50,10 @@ export async function main() {
     const { events, keptPrevious } = mergeSeasonEvents(previous, await fetchSeason(season, fetcher));
     eventsBySeason[seasonId] = events;
 
-    if (keptPrevious) console.warn(`⚠ Season ${seasonId}: got fewer events than the ${previous.length} stored — keeping previous data.`);
+    if (keptPrevious)
+      console.warn(
+        `⚠ Season ${seasonId}: got fewer events than the ${previous.length} stored — keeping previous data.`,
+      );
     else console.log(`✓ Season ${seasonId}: ${events.length} events`);
   }
 

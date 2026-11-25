@@ -25,16 +25,15 @@ export function calculateWinRate({ gamesWon, gamesLost }) {
  */
 export function calculateRankingScore(player, maxAttendance = 1, maxFirstPlaces = 1) {
   const winRate = Number(player.winRateNum ?? 0);
-  const attendanceScore = maxAttendance > 0
-    ? (Number(player.tournamentsAttended ?? 0) / maxAttendance) * 100
-    : 0;
-  const winsScore = maxFirstPlaces > 0
-    ? (Number(player.firstPlaces ?? 0) / maxFirstPlaces) * 100
-    : 0;
+  const attendanceScore =
+    maxAttendance > 0 ? (Number(player.tournamentsAttended ?? 0) / maxAttendance) * 100 : 0;
+  const winsScore = maxFirstPlaces > 0 ? (Number(player.firstPlaces ?? 0) / maxFirstPlaces) * 100 : 0;
 
-  return (winRate * RANKING_WEIGHTS.winRate)
-    + (attendanceScore * RANKING_WEIGHTS.attendance)
-    + (winsScore * RANKING_WEIGHTS.wins);
+  return (
+    winRate * RANKING_WEIGHTS.winRate +
+    attendanceScore * RANKING_WEIGHTS.attendance +
+    winsScore * RANKING_WEIGHTS.wins
+  );
 }
 
 /**

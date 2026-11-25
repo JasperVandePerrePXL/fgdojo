@@ -29,7 +29,9 @@ function buildSeasonLeaderboards(rawEvents) {
 
     console.log(`  Loading ${events.length} event(s)...`);
     const output = buildLeaderboardOutput({ seasonId: parseInt(id, 10), seasonName: name, events });
-    console.log(`  Found ${output.summary.totalPlayers} unique player(s) across ${output.summary.totalDojos} dojo(s)`);
+    console.log(
+      `  Found ${output.summary.totalPlayers} unique player(s) across ${output.summary.totalDojos} dojo(s)`,
+    );
 
     leaderboards[id] = output;
     console.log(`  ✓ Processed ${name}\n`);

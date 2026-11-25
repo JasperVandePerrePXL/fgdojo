@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { GAMES, TOURNAMENT_CONFIG, getGameEventCandidates, getTournamentGames, normalizeTournamentSlug } from '../src/config/tournaments.js';
+import {
+  GAMES,
+  TOURNAMENT_CONFIG,
+  getGameEventCandidates,
+  getTournamentGames,
+  normalizeTournamentSlug,
+} from '../src/config/tournaments.js';
 
 test('manual season config contains valid tournament and game IDs', () => {
   for (const [seasonId, season] of Object.entries(TOURNAMENT_CONFIG.seasons)) {
@@ -26,8 +32,14 @@ test('game IDs expand to start.gg event slug candidates', () => {
 
 test('tournament URLs and bare slugs normalize identically', () => {
   assert.equal(normalizeTournamentSlug('fighting-game-dojo-december-25'), 'fighting-game-dojo-december-25');
-  assert.equal(normalizeTournamentSlug('https://www.start.gg/tournament/fighting-game-dojo-december-25'), 'fighting-game-dojo-december-25');
-  assert.equal(normalizeTournamentSlug('start.gg/tournament/fighting-game-dojo-december-25'), 'fighting-game-dojo-december-25');
+  assert.equal(
+    normalizeTournamentSlug('https://www.start.gg/tournament/fighting-game-dojo-december-25'),
+    'fighting-game-dojo-december-25',
+  );
+  assert.equal(
+    normalizeTournamentSlug('start.gg/tournament/fighting-game-dojo-december-25'),
+    'fighting-game-dojo-december-25',
+  );
 });
 
 test('unknown game IDs fail clearly', () => {

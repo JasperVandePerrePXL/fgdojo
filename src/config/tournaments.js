@@ -15,7 +15,10 @@ export const GAMES = readJsonSync(GAMES_FILE).games;
  * @throws {Error} when the result is not a valid slug (lowercase letters, digits and dashes).
  */
 export function normalizeTournamentSlug(input) {
-  const value = String(input ?? '').trim().replace(/[?#].*$/, '').replace(/\/+$/, '');
+  const value = String(input ?? '')
+    .trim()
+    .replace(/[?#].*$/, '')
+    .replace(/\/+$/, '');
   const match = value.match(/(?:^|\/)tournament\/([^/]+)(?:\/|$)/);
   const slug = match ? match[1] : value;
   if (!/^[-a-z0-9]+$/.test(slug)) {
