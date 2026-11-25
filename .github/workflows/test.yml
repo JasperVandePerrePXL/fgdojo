@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   test:
-    name: Node.js tests
+    name: Lint and tests
     runs-on: ubuntu-22.04
 
     steps:
@@ -30,6 +30,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
 
       - name: Run tests
         run: npm test

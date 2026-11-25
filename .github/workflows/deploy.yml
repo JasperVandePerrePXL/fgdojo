@@ -5,10 +5,14 @@ on:
     branches:
       - main
     paths:
+      - 'app/**'
+      - 'shared/**'
       - 'public/**'
       - 'src/**'
       - 'data/**'
       - 'tests/**'
+      - 'index.html'
+      - 'vite.config.js'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/**'

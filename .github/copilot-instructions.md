@@ -4,9 +4,10 @@
 
 - This is an ES module Node.js application (`"type": "module"`) with a Vue 3/Pinia frontend bundled by Vite.
 - The data pipeline is `src/pipeline/fetch_tournaments.js` → `data/events.json` → `src/pipeline/process_leaderboard.js` → `public/data/leaderboards.json` → Vite → `dist/`.
-- Backend folders: `src/pipeline/` (scripts run by npm), `src/stats/` (pure statistics functions), `src/config/` (reads `data/*.json`), `src/startgg/` (client, cache, GraphQL queries), `src/storage/` (raw event file), `src/next_event/` (next-tournament discovery), `src/cli/` (`refresh`, `server`), `src/lib/` (paths, dates, JSON and CLI helpers).
+- Backend folders: `src/pipeline/` (scripts run by npm), `src/stats/` (pure statistics functions), `src/config/` (reads `data/*.json`), `src/startgg/` (client, cache, GraphQL queries), `src/storage/` (raw event file), `src/next_event/` (next-tournament discovery), `src/cli/` (`refresh`), `src/lib/` (paths, dates, JSON and CLI helpers).
+- `shared/` holds plain JavaScript used by both `src/` and `app/`: counting rules (`rules.js`) and the highlight registry (`highlights.js`). The website computes no statistics itself; it displays `leaderboards.json`, including the pipeline's `funStats`.
 - Frontend code lives in `app/`: `App.vue` only composes components from `app/components/`, `stores/leaderboard.js` holds state, `utils/` holds pure helpers and `styles.css` provides responsive desktop/mobile layouts.
-- `src/startgg/client.js` owns the GraphQL client with retry/backoff and throttling; `src/startgg/cache.js` owns the response cache.
+- `src/startgg/client.js` owns the GraphQL client with retry/backoff and throttling; `src/startgg/cache.js` owns the response cache. The fetch safety rules live in `src/pipeline/event_fetcher.js`, which receives the request function and cache as parameters (tested in `tests/event_fetcher.test.js`).
 - `data/tournament_slugs.json` is the source of truth for seasons and tournament slugs (manual, plus automatic additions by `src/next_event/`). Enter only the tournament slug and game IDs there.
 - `data/games.json` owns the game registry and known start.gg event-slug variants.
 - `data/hidden_players.json` owns display names/player IDs excluded from public rankings and winner displays.
@@ -22,7 +23,7 @@
 ## Build and Test
 
 - Install dependencies with `npm install --no-audit --no-fund`.
-- Run focused tests with `npm test`.
+- Run focused tests with `npm test`; run `npm run check` (ESLint + Prettier check + tests) before committing, as the Test workflow does. `npm run lint:fix` and `npm run format` fix most issues.
 - Run `npm run dev` for the Vue/Vite development server.
 - Run `npm run fetch` to refresh raw event data, `npm run process` to regenerate leaderboard data, and `npm run build` for the complete fetch/process/Vite build pipeline.
 - Do not run API-dependent commands without a configured `STARTGG_KEY`. Prefer the existing unit tests for logic-only changes. Keep `src/stats/` free of file and network access.
@@ -32,5 +33,6 @@
 - Follow existing Vue 3 Composition API and Pinia conventions in `app/`; keep Node.js data-processing code in `src/`. Use scoped or shared CSS intentionally and preserve mobile layouts.
 - Preserve explicit error logging and last-known-good fallbacks; do not silently turn failed fetches into successful empty results.
 - Weighted leaderboard rankings use 40% win rate, 25% normalized dojo attendance, and 35% normalized dojo wins (`RANKING_WEIGHTS` in `src/stats/ranking.js`). Preserve this balance and add tests when changing it.
+- A new highlight list is one entry in `shared/highlights.js`. `app/` must not import from `src/`; ESLint enforces this and keeps `src/stats/` and `shared/` free of Node.js APIs.
 - When changing leaderboard calculations, update or add tests in `tests/leaderboard.test.js`. When changing manual season or game configuration, update or add tests in `tests/tournament_config.test.js`.
 - Keep generated files and deployment behavior consistent with `.github/workflows/` and `README.md`.

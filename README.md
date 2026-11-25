@@ -12,6 +12,7 @@ Vue 3 + Pinia interface bundled with Vite, and deployed to Amazon S3 by GitHub A
 - [Counting rules](#counting-rules)
 - [GitHub Actions](#github-actions)
 - [Extending the project](#extending-the-project)
+- [Code quality](#code-quality)
 - [Tests](#tests)
 
 ## Quick start
@@ -19,9 +20,9 @@ Vue 3 + Pinia interface bundled with Vite, and deployed to Amazon S3 by GitHub A
 ```bash
 cp .env.example .env     # then put your start.gg API key after STARTGG_KEY=
 npm install
-npm test                 # unit tests, no API key needed
+npm run check            # lint + formatting check + unit tests, no API key needed
 npm run build            # fetch + process + build the site into dist/
-npm start                # serve dist/ on http://localhost:3000
+npm start                # preview dist/ on http://localhost:3000
 ```
 
 `npm run dev` starts the Vite development server instead (it shows the data currently in `public/data/leaderboards.json`).
@@ -37,8 +38,11 @@ Never commit `.env`: it contains your API key and is listed in `.gitignore`.
 | `npm run refresh` | `fetch` + `process` only (quick data refresh, no site build). |
 | `npm run next-event` | Looks up the latest tournament via the hub link and adds it to `data/tournament_slugs.json` (see [Next-event automation](#next-event-automation)). |
 | `npm run dev` | Vite development server with hot reload. |
-| `npm start` | Express server that serves the built `dist/` folder. Run `npm run build` first. |
+| `npm start` | Serves the built `dist/` folder with `vite preview` on port 3000. Run `npm run build` first. |
 | `npm test` | Runs the Node.js test suite. |
+| `npm run lint` / `npm run lint:fix` | ESLint: reports (or fixes) code problems. See [Code quality](#code-quality). |
+| `npm run format` / `npm run format:check` | Prettier: formats (or checks the formatting of) all code. |
+| `npm run check` | `lint` + `format:check` + `test`; the same checks the Test workflow runs. |
 
 ## How it works
 
@@ -65,13 +69,17 @@ data/games.json ────────────┤
 2. `fetch_tournaments.js` combines every tournament with every game of its season and downloads the matching events. Several event slug variants are tried in order until one exists.
 3. Raw responses are stored in `data/events.json`. Responses are also cached in `.cache/startgg/`.
 4. `process_leaderboard.js` calculates statistics per season and for all seasons combined and writes `public/data/leaderboards.json`.
-5. The Vue app loads that JSON file and shows rankings, highlights and the event history.
+   This includes `funStats`, the highlight top lists, for every season and for every game.
+5. The Vue app loads that JSON file and shows rankings, highlights and the event history. The website does no statistics of its own: it only selects, sorts and displays what the pipeline produced.
+
+Rules that both sides need (what a dojo is, the minimum games for a win rate, which highlight lists exist) live once in `shared/`.
 
 The API endpoint is `https://api.start.gg/gql/alpha`. The queries live in `src/startgg/queries.js`.
 
 ### Safety rules of the data fetch
 
-The site must never lose results because start.gg had a bad day:
+The site must never lose results because start.gg had a bad day. These rules live in
+`src/pipeline/event_fetcher.js` and are tested in `tests/event_fetcher.test.js`:
 
 - A finished event (older than 14 days) is served from the cache and never downloaded again; recent events are re-checked.
 - Requests are throttled (about one per second) and retried with backoff on network errors, HTTP 429 and 5xx.
@@ -90,36 +98,39 @@ app/                         Vue 3 + Pinia website
     PlayerRanking → PlayerRow, HighlightsPanel → HighlightList,
     EventHistory, AppFooter
   stores/leaderboard.js        Pinia store: loads the JSON, season/game selection, derived values
-  utils/                       pure helpers (format.js) and localStorage wrappers (storage.js)
+  utils/                       display helpers (format.js) and localStorage wrappers (storage.js)
   styles.css                   all styling (desktop and mobile)
+
+shared/                      plain JavaScript used by both src/ and app/ (no Node.js or browser APIs)
+  rules.js                     dojoKeyOf, MIN_GAMES_FOR_WIN_RATE
+  highlights.js                registry of the highlight top lists (most wins, best win rate, ...)
 
 src/                         Node.js code (ES modules)
   pipeline/                    the two steps run by npm scripts
-    fetch_tournaments.js         start.gg → data/events.json
+    fetch_tournaments.js         start.gg → data/events.json (wires the real client and cache)
+    event_fetcher.js             the fetch safety rules, with the client and cache passed in
     process_leaderboard.js       data/events.json → public/data/leaderboards.json
   stats/                       the calculations (pure functions, no file or network access)
     leaderboard.js               events → players, games, tournaments
     ranking.js                   win rate and the weighted ranking score
-    fun_stats.js                 top-5 lists
+    fun_stats.js                 top-5 list per highlight in shared/highlights.js
     season_output.js             builds one season's object for leaderboards.json
-    names.js, dojo.js            player-name and dojo-identity helpers
+    names.js                     player-name and player-ID helpers
     types.js                     JSDoc description of every data shape
   config/                      reads the hand-maintained files in data/
     tournaments.js               seasons, tournament slugs, games → event slugs
     hidden_players.js            hidden-player check
   startgg/                     everything that talks to start.gg
     client.js                    GraphQL client with retry and throttling, API key lookup
-    cache.js                     on-disk response cache
+    cache.js                     on-disk response cache (createFileCache)
     queries.js                   the GraphQL documents
-  storage/raw_events.js        reads/writes data/events.json, one-time legacy file migration
+  storage/raw_events.js        reads/writes data/events.json
   next_event/                  automatic discovery of the newest tournament
     hub.js                       follows https://start.gg/RBHubFGDojo
     lookup.js                    API lookups (start date, name-search fallback)
     config_update.js             pure functions that edit tournament_slugs.json
     cli.js                       the script run by the workflow
-  cli/                         developer tools
-    refresh.js                   `npm run refresh`
-    server.js                    `npm start`
+  cli/refresh.js               `npm run refresh`
   lib/                         shared helpers: paths.js, dates.js (Brussels time), json.js, cli.js
 
 data/                        configuration (edited by hand) and raw data (generated)
@@ -216,15 +227,15 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
   - 35% dojos won, normalized against the player with the most dojo wins in that ranking
 - The weighting rewards consistency: a single high win rate or a lone title cannot dominate.
 - The score is calculated separately for each game ranking and for the combined ranking.
-- "Highest win rate" lists need at least 10 games (`MIN_GAMES_FOR_WIN_RATE`).
-- The "All-time highlights" panel uses the combined data of all seasons for the selected game.
+- "Best win rate" lists need at least 10 games (`MIN_GAMES_FOR_WIN_RATE` in `shared/rules.js`).
+- The "All-time highlights" panel shows the top 3 of each `funStats` list of the selected game, using the combined data of all seasons.
 
 ## GitHub Actions
 
 | Workflow | Runs | What it does |
 | --- | --- | --- |
-| `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm test`. |
-| `deploy.yml` | Pushes to `main` that change `public/`, `src/`, `data/`, `tests/`, package files or workflows; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, other assets with a 5 minute cache. |
+| `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm run lint`, `npm run format:check` and `npm test`. |
+| `deploy.yml` | Pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, other assets with a 5 minute cache. |
 | `refresh-leaderboard.yml` | Sundays and Mondays 20:00 UTC; manual | Same build and deploy as above, so new results appear after the weekend. Falls back to cached data when start.gg is unavailable. |
 | `update-next-event.yml` | Sundays and Mondays 21:00 UTC; manual | Next-event automation described above; deploys when it changed something. |
 
@@ -245,18 +256,45 @@ If a push by the next-event workflow is rejected, check whether branch protectio
 
 Where new work usually goes:
 
-- **A new statistic or ranking rule** → a pure function in `src/stats/`, called from `leaderboard.js` or `season_output.js`; document the new fields in `src/stats/types.js`, add tests in `tests/leaderboard.test.js` and describe the rule under [Counting rules](#counting-rules).
+- **A new highlight list** (for example "most games played") → add one entry to `shared/highlights.js` (`id`, `label`, `valueKey`, `suffix`, `score` and optionally `eligible`). The pipeline then writes it into `funStats` and the "All-time highlights" panel shows it; no other code changes are needed. If the value is a new player field, add that field first (next bullet) and to `toHighlightEntry` in `src/stats/fun_stats.js`.
+- **A new statistic or ranking rule** → a pure function in `src/stats/`, called from `leaderboard.js` or `season_output.js`; document the new fields in `src/stats/types.js`, add tests in `tests/leaderboard.test.js` and describe the rule under [Counting rules](#counting-rules). A rule the website also needs goes in `shared/`.
 - **A new block on the page** (for example a chart) → a new component in `app/components/`, added to `app/App.vue`. Shared state and derived values belong in `app/stores/leaderboard.js`; formatting helpers in `app/utils/`. Styling goes in `app/styles.css`.
 - **Statistics over time** → today the website data holds each player's totals plus a list of placements (`{ tournament, placement }`) and each tournament's date; there is no per-tournament history of win rate or score yet. A chart of ups and downs would need the pipeline to also write such a history (a new function in `src/stats/` and a new field in `leaderboards.json`), which the Vue side can then read. Decide which values to track before building it.
-- **A new start.gg query** → add it to `src/startgg/queries.js` and call it through `gql()` from `src/startgg/client.js` so throttling and retries apply.
+- **A new start.gg query** → add it to `src/startgg/queries.js` and call it through `gql()` from `src/startgg/client.js` so throttling and retries apply. Logic that decides *when* to call the API (like `event_fetcher.js`) takes the request function and cache as parameters, so it can be tested with fakes.
 - **A new data file** → add its path to `src/lib/paths.js` and read it through `src/lib/json.js`.
 
-Conventions: ES modules, small pure functions with a short JSDoc comment, no network or file access inside `src/stats/`, and every script exports its `main()` and only runs when started directly (`isMainModule`).
+Conventions: ES modules, small pure functions with a short JSDoc comment, no network or file access inside `src/stats/` or `shared/`, and every pipeline script exports its `main()` and only runs when started directly (`isMainModule`).
+
+### Design patterns in use
+
+| Pattern | Where | Why |
+| --- | --- | --- |
+| Pipeline | `fetch` → `data/events.json` → `process` → `leaderboards.json` → website | Each step can be run and checked on its own; the website never talks to start.gg. |
+| Registry | `shared/highlights.js`, `data/games.json` | Adding a highlight or a game is one new entry, not a code change in several places. |
+| Dependency injection | `createEventFetcher({ requestEvent, cache })`, `createFileCache(dir)` | The fetch safety rules are tested with in-memory fakes, without network or disk. |
+| Pure functions (functional core) | `src/stats/`, `shared/`, `src/next_event/config_update.js` | Calculations are easy to test; file and network access stays at the edges (`pipeline/`, `startgg/`, `storage/`). |
+| Store | `app/stores/leaderboard.js` (Pinia) | One place for state and derived values; components only receive props and emit events. |
+
+## Code quality
+
+```bash
+npm run lint          # ESLint: code problems
+npm run lint:fix      # fix what ESLint can fix automatically
+npm run format        # Prettier: format all code
+npm run check         # lint + formatting check + tests (what CI runs)
+```
+
+- ESLint is configured in `eslint.config.js` (JavaScript and Vue rules). It also guards the architecture: `app/` may not import from `src/` or use Node.js modules, and `src/stats/` and `shared/` may not use Node.js modules, `fetch` or `process`.
+- Prettier is configured in `.prettierrc.json` (single quotes, 110 characters per line). `data/`, `public/data/` and Markdown files are not formatted (see `.prettierignore`).
+- `.gitattributes` keeps LF line endings on every platform, so Prettier and Git agree on Windows too.
+- Run `npm run check` before committing; the Test workflow fails on lint errors or unformatted code.
 
 ## Tests
 
 ```bash
 npm test
+node --test tests/leaderboard.test.js                                 # one file
+node --test --test-name-pattern="hidden player" tests/leaderboard.test.js   # one test
 ```
 
-The suite covers the leaderboard calculations and ranking, hidden players, tournament/game configuration, raw event storage and legacy migration, next-event discovery logic (slug extraction, season selection, no duplicates), Brussels-time dates, start.gg key selection and the frontend helper functions. The tests need no API key and no network access.
+The suite covers the leaderboard calculations and ranking, hidden players, tournament/game configuration, raw event storage, the fetch safety rules (cache use, API-down detection, slug variants, keeping previous data), next-event discovery logic (slug extraction, season selection, no duplicates), Brussels-time dates, start.gg key selection and the frontend helper functions. The tests need no API key and no network access.
