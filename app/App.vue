@@ -16,7 +16,7 @@ import AppFooter from './components/AppFooter.vue';
 const store = useLeaderboardStore();
 const {
   bundle,
-  seasons,
+  seasonOptions,
   selectedSeason,
   selectedGame,
   nextEventUrl,
@@ -52,7 +52,7 @@ onMounted(store.load);
         </div>
         <RankingControls
           v-if="bundle"
-          :seasons="seasons"
+          :seasons="seasonOptions"
           :selected-season="selectedSeason"
           :games="games"
           :selected-game="selectedGame"

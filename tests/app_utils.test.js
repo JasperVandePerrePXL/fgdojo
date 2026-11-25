@@ -57,7 +57,7 @@ test('paginate clamps the page and reports the row numbers', () => {
   assert.deepEqual(paginate([], 1, 10), { rows: [], page: 1, pageCount: 1, first: 0, last: 0, total: 0 });
 });
 
-import { pickSeason } from '../app/utils/selection.js';
+import { ALL_SEASONS_ID, pickSeason } from '../app/utils/selection.js';
 
 test('pickSeason keeps a valid remembered season and otherwise picks the latest', () => {
   assert.equal(pickSeason([0, 1], '0'), '0');
@@ -66,4 +66,6 @@ test('pickSeason keeps a valid remembered season and otherwise picks the latest'
   assert.equal(pickSeason([0, 1], ''), '1');
   assert.equal(pickSeason([0, 1], '7'), '1');
   assert.equal(pickSeason([], null), '');
+  assert.equal(pickSeason([0, 1], ALL_SEASONS_ID), ALL_SEASONS_ID);
+  assert.equal(pickSeason([], ALL_SEASONS_ID), '');
 });

@@ -1,6 +1,7 @@
 <script setup>
 // The season and game drop-downs. Selection changes are reported to the parent, which owns the state.
 defineProps({
+  /** `{ id, label }[]`, including "All seasons". */
   seasons: { type: Array, required: true },
   selectedSeason: { type: [String, Number], default: null },
   games: { type: Array, required: true },
@@ -14,7 +15,7 @@ defineEmits(['season-change', 'game-change']);
     <div class="field">
       <label for="season">Season</label>
       <select id="season" :value="selectedSeason" @change="$emit('season-change', $event.target.value)">
-        <option v-for="season in seasons" :key="season" :value="season">Season {{ season }}</option>
+        <option v-for="season in seasons" :key="season.id" :value="season.id">{{ season.label }}</option>
       </select>
     </div>
     <div class="field">

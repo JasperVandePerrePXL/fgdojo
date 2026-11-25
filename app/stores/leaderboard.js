@@ -2,7 +2,7 @@
 // The selection is remembered in localStorage between visits.
 import { defineStore } from 'pinia';
 import { readStorage, writeStorage } from '../utils/storage.js';
-import { pickSeason } from '../utils/selection.js';
+import { ALL_SEASONS_ID, pickSeason } from '../utils/selection.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 
 const SEASON_STORAGE_KEY = 'fgdojo.selectedSeason';
@@ -28,7 +28,16 @@ export const useLeaderboardStore = defineStore('leaderboard', {
   getters: {
     /** The full leaderboard object of the selected season. */
     seasonData(state) {
+      if (state.selectedSeason === ALL_SEASONS_ID) return state.bundle?.combined ?? null;
       return state.bundle?.seasons?.[state.selectedSeason] ?? null;
+    },
+    /** Season drop-down entries: "All seasons" (every dojo combined) first, then each season. */
+    seasonOptions(state) {
+      if (!state.seasons.length) return [];
+      return [
+        { id: ALL_SEASONS_ID, label: 'All seasons' },
+        ...state.seasons.map((id) => ({ id: String(id), label: `Season ${id}` })),
+      ];
     },
     games(state) {
       return state.currentGames;
