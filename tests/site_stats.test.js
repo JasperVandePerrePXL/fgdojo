@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { RIVALRY_COUNT, buildSiteStats, readSet } from '../src/stats/site_stats.js';
+import { RIVALRY_COUNT, buildSiteStats } from '../src/stats/site_stats.js';
+import { readSet } from '../src/stats/sets.js';
 
 const player = (id, gamerTag, prefix = '') => ({ id, gamerTag, prefix, player: { id, gamerTag } });
 const slot = (id, score) => ({

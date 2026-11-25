@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { formatScore, rateClass } from '../app/utils/format.js';
+import { rateClass } from '../app/utils/format.js';
 import { dojoKeyOf } from '../shared/rules.js';
 
 test('rateClass groups win rates', () => {
@@ -8,11 +8,6 @@ test('rateClass groups win rates', () => {
   assert.equal(rateClass(60), 'high');
   assert.equal(rateClass(50), 'medium');
   assert.equal(rateClass(44.9), 'low');
-});
-
-test('formatScore uses one decimal and leaves non-numbers alone', () => {
-  assert.equal(formatScore(43.456), '43.5');
-  assert.equal(formatScore(undefined), undefined);
 });
 
 test('dojoKeyOf prefers the tournament slug', () => {
@@ -60,4 +55,17 @@ test('paginate clamps the page and reports the row numbers', () => {
   });
   assert.equal(paginate(rows, 99, 10).page, 3);
   assert.deepEqual(paginate([], 1, 10), { rows: [], page: 1, pageCount: 1, first: 0, last: 0, total: 0 });
+});
+
+import { ALL_SEASONS_ID, pickSeason } from '../app/utils/selection.js';
+
+test('pickSeason keeps a valid remembered season and otherwise picks the latest', () => {
+  assert.equal(pickSeason([0, 1], '0'), '0');
+  assert.equal(pickSeason([0, 1], null), '1'); // first visit: Number(null) is 0, must not pick season 0
+  assert.equal(pickSeason([0, 1], 'null'), '1');
+  assert.equal(pickSeason([0, 1], ''), '1');
+  assert.equal(pickSeason([0, 1], '7'), '1');
+  assert.equal(pickSeason([], null), '');
+  assert.equal(pickSeason([0, 1], ALL_SEASONS_ID), ALL_SEASONS_ID);
+  assert.equal(pickSeason([], ALL_SEASONS_ID), '');
 });

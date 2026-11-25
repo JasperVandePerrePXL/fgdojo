@@ -9,7 +9,8 @@ import { formatBrusselsDate } from '../lib/dates.js';
 import { isHiddenPlayer } from '../config/hidden_players.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 import { formatDisplayName, getPlayerId } from './names.js';
-import { addRankingScores } from './ranking.js';
+import { addRatings } from './ranking.js';
+import { readSet } from './sets.js';
 
 /** Oldest event first, so the most recent gamerTag/prefix of a player wins. */
 function sortChronologically(events) {
@@ -70,6 +71,7 @@ function createPlayerStats({ playerId, gamerTag, prefix, displayName }) {
     gamesWon: 0,
     gamesLost: 0,
     firstPlaces: 0,
+    ratedSets: 0, // 1v1 sets that count for the Elo rating (no DQs, no hidden opponents)
     placements: [],
   };
 }
@@ -147,20 +149,31 @@ function recordSetScores(event, players, game) {
       addGameScores(side1, score1, score2, ranking);
       addGameScores(side2, score2, score1, ranking);
     }
+
+    if (!readSet(set)) continue; // not a rated 1v1 set (DQ, team set, no result)
+    const id1 = getPlayerId(side1[0]);
+    const id2 = getPlayerId(side2[0]);
+    for (const ranking of rankings) {
+      // Both players must be listed (not hidden), the same rule as the Elo rating.
+      if (!ranking.has(id1) || !ranking.has(id2)) continue;
+      ranking.get(id1).ratedSets += 1;
+      ranking.get(id2).ratedSets += 1;
+    }
   }
 }
 
-/** Calculates win rate and ranking score, and drops the internal `dojoIds` set. */
-function finalizePlayers(playerMap) {
-  return addRankingScores(playerMap).map(({ dojoIds, ...stats }) => stats);
+/** Adds win rate, rating and `ranked`, and drops the internal `dojoIds` set. */
+function finalizePlayers(playerMap, ratings) {
+  return addRatings(playerMap, ratings).map(({ dojoIds, ...stats }) => stats);
 }
 
 /**
  * Builds all statistics for a list of raw events (one season, or every season combined).
  * @param {object[]} events Raw start.gg event objects as stored in data/events.json.
+ * @param {import('./elo.js').RatingSnapshot} [ratings] Elo ratings to show (from computeRatings).
  * @returns {import('./types.js').LeaderboardResult}
  */
-export function processLeaderboard(events) {
+export function processLeaderboard(events, ratings = { overall: new Map(), byGame: new Map() }) {
   const players = new Map();
   const games = new Map();
   const tournaments = [];
@@ -175,12 +188,12 @@ export function processLeaderboard(events) {
   }
 
   return {
-    players: finalizePlayers(players),
+    players: finalizePlayers(players, ratings.overall),
     tournaments,
     games: Array.from(games.values()).map((game) => ({
       gameId: game.gameId,
       gameName: game.gameName,
-      players: finalizePlayers(game.players),
+      players: finalizePlayers(game.players, ratings.byGame.get(String(game.gameId))),
       tournaments: game.tournaments,
     })),
     dojoCount: new Set(tournaments.map(dojoKeyOf)).size,

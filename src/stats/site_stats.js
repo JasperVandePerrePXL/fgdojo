@@ -5,6 +5,7 @@
 import { formatBrusselsDate } from '../lib/dates.js';
 import { isHiddenPlayer } from '../config/hidden_players.js';
 import { formatDisplayName, getPlayerId } from './names.js';
+import { readSet } from './sets.js';
 
 /** Number of rivalries stored per game. */
 export const RIVALRY_COUNT = 5;
@@ -37,31 +38,6 @@ function visibleParticipants(event, hiddenIds) {
     }
   }
   return result;
-}
-
-/**
- * The two sides of a played 1v1 set, or null for team sets, DQs and sets without a result.
- * @returns {{ p1: string, p2: string, score1: number, score2: number, p1Won: boolean } | null}
- */
-export function readSet(set) {
-  if (set.slots?.length !== 2) return null;
-  const [slot1, slot2] = set.slots;
-  const side1 = slot1.entrant?.participants ?? [];
-  const side2 = slot2.entrant?.participants ?? [];
-  if (side1.length !== 1 || side2.length !== 1) return null;
-
-  const p1 = getPlayerId(side1[0]);
-  const p2 = getPlayerId(side2[0]);
-  const score1 = slot1.standing?.stats?.score?.value ?? 0;
-  const score2 = slot2.standing?.stats?.score?.value ?? 0;
-  if (p1 == null || p2 == null || score1 < 0 || score2 < 0) return null; // negative score = DQ
-
-  let p1Won;
-  if (score1 !== score2) p1Won = score1 > score2;
-  else if (set.winnerId != null) p1Won = set.winnerId === slot1.entrant?.id;
-  else return null;
-
-  return { p1: String(p1), p2: String(p2), score1, score2, p1Won };
 }
 
 function emptyDojo(event, seasonId) {

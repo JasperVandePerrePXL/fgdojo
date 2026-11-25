@@ -146,7 +146,9 @@ src/                         Node.js code (ES modules)
     process_leaderboard.js       data/events.json → public/data/leaderboards.json
   stats/                       the calculations (pure functions, no file or network access)
     leaderboard.js               events → players, games, tournaments
-    ranking.js                   win rate and the weighted ranking score
+    elo.js                       Elo skill rating over all sets, snapshotted per season
+    ranking.js                   win rate, rating lookup and who is ranked
+    sets.js                      reads one set's result (shared by Elo and the stats page)
     fun_stats.js                 top-5 list per highlight in shared/highlights.js
     season_output.js             builds one season's object for leaderboards.json
     site_stats.js                everything for stats.json (stats page)
@@ -256,12 +258,26 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 - A **player** is identified by the start.gg player ID and counts once per dojo, even when playing several games there.
 - Attendance counts unique dojos, not game entries.
 - Win rate is based on the recorded set scores (games won ÷ games played).
-- The main ranking uses a weighted score (see `RANKING_WEIGHTS` in `src/stats/ranking.js`):
-  - 40% win rate
-  - 25% dojo attendance, normalized against the most-attended player in that ranking
-  - 35% dojos won, normalized against the player with the most dojo wins in that ranking
-- The weighting rewards consistency: a single high win rate or a lone title cannot dominate.
-- The score is calculated separately for each game ranking and for the combined ranking.
+- The ranking is ordered by **Elo skill rating** (`src/stats/elo.js`), highest first; ties go to win rate, attendance and dojo wins.
+  - Every player starts at **1500**. Every 1v1 set, in date order, moves both players' ratings: beating a higher-rated
+    player gains more than beating a lower-rated one.
+  - Per set the change is `K × bracket factor × margin factor × (result − expected result)`:
+    - **K** = 64 for a player's first 10 sets (newcomers reach their level quickly), then 32;
+    - **bracket factor** = log2(entrants of that game at that dojo) / 4, between 0.5 and 1.5
+      (4 players → 0.5, 8 → 0.75, 16 → 1, 32 → 1.25), so bigger brackets count more;
+    - **margin factor**: clean wins count a little more (2-0 and 3-1 → 1.1, 3-0 → 1.2; 2-1, 3-2 and sets without a
+      reported score → 1).
+  - Ratings **carry over between seasons**; a season's ranking shows each player's rating at the end of that season.
+    The all-time ranking uses the same rules and shows the current rating.
+  - Each game has its own rating; the "All games" ranking uses one rating over all games.
+  - Sets against hidden players and disqualifications (negative score) do not count.
+- The season drop-down has an **All seasons** entry: the leaderboard over every dojo of every season (the `combined`
+  entry of `leaderboards.json`), with each player's current rating. It is listed first; the site opens on the latest
+  season (or the last choice, remembered in the browser).
+- To be **ranked**, a player needs at least **2 dojos** (`MIN_DOJOS_FOR_RANKING`) and at least **1 rated set**
+  (`MIN_RATED_SETS_FOR_RANKING`) in that season (or over all seasons) and game. Others still count in every other statistic.
+- The constants live in `src/stats/elo.js` and `src/stats/ranking.js`; change them there and update this section
+  and `tests/elo.test.js`.
 - "Best win rate" lists need at least 10 games (`MIN_GAMES_FOR_WIN_RATE` in `shared/rules.js`).
 - The "All-time highlights" panel shows the top 3 of each `funStats` list of the selected game, using the combined data of all seasons.
 

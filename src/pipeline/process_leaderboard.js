@@ -10,13 +10,14 @@ import { buildLeaderboardOutput } from '../stats/season_output.js';
 import { HIGHLIGHTS } from '../../shared/highlights.js';
 import { LEADERBOARDS_FILE, STATS_FILE } from '../lib/paths.js';
 import { buildSiteStats } from '../stats/site_stats.js';
+import { computeRatings } from '../stats/elo.js';
 import { isMainModule } from '../lib/cli.js';
 
 /** Season ID used for the "All Seasons Combined" entry. */
 const COMBINED_SEASON_ID = -1;
 
 /** Builds the leaderboard of every configured season that has data. */
-function buildSeasonLeaderboards(rawEvents) {
+function buildSeasonLeaderboards(rawEvents, ratings) {
   const leaderboards = {};
 
   for (const { id, name } of listSeasons()) {
@@ -29,7 +30,12 @@ function buildSeasonLeaderboards(rawEvents) {
     }
 
     console.log(`  Loading ${events.length} event(s)...`);
-    const output = buildLeaderboardOutput({ seasonId: parseInt(id, 10), seasonName: name, events });
+    const output = buildLeaderboardOutput({
+      seasonId: parseInt(id, 10),
+      seasonName: name,
+      events,
+      ratings: ratings.bySeason.get(Number(id)),
+    });
     console.log(
       `  Found ${output.summary.totalPlayers} unique player(s) across ${output.summary.totalDojos} dojo(s)`,
     );
@@ -90,7 +96,11 @@ export async function main() {
   console.log('🎮 Processing leaderboards by season...\n');
 
   const rawEvents = await readRawEvents();
-  const seasons = buildSeasonLeaderboards(rawEvents);
+  // Elo ratings run through every season in order, so each season shows the ratings at its end.
+  const ratings = computeRatings(
+    listSeasons().map(({ id }) => ({ seasonId: Number(id), events: rawEvents[id] ?? [] })),
+  );
+  const seasons = buildSeasonLeaderboards(rawEvents, ratings);
 
   const allEvents = collectAllEvents(rawEvents);
   if (allEvents.length > 0) {
@@ -98,6 +108,7 @@ export async function main() {
       seasonId: COMBINED_SEASON_ID,
       seasonName: 'All Seasons Combined',
       events: allEvents,
+      ratings: ratings.final,
     });
     console.log('✓ Processed combined leaderboard');
     await writeLeaderboards({ seasons, combined });

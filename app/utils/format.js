@@ -7,8 +7,3 @@
 export function rateClass(rate) {
   return rate >= 60 ? 'high' : rate >= 45 ? 'medium' : 'low';
 }
-
-/** Ranking score with one decimal; returns the input unchanged when it is not a number. */
-export function formatScore(score) {
-  return score?.toFixed ? score.toFixed(1) : score;
-}
