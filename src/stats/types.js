@@ -26,7 +26,10 @@
  * @property {{ tournament: string, placement: number }[]} placements
  * @property {number} winRateNum       Win rate in percent (0-100).
  * @property {string} winRate          `winRateNum` with two decimals.
- * @property {number} rankingScore     Weighted ranking score, see ranking.js.
+ * @property {number} ratedSets        1v1 sets that count for the Elo rating (no DQs, no hidden opponents).
+ * @property {number} rating           Elo rating at the end of the season (see elo.js); 1500 = start.
+ * @property {boolean} ranked          Shown in the ranking: MIN_DOJOS_FOR_RANKING dojos and
+ *                                     MIN_RATED_SETS_FOR_RANKING rated sets in this season and game.
  */
 
 /**

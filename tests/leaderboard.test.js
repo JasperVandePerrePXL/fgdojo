@@ -115,7 +115,16 @@ test('processLeaderboard adds ratings and only ranks players with 2+ dojos', () 
     twoDojos.players.every((player) => player.ranked),
     true,
   );
+  assert.equal(twoDojos.players.find((player) => player.gamerTag === 'Alice').ratedSets, 2);
   assert.equal(MIN_DOJOS_FOR_RANKING, 2);
+
+  // Two dojos without a single rated set (here: no sets at all) is not enough.
+  const noSets = { sets: { nodes: [] } };
+  const unrated = processLeaderboard([event(noSets), event({ ...secondDojo, ...noSets })], ratings);
+  assert.equal(
+    unrated.players.some((player) => player.ranked),
+    false,
+  );
 });
 
 test('processLeaderboard does not divide by zero', () => {

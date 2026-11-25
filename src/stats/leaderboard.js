@@ -10,6 +10,7 @@ import { isHiddenPlayer } from '../config/hidden_players.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 import { formatDisplayName, getPlayerId } from './names.js';
 import { addRatings } from './ranking.js';
+import { readSet } from './sets.js';
 
 /** Oldest event first, so the most recent gamerTag/prefix of a player wins. */
 function sortChronologically(events) {
@@ -70,6 +71,7 @@ function createPlayerStats({ playerId, gamerTag, prefix, displayName }) {
     gamesWon: 0,
     gamesLost: 0,
     firstPlaces: 0,
+    ratedSets: 0, // 1v1 sets that count for the Elo rating (no DQs, no hidden opponents)
     placements: [],
   };
 }
@@ -146,6 +148,16 @@ function recordSetScores(event, players, game) {
     for (const ranking of rankings) {
       addGameScores(side1, score1, score2, ranking);
       addGameScores(side2, score2, score1, ranking);
+    }
+
+    if (!readSet(set)) continue; // not a rated 1v1 set (DQ, team set, no result)
+    const id1 = getPlayerId(side1[0]);
+    const id2 = getPlayerId(side2[0]);
+    for (const ranking of rankings) {
+      // Both players must be listed (not hidden), the same rule as the Elo rating.
+      if (!ranking.has(id1) || !ranking.has(id2)) continue;
+      ranking.get(id1).ratedSets += 1;
+      ranking.get(id2).ratedSets += 1;
     }
   }
 }
