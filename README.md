@@ -255,6 +255,9 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 ## Counting rules
 
 - A **dojo** is one tournament day. It is counted once even if it has several game events.
+- Only **played** game events count: an event without a single set result (an upcoming dojo with only registrations,
+  or a bracket that never ran) is left out of every statistic, the leaderboard and the stats page until it has
+  results (`onlyFinishedEvents` in `src/stats/sets.js`). It appears by itself after the next data refresh.
 - A **player** is identified by the start.gg player ID and counts once per dojo, even when playing several games there.
 - Attendance counts unique dojos, not game entries.
 - Win rate is based on the recorded set scores (games won ÷ games played).
@@ -274,8 +277,9 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 - The season drop-down has an **All seasons** entry: the leaderboard over every dojo of every season (the `combined`
   entry of `leaderboards.json`), with each player's current rating. It is listed first; the site opens on the latest
   season (or the last choice, remembered in the browser).
-- To be **ranked**, a player needs at least **2 dojos** (`MIN_DOJOS_FOR_RANKING`) and at least **1 rated set**
-  (`MIN_RATED_SETS_FOR_RANKING`) in that season (or over all seasons) and game. Others still count in every other statistic.
+- To be **ranked**, a player needs at least **2 dojos** (`MIN_DOJOS_FOR_RANKING`) and at least **5 rated sets**
+  (`MIN_RATED_SETS_FOR_RANKING`) in that season (or over all seasons) and game: a rating from only a few sets is still
+  mostly the start rating of 1500. Others still count in every other statistic.
 - The constants live in `src/stats/elo.js` and `src/stats/ranking.js`; change them there and update this section
   and `tests/elo.test.js`.
 - "Best win rate" lists need at least 10 games (`MIN_GAMES_FOR_WIN_RATE` in `shared/rules.js`).

@@ -11,6 +11,7 @@ import { HIGHLIGHTS } from '../../shared/highlights.js';
 import { LEADERBOARDS_FILE, STATS_FILE } from '../lib/paths.js';
 import { buildSiteStats } from '../stats/site_stats.js';
 import { computeRatings } from '../stats/elo.js';
+import { onlyFinishedEvents } from '../stats/sets.js';
 import { isMainModule } from '../lib/cli.js';
 
 /** Season ID used for the "All Seasons Combined" entry. */
@@ -95,7 +96,8 @@ function printFunStats(output) {
 export async function main() {
   console.log('🎮 Processing leaderboards by season...\n');
 
-  const rawEvents = await readRawEvents();
+  // Upcoming dojos (registrations but no played sets yet) count nowhere until they have results.
+  const rawEvents = onlyFinishedEvents(await readRawEvents());
   // Elo ratings run through every season in order, so each season shows the ratings at its end.
   const ratings = computeRatings(
     listSeasons().map(({ id }) => ({ seasonId: Number(id), events: rawEvents[id] ?? [] })),
