@@ -1,6 +1,6 @@
 <script setup>
-// One line of the ranking: position, name, win rate, record and a win-rate bar.
-import { formatScore, rateClass } from '../utils/format.js';
+// One line of the ranking: position, name, win rate, record, Elo rating and a win-rate bar.
+import { rateClass } from '../utils/format.js';
 
 defineProps({
   player: { type: Object, required: true },
@@ -18,7 +18,7 @@ defineProps({
       <span>{{ player.gamesWon }}W – {{ player.gamesLost }}L</span>
       <span>{{ player.tournamentsAttended }} {{ player.tournamentsAttended === 1 ? 'dojo' : 'dojos' }}</span>
       <span>{{ player.firstPlaces ? `🏆 ${player.firstPlaces}` : 'No wins yet' }}</span>
-      <span>Score {{ formatScore(player.rankingScore) }}</span>
+      <span>Rating {{ player.rating }}</span>
     </div>
     <div class="bar"><i :style="{ width: `${Math.min(100, player.winRateNum)}%` }"></i></div>
   </li>

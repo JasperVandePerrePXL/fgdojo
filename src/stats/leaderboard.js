@@ -9,7 +9,7 @@ import { formatBrusselsDate } from '../lib/dates.js';
 import { isHiddenPlayer } from '../config/hidden_players.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 import { formatDisplayName, getPlayerId } from './names.js';
-import { addRankingScores } from './ranking.js';
+import { addRatings } from './ranking.js';
 
 /** Oldest event first, so the most recent gamerTag/prefix of a player wins. */
 function sortChronologically(events) {
@@ -150,17 +150,18 @@ function recordSetScores(event, players, game) {
   }
 }
 
-/** Calculates win rate and ranking score, and drops the internal `dojoIds` set. */
-function finalizePlayers(playerMap) {
-  return addRankingScores(playerMap).map(({ dojoIds, ...stats }) => stats);
+/** Adds win rate, rating and `ranked`, and drops the internal `dojoIds` set. */
+function finalizePlayers(playerMap, ratings) {
+  return addRatings(playerMap, ratings).map(({ dojoIds, ...stats }) => stats);
 }
 
 /**
  * Builds all statistics for a list of raw events (one season, or every season combined).
  * @param {object[]} events Raw start.gg event objects as stored in data/events.json.
+ * @param {import('./elo.js').RatingSnapshot} [ratings] Elo ratings to show (from computeRatings).
  * @returns {import('./types.js').LeaderboardResult}
  */
-export function processLeaderboard(events) {
+export function processLeaderboard(events, ratings = { overall: new Map(), byGame: new Map() }) {
   const players = new Map();
   const games = new Map();
   const tournaments = [];
@@ -175,12 +176,12 @@ export function processLeaderboard(events) {
   }
 
   return {
-    players: finalizePlayers(players),
+    players: finalizePlayers(players, ratings.overall),
     tournaments,
     games: Array.from(games.values()).map((game) => ({
       gameId: game.gameId,
       gameName: game.gameName,
-      players: finalizePlayers(game.players),
+      players: finalizePlayers(game.players, ratings.byGame.get(String(game.gameId))),
       tournaments: game.tournaments,
     })),
     dojoCount: new Set(tournaments.map(dojoKeyOf)).size,

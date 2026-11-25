@@ -38,23 +38,31 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         this.games.find((game) => String(game.gameId) === String(state.selectedGame)) ?? this.games[0] ?? null
       );
     },
-    /** Players of the selected game, best first (ties broken by win rate, attendance, wins). */
+    /**
+     * Ranked players (2+ dojos, see MIN_DOJOS_FOR_RANKING) of the selected game, highest Elo rating first;
+     * ties broken by win rate, attendance and wins.
+     */
     rankedPlayers() {
-      return [...(this.gameData?.players ?? [])].sort(
-        (a, b) =>
-          (b.rankingScore ?? 0) - (a.rankingScore ?? 0) ||
-          b.winRateNum - a.winRateNum ||
-          b.tournamentsAttended - a.tournamentsAttended ||
-          b.firstPlaces - a.firstPlaces,
-      );
+      return (this.gameData?.players ?? [])
+        .filter((player) => player.ranked)
+        .sort(
+          (a, b) =>
+            (b.rating ?? 0) - (a.rating ?? 0) ||
+            b.winRateNum - a.winRateNum ||
+            b.tournamentsAttended - a.tournamentsAttended ||
+            b.firstPlaces - a.firstPlaces,
+        );
     },
     /** Number of dojos (tournament days) that had the selected game. */
     dojoCount() {
       return new Set((this.gameData?.tournaments ?? []).map(dojoKeyOf)).size;
     },
-    /** Total games (set score points) played by the ranked players. */
+    /** Total games (set score points) played by all players of the selected game. */
     totalGames() {
-      return this.rankedPlayers.reduce((total, player) => total + player.gamesWon + player.gamesLost, 0);
+      return (this.gameData?.players ?? []).reduce(
+        (total, player) => total + player.gamesWon + player.gamesLost,
+        0,
+      );
     },
     /** Date (`YYYY-MM-DD`) of the most recent event of the selected game, or ''. */
     latestResultDate() {

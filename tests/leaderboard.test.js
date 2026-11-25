@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { processLeaderboard } from '../src/stats/leaderboard.js';
 import { calculateFunStats } from '../src/stats/fun_stats.js';
-import { calculateRankingScore } from '../src/stats/ranking.js';
+import { MIN_DOJOS_FOR_RANKING } from '../src/stats/ranking.js';
+import { START_RATING } from '../src/stats/elo.js';
 import { isHiddenPlayer } from '../src/config/hidden_players.js';
 
 function event(overrides = {}) {
@@ -97,21 +98,24 @@ test('configured hidden player is excluded from leaderboard results', () => {
   assert.equal(result.tournaments[0].winner, null);
 });
 
-test('weighted ranking rewards consistency instead of one-dojo win rate', () => {
-  const oneDojoPlayer = { winRateNum: 66.67, tournamentsAttended: 1, firstPlaces: 1 };
-  const consistentPlayer = { winRateNum: 60, tournamentsAttended: 5, firstPlaces: 3 };
-  const oneDojoScore = calculateRankingScore(oneDojoPlayer, 5, 3);
-  const consistentScore = calculateRankingScore(consistentPlayer, 5, 3);
+test('processLeaderboard adds ratings and only ranks players with 2+ dojos', () => {
+  const ratings = { overall: new Map([['11', 1600]]), byGame: new Map([['1', new Map([['11', 1580]])]]) };
+  const oneDojo = processLeaderboard([event()], ratings);
+  const alice = oneDojo.players.find((player) => player.gamerTag === 'Alice');
+  assert.equal(alice.rating, 1600);
+  assert.equal(oneDojo.games[0].players.find((player) => player.gamerTag === 'Alice').rating, 1580);
+  assert.equal(oneDojo.players.find((player) => player.gamerTag === 'Bob').rating, START_RATING);
+  assert.equal(alice.ranked, false);
 
-  assert.ok(consistentScore > oneDojoScore);
-  assert.equal(Math.round(oneDojoScore), 43);
-  assert.equal(Math.round(consistentScore), 84);
-});
-
-test('processLeaderboard adds weighted ranking scores', () => {
-  const result = processLeaderboard([event()]);
-  assert.equal(typeof result.players[0].rankingScore, 'number');
-  assert.equal(typeof result.games[0].players[0].rankingScore, 'number');
+  const secondDojo = event({
+    tournament: { slug: 'second', name: 'Second', startAt: 1767225600 + 86400 * 30 },
+  });
+  const twoDojos = processLeaderboard([event(), secondDojo], ratings);
+  assert.equal(
+    twoDojos.players.every((player) => player.ranked),
+    true,
+  );
+  assert.equal(MIN_DOJOS_FOR_RANKING, 2);
 });
 
 test('processLeaderboard does not divide by zero', () => {

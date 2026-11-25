@@ -65,7 +65,9 @@ onMounted(store.load);
       <p v-else-if="error" class="error">{{ error }}</p>
 
       <template v-else-if="gameData">
-        <p v-if="rankedPlayers.length === 0" class="empty">No results for this selection yet.</p>
+        <p v-if="rankedPlayers.length === 0" class="empty">
+          No ranked players yet: players appear in the ranking after 2 dojos.
+        </p>
         <template v-else>
           <SummaryMetrics
             :player-count="rankedPlayers.length"
