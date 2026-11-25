@@ -2,6 +2,7 @@
 // The selection is remembered in localStorage between visits.
 import { defineStore } from 'pinia';
 import { readStorage, writeStorage } from '../utils/storage.js';
+import { pickSeason } from '../utils/selection.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 
 const SEASON_STORAGE_KEY = 'fgdojo.selectedSeason';
@@ -104,10 +105,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
           .map(Number)
           .sort((a, b) => a - b);
 
-        const latest = this.seasons.at(-1);
-        this.selectedSeason = this.seasons.includes(Number(this.selectedSeason))
-          ? String(this.selectedSeason)
-          : String(latest);
+        this.selectedSeason = pickSeason(this.seasons, this.selectedSeason);
         writeStorage(SEASON_STORAGE_KEY, this.selectedSeason);
         this.refreshCurrentGames();
         this.ensureValidGame();
