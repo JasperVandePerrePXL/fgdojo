@@ -1,4 +1,4 @@
-// Entry point of the stats page (/stats.html). It is only reachable by its link.
+// Entry point of the stats page (/stats.html), opened with the "Stats" button in the top bar.
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import StatsPage from './StatsPage.vue';

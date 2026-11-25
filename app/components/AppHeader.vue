@@ -6,7 +6,7 @@ defineProps({
   /** Target of the logo link. */
   homeUrl: { type: String, default: '#top' },
   /** Navigation links, `{ href, label }[]`. */
-  links: { type: Array, default: () => [{ href: '#rankings', label: 'Rankings' }] },
+  links: { type: Array, default: () => [{ href: '/stats.html', label: 'Stats' }] },
 });
 
 const HUB_URL = 'https://start.gg/RBHubFGDojo';

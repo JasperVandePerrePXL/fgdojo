@@ -92,7 +92,8 @@ The site must never lose results because start.gg had a bad day. These rules liv
 ## Stats page
 
 `/stats.html` on the website shows statistics over every tournament of every season.
-It is **not linked from the site**: share the link to reach it. It is marked `noindex` for search engines but is not protected.
+It is reached through the **Stats** button in the top bar of the leaderboard (the stats page's own top bar has a
+**Rankings** button back). It is marked `noindex` for search engines and is not protected.
 
 A **Period** row at the top picks what the page shows: *All time*, each calendar year, and each half year
 (H1 = January–June, H2 = July–December). Only periods with at least one dojo appear, so new years show up by
