@@ -2,7 +2,7 @@
 // The selection is remembered in localStorage between visits.
 import { defineStore } from 'pinia';
 import { readStorage, writeStorage } from '../utils/storage.js';
-import { dojoKeyOf } from '../utils/format.js';
+import { dojoKeyOf } from '../../shared/rules.js';
 
 const SEASON_STORAGE_KEY = 'fgdojo.selectedSeason';
 const GAME_STORAGE_KEY = 'fgdojo.selectedGame';
@@ -52,6 +52,28 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     totalGames() {
       return this.rankedPlayers.reduce((total, player) => total + player.gamesWon + player.gamesLost, 0);
     },
+    /** Date (`YYYY-MM-DD`) of the most recent event of the selected game, or ''. */
+    latestResultDate() {
+      const dates = (this.gameData?.tournaments ?? []).map((tournament) => tournament.date).filter(Boolean);
+      return dates.sort().at(-1) ?? '';
+    },
+    /** Dojos held across all seasons (hero card). */
+    totalDojos(state) {
+      return Object.values(state.bundle?.seasons ?? {}).reduce(
+        (total, season) => total + (season.summary?.totalDojos ?? 0),
+        0,
+      );
+    },
+    /** Players in the most recent season (hero card). */
+    latestSeasonPlayers(state) {
+      return state.bundle?.seasons?.[String(state.seasons.at(-1))]?.summary?.totalPlayers ?? 0;
+    },
+    /** Highlights of the selected game across all seasons, falling back to the selected season. */
+    allTimeFunStats(state) {
+      const gameId = String(this.gameData?.gameId);
+      const combinedGame = state.bundle?.combined?.games?.find((game) => String(game.gameId) === gameId);
+      return combinedGame?.funStats ?? this.gameData?.funStats ?? {};
+    },
   },
 
   actions: {
@@ -99,7 +121,13 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       const season = this.seasonData;
       this.currentGames = season?.games?.length
         ? season.games
-        : [{ gameId: ALL_GAMES_ID, gameName: 'All games', players: season?.players ?? [], tournaments: season?.tournaments ?? [] }];
+        : [{
+          gameId: ALL_GAMES_ID,
+          gameName: 'All games',
+          players: season?.players ?? [],
+          tournaments: season?.tournaments ?? [],
+          funStats: season?.funStats ?? {},
+        }];
     },
 
     /** Falls back to the first game when the selected one does not exist in this season. */

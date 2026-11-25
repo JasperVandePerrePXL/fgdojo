@@ -7,6 +7,7 @@ import path from 'node:path';
 import { TOURNAMENT_CONFIG, listSeasons } from '../config/tournaments.js';
 import { readRawEvents } from '../storage/raw_events.js';
 import { buildLeaderboardOutput } from '../stats/season_output.js';
+import { HIGHLIGHTS } from '../../shared/highlights.js';
 import { LEADERBOARDS_FILE } from '../lib/paths.js';
 import { isMainModule } from '../lib/cli.js';
 
@@ -52,26 +53,18 @@ async function writeLeaderboards({ seasons, combined }) {
   console.log('✓ Saved consolidated public data to public/data/leaderboards.json');
 }
 
-/** Prints the fun stats and tournament winners of a season to the console. */
+/** Prints the highlight lists and tournament winners of a season to the console. */
 function printFunStats(output) {
-  console.log(`\n=== ${output.seasonName} - FUN STATS ===\n`);
+  console.log(`\n=== ${output.seasonName} - FUN STATS ===`);
 
-  console.log('🏆 Most 1st Places:');
-  output.funStats.mostFirstPlaces.forEach((p, i) => {
-    console.log(`  ${i + 1}. ${p.displayName} - ${p.firstPlaces} wins (${p.tournamentsAttended} tournaments)`);
-  });
+  for (const { id, label, valueKey, suffix } of HIGHLIGHTS) {
+    console.log(`\n${label}:`);
+    output.funStats[id].forEach((player, i) => {
+      console.log(`  ${i + 1}. ${player.displayName} - ${player[valueKey]}${suffix}`);
+    });
+  }
 
-  console.log('\n📈 Highest Win Rate (min. 10 games):');
-  output.funStats.highestWinRate.forEach((p, i) => {
-    console.log(`  ${i + 1}. ${p.displayName} - ${p.winRate} (${p.gamesWon}W - ${p.gamesLost}L)`);
-  });
-
-  console.log('\n🎮 Most Tournaments Attended:');
-  output.funStats.mostTournamentsAttended.forEach((p, i) => {
-    console.log(`  ${i + 1}. ${p.displayName} - ${p.tournamentsAttended} tournaments (${p.firstPlaces} wins)`);
-  });
-
-  console.log('\n📅 Tournament Winners:');
+  console.log('\nTournament winners:');
   output.tournaments.forEach((t) => {
     console.log(`  ${t.date} - ${t.name}: ${t.winner ?? 'Unknown'}`);
   });

@@ -7,7 +7,7 @@
 //  - win rate is based on the recorded set scores (games won / games played).
 import { formatBrusselsDate } from '../lib/dates.js';
 import { isHiddenPlayer } from '../config/hidden_players.js';
-import { dojoKeyOf } from './dojo.js';
+import { dojoKeyOf } from '../../shared/rules.js';
 import { formatDisplayName, getPlayerId } from './names.js';
 import { addRankingScores } from './ranking.js';
 

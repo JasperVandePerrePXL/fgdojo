@@ -1,30 +1,28 @@
 <script setup>
-// Side panel with the all-time top lists (most wins, best win rate, most attendance).
+// Side panel with the all-time top lists. Which lists exist is defined once in shared/highlights.js;
+// the lists themselves are calculated by the data pipeline (`funStats` in leaderboards.json).
 import HighlightList from './HighlightList.vue';
-import { MIN_GAMES_FOR_WIN_RATE, topPlayers } from '../utils/format.js';
+import { HIGHLIGHTS } from '../../shared/highlights.js';
+
+/** Number of players shown per list (the data holds a few more). */
+const VISIBLE_COUNT = 3;
 
 defineProps({
-  /** Players of the selected game across all seasons. */
-  players: { type: Array, default: () => [] },
+  /** `funStats` of the selected game across all seasons. */
+  funStats: { type: Object, default: () => ({}) },
 });
-
-const hasEnoughGames = (player) => player.gamesWon + player.gamesLost >= MIN_GAMES_FOR_WIN_RATE;
 </script>
 
 <template>
   <aside class="card side">
     <h3>All-time highlights</h3>
-    <div class="side-section">
-      <small class="eyebrow">Most wins</small>
-      <HighlightList :items="topPlayers(players, (player) => player.firstPlaces)" value-key="firstPlaces" suffix="" />
-    </div>
-    <div class="side-section">
-      <small class="eyebrow">Best win rate</small>
-      <HighlightList :items="topPlayers(players, (player) => player.winRateNum, hasEnoughGames)" value-key="winRate" suffix="%" />
-    </div>
-    <div class="side-section">
-      <small class="eyebrow">Most attendance</small>
-      <HighlightList :items="topPlayers(players, (player) => player.tournamentsAttended)" value-key="tournamentsAttended" suffix="" />
+    <div v-for="highlight in HIGHLIGHTS" :key="highlight.id" class="side-section">
+      <small class="eyebrow">{{ highlight.label }}</small>
+      <HighlightList
+        :items="(funStats[highlight.id] ?? []).slice(0, VISIBLE_COUNT)"
+        :value-key="highlight.valueKey"
+        :suffix="highlight.suffix"
+      />
     </div>
   </aside>
 </template>

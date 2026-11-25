@@ -1,41 +1,33 @@
-// "Fun stats": top-5 lists shown in the logs and stored with each season.
+// "Fun stats": the top lists defined in shared/highlights.js, stored with each season and game
+// in leaderboards.json and shown in the "All-time highlights" panel of the website.
+import { HIGHLIGHTS } from '../../shared/highlights.js';
 
-/** A highest-win-rate entry needs at least this many games, so one lucky set does not win. */
-export const MIN_GAMES_FOR_WIN_RATE = 10;
-const TOP_COUNT = 5;
+/** Number of players stored per list. */
+export const FUN_STATS_COUNT = 5;
 
-const topBy = (players, value, filter = () => true) =>
-  [...players].filter(filter).sort((a, b) => value(b) - value(a)).slice(0, TOP_COUNT);
+/** The fields of a player that a highlight entry keeps. */
+function toHighlightEntry(player) {
+  const { displayName, firstPlaces, tournamentsAttended, winRate, gamesWon, gamesLost } = player;
+  return { displayName, firstPlaces, tournamentsAttended, winRate, gamesWon, gamesLost };
+}
+
+/**
+ * Best players for one highlight, highest score first (ties keep the input order).
+ * @param {import('./types.js').PlayerStats[]} players
+ * @param {import('../../shared/highlights.js').HighlightDefinition} highlight
+ */
+function topPlayersFor(players, { score, eligible = () => true }) {
+  return players
+    .filter(eligible)
+    .sort((a, b) => score(b) - score(a))
+    .slice(0, FUN_STATS_COUNT)
+    .map(toHighlightEntry);
+}
 
 /**
  * @param {import('./types.js').PlayerStats[]} players
- * @returns {{ mostFirstPlaces: object[], highestWinRate: object[], mostTournamentsAttended: object[] }}
+ * @returns {import('./types.js').FunStats} One list per highlight, keyed by highlight ID.
  */
 export function calculateFunStats(players) {
-  const mostFirstPlaces = topBy(players, (p) => p.firstPlaces);
-  const highestWinRate = topBy(
-    players,
-    (p) => parseFloat(p.winRate),
-    (p) => p.gamesWon + p.gamesLost >= MIN_GAMES_FOR_WIN_RATE,
-  );
-  const mostTournaments = topBy(players, (p) => p.tournamentsAttended);
-
-  return {
-    mostFirstPlaces: mostFirstPlaces.map((p) => ({
-      displayName: p.displayName,
-      firstPlaces: p.firstPlaces,
-      tournamentsAttended: p.tournamentsAttended,
-    })),
-    highestWinRate: highestWinRate.map((p) => ({
-      displayName: p.displayName,
-      winRate: `${p.winRate}%`,
-      gamesWon: p.gamesWon,
-      gamesLost: p.gamesLost,
-    })),
-    mostTournamentsAttended: mostTournaments.map((p) => ({
-      displayName: p.displayName,
-      tournamentsAttended: p.tournamentsAttended,
-      firstPlaces: p.firstPlaces,
-    })),
-  };
+  return Object.fromEntries(HIGHLIGHTS.map((highlight) => [highlight.id, topPlayersFor(players, highlight)]));
 }

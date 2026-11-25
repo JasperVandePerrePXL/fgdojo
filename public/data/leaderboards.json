@@ -6,7 +6,6 @@
       "seasonName": "Season 0",
       "summary": {
         "totalPlayers": 105,
-        "totalTournaments": 11,
         "totalDojos": 11
       },
       "players": [
@@ -3890,7 +3889,135 @@
               "winner": "Kronbee",
               "entrantCount": 11
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "Strael Bora | GentleKef",
+                "firstPlaces": 5,
+                "tournamentsAttended": 10,
+                "winRate": "70.77",
+                "gamesWon": 138,
+                "gamesLost": 57
+              },
+              {
+                "displayName": "Kronbee",
+                "firstPlaces": 3,
+                "tournamentsAttended": 3,
+                "winRate": "76.32",
+                "gamesWon": 58,
+                "gamesLost": 18
+              },
+              {
+                "displayName": "Ora Beniz",
+                "firstPlaces": 2,
+                "tournamentsAttended": 11,
+                "winRate": "60.18",
+                "gamesWon": 136,
+                "gamesLost": 90
+              },
+              {
+                "displayName": "Jingo6",
+                "firstPlaces": 1,
+                "tournamentsAttended": 2,
+                "winRate": "64.44",
+                "gamesWon": 29,
+                "gamesLost": 16
+              },
+              {
+                "displayName": "TheYeGuy",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "27.27",
+                "gamesWon": 6,
+                "gamesLost": 16
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "Kronbee",
+                "firstPlaces": 3,
+                "tournamentsAttended": 3,
+                "winRate": "76.32",
+                "gamesWon": 58,
+                "gamesLost": 18
+              },
+              {
+                "displayName": "Strael Bora | GentleKef",
+                "firstPlaces": 5,
+                "tournamentsAttended": 10,
+                "winRate": "70.77",
+                "gamesWon": 138,
+                "gamesLost": 57
+              },
+              {
+                "displayName": "Jingo6",
+                "firstPlaces": 1,
+                "tournamentsAttended": 2,
+                "winRate": "64.44",
+                "gamesWon": 29,
+                "gamesLost": 16
+              },
+              {
+                "displayName": "Ora Beniz",
+                "firstPlaces": 2,
+                "tournamentsAttended": 11,
+                "winRate": "60.18",
+                "gamesWon": 136,
+                "gamesLost": 90
+              },
+              {
+                "displayName": "{HDK} | EvilVash",
+                "firstPlaces": 0,
+                "tournamentsAttended": 4,
+                "winRate": "59.21",
+                "gamesWon": 45,
+                "gamesLost": 31
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "Ora Beniz",
+                "firstPlaces": 2,
+                "tournamentsAttended": 11,
+                "winRate": "60.18",
+                "gamesWon": 136,
+                "gamesLost": 90
+              },
+              {
+                "displayName": "Strael Bora | GentleKef",
+                "firstPlaces": 5,
+                "tournamentsAttended": 10,
+                "winRate": "70.77",
+                "gamesWon": 138,
+                "gamesLost": 57
+              },
+              {
+                "displayName": "LCG | Brenda",
+                "firstPlaces": 0,
+                "tournamentsAttended": 10,
+                "winRate": "42.95",
+                "gamesWon": 64,
+                "gamesLost": 85
+              },
+              {
+                "displayName": "VeganBeef",
+                "firstPlaces": 0,
+                "tournamentsAttended": 9,
+                "winRate": "54.55",
+                "gamesWon": 102,
+                "gamesLost": 85
+              },
+              {
+                "displayName": "Strael Bora | Doomblud",
+                "firstPlaces": 0,
+                "tournamentsAttended": 9,
+                "winRate": "44.36",
+                "gamesWon": 59,
+                "gamesLost": 74
+              }
+            ]
+          }
         },
         {
           "gameId": 49783,
@@ -5185,7 +5312,135 @@
               "winner": "Double AA | Azizdestroy85",
               "entrantCount": 4
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "36C | Punji-Bear",
+                "firstPlaces": 3,
+                "tournamentsAttended": 7,
+                "winRate": "72.55",
+                "gamesWon": 74,
+                "gamesLost": 28
+              },
+              {
+                "displayName": "Brahim",
+                "firstPlaces": 2,
+                "tournamentsAttended": 2,
+                "winRate": "91.43",
+                "gamesWon": 32,
+                "gamesLost": 3
+              },
+              {
+                "displayName": "FOX | PiKaH",
+                "firstPlaces": 2,
+                "tournamentsAttended": 2,
+                "winRate": "75.86",
+                "gamesWon": 22,
+                "gamesLost": 7
+              },
+              {
+                "displayName": "Bxlplayer",
+                "firstPlaces": 2,
+                "tournamentsAttended": 4,
+                "winRate": "68.33",
+                "gamesWon": 41,
+                "gamesLost": 19
+              },
+              {
+                "displayName": "Wim",
+                "firstPlaces": 1,
+                "tournamentsAttended": 3,
+                "winRate": "63.89",
+                "gamesWon": 23,
+                "gamesLost": 13
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "Brahim",
+                "firstPlaces": 2,
+                "tournamentsAttended": 2,
+                "winRate": "91.43",
+                "gamesWon": 32,
+                "gamesLost": 3
+              },
+              {
+                "displayName": "FOX | PiKaH",
+                "firstPlaces": 2,
+                "tournamentsAttended": 2,
+                "winRate": "75.86",
+                "gamesWon": 22,
+                "gamesLost": 7
+              },
+              {
+                "displayName": "36C | Punji-Bear",
+                "firstPlaces": 3,
+                "tournamentsAttended": 7,
+                "winRate": "72.55",
+                "gamesWon": 74,
+                "gamesLost": 28
+              },
+              {
+                "displayName": "Bxlplayer",
+                "firstPlaces": 2,
+                "tournamentsAttended": 4,
+                "winRate": "68.33",
+                "gamesWon": 41,
+                "gamesLost": 19
+              },
+              {
+                "displayName": "Mantequilla",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "64.29",
+                "gamesWon": 9,
+                "gamesLost": 5
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "MoonaTwT",
+                "firstPlaces": 0,
+                "tournamentsAttended": 7,
+                "winRate": "40.79",
+                "gamesWon": 31,
+                "gamesLost": 45
+              },
+              {
+                "displayName": "36C | Punji-Bear",
+                "firstPlaces": 3,
+                "tournamentsAttended": 7,
+                "winRate": "72.55",
+                "gamesWon": 74,
+                "gamesLost": 28
+              },
+              {
+                "displayName": "The Finisher X 3",
+                "firstPlaces": 0,
+                "tournamentsAttended": 6,
+                "winRate": "42.00",
+                "gamesWon": 21,
+                "gamesLost": 29
+              },
+              {
+                "displayName": "TrainingWolf",
+                "firstPlaces": 0,
+                "tournamentsAttended": 4,
+                "winRate": "13.16",
+                "gamesWon": 5,
+                "gamesLost": 33
+              },
+              {
+                "displayName": "GrooveboxVJ",
+                "firstPlaces": 0,
+                "tournamentsAttended": 4,
+                "winRate": "44.83",
+                "gamesWon": 26,
+                "gamesLost": 32
+              }
+            ]
+          }
         },
         {
           "gameId": 33945,
@@ -6299,7 +6554,135 @@
               "winner": "LCG | monnter",
               "entrantCount": 15
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 4,
+                "tournamentsAttended": 6,
+                "winRate": "75.93",
+                "gamesWon": 82,
+                "gamesLost": 26
+              },
+              {
+                "displayName": "Lackey",
+                "firstPlaces": 2,
+                "tournamentsAttended": 4,
+                "winRate": "66.67",
+                "gamesWon": 46,
+                "gamesLost": 23
+              },
+              {
+                "displayName": "COGS | SomeGal",
+                "firstPlaces": 1,
+                "tournamentsAttended": 5,
+                "winRate": "66.02",
+                "gamesWon": 68,
+                "gamesLost": 35
+              },
+              {
+                "displayName": "LCG | Brenda",
+                "firstPlaces": 0,
+                "tournamentsAttended": 8,
+                "winRate": "55.91",
+                "gamesWon": 71,
+                "gamesLost": 56
+              },
+              {
+                "displayName": "Ains Badguy",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "0.00",
+                "gamesWon": 0,
+                "gamesLost": 0
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 4,
+                "tournamentsAttended": 6,
+                "winRate": "75.93",
+                "gamesWon": 82,
+                "gamesLost": 26
+              },
+              {
+                "displayName": "Lackey",
+                "firstPlaces": 2,
+                "tournamentsAttended": 4,
+                "winRate": "66.67",
+                "gamesWon": 46,
+                "gamesLost": 23
+              },
+              {
+                "displayName": "COGS | SomeGal",
+                "firstPlaces": 1,
+                "tournamentsAttended": 5,
+                "winRate": "66.02",
+                "gamesWon": 68,
+                "gamesLost": 35
+              },
+              {
+                "displayName": "LCG | LCG | mcshootys",
+                "firstPlaces": 0,
+                "tournamentsAttended": 4,
+                "winRate": "61.36",
+                "gamesWon": 54,
+                "gamesLost": 34
+              },
+              {
+                "displayName": "LCG | Brenda",
+                "firstPlaces": 0,
+                "tournamentsAttended": 8,
+                "winRate": "55.91",
+                "gamesWon": 71,
+                "gamesLost": 56
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "LCG | Brenda",
+                "firstPlaces": 0,
+                "tournamentsAttended": 8,
+                "winRate": "55.91",
+                "gamesWon": 71,
+                "gamesLost": 56
+              },
+              {
+                "displayName": "LCG | tenchrio",
+                "firstPlaces": 0,
+                "tournamentsAttended": 7,
+                "winRate": "50.59",
+                "gamesWon": 43,
+                "gamesLost": 42
+              },
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 4,
+                "tournamentsAttended": 6,
+                "winRate": "75.93",
+                "gamesWon": 82,
+                "gamesLost": 26
+              },
+              {
+                "displayName": "COGS | SomeGal",
+                "firstPlaces": 1,
+                "tournamentsAttended": 5,
+                "winRate": "66.02",
+                "gamesWon": 68,
+                "gamesLost": 35
+              },
+              {
+                "displayName": "LCG | AL",
+                "firstPlaces": 0,
+                "tournamentsAttended": 5,
+                "winRate": "45.59",
+                "gamesWon": 31,
+                "gamesLost": 37
+              }
+            ]
+          }
         }
       ],
       "tournaments": [
@@ -6549,57 +6932,82 @@
           {
             "displayName": "Strael Bora | GentleKef",
             "firstPlaces": 5,
-            "tournamentsAttended": 10
+            "tournamentsAttended": 10,
+            "winRate": "70.77",
+            "gamesWon": 138,
+            "gamesLost": 57
           },
           {
             "displayName": "LCG | monnter",
             "firstPlaces": 4,
-            "tournamentsAttended": 6
+            "tournamentsAttended": 6,
+            "winRate": "75.93",
+            "gamesWon": 82,
+            "gamesLost": 26
           },
           {
             "displayName": "36C | Punji-Bear",
             "firstPlaces": 3,
-            "tournamentsAttended": 7
+            "tournamentsAttended": 7,
+            "winRate": "72.55",
+            "gamesWon": 74,
+            "gamesLost": 28
           },
           {
             "displayName": "Kronbee",
             "firstPlaces": 3,
-            "tournamentsAttended": 3
+            "tournamentsAttended": 3,
+            "winRate": "76.32",
+            "gamesWon": 58,
+            "gamesLost": 18
           },
           {
             "displayName": "Ora Beniz",
             "firstPlaces": 2,
-            "tournamentsAttended": 11
+            "tournamentsAttended": 11,
+            "winRate": "60.18",
+            "gamesWon": 136,
+            "gamesLost": 90
           }
         ],
         "highestWinRate": [
           {
             "displayName": "Brahim",
-            "winRate": "91.43%",
+            "firstPlaces": 2,
+            "tournamentsAttended": 2,
+            "winRate": "91.43",
             "gamesWon": 32,
             "gamesLost": 3
           },
           {
             "displayName": "Kronbee",
-            "winRate": "76.32%",
+            "firstPlaces": 3,
+            "tournamentsAttended": 3,
+            "winRate": "76.32",
             "gamesWon": 58,
             "gamesLost": 18
           },
           {
             "displayName": "LCG | monnter",
-            "winRate": "75.93%",
+            "firstPlaces": 4,
+            "tournamentsAttended": 6,
+            "winRate": "75.93",
             "gamesWon": 82,
             "gamesLost": 26
           },
           {
             "displayName": "FOX | PiKaH",
-            "winRate": "75.86%",
+            "firstPlaces": 2,
+            "tournamentsAttended": 2,
+            "winRate": "75.86",
             "gamesWon": 22,
             "gamesLost": 7
           },
           {
             "displayName": "36C | Punji-Bear",
-            "winRate": "72.55%",
+            "firstPlaces": 3,
+            "tournamentsAttended": 7,
+            "winRate": "72.55",
             "gamesWon": 74,
             "gamesLost": 28
           }
@@ -6607,28 +7015,43 @@
         "mostTournamentsAttended": [
           {
             "displayName": "Ora Beniz",
+            "firstPlaces": 2,
             "tournamentsAttended": 11,
-            "firstPlaces": 2
+            "winRate": "60.18",
+            "gamesWon": 136,
+            "gamesLost": 90
           },
           {
             "displayName": "Strael Bora | GentleKef",
+            "firstPlaces": 5,
             "tournamentsAttended": 10,
-            "firstPlaces": 5
+            "winRate": "70.77",
+            "gamesWon": 138,
+            "gamesLost": 57
           },
           {
             "displayName": "LCG | Brenda",
+            "firstPlaces": 0,
             "tournamentsAttended": 10,
-            "firstPlaces": 0
+            "winRate": "48.21",
+            "gamesWon": 135,
+            "gamesLost": 145
           },
           {
             "displayName": "VeganBeef",
+            "firstPlaces": 0,
             "tournamentsAttended": 9,
-            "firstPlaces": 0
+            "winRate": "52.43",
+            "gamesWon": 108,
+            "gamesLost": 98
           },
           {
             "displayName": "Strael Bora | Doomblud",
+            "firstPlaces": 0,
             "tournamentsAttended": 9,
-            "firstPlaces": 0
+            "winRate": "44.36",
+            "gamesWon": 59,
+            "gamesLost": 74
           }
         ]
       }
@@ -6638,7 +7061,6 @@
       "seasonName": "Season 1",
       "summary": {
         "totalPlayers": 74,
-        "totalTournaments": 9,
         "totalDojos": 9
       },
       "players": [
@@ -9584,7 +10006,135 @@
               "winner": null,
               "entrantCount": 9
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "Strael Bora | GentleKef",
+                "firstPlaces": 3,
+                "tournamentsAttended": 7,
+                "winRate": "72.46",
+                "gamesWon": 100,
+                "gamesLost": 38
+              },
+              {
+                "displayName": "Kronbee",
+                "firstPlaces": 2,
+                "tournamentsAttended": 2,
+                "winRate": "71.43",
+                "gamesWon": 25,
+                "gamesLost": 10
+              },
+              {
+                "displayName": "VeganBeef",
+                "firstPlaces": 2,
+                "tournamentsAttended": 7,
+                "winRate": "58.33",
+                "gamesWon": 63,
+                "gamesLost": 45
+              },
+              {
+                "displayName": "Oniro",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "63.64",
+                "gamesWon": 14,
+                "gamesLost": 8
+              },
+              {
+                "displayName": "Issyen",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "19.05",
+                "gamesWon": 4,
+                "gamesLost": 17
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "Strael Bora | GentleKef",
+                "firstPlaces": 3,
+                "tournamentsAttended": 7,
+                "winRate": "72.46",
+                "gamesWon": 100,
+                "gamesLost": 38
+              },
+              {
+                "displayName": "Kronbee",
+                "firstPlaces": 2,
+                "tournamentsAttended": 2,
+                "winRate": "71.43",
+                "gamesWon": 25,
+                "gamesLost": 10
+              },
+              {
+                "displayName": "Oniro",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "63.64",
+                "gamesWon": 14,
+                "gamesLost": 8
+              },
+              {
+                "displayName": "Mensis | Sinetik",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "61.90",
+                "gamesWon": 13,
+                "gamesLost": 8
+              },
+              {
+                "displayName": "VeganBeef",
+                "firstPlaces": 2,
+                "tournamentsAttended": 7,
+                "winRate": "58.33",
+                "gamesWon": 63,
+                "gamesLost": 45
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "LCG | Ora Beniz",
+                "firstPlaces": 0,
+                "tournamentsAttended": 8,
+                "winRate": "54.40",
+                "gamesWon": 68,
+                "gamesLost": 57
+              },
+              {
+                "displayName": "Strael Bora | GentleKef",
+                "firstPlaces": 3,
+                "tournamentsAttended": 7,
+                "winRate": "72.46",
+                "gamesWon": 100,
+                "gamesLost": 38
+              },
+              {
+                "displayName": "VeganBeef",
+                "firstPlaces": 2,
+                "tournamentsAttended": 7,
+                "winRate": "58.33",
+                "gamesWon": 63,
+                "gamesLost": 45
+              },
+              {
+                "displayName": "LCG | Concept",
+                "firstPlaces": 0,
+                "tournamentsAttended": 6,
+                "winRate": "44.19",
+                "gamesWon": 38,
+                "gamesLost": 48
+              },
+              {
+                "displayName": "SCvsTheWorld",
+                "firstPlaces": 0,
+                "tournamentsAttended": 5,
+                "winRate": "55.66",
+                "gamesWon": 59,
+                "gamesLost": 47
+              }
+            ]
+          }
         },
         {
           "gameId": 49783,
@@ -10337,7 +10887,135 @@
               "winner": null,
               "entrantCount": 2
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "FGDojo | MoonaTwT",
+                "firstPlaces": 2,
+                "tournamentsAttended": 3,
+                "winRate": "90.00",
+                "gamesWon": 36,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "CeCeDot",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "100.00",
+                "gamesWon": 6,
+                "gamesLost": 0
+              },
+              {
+                "displayName": "Devilphoenix1991",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "100.00",
+                "gamesWon": 18,
+                "gamesLost": 0
+              },
+              {
+                "displayName": "twitch8omin8",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "66.67",
+                "gamesWon": 4,
+                "gamesLost": 2
+              },
+              {
+                "displayName": "Yukaro",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "64.29",
+                "gamesWon": 9,
+                "gamesLost": 5
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "Devilphoenix1991",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "100.00",
+                "gamesWon": 18,
+                "gamesLost": 0
+              },
+              {
+                "displayName": "FGDojo | MoonaTwT",
+                "firstPlaces": 2,
+                "tournamentsAttended": 3,
+                "winRate": "90.00",
+                "gamesWon": 36,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "Issyen",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "76.92",
+                "gamesWon": 10,
+                "gamesLost": 3
+              },
+              {
+                "displayName": "Bronscune",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "72.22",
+                "gamesWon": 13,
+                "gamesLost": 5
+              },
+              {
+                "displayName": "Yukaro",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "64.29",
+                "gamesWon": 9,
+                "gamesLost": 5
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "LCG | IzLeStick",
+                "firstPlaces": 0,
+                "tournamentsAttended": 4,
+                "winRate": "40.00",
+                "gamesWon": 12,
+                "gamesLost": 18
+              },
+              {
+                "displayName": "UwOfy",
+                "firstPlaces": 0,
+                "tournamentsAttended": 3,
+                "winRate": "48.48",
+                "gamesWon": 16,
+                "gamesLost": 17
+              },
+              {
+                "displayName": "Kirito",
+                "firstPlaces": 0,
+                "tournamentsAttended": 3,
+                "winRate": "48.28",
+                "gamesWon": 28,
+                "gamesLost": 30
+              },
+              {
+                "displayName": "FGDojo | MoonaTwT",
+                "firstPlaces": 2,
+                "tournamentsAttended": 3,
+                "winRate": "90.00",
+                "gamesWon": 36,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "LCG | Concept",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "53.33",
+                "gamesWon": 16,
+                "gamesLost": 14
+              }
+            ]
+          }
         },
         {
           "gameId": 33945,
@@ -11305,7 +11983,135 @@
               "winner": null,
               "entrantCount": 10
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "LCG | Concept",
+                "firstPlaces": 3,
+                "tournamentsAttended": 9,
+                "winRate": "61.59",
+                "gamesWon": 93,
+                "gamesLost": 58
+              },
+              {
+                "displayName": "LCG | mcshootys",
+                "firstPlaces": 2,
+                "tournamentsAttended": 9,
+                "winRate": "61.71",
+                "gamesWon": 108,
+                "gamesLost": 67
+              },
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 1,
+                "tournamentsAttended": 5,
+                "winRate": "56.47",
+                "gamesWon": 48,
+                "gamesLost": 37
+              },
+              {
+                "displayName": "LCG | SomeGal",
+                "firstPlaces": 1,
+                "tournamentsAttended": 4,
+                "winRate": "64.37",
+                "gamesWon": 56,
+                "gamesLost": 31
+              },
+              {
+                "displayName": "ASG|ASS|POOP | Mox37",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "66.67",
+                "gamesWon": 12,
+                "gamesLost": 6
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "ASG|ASS|POOP | Mox37",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "66.67",
+                "gamesWon": 12,
+                "gamesLost": 6
+              },
+              {
+                "displayName": "LCG | SomeGal",
+                "firstPlaces": 1,
+                "tournamentsAttended": 4,
+                "winRate": "64.37",
+                "gamesWon": 56,
+                "gamesLost": 31
+              },
+              {
+                "displayName": "FGC MONS | LCG | Ul7i",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "63.41",
+                "gamesWon": 26,
+                "gamesLost": 15
+              },
+              {
+                "displayName": "Anti_Pixel",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "63.16",
+                "gamesWon": 12,
+                "gamesLost": 7
+              },
+              {
+                "displayName": "LCG | mcshootys",
+                "firstPlaces": 2,
+                "tournamentsAttended": 9,
+                "winRate": "61.71",
+                "gamesWon": 108,
+                "gamesLost": 67
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "LCG | Concept",
+                "firstPlaces": 3,
+                "tournamentsAttended": 9,
+                "winRate": "61.59",
+                "gamesWon": 93,
+                "gamesLost": 58
+              },
+              {
+                "displayName": "LCG | mcshootys",
+                "firstPlaces": 2,
+                "tournamentsAttended": 9,
+                "winRate": "61.71",
+                "gamesWon": 108,
+                "gamesLost": 67
+              },
+              {
+                "displayName": "LCG | Ura",
+                "firstPlaces": 0,
+                "tournamentsAttended": 9,
+                "winRate": "20.97",
+                "gamesWon": 13,
+                "gamesLost": 49
+              },
+              {
+                "displayName": "LCG | IzLeStick",
+                "firstPlaces": 0,
+                "tournamentsAttended": 7,
+                "winRate": "46.15",
+                "gamesWon": 42,
+                "gamesLost": 49
+              },
+              {
+                "displayName": "LCG | M3taTank",
+                "firstPlaces": 0,
+                "tournamentsAttended": 6,
+                "winRate": "49.44",
+                "gamesWon": 44,
+                "gamesLost": 45
+              }
+            ]
+          }
         },
         {
           "gameId": 114292,
@@ -11469,7 +12275,127 @@
               "winner": null,
               "entrantCount": 2
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "LykeHere",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "100.00",
+                "gamesWon": 6,
+                "gamesLost": 0
+              },
+              {
+                "displayName": "LCG | Ora Beniz",
+                "firstPlaces": 1,
+                "tournamentsAttended": 3,
+                "winRate": "75.00",
+                "gamesWon": 12,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "LCG | Fritz",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "0.00",
+                "gamesWon": 0,
+                "gamesLost": 6
+              },
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "46.15",
+                "gamesWon": 6,
+                "gamesLost": 7
+              },
+              {
+                "displayName": "LCG | M3taTank",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "10.00",
+                "gamesWon": 1,
+                "gamesLost": 9
+              }
+            ],
+            "highestWinRate": [
+              {
+                "displayName": "LCG | Ora Beniz",
+                "firstPlaces": 1,
+                "tournamentsAttended": 3,
+                "winRate": "75.00",
+                "gamesWon": 12,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "SCvsTheWorld",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "54.55",
+                "gamesWon": 6,
+                "gamesLost": 5
+              },
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "46.15",
+                "gamesWon": 6,
+                "gamesLost": 7
+              },
+              {
+                "displayName": "LCG | M3taTank",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "10.00",
+                "gamesWon": 1,
+                "gamesLost": 9
+              }
+            ],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "LCG | Ora Beniz",
+                "firstPlaces": 1,
+                "tournamentsAttended": 3,
+                "winRate": "75.00",
+                "gamesWon": 12,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "LykeHere",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "100.00",
+                "gamesWon": 6,
+                "gamesLost": 0
+              },
+              {
+                "displayName": "LCG | Fritz",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "0.00",
+                "gamesWon": 0,
+                "gamesLost": 6
+              },
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "46.15",
+                "gamesWon": 6,
+                "gamesLost": 7
+              },
+              {
+                "displayName": "LCG | M3taTank",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "10.00",
+                "gamesWon": 1,
+                "gamesLost": 9
+              }
+            ]
+          }
         },
         {
           "gameId": 107706,
@@ -11627,7 +12553,94 @@
               "winner": null,
               "entrantCount": 0
             }
-          ]
+          ],
+          "funStats": {
+            "mostFirstPlaces": [
+              {
+                "displayName": "LCG | mcshootys",
+                "firstPlaces": 1,
+                "tournamentsAttended": 2,
+                "winRate": "80.00",
+                "gamesWon": 4,
+                "gamesLost": 1
+              },
+              {
+                "displayName": "Bronscune",
+                "firstPlaces": 1,
+                "tournamentsAttended": 1,
+                "winRate": "75.00",
+                "gamesWon": 6,
+                "gamesLost": 2
+              },
+              {
+                "displayName": "LCG | Concept",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "60.00",
+                "gamesWon": 3,
+                "gamesLost": 2
+              },
+              {
+                "displayName": "LCG | Ura",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "0.00",
+                "gamesWon": 0,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "Kirito",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "25.00",
+                "gamesWon": 2,
+                "gamesLost": 6
+              }
+            ],
+            "highestWinRate": [],
+            "mostTournamentsAttended": [
+              {
+                "displayName": "LCG | mcshootys",
+                "firstPlaces": 1,
+                "tournamentsAttended": 2,
+                "winRate": "80.00",
+                "gamesWon": 4,
+                "gamesLost": 1
+              },
+              {
+                "displayName": "LCG | Concept",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "60.00",
+                "gamesWon": 3,
+                "gamesLost": 2
+              },
+              {
+                "displayName": "LCG | Ura",
+                "firstPlaces": 0,
+                "tournamentsAttended": 2,
+                "winRate": "0.00",
+                "gamesWon": 0,
+                "gamesLost": 4
+              },
+              {
+                "displayName": "Kirito",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "25.00",
+                "gamesWon": 2,
+                "gamesLost": 6
+              },
+              {
+                "displayName": "LCG | monnter",
+                "firstPlaces": 0,
+                "tournamentsAttended": 1,
+                "winRate": "50.00",
+                "gamesWon": 3,
+                "gamesLost": 3
+              }
+            ]
+          }
         }
       ],
       "tournaments": [
@@ -11901,57 +12914,82 @@
           {
             "displayName": "LCG | Concept",
             "firstPlaces": 3,
-            "tournamentsAttended": 9
+            "tournamentsAttended": 9,
+            "winRate": "55.15",
+            "gamesWon": 150,
+            "gamesLost": 122
           },
           {
             "displayName": "LCG | mcshootys",
             "firstPlaces": 3,
-            "tournamentsAttended": 9
+            "tournamentsAttended": 9,
+            "winRate": "54.05",
+            "gamesWon": 120,
+            "gamesLost": 102
           },
           {
             "displayName": "Strael Bora | GentleKef",
             "firstPlaces": 3,
-            "tournamentsAttended": 7
+            "tournamentsAttended": 7,
+            "winRate": "69.44",
+            "gamesWon": 100,
+            "gamesLost": 44
           },
           {
             "displayName": "FGDojo | MoonaTwT",
             "firstPlaces": 2,
-            "tournamentsAttended": 3
+            "tournamentsAttended": 3,
+            "winRate": "90.00",
+            "gamesWon": 36,
+            "gamesLost": 4
           },
           {
             "displayName": "Kronbee",
             "firstPlaces": 2,
-            "tournamentsAttended": 2
+            "tournamentsAttended": 2,
+            "winRate": "71.43",
+            "gamesWon": 25,
+            "gamesLost": 10
           }
         ],
         "highestWinRate": [
           {
             "displayName": "Devilphoenix1991",
-            "winRate": "100.00%",
+            "firstPlaces": 1,
+            "tournamentsAttended": 1,
+            "winRate": "100.00",
             "gamesWon": 18,
             "gamesLost": 0
           },
           {
             "displayName": "FGDojo | MoonaTwT",
-            "winRate": "90.00%",
+            "firstPlaces": 2,
+            "tournamentsAttended": 3,
+            "winRate": "90.00",
             "gamesWon": 36,
             "gamesLost": 4
           },
           {
             "displayName": "Bronscune",
-            "winRate": "73.08%",
+            "firstPlaces": 1,
+            "tournamentsAttended": 2,
+            "winRate": "73.08",
             "gamesWon": 19,
             "gamesLost": 7
           },
           {
             "displayName": "Kronbee",
-            "winRate": "71.43%",
+            "firstPlaces": 2,
+            "tournamentsAttended": 2,
+            "winRate": "71.43",
             "gamesWon": 25,
             "gamesLost": 10
           },
           {
             "displayName": "Strael Bora | GentleKef",
-            "winRate": "69.44%",
+            "firstPlaces": 3,
+            "tournamentsAttended": 7,
+            "winRate": "69.44",
             "gamesWon": 100,
             "gamesLost": 44
           }
@@ -11959,28 +12997,43 @@
         "mostTournamentsAttended": [
           {
             "displayName": "LCG | Concept",
+            "firstPlaces": 3,
             "tournamentsAttended": 9,
-            "firstPlaces": 3
+            "winRate": "55.15",
+            "gamesWon": 150,
+            "gamesLost": 122
           },
           {
             "displayName": "LCG | mcshootys",
+            "firstPlaces": 3,
             "tournamentsAttended": 9,
-            "firstPlaces": 3
+            "winRate": "54.05",
+            "gamesWon": 120,
+            "gamesLost": 102
           },
           {
             "displayName": "LCG | Ura",
+            "firstPlaces": 0,
             "tournamentsAttended": 9,
-            "firstPlaces": 0
+            "winRate": "18.06",
+            "gamesWon": 13,
+            "gamesLost": 59
           },
           {
             "displayName": "LCG | Ora Beniz",
+            "firstPlaces": 1,
             "tournamentsAttended": 8,
-            "firstPlaces": 1
+            "winRate": "56.74",
+            "gamesWon": 80,
+            "gamesLost": 61
           },
           {
             "displayName": "Strael Bora | GentleKef",
+            "firstPlaces": 3,
             "tournamentsAttended": 7,
-            "firstPlaces": 3
+            "winRate": "69.44",
+            "gamesWon": 100,
+            "gamesLost": 44
           }
         ]
       }
@@ -11991,7 +13044,6 @@
     "seasonName": "All Seasons Combined",
     "summary": {
       "totalPlayers": 143,
-      "totalTournaments": 20,
       "totalDojos": 20
     },
     "players": [
@@ -18017,7 +19069,135 @@
             "winner": null,
             "entrantCount": 9
           }
-        ]
+        ],
+        "funStats": {
+          "mostFirstPlaces": [
+            {
+              "displayName": "Strael Bora | GentleKef",
+              "firstPlaces": 8,
+              "tournamentsAttended": 17,
+              "winRate": "71.47",
+              "gamesWon": 238,
+              "gamesLost": 95
+            },
+            {
+              "displayName": "Kronbee",
+              "firstPlaces": 5,
+              "tournamentsAttended": 5,
+              "winRate": "74.77",
+              "gamesWon": 83,
+              "gamesLost": 28
+            },
+            {
+              "displayName": "VeganBeef",
+              "firstPlaces": 2,
+              "tournamentsAttended": 16,
+              "winRate": "55.93",
+              "gamesWon": 165,
+              "gamesLost": 130
+            },
+            {
+              "displayName": "LCG | Ora Beniz",
+              "firstPlaces": 2,
+              "tournamentsAttended": 19,
+              "winRate": "58.12",
+              "gamesWon": 204,
+              "gamesLost": 147
+            },
+            {
+              "displayName": "Jingo6",
+              "firstPlaces": 1,
+              "tournamentsAttended": 2,
+              "winRate": "64.44",
+              "gamesWon": 29,
+              "gamesLost": 16
+            }
+          ],
+          "highestWinRate": [
+            {
+              "displayName": "Kronbee",
+              "firstPlaces": 5,
+              "tournamentsAttended": 5,
+              "winRate": "74.77",
+              "gamesWon": 83,
+              "gamesLost": 28
+            },
+            {
+              "displayName": "Strael Bora | GentleKef",
+              "firstPlaces": 8,
+              "tournamentsAttended": 17,
+              "winRate": "71.47",
+              "gamesWon": 238,
+              "gamesLost": 95
+            },
+            {
+              "displayName": "Jingo6",
+              "firstPlaces": 1,
+              "tournamentsAttended": 2,
+              "winRate": "64.44",
+              "gamesWon": 29,
+              "gamesLost": 16
+            },
+            {
+              "displayName": "Oniro",
+              "firstPlaces": 1,
+              "tournamentsAttended": 1,
+              "winRate": "63.64",
+              "gamesWon": 14,
+              "gamesLost": 8
+            },
+            {
+              "displayName": "Mensis | Sinetik",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "61.90",
+              "gamesWon": 13,
+              "gamesLost": 8
+            }
+          ],
+          "mostTournamentsAttended": [
+            {
+              "displayName": "LCG | Ora Beniz",
+              "firstPlaces": 2,
+              "tournamentsAttended": 19,
+              "winRate": "58.12",
+              "gamesWon": 204,
+              "gamesLost": 147
+            },
+            {
+              "displayName": "Strael Bora | GentleKef",
+              "firstPlaces": 8,
+              "tournamentsAttended": 17,
+              "winRate": "71.47",
+              "gamesWon": 238,
+              "gamesLost": 95
+            },
+            {
+              "displayName": "VeganBeef",
+              "firstPlaces": 2,
+              "tournamentsAttended": 16,
+              "winRate": "55.93",
+              "gamesWon": 165,
+              "gamesLost": 130
+            },
+            {
+              "displayName": "LCG | Concept",
+              "firstPlaces": 0,
+              "tournamentsAttended": 16,
+              "winRate": "43.40",
+              "gamesWon": 102,
+              "gamesLost": 133
+            },
+            {
+              "displayName": "Strael Bora | Doomblud",
+              "firstPlaces": 0,
+              "tournamentsAttended": 11,
+              "winRate": "47.51",
+              "gamesWon": 86,
+              "gamesLost": 95
+            }
+          ]
+        }
       },
       {
         "gameId": 49783,
@@ -19910,7 +21090,135 @@
             "winner": null,
             "entrantCount": 2
           }
-        ]
+        ],
+        "funStats": {
+          "mostFirstPlaces": [
+            {
+              "displayName": "36C | Punji-Bear",
+              "firstPlaces": 3,
+              "tournamentsAttended": 7,
+              "winRate": "72.55",
+              "gamesWon": 74,
+              "gamesLost": 28
+            },
+            {
+              "displayName": "Brahim",
+              "firstPlaces": 2,
+              "tournamentsAttended": 2,
+              "winRate": "91.43",
+              "gamesWon": 32,
+              "gamesLost": 3
+            },
+            {
+              "displayName": "FGDojo | MoonaTwT",
+              "firstPlaces": 2,
+              "tournamentsAttended": 10,
+              "winRate": "57.76",
+              "gamesWon": 67,
+              "gamesLost": 49
+            },
+            {
+              "displayName": "FOX | PiKaH",
+              "firstPlaces": 2,
+              "tournamentsAttended": 2,
+              "winRate": "75.86",
+              "gamesWon": 22,
+              "gamesLost": 7
+            },
+            {
+              "displayName": "Bxlplayer",
+              "firstPlaces": 2,
+              "tournamentsAttended": 4,
+              "winRate": "68.33",
+              "gamesWon": 41,
+              "gamesLost": 19
+            }
+          ],
+          "highestWinRate": [
+            {
+              "displayName": "Devilphoenix1991",
+              "firstPlaces": 1,
+              "tournamentsAttended": 1,
+              "winRate": "100.00",
+              "gamesWon": 18,
+              "gamesLost": 0
+            },
+            {
+              "displayName": "Brahim",
+              "firstPlaces": 2,
+              "tournamentsAttended": 2,
+              "winRate": "91.43",
+              "gamesWon": 32,
+              "gamesLost": 3
+            },
+            {
+              "displayName": "FOX | PiKaH",
+              "firstPlaces": 2,
+              "tournamentsAttended": 2,
+              "winRate": "75.86",
+              "gamesWon": 22,
+              "gamesLost": 7
+            },
+            {
+              "displayName": "36C | Punji-Bear",
+              "firstPlaces": 3,
+              "tournamentsAttended": 7,
+              "winRate": "72.55",
+              "gamesWon": 74,
+              "gamesLost": 28
+            },
+            {
+              "displayName": "Bronscune",
+              "firstPlaces": 0,
+              "tournamentsAttended": 2,
+              "winRate": "72.22",
+              "gamesWon": 13,
+              "gamesLost": 5
+            }
+          ],
+          "mostTournamentsAttended": [
+            {
+              "displayName": "FGDojo | MoonaTwT",
+              "firstPlaces": 2,
+              "tournamentsAttended": 10,
+              "winRate": "57.76",
+              "gamesWon": 67,
+              "gamesLost": 49
+            },
+            {
+              "displayName": "36C | Punji-Bear",
+              "firstPlaces": 3,
+              "tournamentsAttended": 7,
+              "winRate": "72.55",
+              "gamesWon": 74,
+              "gamesLost": 28
+            },
+            {
+              "displayName": "The Finisher X 3",
+              "firstPlaces": 0,
+              "tournamentsAttended": 6,
+              "winRate": "42.00",
+              "gamesWon": 21,
+              "gamesLost": 29
+            },
+            {
+              "displayName": "Kirito",
+              "firstPlaces": 0,
+              "tournamentsAttended": 6,
+              "winRate": "41.03",
+              "gamesWon": 32,
+              "gamesLost": 46
+            },
+            {
+              "displayName": "TrainingWolf",
+              "firstPlaces": 0,
+              "tournamentsAttended": 5,
+              "winRate": "13.16",
+              "gamesWon": 5,
+              "gamesLost": 33
+            }
+          ]
+        }
       },
       {
         "gameId": 33945,
@@ -21774,7 +23082,135 @@
             "winner": null,
             "entrantCount": 10
           }
-        ]
+        ],
+        "funStats": {
+          "mostFirstPlaces": [
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 5,
+              "tournamentsAttended": 11,
+              "winRate": "67.36",
+              "gamesWon": 130,
+              "gamesLost": 63
+            },
+            {
+              "displayName": "LCG | Concept",
+              "firstPlaces": 3,
+              "tournamentsAttended": 17,
+              "winRate": "58.99",
+              "gamesWon": 164,
+              "gamesLost": 114
+            },
+            {
+              "displayName": "DRC / LCG | Lackey",
+              "firstPlaces": 2,
+              "tournamentsAttended": 6,
+              "winRate": "64.08",
+              "gamesWon": 66,
+              "gamesLost": 37
+            },
+            {
+              "displayName": "LCG | SomeGal",
+              "firstPlaces": 2,
+              "tournamentsAttended": 9,
+              "winRate": "65.26",
+              "gamesWon": 124,
+              "gamesLost": 66
+            },
+            {
+              "displayName": "LCG | mcshootys",
+              "firstPlaces": 2,
+              "tournamentsAttended": 13,
+              "winRate": "61.60",
+              "gamesWon": 162,
+              "gamesLost": 101
+            }
+          ],
+          "highestWinRate": [
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 5,
+              "tournamentsAttended": 11,
+              "winRate": "67.36",
+              "gamesWon": 130,
+              "gamesLost": 63
+            },
+            {
+              "displayName": "ASG|ASS|POOP | Mox37",
+              "firstPlaces": 1,
+              "tournamentsAttended": 1,
+              "winRate": "66.67",
+              "gamesWon": 12,
+              "gamesLost": 6
+            },
+            {
+              "displayName": "LCG | SomeGal",
+              "firstPlaces": 2,
+              "tournamentsAttended": 9,
+              "winRate": "65.26",
+              "gamesWon": 124,
+              "gamesLost": 66
+            },
+            {
+              "displayName": "DRC / LCG | Lackey",
+              "firstPlaces": 2,
+              "tournamentsAttended": 6,
+              "winRate": "64.08",
+              "gamesWon": 66,
+              "gamesLost": 37
+            },
+            {
+              "displayName": "FGC MONS | LCG | Ul7i",
+              "firstPlaces": 0,
+              "tournamentsAttended": 2,
+              "winRate": "63.41",
+              "gamesWon": 26,
+              "gamesLost": 15
+            }
+          ],
+          "mostTournamentsAttended": [
+            {
+              "displayName": "LCG | Concept",
+              "firstPlaces": 3,
+              "tournamentsAttended": 17,
+              "winRate": "58.99",
+              "gamesWon": 164,
+              "gamesLost": 114
+            },
+            {
+              "displayName": "LCG | mcshootys",
+              "firstPlaces": 2,
+              "tournamentsAttended": 13,
+              "winRate": "61.60",
+              "gamesWon": 162,
+              "gamesLost": 101
+            },
+            {
+              "displayName": "LCG | tenchrio",
+              "firstPlaces": 0,
+              "tournamentsAttended": 12,
+              "winRate": "49.25",
+              "gamesWon": 66,
+              "gamesLost": 68
+            },
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 5,
+              "tournamentsAttended": 11,
+              "winRate": "67.36",
+              "gamesWon": 130,
+              "gamesLost": 63
+            },
+            {
+              "displayName": "LCG | AL",
+              "firstPlaces": 0,
+              "tournamentsAttended": 11,
+              "winRate": "36.52",
+              "gamesWon": 42,
+              "gamesLost": 73
+            }
+          ]
+        }
       },
       {
         "gameId": 114292,
@@ -21938,7 +23374,127 @@
             "winner": null,
             "entrantCount": 2
           }
-        ]
+        ],
+        "funStats": {
+          "mostFirstPlaces": [
+            {
+              "displayName": "LykeHere",
+              "firstPlaces": 1,
+              "tournamentsAttended": 1,
+              "winRate": "100.00",
+              "gamesWon": 6,
+              "gamesLost": 0
+            },
+            {
+              "displayName": "LCG | Ora Beniz",
+              "firstPlaces": 1,
+              "tournamentsAttended": 3,
+              "winRate": "75.00",
+              "gamesWon": 12,
+              "gamesLost": 4
+            },
+            {
+              "displayName": "LCG | Fritz",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "0.00",
+              "gamesWon": 0,
+              "gamesLost": 6
+            },
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "46.15",
+              "gamesWon": 6,
+              "gamesLost": 7
+            },
+            {
+              "displayName": "LCG | M3taTank",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "10.00",
+              "gamesWon": 1,
+              "gamesLost": 9
+            }
+          ],
+          "highestWinRate": [
+            {
+              "displayName": "LCG | Ora Beniz",
+              "firstPlaces": 1,
+              "tournamentsAttended": 3,
+              "winRate": "75.00",
+              "gamesWon": 12,
+              "gamesLost": 4
+            },
+            {
+              "displayName": "SCvsTheWorld",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "54.55",
+              "gamesWon": 6,
+              "gamesLost": 5
+            },
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "46.15",
+              "gamesWon": 6,
+              "gamesLost": 7
+            },
+            {
+              "displayName": "LCG | M3taTank",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "10.00",
+              "gamesWon": 1,
+              "gamesLost": 9
+            }
+          ],
+          "mostTournamentsAttended": [
+            {
+              "displayName": "LCG | Ora Beniz",
+              "firstPlaces": 1,
+              "tournamentsAttended": 3,
+              "winRate": "75.00",
+              "gamesWon": 12,
+              "gamesLost": 4
+            },
+            {
+              "displayName": "LykeHere",
+              "firstPlaces": 1,
+              "tournamentsAttended": 1,
+              "winRate": "100.00",
+              "gamesWon": 6,
+              "gamesLost": 0
+            },
+            {
+              "displayName": "LCG | Fritz",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "0.00",
+              "gamesWon": 0,
+              "gamesLost": 6
+            },
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "46.15",
+              "gamesWon": 6,
+              "gamesLost": 7
+            },
+            {
+              "displayName": "LCG | M3taTank",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "10.00",
+              "gamesWon": 1,
+              "gamesLost": 9
+            }
+          ]
+        }
       },
       {
         "gameId": 107706,
@@ -22096,7 +23652,94 @@
             "winner": null,
             "entrantCount": 0
           }
-        ]
+        ],
+        "funStats": {
+          "mostFirstPlaces": [
+            {
+              "displayName": "LCG | mcshootys",
+              "firstPlaces": 1,
+              "tournamentsAttended": 2,
+              "winRate": "80.00",
+              "gamesWon": 4,
+              "gamesLost": 1
+            },
+            {
+              "displayName": "Bronscune",
+              "firstPlaces": 1,
+              "tournamentsAttended": 1,
+              "winRate": "75.00",
+              "gamesWon": 6,
+              "gamesLost": 2
+            },
+            {
+              "displayName": "LCG | Concept",
+              "firstPlaces": 0,
+              "tournamentsAttended": 2,
+              "winRate": "60.00",
+              "gamesWon": 3,
+              "gamesLost": 2
+            },
+            {
+              "displayName": "LCG | Ura",
+              "firstPlaces": 0,
+              "tournamentsAttended": 2,
+              "winRate": "0.00",
+              "gamesWon": 0,
+              "gamesLost": 4
+            },
+            {
+              "displayName": "Kirito",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "25.00",
+              "gamesWon": 2,
+              "gamesLost": 6
+            }
+          ],
+          "highestWinRate": [],
+          "mostTournamentsAttended": [
+            {
+              "displayName": "LCG | mcshootys",
+              "firstPlaces": 1,
+              "tournamentsAttended": 2,
+              "winRate": "80.00",
+              "gamesWon": 4,
+              "gamesLost": 1
+            },
+            {
+              "displayName": "LCG | Concept",
+              "firstPlaces": 0,
+              "tournamentsAttended": 2,
+              "winRate": "60.00",
+              "gamesWon": 3,
+              "gamesLost": 2
+            },
+            {
+              "displayName": "LCG | Ura",
+              "firstPlaces": 0,
+              "tournamentsAttended": 2,
+              "winRate": "0.00",
+              "gamesWon": 0,
+              "gamesLost": 4
+            },
+            {
+              "displayName": "Kirito",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "25.00",
+              "gamesWon": 2,
+              "gamesLost": 6
+            },
+            {
+              "displayName": "LCG | monnter",
+              "firstPlaces": 0,
+              "tournamentsAttended": 1,
+              "winRate": "50.00",
+              "gamesWon": 3,
+              "gamesLost": 3
+            }
+          ]
+        }
       }
     ],
     "tournaments": [
@@ -22610,57 +24253,82 @@
         {
           "displayName": "Strael Bora | GentleKef",
           "firstPlaces": 8,
-          "tournamentsAttended": 17
+          "tournamentsAttended": 17,
+          "winRate": "70.21",
+          "gamesWon": 238,
+          "gamesLost": 101
         },
         {
           "displayName": "LCG | monnter",
           "firstPlaces": 5,
-          "tournamentsAttended": 11
+          "tournamentsAttended": 11,
+          "winRate": "62.92",
+          "gamesWon": 151,
+          "gamesLost": 89
         },
         {
           "displayName": "Kronbee",
           "firstPlaces": 5,
-          "tournamentsAttended": 5
+          "tournamentsAttended": 5,
+          "winRate": "74.77",
+          "gamesWon": 83,
+          "gamesLost": 28
         },
         {
           "displayName": "LCG | Ora Beniz",
           "firstPlaces": 3,
-          "tournamentsAttended": 19
+          "tournamentsAttended": 19,
+          "winRate": "58.86",
+          "gamesWon": 216,
+          "gamesLost": 151
         },
         {
           "displayName": "LCG | Concept",
           "firstPlaces": 3,
-          "tournamentsAttended": 19
+          "tournamentsAttended": 19,
+          "winRate": "51.63",
+          "gamesWon": 285,
+          "gamesLost": 267
         }
       ],
       "highestWinRate": [
         {
           "displayName": "Devilphoenix1991",
-          "winRate": "100.00%",
+          "firstPlaces": 1,
+          "tournamentsAttended": 1,
+          "winRate": "100.00",
           "gamesWon": 18,
           "gamesLost": 0
         },
         {
           "displayName": "Brahim",
-          "winRate": "91.43%",
+          "firstPlaces": 2,
+          "tournamentsAttended": 2,
+          "winRate": "91.43",
           "gamesWon": 32,
           "gamesLost": 3
         },
         {
           "displayName": "FOX | PiKaH",
-          "winRate": "75.86%",
+          "firstPlaces": 2,
+          "tournamentsAttended": 2,
+          "winRate": "75.86",
           "gamesWon": 22,
           "gamesLost": 7
         },
         {
           "displayName": "Kronbee",
-          "winRate": "74.77%",
+          "firstPlaces": 5,
+          "tournamentsAttended": 5,
+          "winRate": "74.77",
           "gamesWon": 83,
           "gamesLost": 28
         },
         {
           "displayName": "Bronscune",
-          "winRate": "73.08%",
+          "firstPlaces": 1,
+          "tournamentsAttended": 2,
+          "winRate": "73.08",
           "gamesWon": 19,
           "gamesLost": 7
         }
@@ -22668,28 +24336,43 @@
       "mostTournamentsAttended": [
         {
           "displayName": "LCG | Ora Beniz",
+          "firstPlaces": 3,
           "tournamentsAttended": 19,
-          "firstPlaces": 3
+          "winRate": "58.86",
+          "gamesWon": 216,
+          "gamesLost": 151
         },
         {
           "displayName": "LCG | Concept",
+          "firstPlaces": 3,
           "tournamentsAttended": 19,
-          "firstPlaces": 3
+          "winRate": "51.63",
+          "gamesWon": 285,
+          "gamesLost": 267
         },
         {
           "displayName": "Strael Bora | GentleKef",
+          "firstPlaces": 8,
           "tournamentsAttended": 17,
-          "firstPlaces": 8
+          "winRate": "70.21",
+          "gamesWon": 238,
+          "gamesLost": 101
         },
         {
           "displayName": "VeganBeef",
+          "firstPlaces": 2,
           "tournamentsAttended": 16,
-          "firstPlaces": 2
+          "winRate": "54.46",
+          "gamesWon": 171,
+          "gamesLost": 143
         },
         {
           "displayName": "LCG | mcshootys",
+          "firstPlaces": 3,
           "tournamentsAttended": 13,
-          "firstPlaces": 3
+          "winRate": "56.13",
+          "gamesWon": 174,
+          "gamesLost": 136
         }
       ]
     }

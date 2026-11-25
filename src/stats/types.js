@@ -35,6 +35,23 @@
  * @property {string} gameName
  * @property {PlayerStats[]} players
  * @property {TournamentInfo[]} tournaments
+ * @property {FunStats} [funStats]   Added by season_output.js.
+ */
+
+/**
+ * One player in a highlight list.
+ * @typedef {object} HighlightEntry
+ * @property {string} displayName
+ * @property {number} firstPlaces
+ * @property {number} tournamentsAttended
+ * @property {string} winRate
+ * @property {number} gamesWon
+ * @property {number} gamesLost
+ */
+
+/**
+ * Top lists keyed by highlight ID (see shared/highlights.js), best player first.
+ * @typedef {Record<string, HighlightEntry[]>} FunStats
  */
 
 /**
@@ -51,11 +68,11 @@
  * @typedef {object} LeaderboardOutput
  * @property {number} seasonId
  * @property {string} seasonName
- * @property {{ totalPlayers: number, totalTournaments: number, totalDojos: number }} summary
+ * @property {{ totalPlayers: number, totalDojos: number }} summary
  * @property {PlayerStats[]} players
  * @property {GameStats[]} games
  * @property {TournamentInfo[]} tournaments
- * @property {object} funStats         See fun_stats.js.
+ * @property {FunStats} funStats       Highlights across all games of the season.
  */
 
 export {};

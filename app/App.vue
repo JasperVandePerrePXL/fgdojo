@@ -1,7 +1,7 @@
 <script setup>
-// Page layout. All data and selection state lives in the leaderboard store;
+// Page layout. All data, selection state and derived values live in the leaderboard store;
 // the visible pieces are separate components in ./components.
-import { computed, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useLeaderboardStore } from './stores/leaderboard.js';
 import AppHeader from './components/AppHeader.vue';
@@ -14,30 +14,26 @@ import EventHistory from './components/EventHistory.vue';
 import AppFooter from './components/AppFooter.vue';
 
 const store = useLeaderboardStore();
-const { bundle, seasons, selectedSeason, selectedGame, nextEventUrl, loading, error } = storeToRefs(store);
+const {
+  bundle,
+  seasons,
+  selectedSeason,
+  selectedGame,
+  nextEventUrl,
+  loading,
+  error,
+  games,
+  gameData,
+  rankedPlayers,
+  dojoCount,
+  totalGames,
+  totalDojos,
+  latestSeasonPlayers,
+  latestResultDate,
+  allTimeFunStats,
+} = storeToRefs(store);
 
 onMounted(store.load);
-
-const latestSeason = computed(() => bundle.value?.seasons?.[String(seasons.value.at(-1))] ?? null);
-
-/** Dojos held across all seasons (hero card). */
-const totalDojos = computed(() => Object.values(bundle.value?.seasons ?? {}).reduce(
-  (total, season) => total + (season.summary?.totalDojos ?? season.summary?.totalTournaments ?? 0),
-  0,
-));
-
-const latestPlayers = computed(() => latestSeason.value?.summary?.totalPlayers ?? 0);
-
-/** Date of the most recent event of the selected game. */
-const latestDate = computed(() => {
-  const dates = (store.gameData?.tournaments ?? []).map((tournament) => tournament.date).filter(Boolean);
-  return dates.sort().at(-1) ?? '';
-});
-
-/** The selected game across all seasons, used for the "All-time highlights". */
-const overallGame = computed(() =>
-  bundle.value?.combined?.games?.find((game) => String(game.gameId) === String(store.gameData?.gameId)) ?? store.gameData,
-);
 </script>
 
 <template>
@@ -46,7 +42,7 @@ const overallGame = computed(() =>
   <AppHeader :next-event-url="nextEventUrl" />
 
   <main id="top">
-    <HeroSection :loading="loading" :total-dojos="totalDojos" :latest-players="latestPlayers" />
+    <HeroSection :loading="loading" :total-dojos="totalDojos" :latest-players="latestSeasonPlayers" />
 
     <section class="shell section" id="rankings" aria-labelledby="rankings-title">
       <div class="section-head">
@@ -55,7 +51,7 @@ const overallGame = computed(() =>
           v-if="bundle"
           :seasons="seasons"
           :selected-season="selectedSeason"
-          :games="store.games"
+          :games="games"
           :selected-game="selectedGame"
           @season-change="store.setSeason"
           @game-change="store.setGame"
@@ -65,25 +61,21 @@ const overallGame = computed(() =>
       <p v-if="loading" class="empty">Loading rankings…</p>
       <p v-else-if="error" class="error">{{ error }}</p>
 
-      <template v-else-if="store.gameData">
-        <p v-if="store.rankedPlayers.length === 0" class="empty">No results for this selection yet.</p>
+      <template v-else-if="gameData">
+        <p v-if="rankedPlayers.length === 0" class="empty">No results for this selection yet.</p>
         <template v-else>
-          <SummaryMetrics
-            :player-count="store.rankedPlayers.length"
-            :dojo-count="store.dojoCount"
-            :total-games="store.totalGames"
-          />
+          <SummaryMetrics :player-count="rankedPlayers.length" :dojo-count="dojoCount" :total-games="totalGames" />
 
           <div class="layout">
-            <PlayerRanking :players="store.rankedPlayers" />
-            <HighlightsPanel :players="overallGame?.players ?? []" />
+            <PlayerRanking :players="rankedPlayers" />
+            <HighlightsPanel :fun-stats="allTimeFunStats" />
           </div>
 
-          <EventHistory :tournaments="store.gameData.tournaments" />
+          <EventHistory :tournaments="gameData.tournaments" />
         </template>
       </template>
 
-      <p v-if="latestDate" class="date-note">Latest result: {{ latestDate }}</p>
+      <p v-if="latestResultDate" class="date-note">Latest result: {{ latestResultDate }}</p>
     </section>
   </main>
 

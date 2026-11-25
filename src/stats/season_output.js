@@ -9,19 +9,17 @@ import { calculateFunStats } from './fun_stats.js';
  */
 export function buildLeaderboardOutput({ seasonId, seasonName, events }) {
   const { players, tournaments, games, dojoCount } = processLeaderboard(events);
-  const funStats = calculateFunStats(players); // must run before the players are re-sorted below
 
   return {
     seasonId,
     seasonName,
     summary: {
       totalPlayers: players.length,
-      totalTournaments: dojoCount,
       totalDojos: dojoCount,
     },
-    players: players.sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
-    games,
+    players: [...players].sort((a, b) => b.tournamentsAttended - a.tournamentsAttended),
+    games: games.map((game) => ({ ...game, funStats: calculateFunStats(game.players) })),
     tournaments,
-    funStats,
+    funStats: calculateFunStats(players),
   };
 }
