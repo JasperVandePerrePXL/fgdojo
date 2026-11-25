@@ -91,7 +91,7 @@ The site must never lose results because start.gg had a bad day. These rules liv
 
 ## Stats page
 
-`/stats.html` (for example `https://fgdojo.stek.world/stats.html`) shows statistics over every tournament of every season.
+`/stats.html` on the website shows statistics over every tournament of every season.
 It is **not linked from the site**: share the link to reach it. It is marked `noindex` for search engines but is not protected.
 
 | Block | What it shows |
