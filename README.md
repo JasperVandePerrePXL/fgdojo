@@ -94,17 +94,23 @@ The site must never lose results because start.gg had a bad day. These rules liv
 `/stats.html` on the website shows statistics over every tournament of every season.
 It is **not linked from the site**: share the link to reach it. It is marked `noindex` for search engines but is not protected.
 
+A **Period** row at the top picks what the page shows: *All time*, each calendar year, and each half year
+(H1 = January–June, H2 = July–December). Only periods with at least one dojo appear, so new years show up by
+themselves. The period applies to the totals, the three dojo charts, the game share donut and the season table;
+the rivalries are always all-time.
+
 | Block | What it shows |
 | --- | --- |
-| Totals | Dojos held, different players, sets played, games played. |
+| Totals | Dojos held, different players (each counted once), sets played, games played in the period. |
 | Players per dojo | Line chart of unique players at each dojo, oldest first. |
 | Entrants per game per dojo | Stacked bars: players per game at each dojo, one color per game. |
-| New vs returning players | Stacked bars: players at their first dojo ever vs players seen before. |
-| Entrants per game, all dojos | Donut with each game's share of all game entries. |
-| Season comparison | Per season: dojos, unique players, average players per dojo, game entries, sets and games. |
+| New vs returning players | Stacked bars: players at their first dojo ever vs players seen before ("new" always means first dojo ever, also when a period is selected). |
+| Entrants per game | Donut with each game's share of the game entries in the period (games without entries are left out). |
+| Season comparison | Per season that has dojos in the period: dojos, unique players, average players per dojo, game entries, sets and games (numbers for the whole season). |
 | Biggest rivalries | One tab per game with its 5 most played 1v1 matchups and their set record (`RIVALRY_COUNT`); fewer when a game has fewer matchups. |
 
-Every chart has a hover tooltip and a "Show data" table. Rules: hidden players are left out everywhere; sets with a
+Every chart has a hover tooltip and a "Show data" table; all tables show 10 rows per page (`PAGE_SIZE` in
+`app/utils/pagination.js`) with previous/next buttons. The periods are built in `app/utils/ranges.js`. Rules: hidden players are left out everywhere; sets with a
 disqualification (negative score) are not counted; a set with equal scores is decided by start.gg's `winnerId`.
 Each game keeps the same color everywhere (order of first appearance; colors in `--series-1..5` in `app/styles.css`,
 validated for color-blind readers on the dark panel). A sixth game would get a neutral gray: add a color first.
