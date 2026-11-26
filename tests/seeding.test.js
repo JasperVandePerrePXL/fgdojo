@@ -62,3 +62,29 @@ test('seedingToCsv writes one row per player and quotes awkward names', () => {
   ]);
   assert.equal(csv, 'Game,Seed,Player,Rating,start.gg player ID\nSF6,1,"A, ""B""",1600,7\nT8,1,C,,\n');
 });
+
+import { ratingsFromProfiles } from '../src/stats/seeding.js';
+
+test('ratingsFromProfiles reads the current rating per game from players.json, skipping players without one', () => {
+  const ratings = ratingsFromProfiles({
+    players: {
+      11: {
+        playerId: '11',
+        games: [
+          { gameId: '1', rating: 1600 },
+          { gameId: '2', rating: null },
+        ],
+      },
+      12: { playerId: '12', games: [{ gameId: '1', rating: 1700 }] },
+    },
+  });
+  assert.deepEqual(
+    [...ratings.get('1')],
+    [
+      ['11', 1600],
+      ['12', 1700],
+    ],
+  );
+  assert.equal(ratings.has('2'), false);
+  assert.deepEqual(ratingsFromProfiles(null), new Map());
+});

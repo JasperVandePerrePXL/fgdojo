@@ -39,7 +39,7 @@ Never commit `.env`: it contains your API key and is listed in `.gitignore`.
 | `npm run refresh` | `fetch` + `process` only (quick data refresh, no site build). |
 | `npm run next-event` | Looks up the latest tournament via the hub link and adds it to `data/tournament_slugs.json` (see [Next-event automation](#next-event-automation)). |
 | `npm run next-dojo` | Looks up the next dojo on start.gg and writes `public/data/next-dojo.json` for the card (see [Live updates](#live-updates)). Needs `STARTGG_KEY`. |
-| `npm run seeding` | Private seeding list for the next dojo: live sign-ups per game sorted by Elo, printed and saved to `seeding/` (see [Seeding (private)](#seeding-private)). Needs `STARTGG_KEY`. |
+| `npm run seeding` | Private seeding list for the next dojo: live sign-ups per game sorted by the site's Elo ratings, printed and saved to `seeding/` (1 start.gg call; see [Seeding (private)](#seeding-private)). Needs `STARTGG_KEY`. |
 | `npm run dev` | Vite development server with hot reload. |
 | `npm start` | Serves the built `dist/` folder with `vite preview` on port 3000. Run `npm run build` first. |
 | `npm test` | Runs the Node.js test suite. |
@@ -321,17 +321,22 @@ applies the merge (`src/config/player_aliases.js`).
 ### Seeding (private)
 
 `npm run seeding` makes a seeding list for the next dojo on your own computer; nothing is published or committed.
+It reuses what the website already publishes and asks start.gg only for the sign-ups (1 API call, needs
+`STARTGG_KEY` in `.env`):
 
-1. It runs `npm run fetch` first, so the ratings include the latest results (needs `STARTGG_KEY` in `.env`).
-2. It always takes the next dojo, looked up on start.gg the same way as the "Next dojo" card
-   (`lookupNextDojo`). When the last dojo has been played and start.gg has no new one yet, it says so and stops.
-3. It downloads the live sign-ups of every game and sorts them by the current Elo rating in that game
-   (ties by name). Players without a rating (no rated set in that game yet, or hidden players) come last in
-   sign-up order: seed them by hand.
-4. It prints the lists and saves `seeding/<tournament>.csv` (Game, Seed, Player, Rating, start.gg player ID).
+1. `https://fgdojo.stek.world/data/next-dojo.json`: which dojo is next (the same dojo as the card). When the last
+   dojo has been played and start.gg has no new one yet, it says so and stops.
+2. `https://fgdojo.stek.world/data/players.json`: every player's current Elo rating per game, the same ratings
+   as the ranking (updated after each dojo).
+3. start.gg: the live sign-ups of that dojo, per game.
+4. Each game is sorted by rating (ties by name). Players without a rating (no rated set in that game yet, or
+   hidden players) come last in sign-up order: seed them by hand. Merged accounts (`player_aliases.json`) use the
+   main account's rating.
+5. The lists are printed and saved to `seeding/<tournament>.csv` (Game, Seed, Player, Rating, start.gg player ID).
    `seeding/` is in `.gitignore`.
 
-The sorting is `buildSeeding` in `src/stats/seeding.js` (tested in `tests/seeding.test.js`). Don't run it in a
+It works any time up to and during the dojo day. The sorting is `buildSeeding` / `ratingsFromProfiles` in
+`src/stats/seeding.js` (tested in `tests/seeding.test.js`); the site URL is in `src/config/site.js`. Don't run it in a
 GitHub workflow: the repository is public, so workflow logs and summaries are public too.
 
 ### Next-event automation

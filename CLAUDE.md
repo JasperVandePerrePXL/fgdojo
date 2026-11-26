@@ -21,7 +21,7 @@ npm run build      # fetch + process + vite build → dist/
 npm start          # vite preview of dist/ on :3000
 npm run next-event # discover newest tournament via hub link, add to data/tournament_slugs.json
 npm run next-dojo  # next dojo from start.gg → public/data/next-dojo.json (card; gitignored)
-npm run seeding    # fetch, then private seeding list (live sign-ups sorted by Elo) → seeding/*.csv (gitignored)
+npm run seeding    # private seeding list: site's next-dojo.json + players.json ratings + 1 start.gg call → seeding/*.csv (gitignored)
 ```
 
 Don't run API-dependent commands (`fetch`, `build`, `refresh`, `next-event`, `next-dojo`, `seeding`) without a configured `STARTGG_KEY` (`STARTGG_API_KEY` also accepted). For logic-only changes use the unit tests and `npm run process`; `npx vite build` builds the site without fetching. After changing the output shape, run `npm run process` and commit the regenerated `public/data/leaderboards.json`.
@@ -48,7 +48,7 @@ data/tournament_slugs.json + data/games.json
 - **Next dojo card / live updates**: `next-dojo.yml` (every 30 min) runs `npm run next-dojo` (`src/pipeline/next_dojo.js`: hub link → one start.gg call → `toNextDojo` in `src/stats/next_dojo.js`) and uploads `public/data/next-dojo.json` only when changed; it is the only writer of that file (gitignored; deploy excludes it). `shared/dojo_time.js`: `dojoPhase` (upcoming / live from `SIGNUPS_CLOSE` 13:58 / over). Results are not refreshed during a dojo; they come with the Sat/Sun/Mon deploy schedule.
 - **Shareable selection**: the leaderboard store reads `?season=&game=` before localStorage and writes them with `history.replaceState` on change (`app/utils/url.js`).
 - **Merged accounts**: `data/player_aliases.json` (`playerId` + `otherIds`) → `src/config/player_aliases.js`; `getPlayerId` (names.js) returns the main ID (same type as the input), so every statistic merges them. Duplicate IDs throw.
-- **Seeding** (`npm run seeding`, `src/cli/seeding.js` + pure `src/stats/seeding.js`): always the next dojo (`lookupNextDojo`, same as the card), else it says there is none; local only, never in a workflow (public repo → public logs). Writes `seeding/` (gitignored).
+- **Seeding** (`npm run seeding`, `src/cli/seeding.js` + pure `src/stats/seeding.js`): reads the live site's `next-dojo.json` and `players.json` (ratings) and makes 1 start.gg call for sign-ups; no fetch/recalculation; local only, never in a workflow (public repo → public logs). Writes `seeding/` (gitignored).
 - **Paths**: all file paths come from `src/lib/paths.js`; read JSON through `src/lib/json.js`. Dates use Brussels time (`src/lib/dates.js`).
 
 ## Conventions
