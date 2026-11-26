@@ -3,9 +3,26 @@
 import { formatDisplayName, getPlayerId } from './names.js';
 
 /**
+ * Current Elo rating per game and player, read from the site's players.json (the ratings the ranking shows).
+ * @param {import('./types.js').PlayerProfiles} profiles
+ * @returns {Map<string, Map<string, number>>} game ID -> player ID -> rating (players with a rating only).
+ */
+export function ratingsFromProfiles(profiles) {
+  const ratings = new Map();
+  for (const { playerId, games } of Object.values(profiles?.players ?? {})) {
+    for (const { gameId, rating } of games ?? []) {
+      if (rating == null) continue;
+      if (!ratings.has(String(gameId))) ratings.set(String(gameId), new Map());
+      ratings.get(String(gameId)).set(String(playerId), rating);
+    }
+  }
+  return ratings;
+}
+
+/**
  * @param {object[]} events The tournament's events with their entrants (SEEDING_QUERY result).
  * @param {Map<string, Map<string, number>>} ratingsByGame Current Elo rating per game and player
- *   (`final.byGame` from computeRatings).
+ *   (ratingsFromProfiles, or `final.byGame` from computeRatings).
  * @returns {{ gameName: string, players: { seed: number, playerId: string|null, name: string,
  *   rating: number|null }[] }[]}
  *   Rated players by rating (ties by name), then players without a rating in start.gg's sign-up order.
