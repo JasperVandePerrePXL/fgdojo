@@ -108,7 +108,7 @@ function onTabKeydown(event, index) {
 
           <section class="card table-card">
             <h3>Dojo results</h3>
-            <PaginatedTable :columns="resultColumns" :rows="resultRows" label="Dojo results" />
+            <PaginatedTable :columns="resultColumns" :rows="resultRows" label="Dojo results" :page-size="5" />
           </section>
         </div>
         <p class="note">
