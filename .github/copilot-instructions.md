@@ -22,7 +22,7 @@
 
 ## Build and Test
 
-- Install dependencies with `npm install --no-audit --no-fund`.
+- Install dependencies with `npm ci --no-audit --no-fund` (use `npm install` only to change dependencies, and commit `package-lock.json`).
 - Run focused tests with `npm test`; run `npm run check` (ESLint + Prettier check + tests) before committing, as the Test workflow does. `npm run lint:fix` and `npm run format` fix most issues.
 - Run `npm run dev` for the Vue/Vite development server.
 - Run `npm run fetch` to refresh raw event data, `npm run process` to regenerate leaderboard data, and `npm run build` for the complete fetch/process/Vite build pipeline.
