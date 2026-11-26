@@ -73,5 +73,8 @@ jobs:
       - name: Deploy HTML without stale caching
         run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*" --include "*.html" --cache-control "no-cache, no-store, must-revalidate"
 
+      - name: Deploy data so browsers always revalidate it
+        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*" --include "data/*" --cache-control "no-cache"
+
       - name: Deploy static assets
-        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*.html" --cache-control "public, max-age=300"
+        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*.html" --exclude "data/*" --cache-control "public, max-age=300"

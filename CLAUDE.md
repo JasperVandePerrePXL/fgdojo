@@ -56,7 +56,7 @@ data/tournament_slugs.json + data/games.json
 ## CI/CD
 
 - `test.yml`: lint, format check and tests on PRs and pushes to `main`.
-- `deploy.yml`: on push to `main` (path-filtered, includes `app/`, `shared/`, `index.html`), Sun/Mon 20:00 UTC (data refresh) or manual — test, `npm run build`, `aws s3 sync dist` (HTML no-cache, assets 5 min).
+- `deploy.yml`: on push to `main` (path-filtered, includes `app/`, `shared/`, `index.html`), Sun/Mon 20:00 UTC (data refresh) or manual — test, `npm run build`, `aws s3 sync dist` (HTML no-store, `data/` no-cache so browsers revalidate, assets 5 min).
 - `update-next-event.yml` (Sun/Mon 21:00 UTC). The latter commits to `main` and dispatches the deploy workflow itself, since `GITHUB_TOKEN` pushes don't trigger workflows.
 - CI uses Node 22; the start.gg cache is restored between runs via `actions/cache`.
 - Actions are pinned to commit SHAs (`# vX.Y.Z` comment); Dependabot updates them. CI installs with `npm ci`.

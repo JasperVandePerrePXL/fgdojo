@@ -16,7 +16,7 @@ const HUB_URL = 'https://start.gg/RBHubFGDojo';
   <header class="topbar">
     <div class="shell topbar-inner">
       <a class="brand" :href="homeUrl"
-        ><img src="/fgdlogo.jpg" alt="" width="42" height="42" />Fighting Game Dojo</a
+        ><img src="/fgdlogo-84.webp" alt="" width="42" height="42" />Fighting Game Dojo</a
       >
       <nav class="nav" aria-label="Main navigation">
         <a v-for="link in links" :key="link.href" :href="link.href">{{ link.label }}</a>
