@@ -1,7 +1,7 @@
 {
   "totals": {
     "dojos": 19,
-    "players": 138,
+    "players": 137,
     "sets": 1076,
     "games": 3542
   },
@@ -589,10 +589,10 @@
       "playerIds": [
         "1209572",
         "1253081",
+        "1287124",
         "1800901",
         "1999309",
         "2006830",
-        "2353012",
         "2436281",
         "2773768",
         "3015073",
@@ -648,8 +648,8 @@
       "sets": 58,
       "games": 206,
       "players": 26,
-      "newPlayers": 3,
-      "returningPlayers": 23,
+      "newPlayers": 2,
+      "returningPlayers": 24,
       "playerIds": [
         "1253081",
         "1287124",
@@ -1014,7 +1014,7 @@
       "sets": 626,
       "games": 2016,
       "dojos": 11,
-      "uniquePlayers": 105,
+      "uniquePlayers": 104,
       "averageAttendance": 24.6,
       "entrants": 315
     },

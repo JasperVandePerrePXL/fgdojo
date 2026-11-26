@@ -1,0 +1,6 @@
+{
+  "description": "start.gg accounts that belong to the same player. Per entry, every ID in otherIds counts as playerId everywhere (ranking, Elo, stats, player pages). The most recent name is shown.",
+  "players": [
+    { "playerId": "1287124", "otherIds": ["2353012"], "note": "LikeHere / LykeHere (second account used once as LikeHere)" }
+  ]
+}

@@ -32,7 +32,7 @@
       "seasonId": 0,
       "seasonName": "Season 0",
       "summary": {
-        "totalPlayers": 105,
+        "totalPlayers": 104,
         "totalDojos": 11
       },
       "players": [
@@ -615,7 +615,7 @@
           ],
           "winRateNum": 45.04504504504504,
           "winRate": "45.05",
-          "rating": 1420,
+          "rating": 1422,
           "ranked": true
         },
         {
@@ -754,7 +754,7 @@
           ],
           "winRateNum": 56.25,
           "winRate": "56.25",
-          "rating": 1580,
+          "rating": 1581,
           "ranked": true
         },
         {
@@ -869,7 +869,7 @@
           ],
           "winRateNum": 36.666666666666664,
           "winRate": "36.67",
-          "rating": 1438,
+          "rating": 1439,
           "ranked": true
         },
         {
@@ -1397,7 +1397,7 @@
           ],
           "winRateNum": 76.31578947368422,
           "winRate": "76.32",
-          "rating": 1823,
+          "rating": 1824,
           "ranked": true
         },
         {
@@ -1871,6 +1871,31 @@
           "winRateNum": 45.83333333333333,
           "winRate": "45.83",
           "rating": 1503,
+          "ranked": true
+        },
+        {
+          "playerId": 1287124,
+          "gamerTag": "LikeHere",
+          "prefix": "",
+          "displayName": "LikeHere",
+          "tournamentsAttended": 2,
+          "gamesWon": 15,
+          "gamesLost": 14,
+          "firstPlaces": 0,
+          "ratedSets": 8,
+          "placements": [
+            {
+              "tournament": "Fighting Game Dojo - November '25",
+              "placement": 5
+            },
+            {
+              "tournament": "Fighting Game Dojo - December '25",
+              "placement": 7
+            }
+          ],
+          "winRateNum": 51.724137931034484,
+          "winRate": "51.72",
+          "rating": 1556,
           "ranked": true
         },
         {
@@ -2732,27 +2757,6 @@
           "ranked": false
         },
         {
-          "playerId": 2353012,
-          "gamerTag": "LikeHere",
-          "prefix": "",
-          "displayName": "LikeHere",
-          "tournamentsAttended": 1,
-          "gamesWon": 8,
-          "gamesLost": 8,
-          "firstPlaces": 0,
-          "ratedSets": 4,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - November '25",
-              "placement": 5
-            }
-          ],
-          "winRateNum": 50,
-          "winRate": "50.00",
-          "rating": 1550,
-          "ranked": false
-        },
-        {
           "playerId": 1999309,
           "gamerTag": "Miguelmerchan22",
           "prefix": "",
@@ -3009,27 +3013,6 @@
           "ranked": false
         },
         {
-          "playerId": 1287124,
-          "gamerTag": "LikeHere",
-          "prefix": "",
-          "displayName": "LikeHere",
-          "tournamentsAttended": 1,
-          "gamesWon": 7,
-          "gamesLost": 6,
-          "firstPlaces": 0,
-          "ratedSets": 4,
-          "placements": [
-            {
-              "tournament": "Fighting Game Dojo - December '25",
-              "placement": 7
-            }
-          ],
-          "winRateNum": 53.84615384615385,
-          "winRate": "53.85",
-          "rating": 1519,
-          "ranked": false
-        },
-        {
           "playerId": 3487290,
           "gamerTag": "MagicDarkLight",
           "prefix": "",
@@ -3047,7 +3030,7 @@
           ],
           "winRateNum": 44.44444444444444,
           "winRate": "44.44",
-          "rating": 1502,
+          "rating": 1503,
           "ranked": false
         },
         {
@@ -3348,7 +3331,7 @@
               ],
               "winRateNum": 42.95302013422819,
               "winRate": "42.95",
-              "rating": 1436,
+              "rating": 1437,
               "ranked": true
             },
             {
@@ -3650,7 +3633,7 @@
               ],
               "winRateNum": 34.78260869565217,
               "winRate": "34.78",
-              "rating": 1407,
+              "rating": 1410,
               "ranked": true
             },
             {
@@ -3716,7 +3699,7 @@
               ],
               "winRateNum": 45.04504504504504,
               "winRate": "45.05",
-              "rating": 1426,
+              "rating": 1428,
               "ranked": true
             },
             {
@@ -3899,7 +3882,7 @@
               ],
               "winRateNum": 76.31578947368422,
               "winRate": "76.32",
-              "rating": 1830,
+              "rating": 1831,
               "ranked": true
             },
             {
@@ -3961,7 +3944,7 @@
               ],
               "winRateNum": 44.680851063829785,
               "winRate": "44.68",
-              "rating": 1484,
+              "rating": 1485,
               "ranked": true
             },
             {
@@ -4040,25 +4023,29 @@
               "ranked": false
             },
             {
-              "playerId": 2353012,
+              "playerId": 1287124,
               "gamerTag": "LikeHere",
               "prefix": "",
               "displayName": "LikeHere",
-              "tournamentsAttended": 1,
-              "gamesWon": 8,
-              "gamesLost": 8,
+              "tournamentsAttended": 2,
+              "gamesWon": 15,
+              "gamesLost": 14,
               "firstPlaces": 0,
-              "ratedSets": 4,
+              "ratedSets": 8,
               "placements": [
                 {
                   "tournament": "Fighting Game Dojo - November '25",
                   "placement": 5
+                },
+                {
+                  "tournament": "Fighting Game Dojo - December '25",
+                  "placement": 7
                 }
               ],
-              "winRateNum": 50,
-              "winRate": "50.00",
-              "rating": 1552,
-              "ranked": false
+              "winRateNum": 51.724137931034484,
+              "winRate": "51.72",
+              "rating": 1549,
+              "ranked": true
             },
             {
               "playerId": 1999309,
@@ -4079,27 +4066,6 @@
               "winRateNum": 0,
               "winRate": "0.00",
               "rating": 1422,
-              "ranked": false
-            },
-            {
-              "playerId": 1287124,
-              "gamerTag": "LikeHere",
-              "prefix": "",
-              "displayName": "LikeHere",
-              "tournamentsAttended": 1,
-              "gamesWon": 7,
-              "gamesLost": 6,
-              "firstPlaces": 0,
-              "ratedSets": 4,
-              "placements": [
-                {
-                  "tournament": "Fighting Game Dojo - December '25",
-                  "placement": 7
-                }
-              ],
-              "winRateNum": 53.84615384615385,
-              "winRate": "53.85",
-              "rating": 1512,
               "ranked": false
             }
           ],
@@ -7647,7 +7613,7 @@
           ],
           "winRateNum": 55.14705882352941,
           "winRate": "55.15",
-          "rating": 1639,
+          "rating": 1640,
           "ranked": true
         },
         {
@@ -7720,7 +7686,7 @@
           ],
           "winRateNum": 54.054054054054056,
           "winRate": "54.05",
-          "rating": 1685,
+          "rating": 1687,
           "ranked": true
         },
         {
@@ -7781,7 +7747,7 @@
           ],
           "winRateNum": 18.055555555555554,
           "winRate": "18.06",
-          "rating": 1208,
+          "rating": 1209,
           "ranked": true
         },
         {
@@ -7834,7 +7800,7 @@
           ],
           "winRateNum": 56.73758865248227,
           "winRate": "56.74",
-          "rating": 1597,
+          "rating": 1599,
           "ranked": true
         },
         {
@@ -7932,7 +7898,7 @@
           ],
           "winRateNum": 40.67796610169492,
           "winRate": "40.68",
-          "rating": 1401,
+          "rating": 1402,
           "ranked": true
         },
         {
@@ -7981,7 +7947,7 @@
           ],
           "winRateNum": 32.22222222222222,
           "winRate": "32.22",
-          "rating": 1316,
+          "rating": 1317,
           "ranked": true
         },
         {
@@ -8022,7 +7988,7 @@
           ],
           "winRateNum": 23.404255319148938,
           "winRate": "23.40",
-          "rating": 1340,
+          "rating": 1342,
           "ranked": true
         },
         {
@@ -8063,7 +8029,7 @@
           ],
           "winRateNum": 44.776119402985074,
           "winRate": "44.78",
-          "rating": 1405,
+          "rating": 1408,
           "ranked": true
         },
         {
@@ -8157,7 +8123,7 @@
           ],
           "winRateNum": 58.333333333333336,
           "winRate": "58.33",
-          "rating": 1693,
+          "rating": 1694,
           "ranked": true
         },
         {
@@ -8206,7 +8172,7 @@
           ],
           "winRateNum": 48.03921568627451,
           "winRate": "48.04",
-          "rating": 1482,
+          "rating": 1483,
           "ranked": true
         },
         {
@@ -8251,7 +8217,7 @@
           ],
           "winRateNum": 55.68181818181818,
           "winRate": "55.68",
-          "rating": 1520,
+          "rating": 1532,
           "ranked": true
         },
         {
@@ -8292,7 +8258,7 @@
           ],
           "winRateNum": 55.55555555555556,
           "winRate": "55.56",
-          "rating": 1571,
+          "rating": 1572,
           "ranked": true
         },
         {
@@ -8378,7 +8344,7 @@
           ],
           "winRateNum": 53.125,
           "winRate": "53.13",
-          "rating": 1561,
+          "rating": 1562,
           "ranked": true
         },
         {
@@ -8448,7 +8414,7 @@
           ],
           "winRateNum": 44.06779661016949,
           "winRate": "44.07",
-          "rating": 1438,
+          "rating": 1439,
           "ranked": true
         },
         {
@@ -8485,7 +8451,7 @@
           ],
           "winRateNum": 59.04761904761905,
           "winRate": "59.05",
-          "rating": 1661,
+          "rating": 1662,
           "ranked": true
         },
         {
@@ -8543,7 +8509,7 @@
           ],
           "winRateNum": 37.5,
           "winRate": "37.50",
-          "rating": 1421,
+          "rating": 1423,
           "ranked": true
         },
         {
@@ -8601,7 +8567,7 @@
           ],
           "winRateNum": 54.90196078431373,
           "winRate": "54.90",
-          "rating": 1560,
+          "rating": 1561,
           "ranked": true
         },
         {
@@ -8688,7 +8654,7 @@
           ],
           "winRateNum": 46.15384615384615,
           "winRate": "46.15",
-          "rating": 1472,
+          "rating": 1473,
           "ranked": true
         },
         {
@@ -8721,7 +8687,7 @@
           ],
           "winRateNum": 27.659574468085108,
           "winRate": "27.66",
-          "rating": 1314,
+          "rating": 1315,
           "ranked": true
         },
         {
@@ -8771,7 +8737,7 @@
           ],
           "winRateNum": 58.82352941176471,
           "winRate": "58.82",
-          "rating": 1589,
+          "rating": 1590,
           "ranked": true
         },
         {
@@ -8796,7 +8762,7 @@
           ],
           "winRateNum": 63.41463414634146,
           "winRate": "63.41",
-          "rating": 1621,
+          "rating": 1623,
           "ranked": true
         },
         {
@@ -8846,7 +8812,7 @@
           ],
           "winRateNum": 71.42857142857143,
           "winRate": "71.43",
-          "rating": 1867,
+          "rating": 1868,
           "ranked": true
         },
         {
@@ -8896,7 +8862,7 @@
           ],
           "winRateNum": 30.434782608695656,
           "winRate": "30.43",
-          "rating": 1459,
+          "rating": 1460,
           "ranked": true
         },
         {
@@ -9113,7 +9079,7 @@
           ],
           "winRateNum": 40,
           "winRate": "40.00",
-          "rating": 1482,
+          "rating": 1485,
           "ranked": false
         },
         {
@@ -9251,7 +9217,7 @@
           ],
           "winRateNum": 8.333333333333332,
           "winRate": "8.33",
-          "rating": 1285,
+          "rating": 1286,
           "ranked": false
         },
         {
@@ -9272,7 +9238,7 @@
           ],
           "winRateNum": 61.904761904761905,
           "winRate": "61.90",
-          "rating": 1556,
+          "rating": 1559,
           "ranked": false
         },
         {
@@ -9364,7 +9330,7 @@
           ],
           "winRateNum": 16.666666666666664,
           "winRate": "16.67",
-          "rating": 1365,
+          "rating": 1366,
           "ranked": false
         },
         {
@@ -9406,7 +9372,7 @@
           ],
           "winRateNum": 66.66666666666666,
           "winRate": "66.67",
-          "rating": 1614,
+          "rating": 1615,
           "ranked": false
         },
         {
@@ -9511,7 +9477,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rating": 1413,
+          "rating": 1414,
           "ranked": false
         },
         {
@@ -9532,7 +9498,7 @@
           ],
           "winRateNum": 0,
           "winRate": "0.00",
-          "rating": 1408,
+          "rating": 1409,
           "ranked": false
         },
         {
@@ -9599,7 +9565,7 @@
           ],
           "winRateNum": 58.333333333333336,
           "winRate": "58.33",
-          "rating": 1525,
+          "rating": 1526,
           "ranked": false
         },
         {
@@ -9680,7 +9646,7 @@
               ],
               "winRateNum": 53.125,
               "winRate": "53.13",
-              "rating": 1576,
+              "rating": 1577,
               "ranked": true
             },
             {
@@ -9721,7 +9687,7 @@
               ],
               "winRateNum": 44.18604651162791,
               "winRate": "44.19",
-              "rating": 1446,
+              "rating": 1447,
               "ranked": true
             },
             {
@@ -9775,7 +9741,7 @@
               ],
               "winRateNum": 12.121212121212121,
               "winRate": "12.12",
-              "rating": 1346,
+              "rating": 1349,
               "ranked": true
             },
             {
@@ -9820,7 +9786,7 @@
               ],
               "winRateNum": 54.400000000000006,
               "winRate": "54.40",
-              "rating": 1582,
+              "rating": 1584,
               "ranked": true
             },
             {
@@ -9907,7 +9873,7 @@
               ],
               "winRateNum": 45.83333333333333,
               "winRate": "45.83",
-              "rating": 1494,
+              "rating": 1524,
               "ranked": true
             },
             {
@@ -9965,7 +9931,7 @@
               ],
               "winRateNum": 40,
               "winRate": "40.00",
-              "rating": 1467,
+              "rating": 1470,
               "ranked": false
             },
             {
@@ -10069,7 +10035,7 @@
               ],
               "winRateNum": 71.42857142857143,
               "winRate": "71.43",
-              "rating": 1879,
+              "rating": 1880,
               "ranked": true
             },
             {
@@ -10260,7 +10226,7 @@
               ],
               "winRateNum": 61.904761904761905,
               "winRate": "61.90",
-              "rating": 1559,
+              "rating": 1564,
               "ranked": false
             },
             {
@@ -10377,7 +10343,7 @@
               ],
               "winRateNum": 46.15384615384615,
               "winRate": "46.15",
-              "rating": 1470,
+              "rating": 1472,
               "ranked": true
             },
             {
@@ -13500,7 +13466,7 @@
     "seasonId": -1,
     "seasonName": "All Seasons Combined",
     "summary": {
-      "totalPlayers": 138,
+      "totalPlayers": 137,
       "totalDojos": 19
     },
     "players": [
@@ -13598,7 +13564,7 @@
         ],
         "winRateNum": 58.855585831062676,
         "winRate": "58.86",
-        "rating": 1597,
+        "rating": 1599,
         "ranked": true
       },
       {
@@ -13763,7 +13729,7 @@
         ],
         "winRateNum": 51.63043478260869,
         "winRate": "51.63",
-        "rating": 1639,
+        "rating": 1640,
         "ranked": true
       },
       {
@@ -13933,7 +13899,7 @@
         ],
         "winRateNum": 54.45859872611465,
         "winRate": "54.46",
-        "rating": 1693,
+        "rating": 1694,
         "ranked": true
       },
       {
@@ -14022,7 +13988,7 @@
         ],
         "winRateNum": 56.12903225806451,
         "winRate": "56.13",
-        "rating": 1685,
+        "rating": 1687,
         "ranked": true
       },
       {
@@ -14229,7 +14195,7 @@
         ],
         "winRateNum": 47.91666666666667,
         "winRate": "47.92",
-        "rating": 1438,
+        "rating": 1439,
         "ranked": true
       },
       {
@@ -14367,7 +14333,7 @@
         ],
         "winRateNum": 36.52173913043478,
         "winRate": "36.52",
-        "rating": 1340,
+        "rating": 1342,
         "ranked": true
       },
       {
@@ -14424,7 +14390,7 @@
         ],
         "winRateNum": 45.39877300613497,
         "winRate": "45.40",
-        "rating": 1472,
+        "rating": 1473,
         "ranked": true
       },
       {
@@ -14493,7 +14459,7 @@
         ],
         "winRateNum": 16.470588235294116,
         "winRate": "16.47",
-        "rating": 1208,
+        "rating": 1209,
         "ranked": true
       },
       {
@@ -14562,7 +14528,7 @@
         ],
         "winRateNum": 32.71604938271605,
         "winRate": "32.72",
-        "rating": 1314,
+        "rating": 1315,
         "ranked": true
       },
       {
@@ -14627,7 +14593,7 @@
         ],
         "winRateNum": 50.33557046979866,
         "winRate": "50.34",
-        "rating": 1482,
+        "rating": 1483,
         "ranked": true
       },
       {
@@ -14684,7 +14650,7 @@
         ],
         "winRateNum": 62.5,
         "winRate": "62.50",
-        "rating": 1661,
+        "rating": 1662,
         "ranked": true
       },
       {
@@ -14741,7 +14707,7 @@
         ],
         "winRateNum": 45.16129032258064,
         "winRate": "45.16",
-        "rating": 1561,
+        "rating": 1562,
         "ranked": true
       },
       {
@@ -14867,7 +14833,7 @@
         ],
         "winRateNum": 37.404580152671755,
         "winRate": "37.40",
-        "rating": 1401,
+        "rating": 1402,
         "ranked": true
       },
       {
@@ -14924,7 +14890,7 @@
         ],
         "winRateNum": 34.862385321100916,
         "winRate": "34.86",
-        "rating": 1316,
+        "rating": 1317,
         "ranked": true
       },
       {
@@ -14973,7 +14939,7 @@
         ],
         "winRateNum": 41.77215189873418,
         "winRate": "41.77",
-        "rating": 1405,
+        "rating": 1408,
         "ranked": true
       },
       {
@@ -15116,7 +15082,7 @@
         ],
         "winRateNum": 56.92307692307692,
         "winRate": "56.92",
-        "rating": 1589,
+        "rating": 1590,
         "ranked": true
       },
       {
@@ -15165,7 +15131,7 @@
         ],
         "winRateNum": 54.47761194029851,
         "winRate": "54.48",
-        "rating": 1571,
+        "rating": 1572,
         "ranked": true
       },
       {
@@ -15219,6 +15185,59 @@
         "winRateNum": 36.633663366336634,
         "winRate": "36.63",
         "rating": 1406,
+        "ranked": true
+      },
+      {
+        "playerId": 1287124,
+        "gamerTag": "LykeHere",
+        "prefix": "",
+        "displayName": "LykeHere",
+        "tournamentsAttended": 7,
+        "gamesWon": 64,
+        "gamesLost": 53,
+        "firstPlaces": 1,
+        "ratedSets": 33,
+        "placements": [
+          {
+            "tournament": "Fighting Game Dojo - November '25",
+            "placement": 5
+          },
+          {
+            "tournament": "Fighting Game Dojo - December '25",
+            "placement": 7
+          },
+          {
+            "tournament": "Fighting Game Dojo - March Edition",
+            "placement": 5
+          },
+          {
+            "tournament": "Fighting Game Dojo - March Edition",
+            "placement": 9
+          },
+          {
+            "tournament": "Fighting Game Dojo - April Edition",
+            "placement": 5
+          },
+          {
+            "tournament": "Fighting Game Dojo - May edition",
+            "placement": 5
+          },
+          {
+            "tournament": "Fighting Game Dojo - July edition",
+            "placement": 7
+          },
+          {
+            "tournament": "Fighting Game Dojo - July edition",
+            "placement": 5
+          },
+          {
+            "tournament": "Fighting Game Dojo - September edition",
+            "placement": 1
+          }
+        ],
+        "winRateNum": 54.700854700854705,
+        "winRate": "54.70",
+        "rating": 1532,
         "ranked": true
       },
       {
@@ -15312,7 +15331,7 @@
         ],
         "winRateNum": 56.074766355140184,
         "winRate": "56.07",
-        "rating": 1560,
+        "rating": 1561,
         "ranked": true
       },
       {
@@ -15354,55 +15373,6 @@
         "winRateNum": 37.878787878787875,
         "winRate": "37.88",
         "rating": 1416,
-        "ranked": true
-      },
-      {
-        "playerId": 1287124,
-        "gamerTag": "LykeHere",
-        "prefix": "",
-        "displayName": "LykeHere",
-        "tournamentsAttended": 6,
-        "gamesWon": 56,
-        "gamesLost": 45,
-        "firstPlaces": 1,
-        "ratedSets": 29,
-        "placements": [
-          {
-            "tournament": "Fighting Game Dojo - December '25",
-            "placement": 7
-          },
-          {
-            "tournament": "Fighting Game Dojo - March Edition",
-            "placement": 5
-          },
-          {
-            "tournament": "Fighting Game Dojo - March Edition",
-            "placement": 9
-          },
-          {
-            "tournament": "Fighting Game Dojo - April Edition",
-            "placement": 5
-          },
-          {
-            "tournament": "Fighting Game Dojo - May edition",
-            "placement": 5
-          },
-          {
-            "tournament": "Fighting Game Dojo - July edition",
-            "placement": 7
-          },
-          {
-            "tournament": "Fighting Game Dojo - July edition",
-            "placement": 5
-          },
-          {
-            "tournament": "Fighting Game Dojo - September edition",
-            "placement": 1
-          }
-        ],
-        "winRateNum": 55.44554455445545,
-        "winRate": "55.45",
-        "rating": 1520,
         "ranked": true
       },
       {
@@ -15480,7 +15450,7 @@
         ],
         "winRateNum": 74.77477477477478,
         "winRate": "74.77",
-        "rating": 1867,
+        "rating": 1868,
         "ranked": true
       },
       {
@@ -15921,7 +15891,7 @@
         ],
         "winRateNum": 37.5,
         "winRate": "37.50",
-        "rating": 1421,
+        "rating": 1423,
         "ranked": true
       },
       {
@@ -16253,7 +16223,7 @@
         ],
         "winRateNum": 63.41463414634146,
         "winRate": "63.41",
-        "rating": 1621,
+        "rating": 1623,
         "ranked": true
       },
       {
@@ -16328,7 +16298,7 @@
         ],
         "winRateNum": 30.434782608695656,
         "winRate": "30.43",
-        "rating": 1459,
+        "rating": 1460,
         "ranked": true
       },
       {
@@ -17169,27 +17139,6 @@
         "ranked": false
       },
       {
-        "playerId": 2353012,
-        "gamerTag": "LikeHere",
-        "prefix": "",
-        "displayName": "LikeHere",
-        "tournamentsAttended": 1,
-        "gamesWon": 8,
-        "gamesLost": 8,
-        "firstPlaces": 0,
-        "ratedSets": 4,
-        "placements": [
-          {
-            "tournament": "Fighting Game Dojo - November '25",
-            "placement": 5
-          }
-        ],
-        "winRateNum": 50,
-        "winRate": "50.00",
-        "rating": 1550,
-        "ranked": false
-      },
-      {
         "playerId": 1999309,
         "gamerTag": "Miguelmerchan22",
         "prefix": "",
@@ -17463,7 +17412,7 @@
         ],
         "winRateNum": 44.44444444444444,
         "winRate": "44.44",
-        "rating": 1502,
+        "rating": 1503,
         "ranked": false
       },
       {
@@ -17576,7 +17525,7 @@
         ],
         "winRateNum": 40,
         "winRate": "40.00",
-        "rating": 1482,
+        "rating": 1485,
         "ranked": false
       },
       {
@@ -17668,7 +17617,7 @@
         ],
         "winRateNum": 8.333333333333332,
         "winRate": "8.33",
-        "rating": 1285,
+        "rating": 1286,
         "ranked": false
       },
       {
@@ -17689,7 +17638,7 @@
         ],
         "winRateNum": 61.904761904761905,
         "winRate": "61.90",
-        "rating": 1556,
+        "rating": 1559,
         "ranked": false
       },
       {
@@ -17781,7 +17730,7 @@
         ],
         "winRateNum": 16.666666666666664,
         "winRate": "16.67",
-        "rating": 1365,
+        "rating": 1366,
         "ranked": false
       },
       {
@@ -17823,7 +17772,7 @@
         ],
         "winRateNum": 66.66666666666666,
         "winRate": "66.67",
-        "rating": 1614,
+        "rating": 1615,
         "ranked": false
       },
       {
@@ -17928,7 +17877,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rating": 1413,
+        "rating": 1414,
         "ranked": false
       },
       {
@@ -17949,7 +17898,7 @@
         ],
         "winRateNum": 0,
         "winRate": "0.00",
-        "rating": 1408,
+        "rating": 1409,
         "ranked": false
       },
       {
@@ -18016,7 +17965,7 @@
         ],
         "winRateNum": 58.333333333333336,
         "winRate": "58.33",
-        "rating": 1525,
+        "rating": 1526,
         "ranked": false
       },
       {
@@ -18336,7 +18285,7 @@
             ],
             "winRateNum": 58.119658119658126,
             "winRate": "58.12",
-            "rating": 1582,
+            "rating": 1584,
             "ranked": true
           },
           {
@@ -18417,7 +18366,7 @@
             ],
             "winRateNum": 43.40425531914894,
             "winRate": "43.40",
-            "rating": 1446,
+            "rating": 1447,
             "ranked": true
           },
           {
@@ -18751,7 +18700,7 @@
             ],
             "winRateNum": 34.78260869565217,
             "winRate": "34.78",
-            "rating": 1407,
+            "rating": 1410,
             "ranked": true
           },
           {
@@ -18829,7 +18778,7 @@
             ],
             "winRateNum": 45.39877300613497,
             "winRate": "45.40",
-            "rating": 1470,
+            "rating": 1472,
             "ranked": true
           },
           {
@@ -19064,7 +19013,7 @@
             ],
             "winRateNum": 74.77477477477478,
             "winRate": "74.77",
-            "rating": 1879,
+            "rating": 1880,
             "ranked": true
           },
           {
@@ -19146,7 +19095,7 @@
             ],
             "winRateNum": 49.549549549549546,
             "winRate": "49.55",
-            "rating": 1576,
+            "rating": 1577,
             "ranked": true
           },
           {
@@ -19233,25 +19182,37 @@
             "ranked": false
           },
           {
-            "playerId": 2353012,
-            "gamerTag": "LikeHere",
+            "playerId": 1287124,
+            "gamerTag": "LykeHere",
             "prefix": "",
-            "displayName": "LikeHere",
-            "tournamentsAttended": 1,
-            "gamesWon": 8,
-            "gamesLost": 8,
+            "displayName": "LykeHere",
+            "tournamentsAttended": 4,
+            "gamesWon": 26,
+            "gamesLost": 27,
             "firstPlaces": 0,
-            "ratedSets": 4,
+            "ratedSets": 15,
             "placements": [
               {
                 "tournament": "Fighting Game Dojo - November '25",
                 "placement": 5
+              },
+              {
+                "tournament": "Fighting Game Dojo - December '25",
+                "placement": 7
+              },
+              {
+                "tournament": "Fighting Game Dojo - March Edition",
+                "placement": 5
+              },
+              {
+                "tournament": "Fighting Game Dojo - July edition",
+                "placement": 7
               }
             ],
-            "winRateNum": 50,
-            "winRate": "50.00",
-            "rating": 1552,
-            "ranked": false
+            "winRateNum": 49.056603773584904,
+            "winRate": "49.06",
+            "rating": 1524,
+            "ranked": true
           },
           {
             "playerId": 1999309,
@@ -19273,35 +19234,6 @@
             "winRate": "0.00",
             "rating": 1422,
             "ranked": false
-          },
-          {
-            "playerId": 1287124,
-            "gamerTag": "LykeHere",
-            "prefix": "",
-            "displayName": "LykeHere",
-            "tournamentsAttended": 3,
-            "gamesWon": 18,
-            "gamesLost": 19,
-            "firstPlaces": 0,
-            "ratedSets": 11,
-            "placements": [
-              {
-                "tournament": "Fighting Game Dojo - December '25",
-                "placement": 7
-              },
-              {
-                "tournament": "Fighting Game Dojo - March Edition",
-                "placement": 5
-              },
-              {
-                "tournament": "Fighting Game Dojo - July edition",
-                "placement": 7
-              }
-            ],
-            "winRateNum": 48.64864864864865,
-            "winRate": "48.65",
-            "rating": 1494,
-            "ranked": true
           },
           {
             "playerId": 4856153,
@@ -19329,7 +19261,7 @@
             ],
             "winRateNum": 12.121212121212121,
             "winRate": "12.12",
-            "rating": 1346,
+            "rating": 1349,
             "ranked": true
           },
           {
@@ -19350,7 +19282,7 @@
             ],
             "winRateNum": 40,
             "winRate": "40.00",
-            "rating": 1467,
+            "rating": 1470,
             "ranked": false
           },
           {
@@ -19467,7 +19399,7 @@
             ],
             "winRateNum": 61.904761904761905,
             "winRate": "61.90",
-            "rating": 1559,
+            "rating": 1564,
             "ranked": false
           },
           {

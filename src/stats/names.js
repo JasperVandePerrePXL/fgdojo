@@ -1,7 +1,11 @@
 // Player identity helpers for the raw start.gg participant objects.
+import { canonicalPlayerId } from '../config/player_aliases.js';
 
-/** The stable player ID: start.gg's `player.id`, falling back to the participant ID. */
-export const getPlayerId = (participant) => participant?.player?.id ?? participant?.id;
+/**
+ * The stable player ID: start.gg's `player.id`, falling back to the participant ID. A second account of the same
+ * player (data/player_aliases.json) is replaced by the main account's ID, so every statistic merges them.
+ */
+export const getPlayerId = (participant) => canonicalPlayerId(participant?.player?.id ?? participant?.id);
 
 /**
  * Builds the name shown on the site.
