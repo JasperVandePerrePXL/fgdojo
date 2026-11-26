@@ -62,6 +62,7 @@ data/games.json ────────────┤
                             ▼
             public/data/leaderboards.json         loaded by the leaderboard (/)
             public/data/stats.json                loaded by the stats page (/stats.html)
+            public/data/players.json              loaded by the player pages (/player.html?id=…)
                             │
                             ▼
               Vite + app/ (Vue 3 + Pinia)  →  dist/  →  Amazon S3
@@ -119,6 +120,36 @@ validated for color-blind readers on the dark panel). A sixth game would get a n
 The data is built by `buildSiteStats` in `src/stats/site_stats.js` during `npm run process` and written to
 `public/data/stats.json` (shape: `SiteStats` in `src/stats/types.js`).
 
+## Player pages
+
+Every player name in the ranking links to `/player.html?id=<start.gg player ID>&game=<game ID>`. The page shows,
+one game at a time (tabs when the player entered several games):
+
+- the current rating, number of dojos and sets won–lost in that game;
+- **Rating over time**: the Elo rating in that game after every dojo where the player played a rated set, across
+  all seasons (the same rating as the ranking; see [Counting rules](#counting-rules));
+- **Head-to-head**: rated sets won and lost against every opponent, most played first; opponent names link to
+  their own page;
+- **Dojo results**: placement and bracket size at every dojo entered, newest first.
+
+Switching games updates the address bar, so the link can be shared. Hidden players have no page and are left out
+of every head-to-head record. The data is built by `buildPlayerProfiles` in `src/stats/player_profiles.js` (rating
+history from `computeRatings` in `elo.js`) and written to `public/data/players.json` (shape: `PlayerProfiles` in
+`src/stats/types.js`).
+
+## Rankings page extras
+
+- **Next dojo card**: shown above the leaderboard while a configured dojo has not been played yet: name, date,
+  sign-ups per game and a link to start.gg. `findUpcomingDojo` in `src/stats/upcoming_dojo.js` picks the earliest
+  tournament in `data/events.json` without any played set whose date is today or later, and `process` writes it to
+  `upcomingDojo` in `leaderboards.json`. The sign-up counts are those of the last build (Sundays/Mondays and every
+  deploy); the page itself hides the card once the dojo day has passed (`app/utils/upcoming.js`). The card only
+  appears when the tournament is listed in `data/tournament_slugs.json` (the next-event automation adds it).
+  start.gg stores the dojo's start time as midnight, so only the date is shown.
+- **Shareable links**: changing the season or game puts them in the address bar (`/?season=1&game=43868`);
+  opening such a link shows that selection. Without parameters the remembered (localStorage) or latest selection
+  is used; invalid values fall back the same way.
+
 ## Project structure
 
 ```
@@ -126,14 +157,17 @@ app/                         Vue 3 + Pinia website
   main.js                      entry point of the leaderboard (index.html)
   App.vue                      page layout; composes the components below
   stats/                       the stats page (stats.html): main.js + StatsPage.vue
+  player/                      the player page (player.html): main.js + PlayerPage.vue
   components/                  one component per visible block of the page
     AppHeader, HeroSection, RankingControls, SummaryMetrics,
-    PlayerRanking → PlayerRow, HighlightsPanel → HighlightList,
-    EventHistory, AppFooter
+    UpcomingDojo, PlayerRanking → PlayerRow, HighlightsPanel → HighlightList,
+    EventHistory, HeadToHeadList (player page), AppFooter
     charts/                      SVG charts: LineChart, StackedBarChart, DonutChart, ChartFrame (title, legend, table)
   stores/leaderboard.js        Pinia store: loads the JSON, season/game selection, derived values
   stores/stats.js              Pinia store of the stats page: loads stats.json, shapes the chart data
-  utils/                       display helpers (format.js), chart helpers (chart.js), localStorage wrappers (storage.js)
+  stores/player.js             Pinia store of the player page: loads players.json, player and game from the URL
+  utils/                       display helpers (format.js), chart helpers (chart.js), localStorage wrappers (storage.js),
+                               query-string and player-link helpers (url.js), next-dojo date check (upcoming.js)
   styles.css                   all styling (desktop and mobile)
 
 shared/                      plain JavaScript used by both src/ and app/ (no Node.js or browser APIs)
@@ -153,6 +187,8 @@ src/                         Node.js code (ES modules)
     fun_stats.js                 top-5 list per highlight in shared/highlights.js
     season_output.js             builds one season's object for leaderboards.json
     site_stats.js                everything for stats.json (stats page)
+    player_profiles.js           everything for players.json (player pages)
+    upcoming_dojo.js             the next unplayed dojo for the rankings page card
     names.js                     player-name and player-ID helpers
     types.js                     JSDoc description of every data shape
   config/                      reads the hand-maintained files in data/
@@ -177,7 +213,7 @@ tests/                       Node test suite
 .github/workflows/           test, deploy, update-next-event
 ```
 
-Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/data/stats.json`, `dist/` and `.cache/`.
+Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/data/stats.json`, `public/data/players.json`, `dist/` and `.cache/`.
 
 ## Configuration files
 
@@ -317,7 +353,7 @@ Where new work usually goes:
 - **A new statistic or ranking rule** → a pure function in `src/stats/`, called from `leaderboard.js` or `season_output.js`; document the new fields in `src/stats/types.js`, add tests in `tests/leaderboard.test.js` and describe the rule under [Counting rules](#counting-rules). A rule the website also needs goes in `shared/`.
 - **A new chart on the stats page** → add the numbers to `buildSiteStats` (with a test in `tests/site_stats.test.js` and the field in `SiteStats` in `types.js`), shape them in a getter of `app/stores/stats.js`, and place a `ChartFrame` with a `LineChart`, `StackedBarChart` or `DonutChart` in `app/stats/StatsPage.vue`.
 - **A new block on the page** (for example a chart) → a new component in `app/components/`, added to `app/App.vue`. Shared state and derived values belong in `app/stores/leaderboard.js`; formatting helpers in `app/utils/`. Styling goes in `app/styles.css`.
-- **Statistics over time** → today the website data holds each player's totals plus a list of placements (`{ tournament, placement }`) and each tournament's date; there is no per-tournament history of win rate or score yet. A chart of ups and downs would need the pipeline to also write such a history (a new function in `src/stats/` and a new field in `leaderboards.json`), which the Vue side can then read. Decide which values to track before building it.
+- **Statistics over time** → the player pages already chart the Elo rating per dojo (`historyByGame` from `computeRatings`). Another value over time (win rate, placement) follows the same route: record it per dojo in `src/stats/player_profiles.js`, document it in `PlayerGame` in `types.js`, test it in `tests/player_profiles.test.js` and chart it in `app/player/PlayerPage.vue`.
 - **A new start.gg query** → add it to `src/startgg/queries.js` and call it through `gql()` from `src/startgg/client.js` so throttling and retries apply. Logic that decides *when* to call the API (like `event_fetcher.js`) takes the request function and cache as parameters, so it can be tested with fakes.
 - **A new data file** → add its path to `src/lib/paths.js` and read it through `src/lib/json.js`.
 

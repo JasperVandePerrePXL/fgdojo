@@ -11,6 +11,7 @@ import SummaryMetrics from './components/SummaryMetrics.vue';
 import PlayerRanking from './components/PlayerRanking.vue';
 import HighlightsPanel from './components/HighlightsPanel.vue';
 import EventHistory from './components/EventHistory.vue';
+import UpcomingDojo from './components/UpcomingDojo.vue';
 import AppFooter from './components/AppFooter.vue';
 
 const store = useLeaderboardStore();
@@ -25,6 +26,8 @@ const {
   games,
   gameData,
   rankedPlayers,
+  rankingGameId,
+  upcomingDojo,
   dojoCount,
   totalGames,
   totalDojos,
@@ -43,6 +46,8 @@ onMounted(store.load);
 
   <main id="top">
     <HeroSection :loading="loading" :total-dojos="totalDojos" :latest-players="latestSeasonPlayers" />
+
+    <UpcomingDojo v-if="upcomingDojo" :dojo="upcomingDojo" />
 
     <section id="rankings" class="shell section" aria-labelledby="rankings-title">
       <div class="section-head">
@@ -76,7 +81,7 @@ onMounted(store.load);
           />
 
           <div class="layout">
-            <PlayerRanking :players="rankedPlayers" />
+            <PlayerRanking :players="rankedPlayers" :game-id="rankingGameId" />
             <HighlightsPanel :fun-stats="allTimeFunStats" />
           </div>
 

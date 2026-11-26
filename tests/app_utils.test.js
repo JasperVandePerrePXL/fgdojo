@@ -15,7 +15,7 @@ test('dojoKeyOf prefers the tournament slug', () => {
   assert.equal(dojoKeyOf({ dojoId: null, date: '2026-01-01', name: 'x' }), '2026-01-01|x');
 });
 
-import { niceScale, seriesColor, shortDate } from '../app/utils/chart.js';
+import { niceRange, niceScale, seriesColor, shortDate } from '../app/utils/chart.js';
 
 test('chart helpers', () => {
   assert.deepEqual(niceScale(46), { max: 50, ticks: [0, 10, 20, 30, 40, 50] });
@@ -68,4 +68,54 @@ test('pickSeason keeps a valid remembered season and otherwise picks the latest'
   assert.equal(pickSeason([], null), '');
   assert.equal(pickSeason([0, 1], ALL_SEASONS_ID), ALL_SEASONS_ID);
   assert.equal(pickSeason([], ALL_SEASONS_ID), '');
+});
+
+test('niceRange fits values far from zero and falls back to niceScale from 0', () => {
+  assert.deepEqual(niceRange(1432, 1618), {
+    min: 1400,
+    max: 1650,
+    ticks: [1400, 1450, 1500, 1550, 1600, 1650],
+  });
+  assert.deepEqual(niceRange(1500, 1500), {
+    min: 1496,
+    max: 1504,
+    ticks: [1496, 1498, 1500, 1502, 1504],
+  });
+  assert.deepEqual(niceRange(0, 46), { min: 0, max: 50, ticks: [0, 10, 20, 30, 40, 50] });
+});
+
+import { ordinal, playerUrl, readQuery, updateQuery } from '../app/utils/url.js';
+
+test('query helpers read, update and remove parameters', () => {
+  assert.deepEqual(readQuery('?season=1&game=43868'), { season: '1', game: '43868' });
+  assert.equal(updateQuery('?season=1&game=2', { game: '3' }), '?season=1&game=3');
+  assert.equal(updateQuery('?season=1', { season: null }), '');
+  assert.equal(updateQuery('', { season: 'all', game: 7 }), '?season=all&game=7');
+  assert.equal(playerUrl('3762539', '43868'), '/player.html?id=3762539&game=43868');
+  assert.equal(playerUrl('5'), '/player.html?id=5');
+});
+
+test('ordinal placements', () => {
+  assert.deepEqual([1, 2, 3, 4, 11, 12, 13, 21, 22, 23, 101].map(ordinal), [
+    '1st',
+    '2nd',
+    '3rd',
+    '4th',
+    '11th',
+    '12th',
+    '13th',
+    '21st',
+    '22nd',
+    '23rd',
+    '101st',
+  ]);
+});
+
+import { isUpcoming } from '../app/utils/upcoming.js';
+
+test('the next dojo card shows until the end of the dojo day in Brussels', () => {
+  assert.equal(isUpcoming('2026-11-28', new Date('2026-11-27T12:00:00Z')), true);
+  assert.equal(isUpcoming('2026-11-28', new Date('2026-11-28T22:30:00Z')), true); // 23:30 in Brussels
+  assert.equal(isUpcoming('2026-11-28', new Date('2026-11-28T23:30:00Z')), false); // 00:30 the next day
+  assert.equal(isUpcoming(null, new Date()), false);
 });

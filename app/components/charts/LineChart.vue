@@ -11,12 +11,15 @@ const props = defineProps({
   /** Name of the value in the tooltip, e.g. "players". */
   unit: { type: String, required: true },
   color: { type: String, default: 'var(--series-1)' },
+  /** Start the y axis at 0 (counts) or just below the lowest value (e.g. ratings). */
+  zeroBased: { type: Boolean, default: true },
 });
 
 const points = toRef(props, 'points');
 const layout = useColumnLayout(
   points,
   computed(() => Math.max(0, ...points.value.map((point) => point.value))),
+  computed(() => (props.zeroBased ? 0 : Math.min(...points.value.map((point) => point.value)))),
 );
 const path = computed(() =>
   points.value.map((point, i) => `${i ? 'L' : 'M'}${layout.centerX(i)},${layout.y(point.value)}`).join(''),

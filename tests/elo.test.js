@@ -96,3 +96,30 @@ test('games have separate ratings; hidden players and DQs are skipped', () => {
   assert.ok(final.byGame.get('1').get('1') > START_RATING);
   assert.equal(final.overall.has('99'), false);
 });
+
+test('historyByGame records the rating after every dojo they played in that game', () => {
+  const { historyByGame, final } = computeRatings([
+    {
+      seasonId: 0,
+      events: [
+        {
+          ...event({ startAt: 1, players: [alice, bob], sets: [[1, 2, 2, 1]] }),
+          tournament: { startAt: 1, slug: 'jan' },
+        },
+        {
+          ...event({ startAt: 2, players: [alice, cara], sets: [[3, 2, 1, 0]] }),
+          tournament: { startAt: 2, slug: 'feb' },
+        },
+      ],
+    },
+  ]);
+  const aliceHistory = historyByGame.get('1').get('1');
+  assert.deepEqual(
+    aliceHistory.map((point) => point.dojoId),
+    ['jan', 'feb'],
+  );
+  assert.equal(aliceHistory[0].rating, START_RATING + 32);
+  assert.equal(aliceHistory.at(-1).rating, final.byGame.get('1').get('1'));
+  assert.equal(historyByGame.get('1').get('2').length, 1); // Bob only played in January
+  assert.equal(historyByGame.get('1').has('1000'), false); // padding entrants without sets have no history
+});

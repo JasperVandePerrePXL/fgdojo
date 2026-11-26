@@ -6,9 +6,9 @@ export default defineConfig({
   publicDir: 'public',
   build: {
     outDir: 'dist',
-    // Two pages: the leaderboard (/) and the stats page (/stats.html).
+    // Three pages: the leaderboard (/), the stats page (/stats.html) and the player page (/player.html).
     rollupOptions: {
-      input: { main: 'index.html', stats: 'stats.html' },
+      input: { main: 'index.html', stats: 'stats.html', player: 'player.html' },
     },
   },
 });

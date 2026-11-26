@@ -99,4 +99,34 @@
  *   `entrants` counts game entries (a player in two games counts twice).
  */
 
+/**
+ * The next dojo (`upcomingDojo` in leaderboards.json), built by upcoming_dojo.js; null when there is none.
+ * @typedef {object} UpcomingDojo
+ * @property {string} name     Tournament name.
+ * @property {string} url      start.gg tournament page.
+ * @property {string|null} date  `YYYY-MM-DD` in Brussels time (start.gg's start time is not the real start hour).
+ * @property {{ gameName: string, entrants: number }[]} games  Sign-ups per game when the data was built.
+ */
+
+/**
+ * Data of the player pages (`public/data/players.json`), built by player_profiles.js over every season.
+ * @typedef {object} PlayerProfiles
+ * @property {Record<string, { playerId: string, displayName: string, games: PlayerGame[] }>} players
+ *   By start.gg player ID. Hidden players are not included.
+ */
+
+/**
+ * One game of a player page. `games` are ordered by number of dojos, most played first.
+ * @typedef {object} PlayerGame
+ * @property {string} gameId          start.gg videogame ID (same as `gameId` in leaderboards.json).
+ * @property {string} gameName
+ * @property {number|null} rating     Current Elo rating in this game (null without rated sets).
+ * @property {{ date: string|null, dojoId: string|null, tournament: string, rating: number }[]} history
+ *   Rating after every dojo where the player played a rated set, oldest first.
+ * @property {{ date: string|null, dojoId: string|null, tournament: string, entrants: number,
+ *   placement: number|null }[]} results  Every dojo entered in this game, oldest first.
+ * @property {{ opponentId: string, opponentName: string, wins: number, losses: number }[]} headToHead
+ *   Rated sets against each opponent, most played first.
+ */
+
 export {};
