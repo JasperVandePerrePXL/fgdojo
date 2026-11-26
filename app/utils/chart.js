@@ -25,6 +25,28 @@ export function niceScale(value, count = 4) {
   return { max: steps * step, ticks: Array.from({ length: steps + 1 }, (_, i) => i * step) };
 }
 
+/**
+ * Y scale that fits `min`..`max` with "nice" steps, for values far from 0 (e.g. Elo ratings around 1500).
+ * Falls back to niceScale (starting at 0) when `min` is 0 or less.
+ * @returns {{ min: number, max: number, ticks: number[] }}
+ */
+export function niceRange(min, max, count = 4) {
+  if (!(min > 0)) return { min: 0, ...niceScale(max, count) };
+  // Values (almost) equal: widen a little so a flat line sits in the middle. Steps are whole numbers.
+  if (max - min < 2 * count) [min, max] = [min - count, max + count];
+  const power = Math.max(1, 10 ** Math.floor(Math.log10((max - min) / count)));
+  const step = [1, 2, 5, 10, 20]
+    .map((factor) => factor * power)
+    .find((candidate) => Math.ceil(max / candidate) - Math.floor(min / candidate) <= count + 1);
+  const low = Math.floor(min / step) * step;
+  const steps = Math.max(1, Math.ceil(max / step) - Math.floor(min / step));
+  return {
+    min: low,
+    max: low + steps * step,
+    ticks: Array.from({ length: steps + 1 }, (_, i) => low + i * step),
+  };
+}
+
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 /** `2025-03-09` -> `Mar '25`; '' when there is no date. */

@@ -50,6 +50,10 @@ function createPool() {
       a.sets += 1;
       b.sets += 1;
     },
+    /** Current rating of one player, rounded (START_RATING when unknown). */
+    ratingOf(id) {
+      return Math.round(players.get(id)?.rating ?? START_RATING);
+    },
     /** Current ratings, rounded, by player ID. */
     snapshot() {
       return new Map([...players].map(([id, { rating }]) => [id, Math.round(rating)]));
@@ -57,21 +61,41 @@ function createPool() {
   };
 }
 
-/** Applies every rated set of one event to the overall pool and to the pool of its game. */
+/**
+ * Applies every rated set of one event to the overall pool and to the pool of its game.
+ * @returns {Set<string>} IDs of the players who played at least one rated set in the event.
+ */
 function recordEvent(event, overall, gamePool) {
+  const played = new Set();
   const hidden = hiddenPlayerIds(event);
   const entrants = event.entrants?.nodes?.length ?? event.entrants?.pageInfo?.total ?? 0;
   const sizeWeight = bracketFactor(entrants);
 
   for (const set of event.sets?.nodes ?? []) {
-    const played = readSet(set);
-    if (!played || hidden.has(played.p1) || hidden.has(played.p2)) continue;
-    const [winnerScore, loserScore] = played.p1Won
-      ? [played.score1, played.score2]
-      : [played.score2, played.score1];
+    const result = readSet(set);
+    if (!result || hidden.has(result.p1) || hidden.has(result.p2)) continue;
+    const [winnerScore, loserScore] = result.p1Won
+      ? [result.score1, result.score2]
+      : [result.score2, result.score1];
     const weight = sizeWeight * marginFactor(winnerScore, loserScore);
-    overall.record(played.p1, played.p2, played.p1Won, weight);
-    gamePool?.record(played.p1, played.p2, played.p1Won, weight);
+    overall.record(result.p1, result.p2, result.p1Won, weight);
+    gamePool?.record(result.p1, result.p2, result.p1Won, weight);
+    played.add(result.p1).add(result.p2);
+  }
+  return played;
+}
+
+/** Adds the rating after this dojo to the history of every player who played in it. */
+function recordHistory(historyByGame, gameId, pool, playerIds, tournament) {
+  if (!historyByGame.has(gameId)) historyByGame.set(gameId, new Map());
+  const history = historyByGame.get(gameId);
+  for (const id of playerIds) {
+    if (!history.has(id)) history.set(id, []);
+    history.get(id).push({
+      startAt: tournament?.startAt ?? 0,
+      dojoId: tournament?.slug ?? null,
+      rating: pool.ratingOf(id),
+    });
   }
 }
 
@@ -82,9 +106,19 @@ function recordEvent(event, overall, gamePool) {
  */
 
 /**
+ * One point of a player's rating history in one game: the rating after a dojo.
+ * @typedef {object} RatingPoint
+ * @property {number} startAt   Tournament start (Unix seconds).
+ * @property {string|null} dojoId  Tournament slug.
+ * @property {number} rating    Rating in that game after the dojo, rounded.
+ */
+
+/**
  * Runs all seasons in order and records the ratings at the end of each season.
  * @param {{ seasonId: number, events: object[] }[]} seasons In chronological order.
- * @returns {{ bySeason: Map<number, RatingSnapshot>, final: RatingSnapshot }}
+ * @returns {{ bySeason: Map<number, RatingSnapshot>, final: RatingSnapshot,
+ *   historyByGame: Map<string, Map<string, RatingPoint[]>> }}
+ *   `historyByGame`: per game and player, the rating after every dojo where the player played a rated set.
  */
 export function computeRatings(seasons) {
   const overall = createPool();
@@ -95,14 +129,16 @@ export function computeRatings(seasons) {
   });
 
   const bySeason = new Map();
+  const historyByGame = new Map(); // videogame ID -> player ID -> RatingPoint[]
   for (const { seasonId, events } of seasons) {
     const ordered = [...events].sort((a, b) => (a.tournament?.startAt ?? 0) - (b.tournament?.startAt ?? 0));
     for (const event of ordered) {
       const gameId = event.videogame?.id == null ? null : String(event.videogame.id);
       if (gameId && !games.has(gameId)) games.set(gameId, createPool());
-      recordEvent(event, overall, gameId ? games.get(gameId) : null);
+      const played = recordEvent(event, overall, gameId ? games.get(gameId) : null);
+      if (gameId) recordHistory(historyByGame, gameId, games.get(gameId), played, event.tournament);
     }
     bySeason.set(seasonId, snapshot());
   }
-  return { bySeason, final: snapshot() };
+  return { bySeason, final: snapshot(), historyByGame };
 }

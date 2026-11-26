@@ -42,6 +42,9 @@ data/tournament_slugs.json + data/games.json
 - **Next-event automation** (`src/next_event/`): follows `https://start.gg/RBHubFGDojo` to get the current slug, looks up its start date, falls back to name search. Season = Brussels-time year − 2025. May add a tournament and set `nextEventUrl`; must never add or change game IDs. `config_update.js` is pure and tested.
 - **Frontend** (`app/`): `index.html` at repo root loads `app/main.js`. `App.vue` only composes components; all state and derived values (ranking order, hero numbers, `allTimeFunStats`) live in the Pinia store `app/stores/leaderboard.js`. Components take props and emit events. All CSS in `app/styles.css` (keep mobile layouts working).
 - **Stats page** (`/stats.html`, "Stats" button in the leaderboard's top bar, second Vite input in `vite.config.js`): `src/stats/site_stats.js` → `public/data/stats.json` → `app/stats/StatsPage.vue` + `app/stores/stats.js`. Charts are hand-made SVG in `app/components/charts/` (no chart library); series colors are `--series-1..5` in `styles.css`, validated for CVD on the dark panel — keep game colors in first-appearance order. A page-wide period filter (`app/utils/ranges.js`, `selectedRange` in the store) filters dojos client-side; rivalries stay all-time. Tables use `PaginatedTable.vue` (10 rows/page).
+- **Player pages** (`/player.html?id=…&game=…`, third Vite input; names in the ranking and opponents link there): `src/stats/player_profiles.js` (+ `historyByGame` from `computeRatings`) → `public/data/players.json` → `app/player/PlayerPage.vue` + `app/stores/player.js`. Per game: Elo history, head-to-head, dojo results. Hidden players get no page.
+- **Next dojo card** (`UpcomingDojo.vue` on the rankings page): `src/stats/upcoming_dojo.js` picks the earliest configured tournament without any played set, dated today or later, from the unfiltered events → `upcomingDojo` in `leaderboards.json`; the browser hides it after the dojo day (`app/utils/upcoming.js`).
+- **Shareable selection**: the leaderboard store reads `?season=&game=` before localStorage and writes them with `history.replaceState` on change (`app/utils/url.js`).
 - **Paths**: all file paths come from `src/lib/paths.js`; read JSON through `src/lib/json.js`. Dates use Brussels time (`src/lib/dates.js`).
 
 ## Conventions
@@ -50,7 +53,7 @@ data/tournament_slugs.json + data/games.json
 - Small pure functions with a short JSDoc comment; I/O stays at the edges (`pipeline/`, `startgg/`, `storage/`). Logic that needs I/O takes it as injected parameters so tests can use fakes.
 - Prettier formats code (single quotes, width 110); `data/`, `public/data/` and `*.md` are excluded. LF line endings via `.gitattributes`.
 - Tests: `node:test` + `node:assert/strict`. Leaderboard/ranking → `tests/leaderboard.test.js`; season/game config → `tests/tournament_config.test.js`; fetch rules → `tests/event_fetcher.test.js`. `tests/leaderboard.test.js` relies on the real `data/hidden_players.json` containing "HM! | Biscuit".
-- Generated files: `data/events.json`, `public/data/leaderboards.json` (both committed as last-known-good data), `dist/`, `.cache/` (ignored). Never commit `.env` or `.cache/`.
+- Generated files: `data/events.json`, `public/data/leaderboards.json`, `stats.json`, `players.json` (committed as last-known-good data), `dist/`, `.cache/` (ignored). Never commit `.env` or `.cache/`.
 - Keep README.md (counting rules, structure, patterns) and `.github/workflows/` consistent with behavior changes.
 
 ## CI/CD

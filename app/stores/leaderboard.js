@@ -1,7 +1,10 @@
 // Pinia store: loads public/data/leaderboards.json and tracks the selected season and game.
-// The selection is remembered in localStorage between visits.
+// The selection is remembered in localStorage between visits. A link with `?season=…&game=…` opens that
+// selection, and changing the selection updates the address bar so the page can be shared.
 import { defineStore } from 'pinia';
 import { readStorage, writeStorage } from '../utils/storage.js';
+import { readQuery, updateQuery } from '../utils/url.js';
+import { isUpcoming } from '../utils/upcoming.js';
 import { ALL_SEASONS_ID, pickSeason } from '../utils/selection.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 
@@ -11,19 +14,23 @@ const GAME_STORAGE_KEY = 'fgdojo.selectedGame';
 const ALL_GAMES_ID = 'all';
 
 export const useLeaderboardStore = defineStore('leaderboard', {
-  state: () => ({
-    /** The parsed leaderboards.json: `{ nextEventUrl, seasons, combined }`. */
-    bundle: null,
-    nextEventUrl: null,
-    /** Season IDs (numbers), ascending. */
-    seasons: [],
-    selectedSeason: readStorage(SEASON_STORAGE_KEY),
-    selectedGame: readStorage(GAME_STORAGE_KEY),
-    /** Games of the selected season (kept in state so the game list updates with the season). */
-    currentGames: [],
-    loading: true,
-    error: null,
-  }),
+  state: () => {
+    const query = readQuery(window.location.search);
+    return {
+      /** The parsed leaderboards.json: `{ nextEventUrl, upcomingDojo, seasons, combined }`. */
+      bundle: null,
+      nextEventUrl: null,
+      /** Season IDs (numbers), ascending. */
+      seasons: [],
+      // A shared link wins over the remembered selection; invalid values fall back in load().
+      selectedSeason: query.season ?? readStorage(SEASON_STORAGE_KEY),
+      selectedGame: query.game ?? readStorage(GAME_STORAGE_KEY),
+      /** Games of the selected season (kept in state so the game list updates with the season). */
+      currentGames: [],
+      loading: true,
+      error: null,
+    };
+  },
 
   getters: {
     /** The full leaderboard object of the selected season. */
@@ -41,6 +48,16 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     },
     games(state) {
       return state.currentGames;
+    },
+    /** Game ID for player page links; null for the "All games" pseudo game of seasons without games. */
+    rankingGameId() {
+      const gameId = this.gameData?.gameId;
+      return gameId == null || gameId === ALL_GAMES_ID ? null : String(gameId);
+    },
+    /** The next dojo card: null when there is none or its date has passed since the last build. */
+    upcomingDojo(state) {
+      const dojo = state.bundle?.upcomingDojo;
+      return dojo && isUpcoming(dojo.date, new Date()) ? dojo : null;
     },
     /** The selected game, or the first game when the selection is no longer valid. */
     gameData(state) {
@@ -130,11 +147,22 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       writeStorage(SEASON_STORAGE_KEY, this.selectedSeason);
       this.refreshCurrentGames();
       this.ensureValidGame();
+      this.updateAddress();
     },
 
     setGame(gameId) {
       this.selectedGame = String(gameId);
       writeStorage(GAME_STORAGE_KEY, this.selectedGame);
+      this.updateAddress();
+    },
+
+    /** Puts the selection in the address bar (without a page reload or a new history entry). */
+    updateAddress() {
+      const query = updateQuery(window.location.search, {
+        season: this.selectedSeason,
+        game: this.selectedGame,
+      });
+      window.history.replaceState(null, '', `${window.location.pathname}${query}${window.location.hash}`);
     },
 
     /** Loads the games of the selected season, or one "All games" entry when there is no breakdown. */
