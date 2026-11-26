@@ -174,7 +174,7 @@ src/                         Node.js code (ES modules)
 data/                        configuration (edited by hand) and raw data (generated)
 public/                      static files copied into the site; public/data/leaderboards.json is generated
 tests/                       Node test suite
-.github/workflows/           test, deploy, refresh-leaderboard, update-next-event
+.github/workflows/           test, deploy, update-next-event
 ```
 
 Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/data/stats.json`, `dist/` and `.cache/`.
@@ -291,11 +291,12 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 | Workflow | Runs | What it does |
 | --- | --- | --- |
 | `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm run lint`, `npm run format:check` and `npm test`. |
-| `deploy.yml` | Pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, other assets with a 5 minute cache. |
-| `refresh-leaderboard.yml` | Sundays and Mondays 20:00 UTC; manual | Same build and deploy as above, so new results appear after the weekend. Falls back to cached data when start.gg is unavailable. |
+| `deploy.yml` | Pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; Sundays and Mondays 20:00 UTC; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, `data/*.json` with `no-cache` (browsers revalidate with the ETag and get a cheap 304 when nothing changed), other assets with a 5 minute cache. The scheduled run makes new results appear after the weekend and falls back to cached data when start.gg is unavailable. |
 | `update-next-event.yml` | Sundays and Mondays 21:00 UTC; manual | Next-event automation described above; deploys when it changed something. |
 
 Workflows use concurrency groups so runs of the same kind do not overlap, and the start.gg cache is restored between runs.
+Dependencies are installed with `npm ci`, so `package-lock.json` must be committed in sync with `package.json` (run `npm install` after changing dependencies).
+Third-party actions are pinned to a full commit SHA (with the version in a comment); Dependabot (`.github/dependabot.yml`) opens a PR when a new version is released.
 
 ### GitHub secrets
 

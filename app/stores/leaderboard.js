@@ -104,8 +104,8 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       this.loading = true;
       this.error = null;
       try {
-        // The timestamp avoids a stale cached copy after a new deployment.
-        const response = await fetch(`/data/leaderboards.json?v=${Date.now()}`);
+        // The deploy serves /data/ with no-cache, so the browser revalidates (cheap 304) instead of re-downloading.
+        const response = await fetch('/data/leaderboards.json');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         this.bundle = await response.json();
