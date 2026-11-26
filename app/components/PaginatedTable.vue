@@ -3,6 +3,7 @@
 // Goes back to page 1 when the rows change (e.g. another date range is selected).
 import { computed, ref, watch } from 'vue';
 import { PAGE_SIZE, paginate } from '../utils/pagination.js';
+import PagerNav from './PagerNav.vue';
 
 const props = defineProps({
   /** `{ key, label }[]`. */
@@ -41,11 +42,5 @@ const view = computed(() => paginate(props.rows, page.value, props.pageSize));
       </tbody>
     </table>
   </div>
-  <nav v-if="view.pageCount > 1" class="pager" :aria-label="`${label} pages`">
-    <button type="button" :disabled="view.page === 1" @click="page = view.page - 1">‹ Previous</button>
-    <span aria-live="polite">{{ view.first }}–{{ view.last }} of {{ view.total }}</span>
-    <button type="button" :disabled="view.page === view.pageCount" @click="page = view.page + 1">
-      Next ›
-    </button>
-  </nav>
+  <PagerNav :view="view" :label="`${label} pages`" @page="page = $event" />
 </template>
