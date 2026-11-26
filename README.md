@@ -142,7 +142,8 @@ history from `computeRatings` in `elo.js`) and written to `public/data/players.j
 ## Rankings page extras
 
 - **Paging**: the ranking shows 10 players per page (rank numbers stay the real position) and the event history
-  6 dojo events per page, newest first. Both go back to page 1 when another season or game is chosen. Page sizes:
+  8 dojo events per page on a computer and 5 on a phone (760px and narrower), newest first. Both go back to
+  page 1 when another season or game is chosen. Page sizes:
   `RANKING_PAGE_SIZE` in `PlayerRanking.vue`, `HISTORY_PAGE_SIZE` in `EventHistory.vue`; the previous/next buttons
   are `PagerNav.vue`, shared with every paged table.
 
