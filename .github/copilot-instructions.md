@@ -21,7 +21,7 @@
 - Never commit `.env`, API keys, or `.cache/` contents. Use `STARTGG_KEY` locally; `STARTGG_API_KEY` is also supported.
 - Treat `data/events.json`, `public/data/leaderboards.json`, and `dist/` as generated or refreshed output. Preserve last-known-good data when the start.gg API is unavailable.
 - Do not bypass the client’s request throttling, retry, cache, or graceful fallback behavior when changing data fetching.
-- Automatic next-event discovery (`src/next_event/`, run by `update-next-event.yml` on Sundays and Mondays) follows the hub link `https://start.gg/RBHubFGDojo`, may update `nextEventUrl` and add a verified tournament, and must not discover or change game IDs; all game additions remain manual in `data/games.json`.
+- Automatic next-event discovery (`src/next_event/`, run by `update-next-event.yml` on Saturdays, Sundays and Mondays) follows the hub link `https://start.gg/RBHubFGDojo`, may update `nextEventUrl` and add a verified tournament, and must not discover or change game IDs; all game additions remain manual in `data/games.json`.
 
 ## Build and Test
 
