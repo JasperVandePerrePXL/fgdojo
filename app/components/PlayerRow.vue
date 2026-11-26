@@ -14,7 +14,7 @@ defineProps({
 </script>
 
 <template>
-  <li class="card row">
+  <li class="card row" :class="rank <= 3 ? `top-${rank}` : null">
     <span class="rank">{{ rank }}</span>
     <span class="player"
       ><a class="player-link" :href="playerUrl(player.playerId, gameId)">{{ player.displayName }}</a></span

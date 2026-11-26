@@ -243,13 +243,13 @@ a {
   color: var(--muted);
   text-align: center;
 }
-.row:nth-child(1) .rank {
+.row.top-1 .rank {
   color: var(--yellow);
 }
-.row:nth-child(2) .rank {
+.row.top-2 .rank {
   color: #c8d1df;
 }
-.row:nth-child(3) .rank {
+.row.top-3 .rank {
   color: #d99a72;
 }
 .player {

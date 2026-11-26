@@ -141,6 +141,11 @@ history from `computeRatings` in `elo.js`) and written to `public/data/players.j
 
 ## Rankings page extras
 
+- **Paging**: the ranking shows 10 players per page (rank numbers stay the real position) and the event history
+  6 dojo events per page, newest first. Both go back to page 1 when another season or game is chosen. Page sizes:
+  `RANKING_PAGE_SIZE` in `PlayerRanking.vue`, `HISTORY_PAGE_SIZE` in `EventHistory.vue`; the previous/next buttons
+  are `PagerNav.vue`, shared with every paged table.
+
 - **Next dojo card** (see [Live updates](#live-updates)): above the leaderboard, from `public/data/next-dojo.json`.
   - Before the dojo, and on the dojo day until sign-ups close at 13:58: "Next dojo" with the date, sign-ups per
     game and a "Sign up on start.gg" button.
@@ -182,7 +187,7 @@ app/                         Vue 3 + Pinia website
   components/                  one component per visible block of the page
     AppHeader, HeroSection, RankingControls, SummaryMetrics,
     UpcomingDojo, PlayerRanking → PlayerRow, HighlightsPanel → HighlightList,
-    EventHistory, HeadToHeadList (player page), AppFooter
+    EventHistory, HeadToHeadList (player page), PaginatedTable, PagerNav, AppFooter
     charts/                      SVG charts: LineChart, StackedBarChart, DonutChart, ChartFrame (title, legend, table)
   stores/leaderboard.js        Pinia store: loads the JSON, season/game selection, derived values
   stores/stats.js              Pinia store of the stats page: loads stats.json, shapes the chart data
