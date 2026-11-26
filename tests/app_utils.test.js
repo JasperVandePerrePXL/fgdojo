@@ -110,12 +110,3 @@ test('ordinal placements', () => {
     '101st',
   ]);
 });
-
-import { isUpcoming } from '../app/utils/upcoming.js';
-
-test('the next dojo card shows until the end of the dojo day in Brussels', () => {
-  assert.equal(isUpcoming('2026-11-28', new Date('2026-11-27T12:00:00Z')), true);
-  assert.equal(isUpcoming('2026-11-28', new Date('2026-11-28T22:30:00Z')), true); // 23:30 in Brussels
-  assert.equal(isUpcoming('2026-11-28', new Date('2026-11-28T23:30:00Z')), false); // 00:30 the next day
-  assert.equal(isUpcoming(null, new Date()), false);
-});

@@ -4,7 +4,7 @@
 import { defineStore } from 'pinia';
 import { readStorage, writeStorage } from '../utils/storage.js';
 import { readQuery, updateQuery } from '../utils/url.js';
-import { isUpcoming } from '../utils/upcoming.js';
+import { dojoPhase } from '../../shared/dojo_time.js';
 import { ALL_SEASONS_ID, pickSeason } from '../utils/selection.js';
 import { dojoKeyOf } from '../../shared/rules.js';
 
@@ -17,7 +17,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
   state: () => {
     const query = readQuery(window.location.search);
     return {
-      /** The parsed leaderboards.json: `{ nextEventUrl, upcomingDojo, seasons, combined }`. */
+      /** The parsed leaderboards.json: `{ nextEventUrl, seasons, combined }`. */
       bundle: null,
       nextEventUrl: null,
       /** Season IDs (numbers), ascending. */
@@ -29,6 +29,8 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       currentGames: [],
       loading: true,
       error: null,
+      /** The next dojo from public/data/next-dojo.json (refreshed every 30 minutes), or null. */
+      nextDojo: null,
     };
   },
 
@@ -54,10 +56,10 @@ export const useLeaderboardStore = defineStore('leaderboard', {
       const gameId = this.gameData?.gameId;
       return gameId == null || gameId === ALL_GAMES_ID ? null : String(gameId);
     },
-    /** The next dojo card: null when there is none or its date has passed since the last build. */
-    upcomingDojo(state) {
-      const dojo = state.bundle?.upcomingDojo;
-      return dojo && isUpcoming(dojo.date, new Date()) ? dojo : null;
+    /** `upcoming` (sign-ups open), `live` (dojo day after sign-ups close) or null (no card). */
+    nextDojoPhase(state) {
+      const phase = dojoPhase(state.nextDojo, new Date());
+      return phase === 'upcoming' || phase === 'live' ? phase : null;
     },
     /** The selected game, or the first game when the selection is no longer valid. */
     gameData(state) {
@@ -120,6 +122,7 @@ export const useLeaderboardStore = defineStore('leaderboard', {
     async load() {
       this.loading = true;
       this.error = null;
+      this.loadNextDojo();
       try {
         // The deploy serves /data/ with no-cache, so the browser revalidates (cheap 304) instead of re-downloading.
         const response = await fetch('/data/leaderboards.json');
@@ -139,6 +142,16 @@ export const useLeaderboardStore = defineStore('leaderboard', {
         this.error = 'Leaderboard data is temporarily unavailable.';
       } finally {
         this.loading = false;
+      }
+    },
+
+    /** Loads next-dojo.json for the card; without it the page simply shows no card. */
+    async loadNextDojo() {
+      try {
+        const response = await fetch('/data/next-dojo.json');
+        if (response.ok) this.nextDojo = (await response.json()).nextDojo ?? null;
+      } catch {
+        this.nextDojo = null;
       }
     },
 

@@ -3,3 +3,5 @@ dist/
 .env
 .cache/
 seeding/
+# Made by `npm run next-dojo`; on the site it is updated only by the next-dojo workflow.
+public/data/next-dojo.json

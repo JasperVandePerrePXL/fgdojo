@@ -1,32 +1,5 @@
 {
   "nextEventUrl": null,
-  "upcomingDojo": {
-    "name": "Fighting Game Dojo - November edition",
-    "url": "https://www.start.gg/tournament/fighting-game-dojo-november-edition-1",
-    "date": "2026-11-28",
-    "games": [
-      {
-        "gameName": "Street Fighter 6",
-        "entrants": 9
-      },
-      {
-        "gameName": "TEKKEN 8",
-        "entrants": 2
-      },
-      {
-        "gameName": "Guilty Gear: Strive",
-        "entrants": 10
-      },
-      {
-        "gameName": "Avatar Legends: The Fighting Game",
-        "entrants": 2
-      },
-      {
-        "gameName": "Marvel Tokon: Fighting Souls",
-        "entrants": 0
-      }
-    ]
-  },
   "seasons": {
     "0": {
       "seasonId": 0,

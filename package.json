@@ -12,6 +12,7 @@
     "fetch": "node src/pipeline/fetch_tournaments.js",
     "process": "node src/pipeline/process_leaderboard.js",
     "next-event": "node src/next_event/cli.js",
+    "next-dojo": "node src/pipeline/next_dojo.js",
     "seeding": "npm run fetch && node src/cli/seeding.js",
     "build": "npm run fetch && npm run process && vite build",
     "test": "node --test tests/**/*.test.js",

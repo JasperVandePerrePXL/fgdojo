@@ -27,7 +27,8 @@ const {
   gameData,
   rankedPlayers,
   rankingGameId,
-  upcomingDojo,
+  nextDojo,
+  nextDojoPhase,
   dojoCount,
   totalGames,
   totalDojos,
@@ -47,7 +48,7 @@ onMounted(store.load);
   <main id="top">
     <HeroSection :loading="loading" :total-dojos="totalDojos" :latest-players="latestSeasonPlayers" />
 
-    <UpcomingDojo v-if="upcomingDojo" :dojo="upcomingDojo" />
+    <UpcomingDojo v-if="nextDojo && nextDojoPhase" :dojo="nextDojo" :phase="nextDojoPhase" />
 
     <section id="rankings" class="shell section" aria-labelledby="rankings-title">
       <div class="section-head">

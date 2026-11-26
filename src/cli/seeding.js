@@ -1,39 +1,39 @@
 #!/usr/bin/env node
 // Private seeding list for the next dojo. Run it on your own computer; nothing is published or committed.
-// Usage: npm run seeding                      (the tournament the hub link https://start.gg/RBHubFGDojo points to)
-//        npm run seeding -- <slug or start.gg tournament URL>
+// Usage: npm run seeding
 //
-// `npm run seeding` first runs `npm run fetch`, so the ratings include the latest results. This script then
-// downloads the live sign-ups, sorts each game by Elo rating (src/stats/seeding.js), prints the lists and saves
+// `npm run seeding` first runs `npm run fetch`, so the ratings and the list of dojos are up to date. This script
+// then looks up the next dojo on start.gg (lookupNextDojo, the same dojo as the "Next dojo" card on the site),
+// downloads its live sign-ups, sorts each game by Elo rating (src/stats/seeding.js), prints the lists and saves
 // them as seeding/<tournament>.csv (the seeding/ folder is in .gitignore).
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { gql, getKey } from '../startgg/client.js';
 import { SEEDING_QUERY } from '../startgg/queries.js';
-import { findSlugFromHub } from '../next_event/hub.js';
 import { normalizeTournamentSlug, listSeasons } from '../config/tournaments.js';
 import { readRawEvents } from '../storage/raw_events.js';
 import { onlyFinishedEvents } from '../stats/sets.js';
 import { computeRatings } from '../stats/elo.js';
+import { lookupNextDojo } from '../pipeline/next_dojo.js';
 import { buildSeeding, seedingToCsv } from '../stats/seeding.js';
 import { formatBrusselsDate } from '../lib/dates.js';
 import { SEEDING_DIR } from '../lib/paths.js';
 import { isMainModule, loadEnv } from '../lib/cli.js';
 
-/** The tournament slug from the command line (slug or URL), else from the hub link. */
-async function resolveSlug(argument) {
-  if (argument) return normalizeTournamentSlug(argument);
-  const slug = await findSlugFromHub();
-  if (!slug)
-    throw new Error('The hub link did not point to a tournament. Pass a slug: npm run seeding -- <slug>');
-  return slug;
-}
-
-export async function main(argument = process.argv[2]) {
+export async function main() {
   await loadEnv();
   if (!getKey()) throw new Error('STARTGG_KEY is missing: add it to .env (see .env.example).');
 
-  const slug = await resolveSlug(argument);
+  const upcoming = await lookupNextDojo();
+  if (!upcoming) {
+    console.log(
+      '\n⚠ There is no next dojo yet: the last dojo has been played and start.gg has no new one.\n' +
+        '  Run this again once the next dojo is on start.gg (the hub link points to it).',
+    );
+    return;
+  }
+
+  const slug = normalizeTournamentSlug(upcoming.url);
   const { tournament } = await gql(SEEDING_QUERY, { slug: `tournament/${slug}` });
   if (!tournament) throw new Error(`Tournament "${slug}" not found on start.gg.`);
 

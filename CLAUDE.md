@@ -20,10 +20,11 @@ npm run refresh    # fetch + process
 npm run build      # fetch + process + vite build → dist/
 npm start          # vite preview of dist/ on :3000
 npm run next-event # discover newest tournament via hub link, add to data/tournament_slugs.json
+npm run next-dojo  # next dojo from start.gg → public/data/next-dojo.json (card; gitignored)
 npm run seeding    # fetch, then private seeding list (live sign-ups sorted by Elo) → seeding/*.csv (gitignored)
 ```
 
-Don't run API-dependent commands (`fetch`, `build`, `refresh`, `next-event`, `seeding`) without a configured `STARTGG_KEY` (`STARTGG_API_KEY` also accepted). For logic-only changes use the unit tests and `npm run process`; `npx vite build` builds the site without fetching. After changing the output shape, run `npm run process` and commit the regenerated `public/data/leaderboards.json`.
+Don't run API-dependent commands (`fetch`, `build`, `refresh`, `next-event`, `next-dojo`, `seeding`) without a configured `STARTGG_KEY` (`STARTGG_API_KEY` also accepted). For logic-only changes use the unit tests and `npm run process`; `npx vite build` builds the site without fetching. After changing the output shape, run `npm run process` and commit the regenerated `public/data/leaderboards.json`.
 
 ## Architecture
 
@@ -44,10 +45,10 @@ data/tournament_slugs.json + data/games.json
 - **Frontend** (`app/`): `index.html` at repo root loads `app/main.js`. `App.vue` only composes components; all state and derived values (ranking order, hero numbers, `allTimeFunStats`) live in the Pinia store `app/stores/leaderboard.js`. Components take props and emit events. All CSS in `app/styles.css` (keep mobile layouts working).
 - **Stats page** (`/stats.html`, "Stats" button in the leaderboard's top bar, second Vite input in `vite.config.js`): `src/stats/site_stats.js` → `public/data/stats.json` → `app/stats/StatsPage.vue` + `app/stores/stats.js`. Charts are hand-made SVG in `app/components/charts/` (no chart library); series colors are `--series-1..5` in `styles.css`, validated for CVD on the dark panel — keep game colors in first-appearance order. A page-wide period filter (`app/utils/ranges.js`, `selectedRange` in the store) filters dojos client-side; rivalries stay all-time. Tables use `PaginatedTable.vue` (10 rows/page).
 - **Player pages** (`/player.html?id=…&game=…`, third Vite input; names in the ranking and opponents link there): `src/stats/player_profiles.js` (+ `historyByGame` from `computeRatings`) → `public/data/players.json` → `app/player/PlayerPage.vue` + `app/stores/player.js`. Per game: Elo history, head-to-head (top 5 shown), dojo results (5 per page). Hidden players get no page.
-- **Next dojo card** (`UpcomingDojo.vue` on the rankings page): `src/stats/upcoming_dojo.js` picks the earliest configured tournament without any played set, dated today or later, from the unfiltered events → `upcomingDojo` in `leaderboards.json`; the browser hides it after the dojo day (`app/utils/upcoming.js`).
+- **Next dojo card / live updates**: `next-dojo.yml` (every 30 min) runs `npm run next-dojo` (`src/pipeline/next_dojo.js`: hub link → one start.gg call → `toNextDojo` in `src/stats/next_dojo.js`) and uploads `public/data/next-dojo.json` only when changed; it is the only writer of that file (gitignored; deploy excludes it). `shared/dojo_time.js`: `dojoPhase` (upcoming / live from `SIGNUPS_CLOSE` 13:58 / over) and `isResultsRefreshTime` (13:00–23:00 on the dojo day). `deploy.yml` has a Sat/Sun every-30-min schedule whose `dojo-day-gate` job (`src/cli/results_refresh_gate.js`, reads the live JSON) skips the build outside dojo time.
 - **Shareable selection**: the leaderboard store reads `?season=&game=` before localStorage and writes them with `history.replaceState` on change (`app/utils/url.js`).
 - **Merged accounts**: `data/player_aliases.json` (`playerId` + `otherIds`) → `src/config/player_aliases.js`; `getPlayerId` (names.js) returns the main ID (same type as the input), so every statistic merges them. Duplicate IDs throw.
-- **Seeding** (`npm run seeding`, `src/cli/seeding.js` + pure `src/stats/seeding.js`): local only, never in a workflow (public repo → public logs). Writes `seeding/` (gitignored).
+- **Seeding** (`npm run seeding`, `src/cli/seeding.js` + pure `src/stats/seeding.js`): always the next dojo (`lookupNextDojo`, same as the card), else it says there is none; local only, never in a workflow (public repo → public logs). Writes `seeding/` (gitignored).
 - **Paths**: all file paths come from `src/lib/paths.js`; read JSON through `src/lib/json.js`. Dates use Brussels time (`src/lib/dates.js`).
 
 ## Conventions
@@ -63,6 +64,7 @@ data/tournament_slugs.json + data/games.json
 
 - `test.yml`: lint, format check and tests on PRs and pushes to `main`.
 - `deploy.yml`: on push to `main` (path-filtered, includes `app/`, `shared/`, `index.html`), Sun/Mon 20:00 UTC (data refresh) or manual — test, `npm run build`, `aws s3 sync dist` (HTML no-store, `data/` no-cache so browsers revalidate, assets 5 min).
-- `update-next-event.yml` (Sun/Mon 21:00 UTC). The latter commits to `main` and dispatches the deploy workflow itself, since `GITHUB_TOKEN` pushes don't trigger workflows.
+- `update-next-event.yml` (Sun/Mon 21:00 UTC).
+- `next-dojo.yml` (every 30 min): next dojo card, upload only when changed. `deploy.yml` dojo-day schedule (Sat/Sun every 30 min, gated to 13:00–23:00 on the dojo day). The latter commits to `main` and dispatches the deploy workflow itself, since `GITHUB_TOKEN` pushes don't trigger workflows.
 - CI uses Node 22; the start.gg cache is restored between runs via `actions/cache`.
 - Actions are pinned to commit SHAs (`# vX.Y.Z` comment); Dependabot updates them. CI installs with `npm ci`.

@@ -131,3 +131,24 @@ export const SEEDING_QUERY = `query Seeding($slug: String!) {
     }
   }
 }`;
+
+/** The next dojo for the rankings page card: name, date and sign-ups per game (src/pipeline/next_dojo.js). */
+export const NEXT_DOJO_QUERY = `query NextDojo($slug: String!) {
+  tournament(slug: $slug) {
+    name
+    slug
+    startAt
+    events {
+      name
+      slug
+      videogame {
+        name
+      }
+      entrants(query: { perPage: 1 }) {
+        pageInfo {
+          total
+        }
+      }
+    }
+  }
+}`;

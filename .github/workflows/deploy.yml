@@ -19,6 +19,9 @@ on:
   schedule:
     # Refresh start.gg data on Sunday and Monday at 20:00 UTC (tournaments are on weekends).
     - cron: '0 20 * * 0,1'
+    # Dojo day: every 30 minutes on Saturdays and Sundays; the gate job below only lets a run through on the
+    # dojo day between 13:00 and 23:00 Brussels time (11:00-22:59 UTC covers summer and winter time).
+    - cron: '*/30 11-22 * * 0,6'
   workflow_dispatch:
 
 concurrency:
@@ -29,8 +32,32 @@ permissions:
   contents: read
 
 jobs:
+  dojo-day-gate:
+    name: Is it dojo time?
+    # Only for the dojo-day schedule; pushes, manual runs and the Sun/Mon refresh skip this check.
+    if: github.event.schedule == '*/30 11-22 * * 0,6'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    outputs:
+      refresh: ${{ steps.gate.outputs.refresh }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+
+      - name: Check the live next-dojo.json
+        id: gate
+        run: node src/cli/results_refresh_gate.js https://fgdojo.stek.world
+
   build-and-deploy:
     name: Build and deploy to S3
+    needs: dojo-day-gate
+    # Runs for every trigger except a dojo-day schedule run outside dojo time.
+    if: always() && (needs.dojo-day-gate.result == 'skipped' || needs.dojo-day-gate.outputs.refresh == 'true')
     runs-on: ubuntu-22.04
     timeout-minutes: 30
 
@@ -73,8 +100,9 @@ jobs:
       - name: Deploy HTML without stale caching
         run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*" --include "*.html" --cache-control "no-cache, no-store, must-revalidate"
 
+      # data/next-dojo.json is excluded (never uploaded or deleted here): the next-dojo workflow owns it.
       - name: Deploy data so browsers always revalidate it
-        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*" --include "data/*" --cache-control "no-cache"
+        run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*" --include "data/*" --exclude "data/next-dojo.json" --cache-control "no-cache"
 
       - name: Deploy static assets
         run: aws s3 sync dist s3://fgdojo.stek.world --delete --exclude "*.html" --exclude "data/*" --cache-control "public, max-age=300"
