@@ -2,8 +2,9 @@ name: Update next Fighting Game Dojo event
 
 on:
   schedule:
-    # Sunday and Monday, one hour after the leaderboard refresh (tournaments are always on the weekend)
-    - cron: '0 21 * * 0,1'
+    # Saturday, Sunday and Monday, one hour after the results refresh (dojos are on Saturday or Sunday), so the
+    # next dojo (e.g. December after the November dojo) is added to data/tournament_slugs.json right away.
+    - cron: '0 21 * * 6,0,1'
   workflow_dispatch:
 
 concurrency:

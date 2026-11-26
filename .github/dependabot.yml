@@ -11,3 +11,7 @@ updates:
     groups:
       dependencies:
         patterns: ['*']
+    ignore:
+      # graphql-request (the start.gg client) only supports graphql 14-16; allow graphql 17 once it does.
+      - dependency-name: graphql
+        update-types: ['version-update:semver-major']
