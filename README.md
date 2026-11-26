@@ -38,6 +38,7 @@ Never commit `.env`: it contains your API key and is listed in `.gitignore`.
 | `npm run build` | `fetch` + `process` + `vite build` → the complete site in `dist/`. |
 | `npm run refresh` | `fetch` + `process` only (quick data refresh, no site build). |
 | `npm run next-event` | Looks up the latest tournament via the hub link and adds it to `data/tournament_slugs.json` (see [Next-event automation](#next-event-automation)). |
+| `npm run seeding` | Private seeding list for the next dojo: live sign-ups per game sorted by Elo, printed and saved to `seeding/` (see [Seeding (private)](#seeding-private)). Needs `STARTGG_KEY`. |
 | `npm run dev` | Vite development server with hot reload. |
 | `npm start` | Serves the built `dist/` folder with `vite preview` on port 3000. Run `npm run build` first. |
 | `npm test` | Runs the Node.js test suite. |
@@ -222,6 +223,7 @@ Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/da
 | `data/tournament_slugs.json` | Seasons and tournaments (manual, plus automatic additions by the next-event script). Also holds `nextEventUrl` and `defaultGames`. |
 | `data/games.json` | Game registry: game ID → display name and known start.gg event slug variants. |
 | `data/hidden_players.json` | Players removed from every ranking and winner display. |
+| `data/player_aliases.json` | start.gg accounts that belong to the same player; merged everywhere. |
 | `.env` | `STARTGG_KEY` for local runs (never committed). `STARTGG_API_KEY` is accepted as an alternative name. |
 
 ## Maintenance
@@ -273,6 +275,37 @@ Edit `data/hidden_players.json`:
 ```
 
 `displayNames` must match the name shown on the site (case-insensitive); `playerIds` are stable start.gg player IDs. Hidden players are removed before any player, ranking, game or winner statistic is calculated.
+
+### Merge two accounts of the same player
+
+When one person signed up with two start.gg accounts, their results, rating and player page are split. Edit
+`data/player_aliases.json`:
+
+```json
+{ "players": [{ "playerId": "1287124", "otherIds": ["2353012"], "note": "LikeHere / LykeHere" }] }
+```
+
+`playerId` is the main account; every ID in `otherIds` counts as that player everywhere (ranking, Elo, highlights,
+stats page, player pages, seeding). The name from the most recent dojo is shown. A player ID listed twice stops
+`npm run process` with an error, so a typo cannot merge the wrong people. Find IDs in `data/events.json`
+(`participants[].player.id`) or in a player page link (`player.html?id=…`). `getPlayerId` in `src/stats/names.js`
+applies the merge (`src/config/player_aliases.js`).
+
+### Seeding (private)
+
+`npm run seeding` makes a seeding list for the next dojo on your own computer; nothing is published or committed.
+
+1. It runs `npm run fetch` first, so the ratings include the latest results (needs `STARTGG_KEY` in `.env`).
+2. It takes the tournament the hub link `https://start.gg/RBHubFGDojo` points to, or the one you pass:
+   `npm run seeding -- fighting-game-dojo-december-edition` (a start.gg tournament URL works too).
+3. It downloads the live sign-ups of every game and sorts them by the current Elo rating in that game
+   (ties by name). Players without a rating (no rated set in that game yet, or hidden players) come last in
+   sign-up order: seed them by hand.
+4. It prints the lists and saves `seeding/<tournament>.csv` (Game, Seed, Player, Rating, start.gg player ID).
+   `seeding/` is in `.gitignore`.
+
+The sorting is `buildSeeding` in `src/stats/seeding.js` (tested in `tests/seeding.test.js`). Don't run it in a
+GitHub workflow: the repository is public, so workflow logs and summaries are public too.
 
 ### Next-event automation
 

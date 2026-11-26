@@ -20,9 +20,10 @@ npm run refresh    # fetch + process
 npm run build      # fetch + process + vite build → dist/
 npm start          # vite preview of dist/ on :3000
 npm run next-event # discover newest tournament via hub link, add to data/tournament_slugs.json
+npm run seeding    # fetch, then private seeding list (live sign-ups sorted by Elo) → seeding/*.csv (gitignored)
 ```
 
-Don't run API-dependent commands (`fetch`, `build`, `refresh`, `next-event`) without a configured `STARTGG_KEY` (`STARTGG_API_KEY` also accepted). For logic-only changes use the unit tests and `npm run process`; `npx vite build` builds the site without fetching. After changing the output shape, run `npm run process` and commit the regenerated `public/data/leaderboards.json`.
+Don't run API-dependent commands (`fetch`, `build`, `refresh`, `next-event`, `seeding`) without a configured `STARTGG_KEY` (`STARTGG_API_KEY` also accepted). For logic-only changes use the unit tests and `npm run process`; `npx vite build` builds the site without fetching. After changing the output shape, run `npm run process` and commit the regenerated `public/data/leaderboards.json`.
 
 ## Architecture
 
@@ -45,6 +46,8 @@ data/tournament_slugs.json + data/games.json
 - **Player pages** (`/player.html?id=…&game=…`, third Vite input; names in the ranking and opponents link there): `src/stats/player_profiles.js` (+ `historyByGame` from `computeRatings`) → `public/data/players.json` → `app/player/PlayerPage.vue` + `app/stores/player.js`. Per game: Elo history, head-to-head (top 5 shown), dojo results (5 per page). Hidden players get no page.
 - **Next dojo card** (`UpcomingDojo.vue` on the rankings page): `src/stats/upcoming_dojo.js` picks the earliest configured tournament without any played set, dated today or later, from the unfiltered events → `upcomingDojo` in `leaderboards.json`; the browser hides it after the dojo day (`app/utils/upcoming.js`).
 - **Shareable selection**: the leaderboard store reads `?season=&game=` before localStorage and writes them with `history.replaceState` on change (`app/utils/url.js`).
+- **Merged accounts**: `data/player_aliases.json` (`playerId` + `otherIds`) → `src/config/player_aliases.js`; `getPlayerId` (names.js) returns the main ID (same type as the input), so every statistic merges them. Duplicate IDs throw.
+- **Seeding** (`npm run seeding`, `src/cli/seeding.js` + pure `src/stats/seeding.js`): local only, never in a workflow (public repo → public logs). Writes `seeding/` (gitignored).
 - **Paths**: all file paths come from `src/lib/paths.js`; read JSON through `src/lib/json.js`. Dates use Brussels time (`src/lib/dates.js`).
 
 ## Conventions

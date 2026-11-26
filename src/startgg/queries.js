@@ -101,3 +101,33 @@ export const TOURNAMENTS_BY_NAME_QUERY = `query($page: Int!) {
     nodes { name slug startAt }
   }
 }`;
+
+/** Live sign-ups of every event of one tournament, for the local seeding list (`npm run seeding`). */
+export const SEEDING_QUERY = `query Seeding($slug: String!) {
+  tournament(slug: $slug) {
+    name
+    slug
+    startAt
+    events {
+      id
+      name
+      videogame {
+        id
+        name
+      }
+      entrants(query: { perPage: 200 }) {
+        nodes {
+          name
+          participants {
+            id
+            gamerTag
+            prefix
+            player {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}`;

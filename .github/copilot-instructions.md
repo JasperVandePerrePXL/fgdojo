@@ -11,6 +11,8 @@
 - `data/tournament_slugs.json` is the source of truth for seasons and tournament slugs (manual, plus automatic additions by `src/next_event/`). Enter only the tournament slug and game IDs there.
 - `data/games.json` owns the game registry and known start.gg event-slug variants.
 - `data/hidden_players.json` owns display names/player IDs excluded from public rankings and winner displays.
+- `data/player_aliases.json` merges start.gg accounts of the same player (applied in `getPlayerId`, `src/stats/names.js`).
+- `npm run seeding` (`src/cli/seeding.js`) makes a private seeding list on a TO's computer; never run it in a workflow, because the repository and its logs are public.
 - `src/config/tournaments.js` normalizes tournament slugs/URLs and expands game IDs into full event candidates.
 
 ## Data and Secrets
