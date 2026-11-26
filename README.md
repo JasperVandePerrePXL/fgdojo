@@ -128,9 +128,9 @@ one game at a time (tabs when the player entered several games):
 - the current rating, number of dojos and sets won–lost in that game;
 - **Rating over time**: the Elo rating in that game after every dojo where the player played a rated set, across
   all seasons (the same rating as the ranking; see [Counting rules](#counting-rules));
-- **Head-to-head**: rated sets won and lost against every opponent, most played first; opponent names link to
-  their own page;
-- **Dojo results**: placement and bracket size at every dojo entered, newest first.
+- **Head-to-head**: rated sets won and lost against the 5 most played opponents (`TOP_COUNT` in
+  `HeadToHeadList.vue`; `players.json` holds every opponent); opponent names link to their own page;
+- **Dojo results**: placement and bracket size at every dojo entered, newest first, 5 per page.
 
 Switching games updates the address bar, so the link can be shared. Hidden players have no page and are left out
 of every head-to-head record. The data is built by `buildPlayerProfiles` in `src/stats/player_profiles.js` (rating

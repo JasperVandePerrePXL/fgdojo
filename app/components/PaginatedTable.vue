@@ -1,8 +1,8 @@
 <script setup>
-// Table with 10 rows per page and previous/next buttons. The first column is the row header.
+// Table with 10 rows per page (or `pageSize`) and previous/next buttons. The first column is the row header.
 // Goes back to page 1 when the rows change (e.g. another date range is selected).
 import { computed, ref, watch } from 'vue';
-import { paginate } from '../utils/pagination.js';
+import { PAGE_SIZE, paginate } from '../utils/pagination.js';
 
 const props = defineProps({
   /** `{ key, label }[]`. */
@@ -11,6 +11,8 @@ const props = defineProps({
   rows: { type: Array, required: true },
   /** Accessible name of the table. */
   label: { type: String, required: true },
+  /** Rows per page. */
+  pageSize: { type: Number, default: PAGE_SIZE },
 });
 
 const page = ref(1);
@@ -18,7 +20,7 @@ watch(
   () => props.rows,
   () => (page.value = 1),
 );
-const view = computed(() => paginate(props.rows, page.value));
+const view = computed(() => paginate(props.rows, page.value, props.pageSize));
 </script>
 
 <template>
