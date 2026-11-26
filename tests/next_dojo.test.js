@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { toNextDojo } from '../src/stats/next_dojo.js';
-import { brusselsNow, dojoPhase, isResultsRefreshTime } from '../shared/dojo_time.js';
+import { brusselsNow, dojoPhase } from '../shared/dojo_time.js';
 
 // Saturday 28 November 2026, 00:00 in Brussels (start.gg stores the dojo start as midnight).
 const NOV_28 = Date.UTC(2026, 10, 27, 23) / 1000;
@@ -59,13 +59,7 @@ test('dojoPhase: upcoming until sign-ups close at 13:58 on the day, then live, t
   assert.equal(dojoPhase({ date: '2027-06-12' }, new Date('2027-06-12T11:58:00Z')), 'live');
 });
 
-test('results refresh only on the dojo day from 13:00 to 23:00 Brussels time', () => {
-  const dojo = { date: '2026-11-28' };
-  assert.equal(isResultsRefreshTime(dojo, new Date('2026-11-28T11:59:00Z')), false); // 12:59
-  assert.equal(isResultsRefreshTime(dojo, new Date('2026-11-28T12:00:00Z')), true); // 13:00
-  assert.equal(isResultsRefreshTime(dojo, new Date('2026-11-28T21:59:00Z')), true); // 22:59
-  assert.equal(isResultsRefreshTime(dojo, new Date('2026-11-28T22:00:00Z')), false); // 23:00
-  assert.equal(isResultsRefreshTime(dojo, new Date('2026-11-29T14:00:00Z')), false); // next day
-  assert.equal(isResultsRefreshTime(null, new Date()), false);
+test('brusselsNow gives the date and time in Brussels', () => {
   assert.deepEqual(brusselsNow(new Date('2026-11-28T00:30:00Z')), { date: '2026-11-28', time: '01:30' });
+  assert.deepEqual(brusselsNow(new Date('2027-06-12T11:58:00Z')), { date: '2027-06-12', time: '13:58' });
 });

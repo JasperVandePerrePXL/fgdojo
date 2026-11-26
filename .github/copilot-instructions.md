@@ -12,7 +12,7 @@
 - `data/games.json` owns the game registry and known start.gg event-slug variants.
 - `data/hidden_players.json` owns display names/player IDs excluded from public rankings and winner displays.
 - `data/player_aliases.json` merges start.gg accounts of the same player (applied in `getPlayerId`, `src/stats/names.js`).
-- The Next dojo card reads `public/data/next-dojo.json`, written only by `next-dojo.yml` (every 30 minutes, `npm run next-dojo`); dojo phases and times are in `shared/dojo_time.js`. `deploy.yml` also refreshes results every 30 minutes on the dojo day (13:00–23:00), behind a gate job.
+- The Next dojo card reads `public/data/next-dojo.json`, written only by `next-dojo.yml` (every 30 minutes, `npm run next-dojo`); dojo phases and times are in `shared/dojo_time.js`. Results are refreshed after the dojo by `deploy.yml` (Saturday, Sunday and Monday evening), not during it.
 - `npm run seeding` (`src/cli/seeding.js`) makes a private seeding list on a TO's computer; never run it in a workflow, because the repository and its logs are public.
 - `src/config/tournaments.js` normalizes tournament slugs/URLs and expands game IDs into full event candidates.
 

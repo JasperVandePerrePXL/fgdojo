@@ -1,11 +1,8 @@
-// When the next dojo is "upcoming", "live" or "over", in Brussels time. Shared by the website (Next dojo card)
-// and the pipeline (the dojo-day results refresh). Uses only standard JavaScript (Intl), no Node.js or browser APIs.
+// When the next dojo is "upcoming", "live" or "over", in Brussels time, for the Next dojo card.
+// Uses only standard JavaScript (Intl), no Node.js or browser APIs.
 
 /** Sign-ups on start.gg close at this time on the dojo day; the card then switches to "Live now". */
 export const SIGNUPS_CLOSE = '13:58';
-/** On the dojo day, results are refreshed from this time until (not including) REFRESH_UNTIL. */
-export const REFRESH_FROM = '13:00';
-export const REFRESH_UNTIL = '23:00';
 
 const brussels = new Intl.DateTimeFormat('en-CA', {
   timeZone: 'Europe/Brussels',
@@ -38,11 +35,4 @@ export function dojoPhase(dojo, now) {
   if (dojo.date > date) return 'upcoming';
   if (dojo.date < date) return 'over';
   return time < SIGNUPS_CLOSE ? 'upcoming' : 'live';
-}
-
-/** True on the dojo day between REFRESH_FROM and REFRESH_UNTIL (Brussels time). */
-export function isResultsRefreshTime(dojo, now) {
-  if (!dojo?.date) return false;
-  const { date, time } = brusselsNow(now);
-  return dojo.date === date && time >= REFRESH_FROM && time < REFRESH_UNTIL;
 }
