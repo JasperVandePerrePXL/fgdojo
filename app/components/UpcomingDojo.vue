@@ -44,7 +44,7 @@ const dateLabel = computed(() =>
             >
           </li>
         </ul>
-        <p class="note">Results on this site update every 30 minutes during the dojo.</p>
+        <p class="note">Results appear on this site after the dojo.</p>
       </div>
       <div v-else>
         <h3 class="next-dojo-label">Signed up so far</h3>

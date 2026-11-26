@@ -154,12 +154,9 @@ history from `computeRatings` in `elo.js`) and written to `public/data/players.j
 
 ## Live updates
 
-The site stays static (no server, no API key in the browser) and is kept close to live with two small jobs:
-
-| What | When | Cost per run |
-| --- | --- | --- |
-| **Next dojo card**: `next-dojo.yml` runs `npm run next-dojo` | Every 30 minutes, always | One start.gg call; `next-dojo.json` is uploaded to S3 only when it changed (new dojo, sign-up count, or the dojo day passed). |
-| **Results during the dojo**: `deploy.yml` (dojo-day schedule) | Every 30 minutes on Saturdays and Sundays; only between 13:00 and 23:00 on the dojo day | The `dojo-day-gate` job reads the live `next-dojo.json` (a few seconds, no start.gg call) and skips the build on any other day or hour. On the dojo day: the normal build and deploy, fetching only that day's events from start.gg. |
+The site stays static (no server, no API key in the browser). The **Next dojo card** is kept close to live by
+`next-dojo.yml`: every 30 minutes it runs `npm run next-dojo` (one start.gg call) and uploads
+`public/data/next-dojo.json` to S3 only when it changed (new dojo, a sign-up count, or the dojo day passed).
 
 `npm run next-dojo` (`src/pipeline/next_dojo.js`) follows the hub link `https://start.gg/RBHubFGDojo` (or searches
 "Fighting Game Dojo" by name when the hub cannot be read), asks start.gg for that tournament's date and sign-ups
@@ -167,8 +164,8 @@ per game, and writes `{ "nextDojo": … }` (`toNextDojo` in `src/stats/next_dojo
 passed). The file is only written by that workflow: the deploy never uploads or deletes `data/next-dojo.json`, and
 the file is not committed (`.gitignore`). Run `npm run next-dojo` locally to see the card in `npm run dev`.
 
-During the dojo the rankings, player pages and stats include results as soon as sets are reported on start.gg
-(placements show "—" until a bracket is finished). Results only count for a dojo that is listed in
+**Results** are not live: they appear after the dojo, with the scheduled refresh on Saturday, Sunday and Monday
+evening (see [GitHub Actions](#github-actions)). Results only count for a dojo that is listed in
 `data/tournament_slugs.json`; the next-event workflow adds new dojos on Sundays and Mondays.
 
 GitHub may delay scheduled runs by 5-15 minutes at busy times, and disables schedules in a repository without
@@ -196,7 +193,7 @@ app/                         Vue 3 + Pinia website
 
 shared/                      plain JavaScript used by both src/ and app/ (no Node.js or browser APIs)
   rules.js                     dojoKeyOf, MIN_GAMES_FOR_WIN_RATE
-  dojo_time.js                 dojo phases in Brussels time: upcoming / live (from 13:58) / over, results refresh window
+  dojo_time.js                 dojo phases in Brussels time: upcoming / live (from 13:58) / over
   highlights.js                registry of the highlight top lists (most wins, best win rate, ...)
 
 src/                         Node.js code (ES modules)
@@ -384,7 +381,7 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 | Workflow | Runs | What it does |
 | --- | --- | --- |
 | `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm run lint`, `npm run format:check` and `npm test`. |
-| `deploy.yml` | Dojo day every 30 minutes between 13:00 and 23:00 (see [Live updates](#live-updates)); pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; Sundays and Mondays 20:00 UTC; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, `data/*.json` with `no-cache` (browsers revalidate with the ETag and get a cheap 304 when nothing changed), other assets with a 5 minute cache. The scheduled run makes new results appear after the weekend and falls back to cached data when start.gg is unavailable. |
+| `deploy.yml` | Saturdays, Sundays and Mondays 20:00 UTC (results after the dojo); pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, `data/*.json` with `no-cache` (browsers revalidate with the ETag and get a cheap 304 when nothing changed), other assets with a 5 minute cache. The scheduled run makes new results appear after the dojo and falls back to cached data when start.gg is unavailable. |
 | `update-next-event.yml` | Sundays and Mondays 21:00 UTC; manual | Next-event automation described above; deploys when it changed something. |
 | `next-dojo.yml` | Every 30 minutes; manual | Updates the Next dojo card (see [Live updates](#live-updates)). |
 
