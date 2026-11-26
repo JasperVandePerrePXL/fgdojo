@@ -13,7 +13,6 @@ import { buildSiteStats } from '../stats/site_stats.js';
 import { computeRatings } from '../stats/elo.js';
 import { onlyFinishedEvents } from '../stats/sets.js';
 import { buildPlayerProfiles } from '../stats/player_profiles.js';
-import { findUpcomingDojo } from '../stats/upcoming_dojo.js';
 import { isMainModule } from '../lib/cli.js';
 
 /** Season ID used for the "All Seasons Combined" entry. */
@@ -55,15 +54,11 @@ function collectAllEvents(rawEvents) {
   return Object.values(rawEvents).flat();
 }
 
-async function writeLeaderboards({ seasons, combined, upcomingDojo }) {
+async function writeLeaderboards({ seasons, combined }) {
   await fs.mkdir(path.dirname(LEADERBOARDS_FILE), { recursive: true });
   await fs.writeFile(
     LEADERBOARDS_FILE,
-    JSON.stringify(
-      { nextEventUrl: TOURNAMENT_CONFIG.nextEventUrl, upcomingDojo, seasons, combined },
-      null,
-      2,
-    ),
+    JSON.stringify({ nextEventUrl: TOURNAMENT_CONFIG.nextEventUrl, seasons, combined }, null, 2),
     'utf8',
   );
   console.log('✓ Saved consolidated public data to public/data/leaderboards.json');
@@ -109,14 +104,8 @@ function printFunStats(output) {
 export async function main() {
   console.log('🎮 Processing leaderboards by season...\n');
 
-  const storedEvents = await readRawEvents();
-  // The next dojo card uses the registrations of a dojo that has not been played yet.
-  const upcomingDojo = findUpcomingDojo(Object.values(storedEvents).flat(), Math.floor(Date.now() / 1000));
-  console.log(
-    upcomingDojo ? `📣 Next dojo: ${upcomingDojo.name} (${upcomingDojo.date})\n` : '📣 No upcoming dojo\n',
-  );
-  // Upcoming dojos (registrations but no played sets yet) count nowhere else until they have results.
-  const rawEvents = onlyFinishedEvents(storedEvents);
+  // Upcoming dojos (registrations but no played sets yet) count nowhere until they have results.
+  const rawEvents = onlyFinishedEvents(await readRawEvents());
   // Elo ratings run through every season in order, so each season shows the ratings at its end.
   const ratings = computeRatings(
     listSeasons().map(({ id }) => ({ seasonId: Number(id), events: rawEvents[id] ?? [] })),
@@ -132,7 +121,7 @@ export async function main() {
       ratings: ratings.final,
     });
     console.log('✓ Processed combined leaderboard');
-    await writeLeaderboards({ seasons, combined, upcomingDojo });
+    await writeLeaderboards({ seasons, combined });
     await writeSiteStats(rawEvents);
     await writePlayerProfiles(allEvents, ratings.historyByGame);
   }

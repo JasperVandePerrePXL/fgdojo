@@ -1,7 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildPlayerProfiles } from '../src/stats/player_profiles.js';
-import { findUpcomingDojo } from '../src/stats/upcoming_dojo.js';
 import { computeRatings } from '../src/stats/elo.js';
 
 const player = (id, gamerTag, prefix = '') => ({ id, gamerTag, prefix, player: { id, gamerTag } });
@@ -106,38 +105,4 @@ test('hidden players get no page and are in no head-to-head record', () => {
   assert.equal(players['99'], undefined);
   const opponents = Object.values(players).flatMap((p) => p.games.flatMap((g) => g.headToHead));
   assert.ok(opponents.every((record) => record.opponentId !== '99'));
-});
-
-test('findUpcomingDojo returns the earliest unplayed dojo from today on, with sign-ups per game', () => {
-  const mar = Date.UTC(2026, 2, 14, 23) / 1000; // 15 March 00:00 in Brussels
-  const apr = Date.UTC(2026, 3, 11, 12) / 1000;
-  const upcoming = [
-    ...events,
-    event({ slug: 'apr', startAt: apr, players: [[alice, null]] }),
-    event({ slug: 'mar', startAt: mar, players: [[alice, null]] }),
-    event({ slug: 'mar', startAt: mar, gameId: 2, gameName: 'T8', players: [] }),
-  ];
-
-  assert.deepEqual(findUpcomingDojo(upcoming, Date.UTC(2026, 2, 1) / 1000), {
-    name: 'Dojo mar',
-    url: 'https://www.start.gg/tournament/mar',
-    date: '2026-03-15',
-    games: [
-      { gameName: 'SF6', entrants: 1 },
-      { gameName: 'T8', entrants: 0 },
-    ],
-  });
-  // Still shown on the day itself, gone the day after.
-  assert.equal(findUpcomingDojo(upcoming, Date.UTC(2026, 2, 15, 18) / 1000).name, 'Dojo mar');
-  assert.equal(findUpcomingDojo(upcoming, Date.UTC(2026, 2, 16, 12) / 1000).name, 'Dojo apr');
-});
-
-test('findUpcomingDojo ignores played dojos and returns null when nothing is coming up', () => {
-  // A played dojo with one unplayed game event (e.g. a cancelled bracket) is not upcoming.
-  const withLeftover = [
-    ...events,
-    event({ slug: 'feb', startAt: FEB, gameId: 2, gameName: 'T8', players: [] }),
-  ];
-  assert.equal(findUpcomingDojo(withLeftover, Date.UTC(2026, 1, 1) / 1000), null);
-  assert.equal(findUpcomingDojo([], Date.UTC(2026, 1, 1) / 1000), null);
 });

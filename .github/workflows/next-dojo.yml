@@ -1,0 +1,66 @@
+name: Update next dojo
+
+# Keeps the "Next dojo" card on the rankings page live: every 30 minutes, one start.gg call for the next dojo
+# (name, date, sign-ups per game). The small file is uploaded only when it changed; no site build is needed.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: fgdojo-next-dojo
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  next-dojo:
+    name: Look up and upload the next dojo
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # Fails (and stops the run) when start.gg cannot be reached, so an old file is never uploaded.
+      - name: Look up the next dojo on start.gg
+        run: npm run next-dojo
+        env:
+          STARTGG_KEY: ${{ secrets.STARTGG_KEY }}
+
+      - name: Compare with the live file
+        id: compare
+        run: |
+          curl -fsS https://fgdojo.stek.world/data/next-dojo.json -o live.json || echo '' > live.json
+          if cmp -s live.json public/data/next-dojo.json; then
+            echo "No change."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure AWS credentials
+        if: steps.compare.outputs.changed == 'true'
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4.3.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3
+
+      - name: Upload next-dojo.json
+        if: steps.compare.outputs.changed == 'true'
+        run: >-
+          aws s3 cp public/data/next-dojo.json s3://fgdojo.stek.world/data/next-dojo.json
+          --cache-control "no-cache" --content-type "application/json"

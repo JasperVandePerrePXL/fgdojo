@@ -38,6 +38,7 @@ Never commit `.env`: it contains your API key and is listed in `.gitignore`.
 | `npm run build` | `fetch` + `process` + `vite build` → the complete site in `dist/`. |
 | `npm run refresh` | `fetch` + `process` only (quick data refresh, no site build). |
 | `npm run next-event` | Looks up the latest tournament via the hub link and adds it to `data/tournament_slugs.json` (see [Next-event automation](#next-event-automation)). |
+| `npm run next-dojo` | Looks up the next dojo on start.gg and writes `public/data/next-dojo.json` for the card (see [Live updates](#live-updates)). Needs `STARTGG_KEY`. |
 | `npm run seeding` | Private seeding list for the next dojo: live sign-ups per game sorted by Elo, printed and saved to `seeding/` (see [Seeding (private)](#seeding-private)). Needs `STARTGG_KEY`. |
 | `npm run dev` | Vite development server with hot reload. |
 | `npm start` | Serves the built `dist/` folder with `vite preview` on port 3000. Run `npm run build` first. |
@@ -140,16 +141,38 @@ history from `computeRatings` in `elo.js`) and written to `public/data/players.j
 
 ## Rankings page extras
 
-- **Next dojo card**: shown above the leaderboard while a configured dojo has not been played yet: name, date,
-  sign-ups per game and a link to start.gg. `findUpcomingDojo` in `src/stats/upcoming_dojo.js` picks the earliest
-  tournament in `data/events.json` without any played set whose date is today or later, and `process` writes it to
-  `upcomingDojo` in `leaderboards.json`. The sign-up counts are those of the last build (Sundays/Mondays and every
-  deploy); the page itself hides the card once the dojo day has passed (`app/utils/upcoming.js`). The card only
-  appears when the tournament is listed in `data/tournament_slugs.json` (the next-event automation adds it).
-  start.gg stores the dojo's start time as midnight, so only the date is shown.
+- **Next dojo card** (see [Live updates](#live-updates)): above the leaderboard, from `public/data/next-dojo.json`.
+  - Before the dojo, and on the dojo day until sign-ups close at 13:58: "Next dojo" with the date, sign-ups per
+    game and a "Sign up on start.gg" button.
+  - From 13:58 on the dojo day: "Live now" with a link to each game's bracket on start.gg.
+  - From the day after: hidden, until start.gg has a new dojo (the card then shows it within about 30 minutes).
+  The times live in `shared/dojo_time.js` (`SIGNUPS_CLOSE`, `dojoPhase`). start.gg stores the dojo's start as
+  midnight, so only the date is shown.
 - **Shareable links**: changing the season or game puts them in the address bar (`/?season=1&game=43868`);
   opening such a link shows that selection. Without parameters the remembered (localStorage) or latest selection
   is used; invalid values fall back the same way.
+
+## Live updates
+
+The site stays static (no server, no API key in the browser) and is kept close to live with two small jobs:
+
+| What | When | Cost per run |
+| --- | --- | --- |
+| **Next dojo card**: `next-dojo.yml` runs `npm run next-dojo` | Every 30 minutes, always | One start.gg call; `next-dojo.json` is uploaded to S3 only when it changed (new dojo, sign-up count, or the dojo day passed). |
+| **Results during the dojo**: `deploy.yml` (dojo-day schedule) | Every 30 minutes on Saturdays and Sundays; only between 13:00 and 23:00 on the dojo day | The `dojo-day-gate` job reads the live `next-dojo.json` (a few seconds, no start.gg call) and skips the build on any other day or hour. On the dojo day: the normal build and deploy, fetching only that day's events from start.gg. |
+
+`npm run next-dojo` (`src/pipeline/next_dojo.js`) follows the hub link `https://start.gg/RBHubFGDojo` (or searches
+"Fighting Game Dojo" by name when the hub cannot be read), asks start.gg for that tournament's date and sign-ups
+per game, and writes `{ "nextDojo": … }` (`toNextDojo` in `src/stats/next_dojo.js`; null once the dojo day has
+passed). The file is only written by that workflow: the deploy never uploads or deletes `data/next-dojo.json`, and
+the file is not committed (`.gitignore`). Run `npm run next-dojo` locally to see the card in `npm run dev`.
+
+During the dojo the rankings, player pages and stats include results as soon as sets are reported on start.gg
+(placements show "—" until a bracket is finished). Results only count for a dojo that is listed in
+`data/tournament_slugs.json`; the next-event workflow adds new dojos on Sundays and Mondays.
+
+GitHub may delay scheduled runs by 5-15 minutes at busy times, and disables schedules in a repository without
+activity for 60 days (re-enable them under Actions).
 
 ## Project structure
 
@@ -168,11 +191,12 @@ app/                         Vue 3 + Pinia website
   stores/stats.js              Pinia store of the stats page: loads stats.json, shapes the chart data
   stores/player.js             Pinia store of the player page: loads players.json, player and game from the URL
   utils/                       display helpers (format.js), chart helpers (chart.js), localStorage wrappers (storage.js),
-                               query-string and player-link helpers (url.js), next-dojo date check (upcoming.js)
+                               query-string and player-link helpers (url.js)
   styles.css                   all styling (desktop and mobile)
 
 shared/                      plain JavaScript used by both src/ and app/ (no Node.js or browser APIs)
   rules.js                     dojoKeyOf, MIN_GAMES_FOR_WIN_RATE
+  dojo_time.js                 dojo phases in Brussels time: upcoming / live (from 13:58) / over, results refresh window
   highlights.js                registry of the highlight top lists (most wins, best win rate, ...)
 
 src/                         Node.js code (ES modules)
@@ -189,7 +213,7 @@ src/                         Node.js code (ES modules)
     season_output.js             builds one season's object for leaderboards.json
     site_stats.js                everything for stats.json (stats page)
     player_profiles.js           everything for players.json (player pages)
-    upcoming_dojo.js             the next unplayed dojo for the rankings page card
+    next_dojo.js                 the next dojo for the rankings page card (from a start.gg tournament)
     names.js                     player-name and player-ID helpers
     types.js                     JSDoc description of every data shape
   config/                      reads the hand-maintained files in data/
@@ -214,7 +238,7 @@ tests/                       Node test suite
 .github/workflows/           test, deploy, update-next-event
 ```
 
-Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/data/stats.json`, `public/data/players.json`, `dist/` and `.cache/`.
+Generated files: `data/events.json`, `public/data/leaderboards.json`, `public/data/stats.json`, `public/data/players.json`, `public/data/next-dojo.json` (not committed), `dist/` and `.cache/`.
 
 ## Configuration files
 
@@ -296,8 +320,8 @@ applies the merge (`src/config/player_aliases.js`).
 `npm run seeding` makes a seeding list for the next dojo on your own computer; nothing is published or committed.
 
 1. It runs `npm run fetch` first, so the ratings include the latest results (needs `STARTGG_KEY` in `.env`).
-2. It takes the tournament the hub link `https://start.gg/RBHubFGDojo` points to, or the one you pass:
-   `npm run seeding -- fighting-game-dojo-december-edition` (a start.gg tournament URL works too).
+2. It always takes the next dojo, looked up on start.gg the same way as the "Next dojo" card
+   (`lookupNextDojo`). When the last dojo has been played and start.gg has no new one yet, it says so and stops.
 3. It downloads the live sign-ups of every game and sorts them by the current Elo rating in that game
    (ties by name). Players without a rating (no rated set in that game yet, or hidden players) come last in
    sign-up order: seed them by hand.
@@ -360,8 +384,9 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 | Workflow | Runs | What it does |
 | --- | --- | --- |
 | `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm run lint`, `npm run format:check` and `npm test`. |
-| `deploy.yml` | Pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; Sundays and Mondays 20:00 UTC; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, `data/*.json` with `no-cache` (browsers revalidate with the ETag and get a cheap 304 when nothing changed), other assets with a 5 minute cache. The scheduled run makes new results appear after the weekend and falls back to cached data when start.gg is unavailable. |
+| `deploy.yml` | Dojo day every 30 minutes between 13:00 and 23:00 (see [Live updates](#live-updates)); pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; Sundays and Mondays 20:00 UTC; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, `data/*.json` with `no-cache` (browsers revalidate with the ETag and get a cheap 304 when nothing changed), other assets with a 5 minute cache. The scheduled run makes new results appear after the weekend and falls back to cached data when start.gg is unavailable. |
 | `update-next-event.yml` | Sundays and Mondays 21:00 UTC; manual | Next-event automation described above; deploys when it changed something. |
+| `next-dojo.yml` | Every 30 minutes; manual | Updates the Next dojo card (see [Live updates](#live-updates)). |
 
 Workflows use concurrency groups so runs of the same kind do not overlap, and the start.gg cache is restored between runs.
 Dependencies are installed with `npm ci`, so `package-lock.json` must be committed in sync with `package.json` (run `npm install` after changing dependencies).

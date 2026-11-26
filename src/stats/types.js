@@ -100,12 +100,13 @@
  */
 
 /**
- * The next dojo (`upcomingDojo` in leaderboards.json), built by upcoming_dojo.js; null when there is none.
- * @typedef {object} UpcomingDojo
+ * The next dojo (`nextDojo` in public/data/next-dojo.json), built by next_dojo.js; null when there is none.
+ * @typedef {object} NextDojo
  * @property {string} name     Tournament name.
  * @property {string} url      start.gg tournament page.
  * @property {string|null} date  `YYYY-MM-DD` in Brussels time (start.gg's start time is not the real start hour).
- * @property {{ gameName: string, entrants: number }[]} games  Sign-ups per game when the data was built.
+ * @property {{ gameName: string, entrants: number, url: string }[]} games
+ *   Sign-ups per game when the file was made, and the start.gg page of that game's event (bracket).
  */
 
 /**
