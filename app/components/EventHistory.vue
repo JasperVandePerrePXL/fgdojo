@@ -1,12 +1,14 @@
 <script setup>
-// One card per tournament with its date, winner and number of entrants: newest first, HISTORY_PAGE_SIZE per page.
-// A new season or game starts at page 1.
-import { computed, ref, watch } from 'vue';
+// One card per tournament with its date, winner and number of entrants: newest first, 8 per page on a computer
+// and 5 on a phone. A new season or game starts at page 1.
+import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { paginate } from '../utils/pagination.js';
 import PagerNav from './PagerNav.vue';
 
-/** Cards per page. */
-const HISTORY_PAGE_SIZE = 6;
+/** Cards per page on a computer and on a phone. */
+const HISTORY_PAGE_SIZE = { desktop: 8, phone: 5 };
+/** Same breakpoint as the mobile layout in styles.css. */
+const PHONE_QUERY = window.matchMedia('(max-width: 760px)');
 
 const props = defineProps({
   /** TournamentInfo[], oldest first (as stored). */
@@ -14,12 +16,16 @@ const props = defineProps({
 });
 
 const newestFirst = computed(() => [...props.tournaments].reverse());
+const isPhone = ref(PHONE_QUERY.matches);
+const onScreenChange = (event) => (isPhone.value = event.matches);
+PHONE_QUERY.addEventListener('change', onScreenChange);
+onBeforeUnmount(() => PHONE_QUERY.removeEventListener('change', onScreenChange));
+const pageSize = computed(() => (isPhone.value ? HISTORY_PAGE_SIZE.phone : HISTORY_PAGE_SIZE.desktop));
+
 const page = ref(1);
-watch(
-  () => props.tournaments,
-  () => (page.value = 1),
-);
-const view = computed(() => paginate(newestFirst.value, page.value, HISTORY_PAGE_SIZE));
+// Back to page 1 for another season/game, or when the page size changes (e.g. rotating a tablet).
+watch([() => props.tournaments, pageSize], () => (page.value = 1));
+const view = computed(() => paginate(newestFirst.value, page.value, pageSize.value));
 </script>
 
 <template>
