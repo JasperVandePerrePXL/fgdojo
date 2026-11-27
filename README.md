@@ -164,6 +164,15 @@ The site stays static (no server, no API key in the browser). The **Next dojo ca
 `next-dojo.yml`: every 30 minutes it runs `npm run next-dojo` (one start.gg call) and uploads
 `public/data/next-dojo.json` to S3 only when it changed (new dojo, a sign-up count, or the dojo day passed).
 
+GitHub starts frequent schedules only when it has capacity (in practice often hours apart), so the workflow is a
+**keep-alive chain**: one run stays active for about 5 hours, updates the card every 30 minutes
+(`.github/scripts/next-dojo-loop.sh`, `ROUNDS` and `INTERVAL` in the workflow) and sleeps in between, then starts
+the next run itself (`gh workflow run`). A schedule every 6 hours (`23 */6 * * *`) restarts the chain if it ever
+stopped; to start it by hand use Actions → "Update next dojo" → Run workflow. Only one run is active at a time
+(concurrency group); a run started meanwhile waits, and GitHub cancels an older waiting run, so the Actions list
+shows an occasional "cancelled" run. That is expected. Actions minutes are free for public repositories; the
+chain keeps one runner busy (mostly sleeping).
+
 `npm run next-dojo` (`src/pipeline/next_dojo.js`) follows the hub link `https://start.gg/RBHubFGDojo` (or searches
 "Fighting Game Dojo" by name when the hub cannot be read), asks start.gg for that tournament's date and sign-ups
 per game, and writes `{ "nextDojo": … }` (`toNextDojo` in `src/stats/next_dojo.js`; null once the dojo day has
@@ -394,11 +403,11 @@ If the script fails (hub unreadable, key missing, nothing found) the workflow ru
 | `test.yml` | Pull requests and pushes to `main` | Installs dependencies and runs `npm run lint`, `npm run format:check` and `npm test`. |
 | `deploy.yml` | Saturdays, Sundays and Mondays 20:00 UTC (results after the dojo); pushes to `main` that change `app/`, `shared/`, `public/`, `src/`, `data/`, `tests/`, `index.html`, `vite.config.js`, package files or workflows; manual | Runs tests, builds the site (`npm run build`, with start.gg data) and syncs `dist/` to S3. HTML is uploaded with no-cache headers, `data/*.json` with `no-cache` (browsers revalidate with the ETag and get a cheap 304 when nothing changed), other assets with a 5 minute cache. The scheduled run makes new results appear after the dojo and falls back to cached data when start.gg is unavailable. |
 | `update-next-event.yml` | Saturdays, Sundays and Mondays 21:00 UTC; manual | Next-event automation described above; deploys when it changed something. |
-| `next-dojo.yml` | Every 30 minutes (:17 and :47); manual | Updates the Next dojo card (see [Live updates](#live-updates)). |
+| `next-dojo.yml` | Always running: keep-alive chain, every 6 hours as a restart; manual | Updates the Next dojo card (see [Live updates](#live-updates)). |
 
 Workflows use concurrency groups so runs of the same kind do not overlap, and the start.gg cache is restored between runs.
 Dependencies are installed with `npm ci`, so `package-lock.json` must be committed in sync with `package.json` (run `npm install` after changing dependencies).
-Third-party actions are pinned to a full commit SHA (with the version in a comment); Dependabot (`.github/dependabot.yml`) opens a PR when a new version is released. It skips `graphql` major versions until `graphql-request` supports them.
+Third-party actions are pinned to a full commit SHA (with the version in a comment). To update one, take the new release's commit SHA from the action's GitHub page and change it in every workflow. Keep `graphql` on 16.x until `graphql-request` supports a newer major version.
 
 ### GitHub secrets
 
