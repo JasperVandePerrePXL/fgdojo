@@ -18,7 +18,7 @@ function gameEntry(profile, event) {
       gameId,
       gameName: event.videogame.name ?? 'Unknown Game',
       results: [],
-      opponents: new Map(), // opponent ID -> { wins, losses }
+      opponents: new Map(), // opponent ID -> { wins, losses, gameWins, gameLosses }
     });
   }
   return profile.games.get(gameId);
@@ -44,20 +44,23 @@ function recordEntrants(event, profiles, hidden, dojo) {
   }
 }
 
-/** Adds every rated 1v1 set between two visible players to both head-to-head records. */
+/** Adds every rated 1v1 set between two visible players to both head-to-head records (sets and games). */
 function recordSets(event, profiles, hidden) {
   for (const set of event.sets?.nodes ?? []) {
     const result = readSet(set);
     if (!result || hidden.has(result.p1) || hidden.has(result.p2)) continue;
-    for (const [self, other, won] of [
-      [result.p1, result.p2, result.p1Won],
-      [result.p2, result.p1, !result.p1Won],
+    for (const [self, other, won, gamesFor, gamesAgainst] of [
+      [result.p1, result.p2, result.p1Won, result.score1, result.score2],
+      [result.p2, result.p1, !result.p1Won, result.score2, result.score1],
     ]) {
       const profile = profiles.get(self);
       if (!profile) continue;
       const opponents = gameEntry(profile, event).opponents;
-      if (!opponents.has(other)) opponents.set(other, { wins: 0, losses: 0 });
-      opponents.get(other)[won ? 'wins' : 'losses'] += 1;
+      if (!opponents.has(other)) opponents.set(other, { wins: 0, losses: 0, gameWins: 0, gameLosses: 0 });
+      const record = opponents.get(other);
+      record[won ? 'wins' : 'losses'] += 1;
+      record.gameWins += gamesFor;
+      record.gameLosses += gamesAgainst;
     }
   }
 }
@@ -100,10 +103,12 @@ export function buildPlayerProfiles(events, historyByGame = new Map()) {
           opponentName: profiles.get(opponentId)?.displayName ?? 'Unknown',
           ...record,
         }))
+        // Most games played first, then most sets, then most games won.
         .sort(
           (a, b) =>
+            b.gameWins + b.gameLosses - (a.gameWins + a.gameLosses) ||
             b.wins + b.losses - (a.wins + a.losses) ||
-            b.wins - a.wins ||
+            b.gameWins - a.gameWins ||
             a.opponentName.localeCompare(b.opponentName),
         );
       return { ...game, rating: history.at(-1)?.rating ?? null, history, headToHead };
