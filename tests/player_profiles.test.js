@@ -91,13 +91,14 @@ test('player profiles carry the Elo history and current rating of each game', ()
   assert.equal(t8.rating, null);
 });
 
-test('head-to-head records count rated sets per opponent, most played first', () => {
+test('head-to-head records count rated sets and games per opponent, most games played first', () => {
+  // Alice beat Bob 2-0 in January and lost 1-2 in February; she beat Cara 2-1.
   assert.deepEqual(players['1'].games[0].headToHead, [
-    { opponentId: '2', opponentName: 'Bob', wins: 1, losses: 1 },
-    { opponentId: '3', opponentName: 'LCG | Cara', wins: 1, losses: 0 },
+    { opponentId: '2', opponentName: 'Bob', wins: 1, losses: 1, gameWins: 3, gameLosses: 2 },
+    { opponentId: '3', opponentName: 'LCG | Cara', wins: 1, losses: 0, gameWins: 2, gameLosses: 1 },
   ]);
   assert.deepEqual(players['2'].games[0].headToHead, [
-    { opponentId: '1', opponentName: 'Alice', wins: 1, losses: 1 },
+    { opponentId: '1', opponentName: 'Alice', wins: 1, losses: 1, gameWins: 2, gameLosses: 3 },
   ]);
 });
 

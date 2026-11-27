@@ -126,8 +126,10 @@
  *   Rating after every dojo where the player played a rated set, oldest first.
  * @property {{ date: string|null, dojoId: string|null, tournament: string, entrants: number,
  *   placement: number|null }[]} results  Every dojo entered in this game, oldest first.
- * @property {{ opponentId: string, opponentName: string, wins: number, losses: number }[]} headToHead
- *   Rated sets against each opponent, most played first.
+ * @property {{ opponentId: string, opponentName: string, wins: number, losses: number, gameWins: number,
+ *   gameLosses: number }[]} headToHead
+ *   Rated sets (`wins`/`losses`) and games (`gameWins`/`gameLosses`, from set scores) against each opponent,
+ *   most games played first.
  */
 
 export {};

@@ -130,7 +130,7 @@ one game at a time (tabs when the player entered several games):
 - the current rating, number of dojos and sets won–lost in that game;
 - **Rating over time**: the Elo rating in that game after every dojo where the player played a rated set, across
   all seasons (the same rating as the ranking; see [Counting rules](#counting-rules));
-- **Head-to-head**: rated sets won and lost against the 5 most played opponents (`TOP_COUNT` in
+- **Head-to-head**: games won and lost (from set scores) against the 5 most played opponents (`TOP_COUNT` in
   `HeadToHeadList.vue`; `players.json` holds every opponent); opponent names link to their own page;
 - **Dojo results**: placement and bracket size at every dojo entered, newest first, 5 per page.
 
