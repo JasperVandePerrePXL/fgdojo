@@ -6,7 +6,7 @@ name: Update next dojo
 on:
   schedule:
     # Every 30 minutes at :17 and :47 (not on the hour/half hour, when GitHub most often delays or drops runs).
-    - cron: '17,47 * * * *'
+    - cron: '01,31 * * * *'
   workflow_dispatch:
 
 concurrency:
